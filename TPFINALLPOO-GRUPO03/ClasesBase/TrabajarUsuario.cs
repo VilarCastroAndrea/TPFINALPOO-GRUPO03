@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarUsuario
+    public class TrabajarUsuario
     {
         /// <summary>
         /// Alta usuario con stored procedure
@@ -77,7 +77,7 @@ namespace ClasesBase
             cmd.CommandText = "listarUsuarioDisponible";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@dis", dis);
+            cmd.Parameters.AddWithValue("@disp", dis);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

@@ -68,9 +68,9 @@
             // 
             // panelContenedorPrincipar
             // 
-            this.panelContenedorPrincipar.Location = new System.Drawing.Point(192, 3);
+            this.panelContenedorPrincipar.Location = new System.Drawing.Point(202, 0);
             this.panelContenedorPrincipar.Name = "panelContenedorPrincipar";
-            this.panelContenedorPrincipar.Size = new System.Drawing.Size(1021, 471);
+            this.panelContenedorPrincipar.Size = new System.Drawing.Size(1011, 474);
             this.panelContenedorPrincipar.TabIndex = 1;
             // 
             // btnCerrar
@@ -203,6 +203,10 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
             // 
             // FrmMain
             // 
