@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarCliente
+    public class TrabajarCliente
     {
         /// <summary>
         /// Alta cliente con stored procedure

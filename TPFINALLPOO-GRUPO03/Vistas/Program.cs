@@ -13,7 +13,7 @@ namespace Vistas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUsuario());
+            Application.Run(new FrmCliente());
         }
     }
 }

@@ -67,7 +67,7 @@ namespace Vistas
                                                          "Contraseña: " + nuevoUsu.Usu_Contraseña + "\n" +
                                                          "Nombre y Apellido: " + nuevoUsu.Usu_ApellidoNombre + "\n" +
                                                          "Rol: " + nuevoUsu.Rol_Codigo,
-                                                         "Agregar Cliente", MessageBoxButtons.OKCancel);
+                                                         "Agregar usuario", MessageBoxButtons.OKCancel);
             return result;
         }
 
