@@ -69,6 +69,12 @@
     <Compile Include="FrmAltaUsuario.Designer.cs">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAltaVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAltaVehiculo.Designer.cs">
+      <DependentUpon>FrmAltaVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,12 @@
     <Compile Include="FrmMostrarUsuario.Designer.cs">
       <DependentUpon>FrmMostrarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMostrarVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMostrarVehiculo.Designer.cs">
+      <DependentUpon>FrmMostrarVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,9 @@
     <EmbeddedResource Include="FrmAltaUsuario.resx">
       <DependentUpon>FrmAltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaVehiculo.resx">
+      <DependentUpon>FrmAltaVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMostrarUsuario.resx">
       <DependentUpon>FrmMostrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMostrarVehiculo.resx">
+      <DependentUpon>FrmMostrarVehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>

@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarVenta
+    public class TrabajarVenta
     {
         /// <summary>
         /// Alta de ventas con stored procedure
@@ -55,7 +55,7 @@ namespace ClasesBase
         /// <param name="desde"></param>
         /// <param name="hasta"></param>
         /// <returns></returns>
-        public static DataTable buscarVenta(string sPattern, string dni, DateTime desde, DateTime hasta)
+        public static DataTable buscarVenta(string sPattern, string matricula, string dni, DateTime desde, DateTime hasta)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -69,6 +69,11 @@ namespace ClasesBase
             param = new SqlParameter("@pattern", SqlDbType.VarChar);
             param.Direction = ParameterDirection.Input;
             param.Value = sPattern;
+
+            SqlParameter matri;
+            matri = new SqlParameter("@matri", SqlDbType.VarChar);
+            matri.Direction = ParameterDirection.Input;
+            matri.Value = matricula;
 
             SqlParameter bDni;
             bDni = new SqlParameter("@dni", SqlDbType.VarChar);
@@ -86,6 +91,7 @@ namespace ClasesBase
             bdHasta.Value = hasta;
 
             da.SelectCommand.Parameters.Add(param);
+            da.SelectCommand.Parameters.Add(matri);
             da.SelectCommand.Parameters.Add(bDni);
             da.SelectCommand.Parameters.Add(bdDesde);
             da.SelectCommand.Parameters.Add(bdHasta);

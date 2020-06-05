@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarVehiculo
+    public class TrabajarVehiculo
     {
         /// <summary>
         /// Alta vehiculo con stored procedure
@@ -51,6 +51,19 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        public static void eliminarVehiculo(string matricula)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "eliminarVehiculo";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@matricula", matricula);
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
         /// <summary>
         /// Modifica Vehiculo con stored procedure
         /// </summary>
@@ -87,6 +100,20 @@ namespace ClasesBase
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "buscarVehiculo";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@pattern", "%" + sPattern + "%");
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        public static DataTable buscarVehiculoVendido(string sPattern)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarVehiculoVendido";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             cmd.Parameters.AddWithValue("@pattern", "%" + sPattern + "%");
