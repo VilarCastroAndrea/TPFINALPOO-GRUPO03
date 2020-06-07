@@ -74,14 +74,14 @@ namespace Vistas
         {
             cmbTipo.DisplayMember = "Descripcion";
             cmbTipo.ValueMember = "ID";
-            cmbTipo.DataSource = TrabajarVehiculo.listarTipoVehiculo();
+            cmbTipo.DataSource = TrabajarTipoVehiculo.listarTipoVehDisponible();
         }
 
         public void cargarClase()
         {
             cmbClase.DisplayMember = "Descripcion";
             cmbClase.ValueMember = "ID";
-            cmbClase.DataSource = TrabajarVehiculo.listarClaseVehiculo();
+            cmbClase.DataSource = TrabajarClaseVehiculo.listarClaseVehDisponible();
         }
 
         private void txtALinea_KeyPress(object sender, KeyPressEventArgs e)

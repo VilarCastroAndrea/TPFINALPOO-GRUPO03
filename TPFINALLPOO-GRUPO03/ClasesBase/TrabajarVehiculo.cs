@@ -163,40 +163,6 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Lista los tipos de vehiulos
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable listarTipoVehiculo()
-        {
-            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM ListarTipoVehiculo";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = cnn;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-
-        /// <summary>
-        /// Lista las clases de vehiculos
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable listarClaseVehiculo()
-        {
-            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM ListarClaseVehiculo";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = cnn;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-
-        /// <summary>
         /// Lista los vehiculos por marca
         /// </summary>
         /// <returns></returns>

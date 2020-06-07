@@ -68,7 +68,7 @@ namespace ClasesBase
             cmd.CommandText = "listarFormaPagoDisponible";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@estado", true);
+            cmd.Parameters.AddWithValue("@dis", true);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
