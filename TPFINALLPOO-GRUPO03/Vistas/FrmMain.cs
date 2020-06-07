@@ -20,29 +20,18 @@ namespace Vistas
         }
 
         /// <summary>
-        /// Muestra fecha y hora
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblHora.Text = DateTime.Now.ToLongTimeString();
-            lblFecha.Text = DateTime.Now.ToLongDateString();
-        }
-
-        /// <summary>
         /// Llamada a formulario
         /// </summary>
         /// <param name="fh"></param>
         private void AddFormInPanel(Form fh)
         {
-            if (this.panelContenedorPrincipar.Controls.Count > 0)
-                this.panelContenedorPrincipar.Controls.RemoveAt(0);
+            if (this.panel2.Controls.Count > 0)
+                this.panel2.Controls.RemoveAt(0);
             fh.TopLevel = false;
             fh.FormBorderStyle = FormBorderStyle.None;
             fh.Dock = DockStyle.Fill;
-            this.panelContenedorPrincipar.Controls.Add(fh);
-            this.panelContenedorPrincipar.Tag = fh;
+            this.panel2.Controls.Add(fh);
+            this.panel2.Tag = fh;
             fh.Show();
         }
 
@@ -119,6 +108,10 @@ namespace Vistas
             }
         }
 
-
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+            lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
     }
 }

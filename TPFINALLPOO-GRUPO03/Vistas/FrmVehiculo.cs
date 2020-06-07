@@ -108,6 +108,16 @@ namespace Vistas
             }
         }
 
+        private void btnTipo_Click(object sender, EventArgs e)
+        {
+            FrmTipoVehiculo frmTipoVehiculo = new FrmTipoVehiculo();
+            frmTipoVehiculo.Show();
+        }
 
+        private void btnClase_Click(object sender, EventArgs e)
+        {
+            FrmClaseVehiculo frmClaseVehiculo = new FrmClaseVehiculo();
+            frmClaseVehiculo.Show();
+        }
     }
 }

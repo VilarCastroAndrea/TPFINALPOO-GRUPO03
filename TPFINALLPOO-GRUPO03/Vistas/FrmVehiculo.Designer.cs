@@ -31,16 +31,18 @@
             this.panelVehiculo = new System.Windows.Forms.Panel();
             this.btnAlta = new System.Windows.Forms.Button();
             this.panelListaVehiculo = new System.Windows.Forms.Panel();
+            this.btnClase = new System.Windows.Forms.Button();
+            this.btnTipo = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarVehiculo = new System.Windows.Forms.TextBox();
             this.gBox = new System.Windows.Forms.GroupBox();
+            this.rbtnVendido = new System.Windows.Forms.RadioButton();
+            this.rbtnDisponible = new System.Windows.Forms.RadioButton();
             this.rbtnMarca = new System.Windows.Forms.RadioButton();
             this.rbtnLinea = new System.Windows.Forms.RadioButton();
             this.dataVehiculo = new System.Windows.Forms.DataGridView();
             this.btnMostrar = new System.Windows.Forms.Button();
-            this.rbtnDisponible = new System.Windows.Forms.RadioButton();
-            this.rbtnVendido = new System.Windows.Forms.RadioButton();
             this.panelListaVehiculo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gBox.SuspendLayout();
@@ -50,7 +52,7 @@
             // panelVehiculo
             // 
             this.panelVehiculo.BackColor = System.Drawing.Color.Transparent;
-            this.panelVehiculo.Location = new System.Drawing.Point(788, 48);
+            this.panelVehiculo.Location = new System.Drawing.Point(800, 59);
             this.panelVehiculo.Name = "panelVehiculo";
             this.panelVehiculo.Size = new System.Drawing.Size(205, 399);
             this.panelVehiculo.TabIndex = 30;
@@ -61,7 +63,7 @@
             this.btnAlta.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAlta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlta.ForeColor = System.Drawing.Color.White;
-            this.btnAlta.Location = new System.Drawing.Point(892, 10);
+            this.btnAlta.Location = new System.Drawing.Point(905, 21);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(100, 38);
             this.btnAlta.TabIndex = 28;
@@ -73,13 +75,45 @@
             // 
             this.panelListaVehiculo.BackColor = System.Drawing.Color.Black;
             this.panelListaVehiculo.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.panelListaVehiculo.Controls.Add(this.btnClase);
+            this.panelListaVehiculo.Controls.Add(this.btnTipo);
             this.panelListaVehiculo.Controls.Add(this.groupBox1);
             this.panelListaVehiculo.Controls.Add(this.gBox);
             this.panelListaVehiculo.Controls.Add(this.dataVehiculo);
-            this.panelListaVehiculo.Location = new System.Drawing.Point(12, 10);
+            this.panelListaVehiculo.Location = new System.Drawing.Point(24, 21);
             this.panelListaVehiculo.Name = "panelListaVehiculo";
             this.panelListaVehiculo.Size = new System.Drawing.Size(770, 437);
             this.panelListaVehiculo.TabIndex = 29;
+            // 
+            // btnClase
+            // 
+            this.btnClase.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.btnClase.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.btnClase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClase.ForeColor = System.Drawing.Color.White;
+            this.btnClase.Location = new System.Drawing.Point(141, 407);
+            this.btnClase.Name = "btnClase";
+            this.btnClase.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnClase.Size = new System.Drawing.Size(116, 23);
+            this.btnClase.TabIndex = 32;
+            this.btnClase.Text = "Clase vehiculo";
+            this.btnClase.UseVisualStyleBackColor = true;
+            this.btnClase.Click += new System.EventHandler(this.btnClase_Click);
+            // 
+            // btnTipo
+            // 
+            this.btnTipo.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.btnTipo.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.btnTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTipo.ForeColor = System.Drawing.Color.White;
+            this.btnTipo.Location = new System.Drawing.Point(19, 407);
+            this.btnTipo.Name = "btnTipo";
+            this.btnTipo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnTipo.Size = new System.Drawing.Size(116, 23);
+            this.btnTipo.TabIndex = 31;
+            this.btnTipo.Text = "Tipo vehiculo";
+            this.btnTipo.UseVisualStyleBackColor = true;
+            this.btnTipo.Click += new System.EventHandler(this.btnTipo_Click);
             // 
             // groupBox1
             // 
@@ -127,6 +161,32 @@
             this.gBox.TabStop = false;
             this.gBox.Text = "Ordenar segun:";
             // 
+            // rbtnVendido
+            // 
+            this.rbtnVendido.AutoSize = true;
+            this.rbtnVendido.ForeColor = System.Drawing.SystemColors.Control;
+            this.rbtnVendido.Location = new System.Drawing.Point(278, 20);
+            this.rbtnVendido.Name = "rbtnVendido";
+            this.rbtnVendido.Size = new System.Drawing.Size(64, 17);
+            this.rbtnVendido.TabIndex = 9;
+            this.rbtnVendido.TabStop = true;
+            this.rbtnVendido.Text = "Vendido";
+            this.rbtnVendido.UseVisualStyleBackColor = true;
+            this.rbtnVendido.CheckedChanged += new System.EventHandler(this.rbtnVendido_CheckedChanged);
+            // 
+            // rbtnDisponible
+            // 
+            this.rbtnDisponible.AutoSize = true;
+            this.rbtnDisponible.ForeColor = System.Drawing.SystemColors.Control;
+            this.rbtnDisponible.Location = new System.Drawing.Point(179, 20);
+            this.rbtnDisponible.Name = "rbtnDisponible";
+            this.rbtnDisponible.Size = new System.Drawing.Size(74, 17);
+            this.rbtnDisponible.TabIndex = 8;
+            this.rbtnDisponible.TabStop = true;
+            this.rbtnDisponible.Text = "Disponible";
+            this.rbtnDisponible.UseVisualStyleBackColor = true;
+            this.rbtnDisponible.CheckedChanged += new System.EventHandler(this.rbtnDisponible_CheckedChanged);
+            // 
             // rbtnMarca
             // 
             this.rbtnMarca.AutoSize = true;
@@ -155,14 +215,17 @@
             // 
             // dataVehiculo
             // 
+            this.dataVehiculo.AllowUserToAddRows = false;
+            this.dataVehiculo.AllowUserToDeleteRows = false;
             this.dataVehiculo.BackgroundColor = System.Drawing.Color.White;
             this.dataVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataVehiculo.Location = new System.Drawing.Point(19, 69);
             this.dataVehiculo.Margin = new System.Windows.Forms.Padding(2);
             this.dataVehiculo.Name = "dataVehiculo";
+            this.dataVehiculo.ReadOnly = true;
             this.dataVehiculo.RowTemplate.Height = 24;
             this.dataVehiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataVehiculo.Size = new System.Drawing.Size(730, 340);
+            this.dataVehiculo.Size = new System.Drawing.Size(730, 333);
             this.dataVehiculo.TabIndex = 1;
             this.dataVehiculo.CurrentCellChanged += new System.EventHandler(this.dataVehiculo_CurrentCellChanged);
             // 
@@ -173,7 +236,7 @@
             this.btnMostrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrar.ForeColor = System.Drawing.Color.White;
-            this.btnMostrar.Location = new System.Drawing.Point(788, 10);
+            this.btnMostrar.Location = new System.Drawing.Point(800, 21);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(100, 38);
             this.btnMostrar.TabIndex = 27;
@@ -181,38 +244,12 @@
             this.btnMostrar.UseVisualStyleBackColor = false;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
-            // rbtnDisponible
-            // 
-            this.rbtnDisponible.AutoSize = true;
-            this.rbtnDisponible.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnDisponible.Location = new System.Drawing.Point(179, 20);
-            this.rbtnDisponible.Name = "rbtnDisponible";
-            this.rbtnDisponible.Size = new System.Drawing.Size(74, 17);
-            this.rbtnDisponible.TabIndex = 8;
-            this.rbtnDisponible.TabStop = true;
-            this.rbtnDisponible.Text = "Disponible";
-            this.rbtnDisponible.UseVisualStyleBackColor = true;
-            this.rbtnDisponible.CheckedChanged += new System.EventHandler(this.rbtnDisponible_CheckedChanged);
-            // 
-            // rbtnVendido
-            // 
-            this.rbtnVendido.AutoSize = true;
-            this.rbtnVendido.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnVendido.Location = new System.Drawing.Point(278, 20);
-            this.rbtnVendido.Name = "rbtnVendido";
-            this.rbtnVendido.Size = new System.Drawing.Size(64, 17);
-            this.rbtnVendido.TabIndex = 9;
-            this.rbtnVendido.TabStop = true;
-            this.rbtnVendido.Text = "Vendido";
-            this.rbtnVendido.UseVisualStyleBackColor = true;
-            this.rbtnVendido.CheckedChanged += new System.EventHandler(this.rbtnVendido_CheckedChanged);
-            // 
             // FrmVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1005, 459);
+            this.ClientSize = new System.Drawing.Size(1029, 479);
             this.Controls.Add(this.panelVehiculo);
             this.Controls.Add(this.panelListaVehiculo);
             this.Controls.Add(this.btnMostrar);
@@ -245,5 +282,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.RadioButton rbtnDisponible;
         private System.Windows.Forms.RadioButton rbtnVendido;
+        private System.Windows.Forms.Button btnClase;
+        private System.Windows.Forms.Button btnTipo;
     }
 }

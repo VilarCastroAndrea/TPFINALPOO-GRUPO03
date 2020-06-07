@@ -43,6 +43,7 @@
             this.lblNom = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -207,14 +208,24 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(189, -3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1033, 474);
+            this.panel2.TabIndex = 1;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 471);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panel1.ResumeLayout(false);
@@ -239,5 +250,6 @@
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

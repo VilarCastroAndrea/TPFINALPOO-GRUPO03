@@ -31,8 +31,8 @@ namespace Vistas
                 v.Veh_Modelo = Convert.ToInt32(cmbModelo.Text);
                 v.Veh_Color = cmbColor.Text;
                 v.Veh_Puertas = Convert.ToInt32(cmbCantPuert.Text);
-                v.Tv_ID = Convert.ToInt32(cmbTipo.Text);
-                v.Cv_ID = Convert.ToInt32(cmbClase.Text);
+                v.Tv_ID = Convert.ToInt32(cmbTipo.SelectedValue);
+                v.Cv_ID = Convert.ToInt32(cmbClase.SelectedValue);
                 v.Veh_GPS = cGps.Checked;
                 v.Veh_Precio = Convert.ToDecimal(txtAPrecio.Text);
                 v.Veh_Disponible = true;

@@ -51,6 +51,10 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        /// <summary>
+        /// Borra vehiculos definitivamente
+        /// </summary>
+        /// <param name="matricula"></param>
         public static void eliminarVehiculo(string matricula)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);

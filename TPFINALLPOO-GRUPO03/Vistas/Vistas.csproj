@@ -75,11 +75,23 @@
     <Compile Include="FrmAltaVehiculo.Designer.cs">
       <DependentUpon>FrmAltaVehiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmClaseVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClaseVehiculo.Designer.cs">
+      <DependentUpon>FrmClaseVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFormaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFormaPago.Designer.cs">
+      <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -111,6 +123,12 @@
     <Compile Include="FrmMostrarVehiculo.Designer.cs">
       <DependentUpon>FrmMostrarVehiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTipoVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTipoVehiculo.Designer.cs">
+      <DependentUpon>FrmTipoVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,8 +159,14 @@
     <EmbeddedResource Include="FrmAltaVehiculo.resx">
       <DependentUpon>FrmAltaVehiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmClaseVehiculo.resx">
+      <DependentUpon>FrmClaseVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFormaPago.resx">
+      <DependentUpon>FrmFormaPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -158,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMostrarVehiculo.resx">
       <DependentUpon>FrmMostrarVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTipoVehiculo.resx">
+      <DependentUpon>FrmTipoVehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>

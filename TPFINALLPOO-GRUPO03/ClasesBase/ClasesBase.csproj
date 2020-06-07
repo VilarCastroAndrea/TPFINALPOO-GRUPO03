@@ -54,7 +54,10 @@
     </Compile>
     <Compile Include="Rol.cs" />
     <Compile Include="TipoVehiculo.cs" />
+    <Compile Include="TrabajarClaseVehiculo.cs" />
     <Compile Include="TrabajarCliente.cs" />
+    <Compile Include="TrabajarFormaPago.cs" />
+    <Compile Include="TrabajarTipoVehiculo.cs" />
     <Compile Include="TrabajarUsuario.cs" />
     <Compile Include="TrabajarVehiculo.cs" />
     <Compile Include="TrabajarVenta.cs" />
