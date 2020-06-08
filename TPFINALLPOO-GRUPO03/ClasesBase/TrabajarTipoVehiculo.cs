@@ -5,7 +5,7 @@ namespace ClasesBase
 {
     public class TrabajarTipoVehiculo
     {
-        public static void altaClase(string valor, bool estado)
+        public static void altaTipo(string valor, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -19,7 +19,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        public static void bajaClase(int id, bool estado)
+        public static void bajaTipo(int id, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -33,16 +33,16 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        public static void modificacionClase(int id, string valor, bool estado)
+        public static void modificacionTipo(TipoVehiculo tv)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "modificacionTipo";
+            cmd.CommandText = "modificarTipo";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@vehiculo", valor);
-            cmd.Parameters.AddWithValue("@estado", estado);
+            cmd.Parameters.AddWithValue("@id", tv.Tv_ID);
+            cmd.Parameters.AddWithValue("@vehiculo", tv.Tv_Descripcion);
+            cmd.Parameters.AddWithValue("@estado", tv.Tv_Disponible);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();

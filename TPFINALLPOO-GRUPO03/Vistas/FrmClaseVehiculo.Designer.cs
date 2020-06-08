@@ -199,7 +199,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNuevo;
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.DataGridView dgwLista;
         private System.Windows.Forms.Button btnEliminar;
@@ -207,6 +206,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDetalle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkDisponible;
+        public System.Windows.Forms.TextBox txtNuevo;
+        public System.Windows.Forms.CheckBox checkDisponible;
     }
 }

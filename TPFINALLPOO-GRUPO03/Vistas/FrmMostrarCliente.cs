@@ -33,11 +33,18 @@ namespace Vistas
         private void btnECliente_Click(object sender, EventArgs e)
         {
             Form frmCliente = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmCliente);
-            if (frmCliente != null)
+            String msj = "Esta seguro que quiere elimnar " + this.txtDni.Text;
+            int id = Convert.ToInt32(txtDni.Text);
+            DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                TrabajarCliente.bajaCliente(txtDni.Text, false);
-                MessageBox.Show("Cliente Eliminado");
-                ((FrmCliente)frmCliente).cargarCliente();
+                if (frmCliente != null)
+                {
+                    TrabajarCliente.bajaCliente(txtDni.Text, false);
+                    MessageBox.Show("Cliente Eliminado");
+                    ((FrmCliente)frmCliente).cargarCliente();
+                }
+                MessageBox.Show("Eliminado");
             }
         }
 

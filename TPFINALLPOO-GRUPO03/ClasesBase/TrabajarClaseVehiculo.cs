@@ -33,16 +33,16 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        public static void modificacionClase(TipoVehiculo tv)
+        public static void modificacionClase(ClaseVehiculo cv)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "modificacionClase";
+            cmd.CommandText = "modificarClase";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@id", tv.Tv_ID);
-            cmd.Parameters.AddWithValue("@vehiculo", tv.Tv_Descripcion);
-            cmd.Parameters.AddWithValue("@estado", tv.Tv_Disponible);
+            cmd.Parameters.AddWithValue("@id", cv.Cv_ID);
+            cmd.Parameters.AddWithValue("@vehiculo", cv.Cv_Descripcion);
+            cmd.Parameters.AddWithValue("@estado", cv.Cv_Disponible);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();

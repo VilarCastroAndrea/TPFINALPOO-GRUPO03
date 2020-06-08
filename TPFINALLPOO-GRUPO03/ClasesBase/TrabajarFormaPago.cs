@@ -33,16 +33,16 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        public static void modificacionFormaPago(int id, string valor, bool estado)
+        public static void modificacionFormaPago(FormaPago fp)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "modificacionFormaPago";
+            cmd.CommandText = "modificarFormaPago";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@descripcion", valor);
-            cmd.Parameters.AddWithValue("@estado", estado);
+            cmd.Parameters.AddWithValue("@id", fp.Fp_ID);
+            cmd.Parameters.AddWithValue("@descripcion", fp.Fp_Descripcion);
+            cmd.Parameters.AddWithValue("@estado", fp.Fp_Disponible);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();

@@ -266,8 +266,8 @@
             // 
             // btnAltaVeh
             // 
-            this.btnAltaVeh.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnAltaVeh.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAltaVeh.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAltaVeh.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnAltaVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAltaVeh.ForeColor = System.Drawing.Color.White;
             this.btnAltaVeh.Location = new System.Drawing.Point(20, 356);

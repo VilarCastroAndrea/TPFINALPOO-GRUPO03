@@ -117,6 +117,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.txtBuscarVehiculo);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
@@ -149,6 +150,7 @@
             // 
             // gBox
             // 
+            this.gBox.BackColor = System.Drawing.Color.Transparent;
             this.gBox.Controls.Add(this.rbtnVendido);
             this.gBox.Controls.Add(this.rbtnDisponible);
             this.gBox.Controls.Add(this.rbtnMarca);

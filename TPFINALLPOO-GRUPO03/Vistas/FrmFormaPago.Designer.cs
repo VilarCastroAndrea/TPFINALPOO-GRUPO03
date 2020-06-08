@@ -162,7 +162,7 @@
             this.checkDisponible.AutoSize = true;
             this.checkDisponible.BackColor = System.Drawing.Color.Transparent;
             this.checkDisponible.ForeColor = System.Drawing.Color.White;
-            this.checkDisponible.Location = new System.Drawing.Point(390, 13);
+            this.checkDisponible.Location = new System.Drawing.Point(390, 9);
             this.checkDisponible.Name = "checkDisponible";
             this.checkDisponible.Size = new System.Drawing.Size(75, 17);
             this.checkDisponible.TabIndex = 15;
