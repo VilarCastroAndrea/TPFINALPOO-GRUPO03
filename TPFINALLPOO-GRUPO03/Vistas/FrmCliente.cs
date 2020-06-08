@@ -26,7 +26,7 @@ namespace Vistas
         /// </summary>
         public void cargarCliente()
         {
-            dataCliente.DataSource = TrabajarCliente.ListaCliente(true);
+            dataCliente.DataSource = TrabajarCliente.ListaCliente();
         }
 
         /// <summary>

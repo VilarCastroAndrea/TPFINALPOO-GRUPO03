@@ -75,6 +75,12 @@
     <Compile Include="FrmAltaVehiculo.Designer.cs">
       <DependentUpon>FrmAltaVehiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAltaVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAltaVenta.Designer.cs">
+      <DependentUpon>FrmAltaVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClaseVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,12 @@
     <Compile Include="FrmMostrarVehiculo.Designer.cs">
       <DependentUpon>FrmMostrarVehiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMostrarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMostrarVenta.Designer.cs">
+      <DependentUpon>FrmMostrarVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTipoVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,9 @@
     <EmbeddedResource Include="FrmAltaVehiculo.resx">
       <DependentUpon>FrmAltaVehiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaVenta.resx">
+      <DependentUpon>FrmAltaVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClaseVehiculo.resx">
       <DependentUpon>FrmClaseVehiculo.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMostrarVehiculo.resx">
       <DependentUpon>FrmMostrarVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMostrarVenta.resx">
+      <DependentUpon>FrmMostrarVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTipoVehiculo.resx">
       <DependentUpon>FrmTipoVehiculo.cs</DependentUpon>

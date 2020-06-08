@@ -23,8 +23,22 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@fecha", venta.Vta_Fecha);
             cmd.Parameters.AddWithValue("@formaDePago", venta.Fp_ID);
             cmd.Parameters.AddWithValue("@precioFinal", venta.Vta_PrecioFinal);
-            cmd.Parameters.AddWithValue("@estado", venta.Vta_Estado);
+            cmd.Parameters.AddWithValue("@estado", "CONFIRMADA");
             SqlDataAdapter da = new SqlDataAdapter(cmd);
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
+        public static void modificarVenta(int id, string estado)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "modificarVenta";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@estado", estado);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -55,7 +69,7 @@ namespace ClasesBase
         /// <param name="desde"></param>
         /// <param name="hasta"></param>
         /// <returns></returns>
-        public static DataTable buscarVenta(string sPattern, string matricula, string dni, DateTime desde, DateTime hasta)
+        public static DataTable buscarVenta(string sPattern, string dni, DateTime desde, DateTime hasta)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -69,11 +83,6 @@ namespace ClasesBase
             param = new SqlParameter("@pattern", SqlDbType.VarChar);
             param.Direction = ParameterDirection.Input;
             param.Value = sPattern;
-
-            SqlParameter matri;
-            matri = new SqlParameter("@matri", SqlDbType.VarChar);
-            matri.Direction = ParameterDirection.Input;
-            matri.Value = matricula;
 
             SqlParameter bDni;
             bDni = new SqlParameter("@dni", SqlDbType.VarChar);
@@ -91,7 +100,6 @@ namespace ClasesBase
             bdHasta.Value = hasta;
 
             da.SelectCommand.Parameters.Add(param);
-            da.SelectCommand.Parameters.Add(matri);
             da.SelectCommand.Parameters.Add(bDni);
             da.SelectCommand.Parameters.Add(bdDesde);
             da.SelectCommand.Parameters.Add(bdHasta);

@@ -166,18 +166,18 @@ namespace ClasesBase
         /// Lista los vehiculos por marca
         /// </summary>
         /// <returns></returns>
-        //public static DataTable listaXMarca()
-        //{
-        //    SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
-        //    SqlCommand cmd = new SqlCommand();
-        //    cmd.CommandText = "listarXMarca";
-        //    cmd.CommandType = CommandType.StoredProcedure;
-        //    cmd.Connection = cnn;
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    DataTable dt = new DataTable();
-        //    da.Fill(dt);
-        //    return dt;
-        //}
+        public static DataTable listaXMarca()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listaMarca";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
         public static DataTable ordenarVporMarca()
         {

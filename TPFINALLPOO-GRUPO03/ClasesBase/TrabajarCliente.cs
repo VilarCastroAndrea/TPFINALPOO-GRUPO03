@@ -68,10 +68,27 @@ namespace ClasesBase
         }
 
         /// <summary>
+        /// Lista todo los clientes
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable ListaCliente()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM ListarCliente";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+        /// <summary>
         /// Listar clientes Disponible
         /// </summary>
         /// <returns></returns>
-        public static DataTable ListaCliente(bool dis)
+        public static DataTable ListaClienteD(bool dis)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
