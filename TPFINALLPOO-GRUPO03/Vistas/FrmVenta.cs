@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace Vistas
 {
     public partial class FrmVenta : Form
@@ -25,11 +26,14 @@ namespace Vistas
             dtpDesde.MaxDate = DateTime.Today;
             dtpHasta.MinDate = new DateTime(2010, 1, 1);
             dtpHasta.MaxDate = DateTime.Today;
+            contar();
+
         }
 
         public void cargarVentas()
         {
             dataVenta.DataSource = TrabajarVenta.listarVenta();
+            contar();
         }
 
         private void AddFormInPanel(Form fh)
@@ -42,6 +46,29 @@ namespace Vistas
             this.panelVenta.Controls.Add(fh);
             this.panelVenta.Tag = fh;
             fh.Show();
+        }
+
+        private void contar()
+        {
+            int t = dataVenta.Rows.Count;
+            Total.Text = Convert.ToString(t - 1);
+            int an = 0;
+            decimal to = 0;
+            decimal p = 0;
+
+            foreach (DataGridViewRow fila in dataVenta.Rows)
+            {
+                String a = null;
+                a = Convert.ToString(fila.Cells["Estado de la Venta"].Value);
+                if (a.Equals("ANULADA"))
+                {
+                    an = an + 1;
+                }
+                p = Convert.ToDecimal(fila.Cells["Precio Final"].Value);
+                to = to + p;
+            }
+            anuladas.Text = Convert.ToString(an);
+            ingreso.Text = Convert.ToString(to);
         }
 
         /// <summary>
@@ -86,6 +113,7 @@ namespace Vistas
         private void btnBusacar_Click(object sender, EventArgs e)
         {
             dataVenta.DataSource = TrabajarVenta.buscarVenta(cmbMarca.Text, primerValorCombobox(cmbClientes.Text), dtpDesde.Value, dtpHasta.Value);
+            contar();
         }
 
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
