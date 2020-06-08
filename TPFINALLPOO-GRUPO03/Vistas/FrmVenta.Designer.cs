@@ -32,6 +32,13 @@
             this.panelVenta = new System.Windows.Forms.Panel();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.panelListaVenta = new System.Windows.Forms.Panel();
+            this.Informacion = new System.Windows.Forms.GroupBox();
+            this.ingreso = new System.Windows.Forms.Label();
+            this.anuladas = new System.Windows.Forms.Label();
+            this.Total = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnFp = new System.Windows.Forms.Button();
             this.Buscar = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,17 +52,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.dataVenta = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Informacion = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Total = new System.Windows.Forms.Label();
-            this.anuladas = new System.Windows.Forms.Label();
-            this.ingreso = new System.Windows.Forms.Label();
             this.panelListaVenta.SuspendLayout();
+            this.Informacion.SuspendLayout();
             this.Buscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataVenta)).BeginInit();
-            this.Informacion.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRegistrarVenta
@@ -108,6 +108,79 @@
             this.panelListaVenta.Name = "panelListaVenta";
             this.panelListaVenta.Size = new System.Drawing.Size(778, 437);
             this.panelListaVenta.TabIndex = 30;
+            // 
+            // Informacion
+            // 
+            this.Informacion.Controls.Add(this.ingreso);
+            this.Informacion.Controls.Add(this.anuladas);
+            this.Informacion.Controls.Add(this.Total);
+            this.Informacion.Controls.Add(this.label8);
+            this.Informacion.Controls.Add(this.label7);
+            this.Informacion.Controls.Add(this.label6);
+            this.Informacion.ForeColor = System.Drawing.Color.White;
+            this.Informacion.Location = new System.Drawing.Point(205, 403);
+            this.Informacion.Name = "Informacion";
+            this.Informacion.Size = new System.Drawing.Size(553, 26);
+            this.Informacion.TabIndex = 35;
+            this.Informacion.TabStop = false;
+            this.Informacion.Text = "Informacion";
+            // 
+            // ingreso
+            // 
+            this.ingreso.AutoSize = true;
+            this.ingreso.Location = new System.Drawing.Point(480, 8);
+            this.ingreso.Name = "ingreso";
+            this.ingreso.Size = new System.Drawing.Size(41, 13);
+            this.ingreso.TabIndex = 39;
+            this.ingreso.Text = "label11";
+            // 
+            // anuladas
+            // 
+            this.anuladas.AutoSize = true;
+            this.anuladas.Location = new System.Drawing.Point(338, 8);
+            this.anuladas.Name = "anuladas";
+            this.anuladas.Size = new System.Drawing.Size(41, 13);
+            this.anuladas.TabIndex = 38;
+            this.anuladas.Text = "label10";
+            // 
+            // Total
+            // 
+            this.Total.AutoSize = true;
+            this.Total.Location = new System.Drawing.Point(156, 8);
+            this.Total.Name = "Total";
+            this.Total.Size = new System.Drawing.Size(35, 13);
+            this.Total.TabIndex = 37;
+            this.Total.Text = "label9";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(402, 8);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 13);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Importe Total:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(204, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(128, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Can. de ventas anuladas:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(68, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Can. de ventas:";
             // 
             // btnFp
             // 
@@ -251,88 +324,18 @@
             // 
             // dataVenta
             // 
+            this.dataVenta.AllowUserToAddRows = false;
+            this.dataVenta.AllowUserToDeleteRows = false;
             this.dataVenta.BackgroundColor = System.Drawing.Color.White;
             this.dataVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataVenta.Location = new System.Drawing.Point(19, 97);
             this.dataVenta.Margin = new System.Windows.Forms.Padding(2);
             this.dataVenta.Name = "dataVenta";
+            this.dataVenta.ReadOnly = true;
             this.dataVenta.RowTemplate.Height = 24;
             this.dataVenta.Size = new System.Drawing.Size(739, 301);
             this.dataVenta.TabIndex = 1;
             this.dataVenta.CurrentCellChanged += new System.EventHandler(this.dataVenta_CurrentCellChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(68, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 13);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Can. de ventas:";
-            // 
-            // Informacion
-            // 
-            this.Informacion.Controls.Add(this.ingreso);
-            this.Informacion.Controls.Add(this.anuladas);
-            this.Informacion.Controls.Add(this.Total);
-            this.Informacion.Controls.Add(this.label8);
-            this.Informacion.Controls.Add(this.label7);
-            this.Informacion.Controls.Add(this.label6);
-            this.Informacion.ForeColor = System.Drawing.Color.White;
-            this.Informacion.Location = new System.Drawing.Point(205, 403);
-            this.Informacion.Name = "Informacion";
-            this.Informacion.Size = new System.Drawing.Size(553, 26);
-            this.Informacion.TabIndex = 35;
-            this.Informacion.TabStop = false;
-            this.Informacion.Text = "Informacion";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(204, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(128, 13);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Can. de ventas anuladas:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(402, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 13);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "Importe Total:";
-            // 
-            // Total
-            // 
-            this.Total.AutoSize = true;
-            this.Total.Location = new System.Drawing.Point(156, 8);
-            this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(35, 13);
-            this.Total.TabIndex = 37;
-            this.Total.Text = "label9";
-            // 
-            // anuladas
-            // 
-            this.anuladas.AutoSize = true;
-            this.anuladas.Location = new System.Drawing.Point(338, 8);
-            this.anuladas.Name = "anuladas";
-            this.anuladas.Size = new System.Drawing.Size(41, 13);
-            this.anuladas.TabIndex = 38;
-            this.anuladas.Text = "label10";
-            // 
-            // ingreso
-            // 
-            this.ingreso.AutoSize = true;
-            this.ingreso.Location = new System.Drawing.Point(480, 8);
-            this.ingreso.Name = "ingreso";
-            this.ingreso.Size = new System.Drawing.Size(41, 13);
-            this.ingreso.TabIndex = 39;
-            this.ingreso.Text = "label11";
             // 
             // FrmVenta
             // 
@@ -348,11 +351,11 @@
             this.Text = "FrmVenta";
             this.Load += new System.EventHandler(this.FrmVenta_Load);
             this.panelListaVenta.ResumeLayout(false);
+            this.Informacion.ResumeLayout(false);
+            this.Informacion.PerformLayout();
             this.Buscar.ResumeLayout(false);
             this.Buscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataVenta)).EndInit();
-            this.Informacion.ResumeLayout(false);
-            this.Informacion.PerformLayout();
             this.ResumeLayout(false);
 
         }
