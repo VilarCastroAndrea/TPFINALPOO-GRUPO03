@@ -65,7 +65,7 @@ namespace Vistas
             if (dgwLista.CurrentRow != null)
             {
                 txtDetalle.Text = dgwLista.CurrentRow.Cells["Descripcion"].Value.ToString();
-                checkDisponible.Checked = dgwLista.CurrentRow.Cells["Disponible"].Selected;
+                checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
             }
         }
     }

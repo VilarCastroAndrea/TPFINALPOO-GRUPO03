@@ -135,8 +135,8 @@ namespace ClasesBase
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM ListarVehiculo";
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "listarVehiculos";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();

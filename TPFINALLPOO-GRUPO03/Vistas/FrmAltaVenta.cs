@@ -52,12 +52,12 @@ namespace Vistas
 
         private void cmbClientesDNI_DropDown(object sender, EventArgs e)
         {
-            cargarBoxCliente(TrabajarCliente.ListaCliente());
+            cargarBoxCliente(TrabajarCliente.ListaClienteD(true));
         }
 
         private void cmbClientesDNI_TextUpdate(object sender, EventArgs e)
         {
-            cargarBoxCliente(TrabajarCliente.buscarCliente(cmbClientesDNI.Text));
+            cargarBoxCliente(TrabajarCliente.buscarClienteDisponible(cmbClientesDNI.Text));
         }
 
         private void cmbVehiculos_DropDown(object sender, EventArgs e)

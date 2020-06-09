@@ -19,6 +19,15 @@ namespace Vistas
             cargarClase();
         }
 
+        private bool poseeGPS()
+        {
+            if (sGps.Checked)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void btnAltaVeh_Click(object sender, EventArgs e)
         {
             String opcionGPS = "No";
@@ -29,8 +38,8 @@ namespace Vistas
                 Decimal precio = Convert.ToDecimal(txtAPrecio.Text);
                 int tipo = Convert.ToInt32(cmbTipo.SelectedValue);
                 int clase = Convert.ToInt32(cmbClase.SelectedValue);
-                Vehiculo vehiculo = new Vehiculo(txtAMatricula.Text, cmbMarca.Text, txtALinea.Text, m, cmbColor.Text, p, checkGps.Checked, tipo, clase, precio, true);
-                if (vehiculo.Veh_GPS == true)
+                Vehiculo vehiculo = new Vehiculo(txtAMatricula.Text, cmbMarca.Text, txtALinea.Text, m, cmbColor.Text, p, poseeGPS(), tipo, clase, precio, true);
+                if (poseeGPS())
                 {
                     opcionGPS = "Si";
                 }
@@ -55,7 +64,7 @@ namespace Vistas
                     cmbModelo.Text = "";
                     cmbColor.Text = "";
                     cmbCantPuert.Text = "";
-                    checkGps.Checked = false;
+                    sGps.Checked = false;
                     cmbTipo.Text = "";
                     cmbClase.Text = "";
                     txtAPrecio.Text = "";
@@ -68,13 +77,13 @@ namespace Vistas
                 }
                 else
                 {
-                    MessageBox.Show("Se cancelo el alta del cliente", "Cancelado");
+                    MessageBox.Show("Se cancelo el alta del Vehiculo", "Cancelado");
                     result = new DialogResult();
                 }
             }
             else
             {
-                MessageBox.Show("complete todos los campos");
+                MessageBox.Show("Complete todos los campos");
             }
         }
 

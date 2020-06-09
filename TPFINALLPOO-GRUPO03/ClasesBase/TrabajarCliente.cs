@@ -75,8 +75,8 @@ namespace ClasesBase
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM ListarCliente";
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "ListarClientes";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -131,6 +131,28 @@ namespace ClasesBase
             cmd.CommandText = "buscarCliente";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@pattern", "%" + sPattern + "%");
+            cmd.Parameters.AddWithValue("@pattern2", "%" + sPattern + "%");
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
+        /// <summary>
+        /// Busca cliente por dni o apellido no borrado
+        /// </summary>
+        /// <param name="sPattern"></param>
+        /// <returns></returns>
+        public static DataTable buscarClienteDisponible(string sPattern)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarClienteDisponible";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@dis", true);
             cmd.Parameters.AddWithValue("@pattern", "%" + sPattern + "%");
             cmd.Parameters.AddWithValue("@pattern2", "%" + sPattern + "%");
             SqlDataAdapter da = new SqlDataAdapter(cmd);

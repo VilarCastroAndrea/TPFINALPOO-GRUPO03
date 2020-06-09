@@ -18,7 +18,27 @@ namespace Vistas
             cargarTipo();
             cargarClase();
         }
+        public void determinarVistaGps(bool gps)
+        {
+            if (gps)
+            {
+                sGps.Checked = true;
+            }
+            else
+            {
+                nGps.Checked = true;
+            }
+        }
 
+
+        private bool poseeGPS()
+        {
+            if (sGps.Checked)
+            {
+                return true;
+            }
+            return false;
+        }
         private void btnMVehiculo_Click(object sender, System.EventArgs e)
         {
             Vehiculo v = new Vehiculo();
@@ -33,7 +53,7 @@ namespace Vistas
                 v.Veh_Puertas = Convert.ToInt32(cmbCantPuert.Text);
                 v.Tv_ID = Convert.ToInt32(cmbTipo.SelectedValue);
                 v.Cv_ID = Convert.ToInt32(cmbClase.SelectedValue);
-                v.Veh_GPS = cGps.Checked;
+                v.Veh_GPS = poseeGPS();
                 v.Veh_Precio = Convert.ToDecimal(txtAPrecio.Text);
                 v.Veh_Disponible = true;
                 TrabajarVehiculo.modificarVehiculo(v);

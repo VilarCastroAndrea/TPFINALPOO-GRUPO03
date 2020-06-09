@@ -52,8 +52,8 @@ namespace ClasesBase
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM ListarVenta";
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "listarVentas";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -78,37 +78,12 @@ namespace ClasesBase
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
 
+            cmd.Parameters.AddWithValue("@pattern", sPattern);
+            cmd.Parameters.AddWithValue("@dni", dni);
+            cmd.Parameters.AddWithValue("@desde", desde);
+            cmd.Parameters.AddWithValue("@hasta", hasta);
+
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            SqlParameter param;
-            param = new SqlParameter("@pattern", SqlDbType.VarChar);
-            param.Direction = ParameterDirection.Input;
-            param.Value = sPattern;
-
-            SqlParameter bDni;
-            bDni = new SqlParameter("@dni", SqlDbType.VarChar);
-            bDni.Direction = ParameterDirection.Input;
-            bDni.Value = dni;
-
-
-
-
-
-
-            SqlParameter bdDesde;
-            bdDesde = new SqlParameter("@desde", SqlDbType.Date);
-            bdDesde.Direction = ParameterDirection.Input;
-            bdDesde.Value = desde;
-
-            SqlParameter bdHasta;
-            bdHasta = new SqlParameter("@hasta", SqlDbType.Date);
-            bdHasta.Direction = ParameterDirection.Input;
-            bdHasta.Value = hasta;
-            
-            da.SelectCommand.Parameters.Add(param);
-            da.SelectCommand.Parameters.Add(bDni);
-            da.SelectCommand.Parameters.Add(bdDesde);
-            da.SelectCommand.Parameters.Add(bdHasta);
-
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;

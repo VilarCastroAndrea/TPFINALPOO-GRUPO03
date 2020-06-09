@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.GPS = new System.Windows.Forms.GroupBox();
-            this.checkGps = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.cmbModelo = new System.Windows.Forms.ComboBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
@@ -50,13 +48,15 @@
             this.btnAltaVeh = new System.Windows.Forms.Button();
             this.cmbClase = new System.Windows.Forms.ComboBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.sGps = new System.Windows.Forms.RadioButton();
+            this.nGps = new System.Windows.Forms.RadioButton();
             this.GPS.SuspendLayout();
             this.SuspendLayout();
             // 
             // GPS
             // 
-            this.GPS.Controls.Add(this.checkGps);
-            this.GPS.Controls.Add(this.checkBox1);
+            this.GPS.Controls.Add(this.nGps);
+            this.GPS.Controls.Add(this.sGps);
             this.GPS.ForeColor = System.Drawing.Color.White;
             this.GPS.Location = new System.Drawing.Point(20, 292);
             this.GPS.Name = "GPS";
@@ -64,28 +64,6 @@
             this.GPS.TabIndex = 61;
             this.GPS.TabStop = false;
             this.GPS.Text = "GPS";
-            // 
-            // checkGps
-            // 
-            this.checkGps.AutoSize = true;
-            this.checkGps.ForeColor = System.Drawing.Color.White;
-            this.checkGps.Location = new System.Drawing.Point(52, 9);
-            this.checkGps.Name = "checkGps";
-            this.checkGps.Size = new System.Drawing.Size(35, 17);
-            this.checkGps.TabIndex = 8;
-            this.checkGps.Text = "Si";
-            this.checkGps.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(118, 9);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(40, 17);
-            this.checkBox1.TabIndex = 33;
-            this.checkBox1.Text = "No";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // cmbMarca
             // 
@@ -294,6 +272,32 @@
             this.cmbTipo.Size = new System.Drawing.Size(169, 21);
             this.cmbTipo.TabIndex = 80;
             // 
+            // sGps
+            // 
+            this.sGps.AutoSize = true;
+            this.sGps.BackColor = System.Drawing.Color.Transparent;
+            this.sGps.ForeColor = System.Drawing.Color.White;
+            this.sGps.Location = new System.Drawing.Point(58, 10);
+            this.sGps.Name = "sGps";
+            this.sGps.Size = new System.Drawing.Size(34, 17);
+            this.sGps.TabIndex = 82;
+            this.sGps.TabStop = true;
+            this.sGps.Text = "Si";
+            this.sGps.UseVisualStyleBackColor = false;
+            // 
+            // nGps
+            // 
+            this.nGps.AutoSize = true;
+            this.nGps.BackColor = System.Drawing.Color.Transparent;
+            this.nGps.ForeColor = System.Drawing.Color.White;
+            this.nGps.Location = new System.Drawing.Point(118, 10);
+            this.nGps.Name = "nGps";
+            this.nGps.Size = new System.Drawing.Size(39, 17);
+            this.nGps.TabIndex = 83;
+            this.nGps.TabStop = true;
+            this.nGps.Text = "No";
+            this.nGps.UseVisualStyleBackColor = false;
+            // 
             // FrmAltaVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,8 +337,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox GPS;
-        private System.Windows.Forms.CheckBox checkGps;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.ComboBox cmbModelo;
         private System.Windows.Forms.ComboBox cmbColor;
@@ -354,5 +356,7 @@
         private System.Windows.Forms.Button btnAltaVeh;
         public System.Windows.Forms.ComboBox cmbClase;
         public System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.RadioButton nGps;
+        private System.Windows.Forms.RadioButton sGps;
     }
 }
