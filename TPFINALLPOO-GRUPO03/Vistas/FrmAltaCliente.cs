@@ -16,9 +16,8 @@ namespace Vistas
         private void btnACliente_Click(object sender, EventArgs e)
         {
             Form frmCliente = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmCliente);
-            DataTable dtCliente = new DataTable();
-            dtCliente = TrabajarCliente.buscarCliente(txtDni.Text);
-            if (dtCliente.Rows.Count == 0)
+
+            try
             {
                 if (mensaje(cargarDatos()) == DialogResult.OK)
                 {
@@ -31,7 +30,7 @@ namespace Vistas
                     MessageBox.Show("Se cancelo el alta del usuario", "Cancelado");
                 }
             }
-            else
+            catch
             {
                 txtDni.Text = "";
                 txtDni.Focus();
