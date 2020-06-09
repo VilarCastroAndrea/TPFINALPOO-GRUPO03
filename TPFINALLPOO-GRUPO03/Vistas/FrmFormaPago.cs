@@ -34,7 +34,14 @@ namespace Vistas
             DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                TrabajarFormaPago.bajaFormaPago(id, false);
+                try
+                {
+                    TrabajarFormaPago.bajaFormaPagoFisica(id);
+                }
+                catch
+                {
+                    TrabajarFormaPago.bajaFormaPago(id, false);
+                }
                 cargarFormaPago();
                 MessageBox.Show("Eliminado");
             }

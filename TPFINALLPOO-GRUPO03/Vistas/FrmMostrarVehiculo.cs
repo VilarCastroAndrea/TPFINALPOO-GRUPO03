@@ -12,12 +12,14 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        //carga los tipos y clases de vehiculos
         private void FrmMostrarVehiculo_Load(object sender, EventArgs e)
         {
             cargarTipo();
             cargarClase();
         }
+
+        //determina la ubicacion del check al traerlo de un formulario anterior
         public void determinarVistaGps(bool gps)
         {
             if (gps)
@@ -31,6 +33,26 @@ namespace Vistas
         }
 
 
+        public void habilitarDesabilitarCampos(bool disponible)
+        {
+            cmbMarca.Enabled = disponible;
+            txtALinea.Enabled = disponible;
+            cmbModelo.Enabled = disponible;
+            cmbColor.Enabled = disponible;
+            cmbCantPuert.Enabled = disponible;
+            cmbTipo.Enabled = disponible;
+            cmbClase.Enabled = disponible;
+            txtAPrecio.Enabled = disponible;
+            btnMVehiculo.Enabled = disponible;
+            btnEVehiculo.Enabled = disponible;
+            sGps.Enabled = disponible;
+            nGps.Enabled = disponible;
+        }
+
+
+
+
+        //determina si fue seleccionado el check de posee o no un gps
         private bool poseeGPS()
         {
             if (sGps.Checked)
@@ -39,6 +61,9 @@ namespace Vistas
             }
             return false;
         }
+
+
+        //MODIFICCA EL VEHICULO
         private void btnMVehiculo_Click(object sender, System.EventArgs e)
         {
             Vehiculo v = new Vehiculo();
@@ -63,6 +88,8 @@ namespace Vistas
             }
         }
 
+
+        //Elimina el vehiculo
         private void btnEVehiculo_Click(object sender, System.EventArgs e)
         {
             Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
@@ -83,12 +110,6 @@ namespace Vistas
             }
         }
 
-        public void limpiarCampos()
-        {
-            txtAMatricula.Text = "";
-            cmbMarca.Text = "";
-            txtALinea.Text = "";
-        }
 
         public void cargarTipo()
         {

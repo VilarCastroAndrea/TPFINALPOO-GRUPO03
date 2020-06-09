@@ -10,12 +10,12 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        //carga las clases de vehiculos
         private void FrmClaseVehiculo_Load(object sender, EventArgs e)
         {
             cargarClasesV();
         }
-
+        //modifica la clase seleccionada
         private void btnMoficar_Click(object sender, EventArgs e)
         {
             ClaseVehiculo cv = new ClaseVehiculo();
@@ -26,7 +26,7 @@ namespace Vistas
             MessageBox.Show("Tipo de vehiculo Modificado");
             cargarClasesV();
         }
-
+        //Elimina fisicamente la clase si no esta relacionada caso contrario realiza eliminacion logica
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
@@ -34,12 +34,19 @@ namespace Vistas
             DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                TrabajarClaseVehiculo.bajaClase(id, false);
+                try
+                {
+                    TrabajarClaseVehiculo.bajaClaseFisica(id);
+                }
+                catch
+                {
+                    TrabajarClaseVehiculo.bajaClase(id, false);
+                }
                 cargarClasesV();
                 MessageBox.Show("Eliminado");
             }
         }
-
+        //realiza la alta de una nueva clase
         private void btnAlta_Click(object sender, EventArgs e)
         {
             if (txtNuevo.Text != " ")

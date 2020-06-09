@@ -34,7 +34,14 @@ namespace Vistas
             DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                TrabajarTipoVehiculo.bajaTipo(id, false);
+                try
+                {
+                    TrabajarTipoVehiculo.bajaTipoFisica(id);
+                }
+                catch
+                {
+                    TrabajarTipoVehiculo.bajaTipo(id, false);
+                }
                 cargarTipo();
                 MessageBox.Show("Eliminado");
             }
