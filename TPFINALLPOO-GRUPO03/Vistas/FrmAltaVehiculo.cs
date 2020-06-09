@@ -30,6 +30,7 @@ namespace Vistas
 
         private void btnAltaVeh_Click(object sender, EventArgs e)
         {
+
             String opcionGPS = "No";
             if (cmbModelo.Text != "" && cmbCantPuert.Text != "" && cmbColor.Text != "" && txtALinea.Text != "" && cmbMarca.Text != "" && txtAMatricula.Text != "" && cmbTipo.Text != "" && txtAPrecio.Text != "" && cmbClase.Text != "")
             {
@@ -54,32 +55,44 @@ namespace Vistas
                                                        "Tipo de Vehiculo: " + vehiculo.Tv_ID + "\n" +
                                                        "Clase de Vehiculo: " + vehiculo.Cv_ID + "\n" +
                                                        "Precio: " + vehiculo.Veh_Precio, "Agregar Vehiculo", MessageBoxButtons.OKCancel);
-                if (result == DialogResult.OK)
-                {
-                    TrabajarVehiculo.altaVehiculo(vehiculo);
 
-                    txtAMatricula.Text = "";
-                    cmbMarca.Text = "";
-                    txtALinea.Text = "";
-                    cmbModelo.Text = "";
-                    cmbColor.Text = "";
-                    cmbCantPuert.Text = "";
-                    sGps.Checked = false;
-                    cmbTipo.Text = "";
-                    cmbClase.Text = "";
-                    txtAPrecio.Text = "";
-                    Form frmListaVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
-                    if (frmListaVehiculo != null)
+                try
+                {
+                    if (result == DialogResult.OK)
                     {
-                        ((FrmVehiculo)frmListaVehiculo).dataVehiculo.DataSource = null;
-                        ((FrmVehiculo)frmListaVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                        TrabajarVehiculo.altaVehiculo(vehiculo);
+
+                        txtAMatricula.Text = "";
+                        cmbMarca.Text = "";
+                        txtALinea.Text = "";
+                        cmbModelo.Text = "";
+                        cmbColor.Text = "";
+                        cmbCantPuert.Text = "";
+                        sGps.Checked = false;
+                        nGps.Checked = false;
+                        cmbTipo.Text = "";
+                        cmbClase.Text = "";
+                        txtAPrecio.Text = "";
+                        Form frmListaVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
+                        if (frmListaVehiculo != null)
+                        {
+                            ((FrmVehiculo)frmListaVehiculo).dataVehiculo.DataSource = null;
+                            ((FrmVehiculo)frmListaVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se cancelo el alta del Vehiculo", "Cancelado");
+                        result = new DialogResult();
                     }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Se cancelo el alta del Vehiculo", "Cancelado");
-                    result = new DialogResult();
+                    MessageBox.Show("Matricula Repetida");
+                    txtAMatricula.Text = "";
+                    txtAMatricula.Focus();
                 }
+
             }
             else
             {

@@ -42,7 +42,7 @@ namespace Vistas
         /// </summary>
         public void listarUsuario()
         {
-            dgvListaUsuarios.DataSource = TrabajarUsuario.listarUsuario(true);
+            dgvListaUsuarios.DataSource = TrabajarUsuario.listarUsuario();
             dgvListaUsuarios.Refresh();
         }
 
@@ -55,13 +55,13 @@ namespace Vistas
                 Form frmMostrarUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmMostrarUsuario);
                 if (frmMostrarUsuario != null)
                 {
-                    ((FrmMostrarUsuario)frmMostrarUsuario).btnActualizarUsuario.Enabled = false;
                     ((FrmMostrarUsuario)frmMostrarUsuario).txtId.Text = dgvListaUsuarios.CurrentRow.Cells["ID"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).txtNombreUsuario.Text = dgvListaUsuarios.CurrentRow.Cells["Nombre de Usuario"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).txtPass.Text = dgvListaUsuarios.CurrentRow.Cells["Contraseña"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).txtNombreApellidoUsuario.Text = dgvListaUsuarios.CurrentRow.Cells["Apellido y Nombre"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).cmbRoles.Text = dgvListaUsuarios.CurrentRow.Cells["Rol"].Value.ToString();
-
+                    ((FrmMostrarUsuario)frmMostrarUsuario).disponibilidadDeUsuario(Convert.ToBoolean(dgvListaUsuarios.CurrentRow.Cells["Disponible"].Value));
+                    ((FrmMostrarUsuario)frmMostrarUsuario).btnActualizarUsuario.Enabled = false;
                 }
             }
         }

@@ -51,7 +51,7 @@ namespace Vistas
             }
             else
             {
-                MessageBox.Show("complete todos los campos");
+                MessageBox.Show("Complete todos los campos");
             }
         }
 

@@ -46,6 +46,29 @@ namespace ClasesBase
             cnn.Close();
         }
 
+
+
+        /// <summary>
+        /// Baja de cliente fisica con stored procedure
+        /// </summary>
+        /// <param name="dniCliente"></param>
+        /// <param name="dis"></param>
+        public static void bajaClienteFisica(string dniCliente)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "bajaClienteFisica";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@dni", dniCliente);
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
+
+
+
         /// <summary>
         /// Modificar cliente con stored procedure
         /// </summary>

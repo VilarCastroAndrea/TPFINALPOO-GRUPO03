@@ -33,6 +33,8 @@ namespace Vistas
             }
             else
             {
+                txtDni.Text = "";
+                txtDni.Focus();
                 MessageBox.Show("Usuario ya existente, ingrese otro nombre de usuario");
             }
         }

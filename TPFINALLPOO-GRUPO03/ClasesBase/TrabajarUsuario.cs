@@ -6,6 +6,26 @@ namespace ClasesBase
 {
     public class TrabajarUsuario
     {
+
+        //login de usuario para ingresar al sistema
+        public static DataTable ingresoUsuario(string user, string pswd)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "ingresoUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@nombreUsuario", user);
+            cmd.Parameters.AddWithValue("@pasword", pswd);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
+
         /// <summary>
         /// Alta usuario con stored procedure
         /// </summary>
@@ -45,6 +65,24 @@ namespace ClasesBase
             cnn.Close();
         }
 
+
+        /// <summary>
+        /// Baja Usuario Fisica con stored procedure
+        /// </summary>
+        /// <param name="idUsu"></param>
+        public static void bajaUsuarioFisica(int idUsu)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "bajaUsuarioFisica";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@id", idUsu);
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
         /// <summary>
         /// Modificar usuario con stored procedure
         /// </summary>
@@ -70,14 +108,13 @@ namespace ClasesBase
         /// Listar usuario con vistas
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarUsuario(bool dis)
+        public static DataTable listarUsuario()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarUsuarioDisponible";
+            cmd.CommandText = "listarUsuarios";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@disp", dis);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);

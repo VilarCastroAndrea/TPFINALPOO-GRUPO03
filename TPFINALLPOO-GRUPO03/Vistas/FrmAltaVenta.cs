@@ -102,7 +102,7 @@ namespace Vistas
             }
             else
             {
-                MessageBox.Show("alerta");
+                MessageBox.Show("Campos Incompletos");
             }
         }
 

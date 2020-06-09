@@ -104,7 +104,9 @@ namespace Vistas
             respuesta = MessageBox.Show("Desea cerrar sesion?", "Atención", MessageBoxButtons.YesNo);
             if (respuesta == DialogResult.Yes)
             {
-
+                this.Close();
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.Show();
             }
         }
 

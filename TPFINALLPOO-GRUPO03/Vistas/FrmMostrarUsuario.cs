@@ -15,6 +15,15 @@ namespace Vistas
             cargarRol();//Se llama al metodo cargar roles
         }
 
+        public void disponibilidadDeUsuario(bool disponible)
+        {
+            txtNombreApellidoUsuario.Enabled = disponible;
+            txtNombreUsuario.Enabled = disponible;
+            txtPass.Enabled = disponible;
+            cmbRoles.Enabled = disponible;
+            btnEliminarUsuario.Enabled = disponible;
+        }
+
         private void FrmMostrarUsuario_Load(object sender, EventArgs e)
         {
             Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
@@ -38,9 +47,21 @@ namespace Vistas
             if (dialogResult == DialogResult.Yes)
             {
                 Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
-                TrabajarUsuario.bajaUsuario(id, false);
-                ((FrmUsuario)frmUsuario).listarUsuario();
-                MessageBox.Show("Usuario Eliminado");
+                try
+                {
+                    TrabajarUsuario.bajaUsuarioFisica(id);
+
+                }
+                catch
+                {
+                    TrabajarUsuario.bajaUsuario(id, false);
+                }
+                finally
+                {
+                    ((FrmUsuario)frmUsuario).listarUsuario();
+                    MessageBox.Show("Usuario Eliminado");
+                }
+
             }
         }
 
