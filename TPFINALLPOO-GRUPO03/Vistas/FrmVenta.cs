@@ -27,7 +27,6 @@ namespace Vistas
             dtpHasta.MinDate = new DateTime(2010, 1, 1);
             dtpHasta.MaxDate = DateTime.Today;
             contar();
-
         }
 
         public void cargarVentas()
@@ -51,7 +50,7 @@ namespace Vistas
         private void contar()
         {
             int t = dataVenta.Rows.Count;
-            Total.Text = Convert.ToString(t - 1);
+            Total.Text = Convert.ToString(t);
             int an = 0;
             decimal to = 0;
             decimal p = 0;
@@ -64,8 +63,11 @@ namespace Vistas
                 {
                     an = an + 1;
                 }
-                p = Convert.ToDecimal(fila.Cells["Precio Final"].Value);
-                to = to + p;
+                else
+                {
+                    p = Convert.ToDecimal(fila.Cells["Precio Final"].Value);
+                    to = to + p;
+                }
             }
             anuladas.Text = Convert.ToString(an);
             ingreso.Text = Convert.ToString(to);
@@ -87,7 +89,7 @@ namespace Vistas
         }
 
         /// <summary>
-        /// Carga una lisra de marca
+        /// Carga una lista de marca
         /// </summary>
         /// <param name="tablaVehiculo"></param>
         private void cargarBoxMarca(DataTable tablaVehiculo)
@@ -155,6 +157,7 @@ namespace Vistas
                     ((FrmMostrarVenta)frmMostrar).forma.Text = dataVenta.CurrentRow.Cells["Forma de Pago"].Value.ToString();
                     ((FrmMostrarVenta)frmMostrar).precio.Text = dataVenta.CurrentRow.Cells["Precio Final"].Value.ToString();
                     ((FrmMostrarVenta)frmMostrar).estado.Text = dataVenta.CurrentRow.Cells["Estado de la Venta"].Value.ToString();
+                    ((FrmMostrarVenta)frmMostrar).actualizarBotonAnular();
                 }
             }
         }

@@ -19,14 +19,34 @@ namespace Vistas
             DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
+                Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
                 TrabajarVenta.modificarVenta(Convert.ToInt32(id.Text), "ANULADA");
-                //FrmVenta)frmVenta).cargarVentas();
                 MessageBox.Show("Venta ANULADA");
-                Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
                 TrabajarVehiculo.bajaVehiculo(matricula.Text, true);
-                ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                refrescarVistaVehiculo();
                 ((FrmVenta)frmVenta).cargarVentas();
+            }
+        }
+
+
+        private void refrescarVistaVehiculo()
+        {
+            Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
+            if (frmVehiculo != null)
+            {
+                ((FrmVehiculo)frmVehiculo).cargarVehiculos();
+            }
+        }
+
+        public void actualizarBotonAnular()
+        {
+            if (estado.Text == "ANULADA")
+            {
+                btnAnular.Enabled = false;
+            }
+            else
+            {
+                btnAnular.Enabled = true;
             }
         }
     }

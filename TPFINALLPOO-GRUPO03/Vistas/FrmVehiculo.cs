@@ -33,7 +33,7 @@ namespace Vistas
             fh.Show();
         }
 
-        private void cargarVehiculos()
+        public void cargarVehiculos()
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
         }

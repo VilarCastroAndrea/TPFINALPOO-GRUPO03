@@ -125,11 +125,14 @@
             // 
             // dgvListaUsuarios
             // 
+            this.dgvListaUsuarios.AllowUserToAddRows = false;
+            this.dgvListaUsuarios.AllowUserToDeleteRows = false;
             this.dgvListaUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaUsuarios.Location = new System.Drawing.Point(19, 63);
             this.dgvListaUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListaUsuarios.Name = "dgvListaUsuarios";
+            this.dgvListaUsuarios.ReadOnly = true;
             this.dgvListaUsuarios.RowTemplate.Height = 24;
             this.dgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaUsuarios.Size = new System.Drawing.Size(721, 355);

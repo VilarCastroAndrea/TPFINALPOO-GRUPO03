@@ -89,6 +89,11 @@ namespace ClasesBase
             bDni.Direction = ParameterDirection.Input;
             bDni.Value = dni;
 
+
+
+
+
+
             SqlParameter bdDesde;
             bdDesde = new SqlParameter("@desde", SqlDbType.Date);
             bdDesde.Direction = ParameterDirection.Input;
@@ -98,7 +103,7 @@ namespace ClasesBase
             bdHasta = new SqlParameter("@hasta", SqlDbType.Date);
             bdHasta.Direction = ParameterDirection.Input;
             bdHasta.Value = hasta;
-
+            
             da.SelectCommand.Parameters.Add(param);
             da.SelectCommand.Parameters.Add(bDni);
             da.SelectCommand.Parameters.Add(bdDesde);

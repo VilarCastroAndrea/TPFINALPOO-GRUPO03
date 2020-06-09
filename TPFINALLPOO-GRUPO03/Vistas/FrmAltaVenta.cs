@@ -95,10 +95,9 @@ namespace Vistas
                     TrabajarVenta.altaVenta(nuevaVenta);
                     limpiarCampos();
                     Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
-                    Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
                     ((FrmVenta)frmVenta).cargarVentas();
                     TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
-                    ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+
                 }
             }
             else
