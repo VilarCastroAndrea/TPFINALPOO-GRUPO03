@@ -20,10 +20,11 @@ namespace Vistas
 
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
-            try
+            Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
+            DataTable userX = new DataTable();
+            userX = TrabajarUsuario.buscarUsuario(txtNombreUsuario.Text);
+            if (userX.Rows.Count == 0)
             {
-                Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
-
                 if (mensaje(cargarDatos()) == DialogResult.OK)
                 {
                     TrabajarUsuario.altaUsuario(cargarDatos());
@@ -35,11 +36,11 @@ namespace Vistas
                     MessageBox.Show("Se cancelo el alta del usuario", "Cancelado");
                 }
             }
-            catch
+            else
             {
+                MessageBox.Show("Usuario ya existente, ingrese otro nombre de usuario");
                 txtNombreUsuario.Text = "";
                 txtNombreUsuario.Focus();
-                MessageBox.Show("Usuario ya existente, ingrese otro nombre de usuario");
             }
         }
 
