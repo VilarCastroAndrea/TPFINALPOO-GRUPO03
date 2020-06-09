@@ -5,6 +5,7 @@ namespace ClasesBase
 {
     public class TrabajarClaseVehiculo
     {
+        //realiza el alta de una clase de vehiculo
         public static void altaClase(string valor, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -18,7 +19,7 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
+        //realiza la baja LOGICA de una clase de vehiculo
         public static void bajaClase(int id, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -32,7 +33,7 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
+        //Realiza una baja FISICA de una clase de vehiculo
         public static void bajaClaseFisica(int id)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -45,7 +46,7 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
+        //realiza la modificacion de la clase de vehiculo
         public static void modificacionClase(ClaseVehiculo cv)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -61,6 +62,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        //lista las clases de vehiculos
         public static DataTable listarClaseVehiculo()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -73,7 +75,7 @@ namespace ClasesBase
             da.Fill(dt);
             return dt;
         }
-
+        //lista las clases de vehiculos disponibles
         public static DataTable listarClaseVehDisponible()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);

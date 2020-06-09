@@ -30,6 +30,8 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        //Reailiza la modificacion de una venta en la base de datos
+
         public static void modificarVenta(int id, string estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);

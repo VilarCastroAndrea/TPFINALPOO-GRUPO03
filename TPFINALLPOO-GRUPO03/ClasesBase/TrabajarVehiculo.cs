@@ -166,7 +166,7 @@ namespace ClasesBase
             da.Fill(dt);
             return dt;
         }
-
+        //Ordena los vehiculos por marca
         public static DataTable ordenarVporMarca()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -179,7 +179,7 @@ namespace ClasesBase
             da.Fill(dt);
             return dt;
         }
-
+        //ordena los vehiculos por linea
         public static DataTable ordenarVporLinea()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);

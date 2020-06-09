@@ -5,6 +5,7 @@ namespace ClasesBase
 {
     public class TrabajarFormaPago
     {
+        //realiza el alta de una nueva forma de pago
         public static void altaFormaPago(string valor, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -18,7 +19,7 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
+        //realiza la baja LOGICA de una forma de pago
         public static void bajaFormaPago(int id, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -32,7 +33,7 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
+        //realiza la baja FISICA de una forma de pago
         public static void bajaFormaPagoFisica(int id)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -46,6 +47,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        //Modifica la forma de pago
         public static void modificacionFormaPago(FormaPago fp)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -61,6 +63,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        //lista todas las formas de pago
         public static DataTable listarFormaPago()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -74,6 +77,8 @@ namespace ClasesBase
             return dt;
         }
 
+
+        //lista las formas de pagos disponibles
         public static DataTable listarFormaPagoDisponible()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);

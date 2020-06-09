@@ -5,6 +5,8 @@ namespace ClasesBase
 {
     public class TrabajarTipoVehiculo
     {
+
+        //realiza el alta de un nuevo tipo de vehiculo
         public static void altaTipo(string valor, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -18,7 +20,7 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
+        //realiza la baja logica de un tipo de vehiculo
         public static void bajaTipo(int id, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -33,7 +35,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
-
+        //realiza la baja fisica de un tipo de vehiculo
         public static void bajaTipoFisica(int id)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -47,6 +49,8 @@ namespace ClasesBase
             cnn.Close();
         }
 
+
+        //realiza la modificacion de un tipo de vehiculo
         public static void modificacionTipo(TipoVehiculo tv)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -62,6 +66,7 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        //muestra la lista de los tipos de vehiculos
         public static DataTable listarTipoVehiculo()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -75,6 +80,7 @@ namespace ClasesBase
             return dt;
         }
 
+        //lista los tipos de vehiculos disponibles
         public static DataTable listarTipoVehDisponible()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
