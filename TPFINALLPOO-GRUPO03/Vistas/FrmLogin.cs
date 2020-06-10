@@ -90,7 +90,6 @@ namespace Vistas
         /// </summary>
         private void ingresar()
         {
-            FrmMain formMain = new FrmMain();
             DataTable dataTable = new DataTable();
             dataTable = TrabajarUsuario.ingresoUsuario(txtUsuario.Text, txtContra.Text);
             if (dataTable.Rows.Count != 0)
@@ -98,21 +97,31 @@ namespace Vistas
                 guardarUser(dataTable);
                 if ((user.Usu_NombreUsuario == txtUsuario.Text) && (user.Usu_Contraseña == txtContra.Text))
                 {
+                    FrmMain formMain = new FrmMain();
                     this.Hide();
                     formMain.lblNom.Text = "BIENVENIDO: " + user.Usu_ApellidoNombre;
                     formMain.Show();
                 }
+                else
+                {
+                    ingresoIncorrecto();
+                }
             }
             else
             {
-                intentos++;
-                intentosMaximos();
-                txtContra.Text = "";
-                txtContra.Focus();
-                MessageBox.Show("Datos incorrectos");
+                ingresoIncorrecto();
             }
         }
 
+        //aumenta la variable intentos (necesaria capcha 5 inentos) y lo habilita de ser necesario, borra la contraseña escrita y se para en esa parte
+        private void ingresoIncorrecto()
+        {
+            intentos++;
+            intentosMaximos();
+            txtContra.Text = "";
+            txtContra.Focus();
+            MessageBox.Show("Datos incorrectos");
+        }
         /// <summary>
         /// control
         /// </summary>

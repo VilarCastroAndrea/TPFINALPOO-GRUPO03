@@ -20,7 +20,29 @@ namespace Vistas
             AddFormInPanel(frmLista);
             cargarVehiculos();
         }
-
+        public void restringirAcceso()
+        {
+            Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
+            if (frmLogin != null)
+            {
+                if (((FrmLogin)frmLogin).user.Rol_Codigo != "Administrador")
+                {
+                    btnMostrar.Visible = false;
+                    btnAlta.Visible = false;
+                    panelVehiculo.Visible = false;
+                    btnTipo.Visible = false;
+                    btnClase.Visible = false;
+                }
+                else
+                {
+                    btnMostrar.Visible = true;
+                    btnAlta.Visible = true;
+                    panelVehiculo.Visible = true;
+                    btnTipo.Visible = true;
+                    btnClase.Visible = true;
+                }
+            }
+        }
         private void AddFormInPanel(Form fh)
         {
             if (this.panelVehiculo.Controls.Count > 0)

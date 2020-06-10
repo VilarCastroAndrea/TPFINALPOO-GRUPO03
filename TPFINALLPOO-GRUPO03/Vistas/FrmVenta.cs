@@ -14,6 +14,28 @@ namespace Vistas
             InitializeComponent();
         }
 
+        public void restringirAcceso()
+        {
+            Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
+            if (frmLogin != null)
+            {
+                if (((FrmLogin)frmLogin).user.Rol_Codigo == "Auditor")
+                {
+                    btnFp.Visible = false;
+                    btnMostrar.Visible = false;
+                    btnRegistrarVenta.Visible = false;
+                    panelVenta.Visible = false;
+                }
+                else
+                {
+                    btnFp.Visible = true;
+                    btnMostrar.Visible = true;
+                    btnRegistrarVenta.Visible = true;
+                    panelVenta.Visible = true;
+                }
+            }
+        }
+
         private void FrmVenta_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarVenta>().FirstOrDefault();

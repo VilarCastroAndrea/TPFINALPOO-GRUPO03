@@ -13,9 +13,10 @@ namespace Vistas
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            var form = Application.OpenForms.OfType<FrmUsuario>().FirstOrDefault();
-            FrmUsuario frmUsuario = form ?? new FrmUsuario();
-            AddFormInPanel(frmUsuario);
+            var form = Application.OpenForms.OfType<FrmVenta>().FirstOrDefault();
+            FrmVenta fventa = form ?? new FrmVenta();
+            fventa.restringirAcceso();
+            AddFormInPanel(fventa);
             restringirAcceso();
         }
 
@@ -65,6 +66,7 @@ namespace Vistas
         {
             var form = Application.OpenForms.OfType<FrmUsuario>().FirstOrDefault();
             FrmUsuario frmUsuario = form ?? new FrmUsuario();
+            frmUsuario.restringirAcceso();
             AddFormInPanel(frmUsuario);
         }
 
@@ -72,6 +74,7 @@ namespace Vistas
         {
             var form = Application.OpenForms.OfType<FrmCliente>().FirstOrDefault();
             FrmCliente fcliente = form ?? new FrmCliente();
+            fcliente.restringirAcceso();
             AddFormInPanel(fcliente);
         }
 
@@ -79,6 +82,7 @@ namespace Vistas
         {
             var form = Application.OpenForms.OfType<FrmVehiculo>().FirstOrDefault();
             FrmVehiculo fvehiculo = form ?? new FrmVehiculo();
+            fvehiculo.restringirAcceso();
             AddFormInPanel(fvehiculo);
         }
 
@@ -86,6 +90,7 @@ namespace Vistas
         {
             var form = Application.OpenForms.OfType<FrmVenta>().FirstOrDefault();
             FrmVenta fventa = form ?? new FrmVenta();
+            fventa.restringirAcceso();
             AddFormInPanel(fventa);
         }
 

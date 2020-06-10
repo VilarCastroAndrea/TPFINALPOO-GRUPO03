@@ -21,6 +21,26 @@ namespace Vistas
             cargarCliente();
         }
 
+        public void restringirAcceso()
+        {
+            Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
+            if (frmLogin != null)
+            {
+                if (((FrmLogin)frmLogin).user.Rol_Codigo != "Vendedor")
+                {
+                    btnMostrar.Visible = false;
+                    btnAgregar.Visible = false;
+                    panelCliente.Visible = false;
+                }
+                else
+                {
+                    btnMostrar.Visible = true;
+                    btnAgregar.Visible = true;
+                    panelCliente.Visible = true;
+                }
+            }
+        }
+
         /// <summary>
         /// Carga de clietes
         /// </summary>
