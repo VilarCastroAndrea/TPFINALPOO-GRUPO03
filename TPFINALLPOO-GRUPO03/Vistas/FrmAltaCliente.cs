@@ -39,21 +39,31 @@ namespace Vistas
         }
 
         public Cliente cargarDatos()
+
         {
             Cliente aCliente = new Cliente();
-            if (validarCampos() != false)
-            {
-                aCliente.Cli_DNI = txtDni.Text;
-                aCliente.Cli_Nombre = txtNombre.Text;
-                aCliente.Cli_Apellido = txtApellido.Text;
-                aCliente.Cli_Direccion = txtDireccion.Text;
-                aCliente.Cli_Telefono = txtTelefono.Text;
-                aCliente.Cli_Disponible = true;
+            if (txtDni.Text.Length == 8) {
+
+                if (validarCampos() != false)
+                {
+                    aCliente.Cli_DNI = txtDni.Text;
+                    aCliente.Cli_Nombre = txtNombre.Text;
+                    aCliente.Cli_Apellido = txtApellido.Text;
+                    aCliente.Cli_Direccion = txtDireccion.Text;
+                    aCliente.Cli_Telefono = txtTelefono.Text;
+                    aCliente.Cli_Disponible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Complete todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("Ingrese un DNI valido (8 digitos)");
             }
+
+
             return aCliente;
         }
 
@@ -86,6 +96,31 @@ namespace Vistas
             txtApellido.Text = "";
             txtDireccion.Text = "";
             txtTelefono.Text = "";
+        }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void txtDni_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
+            txtDni.MaxLength = 8;
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
         }
     }
 }

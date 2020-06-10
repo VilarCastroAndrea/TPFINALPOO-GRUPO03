@@ -140,6 +140,7 @@
             this.Name = "FrmAltaUsuario";
             this.Text = "FrmAltaUsuario";
             this.Load += new System.EventHandler(this.FrmAltaUsuario_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreApellidoUsuario_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
