@@ -565,7 +565,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnAnular;
         public System.Windows.Forms.Label dni;
         public System.Windows.Forms.Label apellido;
         public System.Windows.Forms.Label nombre;
@@ -583,5 +582,6 @@
         public System.Windows.Forms.Label precio;
         public System.Windows.Forms.Label estado;
         public System.Windows.Forms.Label id;
+        public System.Windows.Forms.Button btnAnular;
     }
 }

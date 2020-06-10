@@ -28,7 +28,21 @@ namespace Vistas
             }
         }
 
-
+        public void restringirAcceso()
+        {
+            Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
+            if (frmLogin != null)
+            {
+                if (((FrmLogin)frmLogin).user.Rol_Codigo == "Vendedor")
+                {
+                    btnAnular.Visible = false;
+                }
+                else
+                {
+                    btnAnular.Visible = true;
+                }
+            }
+            }
         private void refrescarVistaVehiculo()
         {
             Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);

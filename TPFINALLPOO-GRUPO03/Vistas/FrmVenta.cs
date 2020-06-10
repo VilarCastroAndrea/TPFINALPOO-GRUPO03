@@ -40,6 +40,7 @@ namespace Vistas
         {
             var form = Application.OpenForms.OfType<FrmMostrarVenta>().FirstOrDefault();
             FrmMostrarVenta frmVenta = form ?? new FrmMostrarVenta();
+            frmVenta.restringirAcceso();
             AddFormInPanel(frmVenta);
             cargarVentas();
             cargarBoxCliente(TrabajarCliente.ListaCliente());
@@ -151,6 +152,7 @@ namespace Vistas
         {
             var form = Application.OpenForms.OfType<FrmMostrarVenta>().FirstOrDefault();
             FrmMostrarVenta frmVenta = form ?? new FrmMostrarVenta();
+            frmVenta.restringirAcceso();
             AddFormInPanel(frmVenta);
         }
 
