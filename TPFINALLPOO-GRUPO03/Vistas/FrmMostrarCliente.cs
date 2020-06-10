@@ -12,6 +12,10 @@ namespace Vistas
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Determina si el cliente esta disponible
+        /// </summary>
+        /// <param name="disponible"></param>
         public void disponibilidadDelCliente(bool disponible)
         {
             btnECliente.Enabled = disponible;
@@ -21,7 +25,11 @@ namespace Vistas
             txtApellido.Enabled = disponible;
             txtDireccion.Enabled = disponible;
         }
-
+        /// <summary>
+        /// Modifica un cliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMCliente_Click(object sender, EventArgs e)
         {
             Cliente c = new Cliente();
@@ -38,7 +46,11 @@ namespace Vistas
                 ((FrmCliente)frmCliente).cargarCliente();
             }
         }
-
+        /// <summary>
+        /// Elimina un cliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnECliente_Click(object sender, EventArgs e)
         {
             Form frmCliente = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmCliente);
@@ -65,7 +77,11 @@ namespace Vistas
                 }
             }
         }
-
+        /// <summary>
+        /// Validaciones en text Box Para datos validos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);

@@ -14,7 +14,10 @@ namespace Vistas
             InitializeComponent();
             cargarRol();//Se llama al metodo cargar roles
         }
-
+        /// <summary>
+        /// Cambia de estado a disponible
+        /// </summary>
+        /// <param name="disponible"></param>
         public void disponibilidadDeUsuario(bool disponible)
         {
             txtNombreApellidoUsuario.Enabled = disponible;
@@ -38,7 +41,11 @@ namespace Vistas
             cmbRoles.ValueMember = "rol_Descripcion";
             cmbRoles.DataSource = TrabajarUsuario.listaRoles();
         }
-
+        /// <summary>
+        /// Elimina un usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
 
@@ -73,7 +80,9 @@ namespace Vistas
             }
         }
 
-
+        /// <summary>
+        /// Elimina un administrador
+        /// </summary>
         private void eliminarAdministrador()
         {
             int id = Convert.ToInt32(this.txtId.Text);
@@ -102,7 +111,11 @@ namespace Vistas
                 MessageBox.Show("Tiene que haber un minimo de un (1) Usuario tipo administrador");
             }
         }
-
+        /// <summary>
+        /// Actualiza un usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnActualizarUsuario_Click(object sender, EventArgs e)
         {
             Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
@@ -117,6 +130,11 @@ namespace Vistas
             MessageBox.Show("Usuario Modificado");
         }
 
+        /// <summary>
+        /// Validaciones
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {
             btnActualizarUsuario.Enabled = true;
