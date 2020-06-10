@@ -127,7 +127,7 @@ namespace Vistas
             cmbLinea.DataSource = null;
             cmbLinea.DisplayMember = "line_Descripcion";
             cmbLinea.ValueMember = "line_Descripcion";
-            cmbLinea.DataSource = TrabajarLinea.buscarPorMarca(cmbMarca.SelectedText);
+            cmbLinea.DataSource = TrabajarLinea.buscarPorMarca(cmbMarca.Text);
 
         }
 
