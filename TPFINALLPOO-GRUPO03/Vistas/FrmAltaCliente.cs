@@ -102,7 +102,8 @@ namespace Vistas
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
-            txtDni.MaxLength = 8;
+            txtDni.MaxLength = 9 ;
+           
         }
 
         private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)

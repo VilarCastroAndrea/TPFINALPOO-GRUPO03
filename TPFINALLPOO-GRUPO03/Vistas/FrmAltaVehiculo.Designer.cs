@@ -160,6 +160,7 @@
             // txtAPrecio
             // 
             this.txtAPrecio.Location = new System.Drawing.Point(72, 330);
+            this.txtAPrecio.MaxLength = 7;
             this.txtAPrecio.Name = "txtAPrecio";
             this.txtAPrecio.Size = new System.Drawing.Size(118, 20);
             this.txtAPrecio.TabIndex = 47;
