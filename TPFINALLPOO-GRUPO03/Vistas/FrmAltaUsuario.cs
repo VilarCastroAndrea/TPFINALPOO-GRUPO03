@@ -25,9 +25,19 @@ namespace Vistas
             {
                 if (mensaje(cargarDatos()) == DialogResult.OK)
                 {
-                    TrabajarUsuario.altaUsuario(cargarDatos());
-                    ((FrmUsuario)frmUsuario).listarUsuario();
-                    limpiarCampos();
+                    try
+                    {
+                        TrabajarUsuario.altaUsuario(cargarDatos());
+                        ((FrmUsuario)frmUsuario).listarUsuario();
+                        limpiarCampos();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Complete correctamente los datos");
+                    }
+
+
+
                 }
                 else
                 {
