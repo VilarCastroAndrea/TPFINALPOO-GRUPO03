@@ -12,13 +12,13 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        //al cargar el formulario carga todos los tipos y las clases
         private void FrmAltaVehiculo_Load(object sender, EventArgs e)
         {
             cargarTipo();
             cargarClase();
         }
-
+        //Determina si posee gps
         private bool poseeGPS()
         {
             if (sGps.Checked)
@@ -27,7 +27,7 @@ namespace Vistas
             }
             return false;
         }
-
+        // Realiza el alta de vehiculo
         private void btnAltaVeh_Click(object sender, EventArgs e)
         {
 
@@ -100,13 +100,14 @@ namespace Vistas
             }
         }
 
+        //carga los tipos de vehiculos
         public void cargarTipo()
         {
             cmbTipo.DisplayMember = "Descripcion";
             cmbTipo.ValueMember = "ID";
             cmbTipo.DataSource = TrabajarTipoVehiculo.listarTipoVehDisponible();
         }
-
+        //carga las clases de vehiculo
         public void cargarClase()
         {
             cmbClase.DisplayMember = "Descripcion";
@@ -114,12 +115,16 @@ namespace Vistas
             cmbClase.DataSource = TrabajarClaseVehiculo.listarClaseVehDisponible();
         }
 
+
+
+        //validacion matricula maxima de 7
         private void txtAMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtAMatricula.MaxLength = 7;
                    
          }
 
+        //Valida el que el campo precio solo tenga numeros
         private void txtAPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);

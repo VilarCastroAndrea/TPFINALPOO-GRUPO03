@@ -13,6 +13,7 @@ namespace Vistas
             InitializeComponent();
         }
 
+        //al cargar el formulario carga automaticamente los box 
         private void FrmAltaVenta_Load(object sender, EventArgs e)
         {
             dtpFecha.MinDate = new DateTime(2010, 1, 1);
@@ -27,6 +28,7 @@ namespace Vistas
             cargarForma();
         }
 
+        //carga los combobox vehiculo
         private void cargarBoxVehiculo(DataTable tablaVehiculo)
         {
             cmbVehiculos.Items.Clear();
@@ -40,7 +42,7 @@ namespace Vistas
                     + " | " + tablaVehiculo.Rows[i]["Clase"].ToString() + " | " + tablaVehiculo.Rows[i]["Precio"].ToString());
             }
         }
-
+        //carga el combobox de cliente
         private void cargarBoxCliente(DataTable tablaCliente)
         {
             cmbClientesDNI.Items.Clear();
@@ -52,33 +54,8 @@ namespace Vistas
             }
         }
 
-        private void cmbClientesDNI_DropDown(object sender, EventArgs e)
-        {
-            cargarBoxCliente(TrabajarCliente.ListaClienteD(true));
-        }
 
-        private void cmbClientesDNI_TextUpdate(object sender, EventArgs e)
-        {
-            cargarBoxCliente(TrabajarCliente.buscarClienteDisponible(cmbClientesDNI.Text));
-        }
-
-        private void cmbVehiculos_DropDown(object sender, EventArgs e)
-        {
-            cargarBoxVehiculo(TrabajarVehiculo.listarVehiculoDisponible(true));
-        }
-
-        private void cmbVehiculos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string[] cadena = cmbVehiculos.Text.Split('|');
-            txtPrecio.Text = cadena[8];
-            txtPrecio.Text = txtPrecio.Text.TrimStart();
-        }
-
-        private void cmbVehiculos_TextUpdate(object sender, EventArgs e)
-        {
-            cargarBoxVehiculo(TrabajarVehiculo.buscarVehiculo(cmbVehiculos.Text));
-        }
-
+        //registra la venta en la base de datos
         private void btnVender_Click(object sender, EventArgs e)
         {
             int forma = Convert.ToInt32(cmbMedioDePago.SelectedValue);
@@ -115,6 +92,7 @@ namespace Vistas
             }
         }
 
+        //carga el combo medio de pago
         public void cargarForma()
         {
             cmbMedioDePago.DisplayMember = "Descripcion";
@@ -122,7 +100,7 @@ namespace Vistas
             cmbMedioDePago.DataSource = TrabajarFormaPago.listarFormaPagoDisponible();
         }
 
-
+        //valida los campos
         private bool validarCampos()
         {
             if (cmbClientesDNI.Text != "" && cmbClientesDNI.Text.Split('|').Length == 3)
@@ -142,11 +120,14 @@ namespace Vistas
             return false;
         }
 
+        //retorna el primer valor del combobox
         private string primerValorCombobox(string textoCombo)
         {
             return textoCombo.Split('|')[0].TrimEnd();
         }
 
+
+        //limpia todos los campos del formulario
         private void limpiarCampos()
         {
             cmbClientesDNI.Text = "";
@@ -156,5 +137,37 @@ namespace Vistas
             cmbMedioDePago.Text = "";
             txtPrecio.Text = "";
         }
+
+
+
+
+        //validaciones
+        private void cmbClientesDNI_DropDown(object sender, EventArgs e)
+        {
+            cargarBoxCliente(TrabajarCliente.ListaClienteD(true));
+        }
+
+        private void cmbClientesDNI_TextUpdate(object sender, EventArgs e)
+        {
+            cargarBoxCliente(TrabajarCliente.buscarClienteDisponible(cmbClientesDNI.Text));
+        }
+
+        private void cmbVehiculos_DropDown(object sender, EventArgs e)
+        {
+            cargarBoxVehiculo(TrabajarVehiculo.listarVehiculoDisponible(true));
+        }
+
+        private void cmbVehiculos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] cadena = cmbVehiculos.Text.Split('|');
+            txtPrecio.Text = cadena[8];
+            txtPrecio.Text = txtPrecio.Text.TrimStart();
+        }
+
+        private void cmbVehiculos_TextUpdate(object sender, EventArgs e)
+        {
+            cargarBoxVehiculo(TrabajarVehiculo.buscarVehiculo(cmbVehiculos.Text));
+        }
+
     }
 }

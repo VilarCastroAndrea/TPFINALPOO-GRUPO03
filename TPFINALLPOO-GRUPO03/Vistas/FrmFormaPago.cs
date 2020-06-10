@@ -10,12 +10,13 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        //al cargar el formulario carga todas las formas de pago
         private void FrmFormaPago_Load(object sender, EventArgs e)
         {
             cargarFormaPago();
         }
 
+        //elimina una forma de pago, si esta no esta siendo utilizada realiza una baja fisica caso contrario una baja lgica
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
@@ -36,6 +37,7 @@ namespace Vistas
             }
         }
 
+        //Realiza el alta de Forma de pago con sus respectivas verificaciones
         private void btnAlta_Click(object sender, EventArgs e)
         {
             if (txtNuevo.Text != "")
@@ -57,12 +59,14 @@ namespace Vistas
                 MessageBox.Show("complete todos los campos");
             }
         }
-
+        //carga las formas de pago
         private void cargarFormaPago()
         {
             dgwLista.DataSource = TrabajarFormaPago.listarFormaPago();
         }
 
+
+        //cuando se selecciona un elemento de la tabla esta se ve reflejada en los campos del lado derecho para su posible modificacion
         private void dgwLista_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgwLista.CurrentRow != null)
@@ -72,19 +76,7 @@ namespace Vistas
             }
         }
 
-        private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validar.soloLetra(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtNuevo, "ingrese solo letras");
-        }
 
-        private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Validar.soloLetra(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtDetalle, "ingrese solo letras");
-        }
 
 
         /// <summary>
@@ -104,7 +96,7 @@ namespace Vistas
             }
             return true;
         }
-
+        //modifica una forma de pago
         private void btnMoficar_Click_1(object sender, EventArgs e)
         {
             if (txtDetalle.Text != "")
@@ -128,6 +120,21 @@ namespace Vistas
             {
                 MessageBox.Show("El campo debe ser distinto de vacio");
             }
+        }
+
+        //validaciones
+        private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtNuevo, "ingrese solo letras");
+        }
+
+        private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtDetalle, "ingrese solo letras");
         }
     }
 }
