@@ -12,29 +12,42 @@ namespace Vistas
         {
             InitializeComponent();
         }
+        private bool camposCargados()
+        {
+            if(txtApellido.Text!=""&&txtDireccion.Text!=""&&txtDni.Text!=""&&txtNombre.Text!=""&&txtTelefono.Text!="")
+            return true;
 
+            return false;
+        }
         private void btnACliente_Click(object sender, EventArgs e)
         {
-            Form frmCliente = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmCliente);
-
-            try
+            if (camposCargados())
             {
-                if (mensaje(cargarDatos()) == DialogResult.OK)
+                Form frmCliente = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmCliente);
+
+                try
                 {
-                    TrabajarCliente.altaCliente(cargarDatos());
-                    ((FrmCliente)frmCliente).cargarCliente();
-                    limpiarCampos();
+                    if (mensaje(cargarDatos()) == DialogResult.OK)
+                    {
+                        TrabajarCliente.altaCliente(cargarDatos());
+                        ((FrmCliente)frmCliente).cargarCliente();
+                        limpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se cancelo el alta de Cliente", "Cancelado");
+                    }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Se cancelo el alta del usuario", "Cancelado");
+                    txtDni.Text = "";
+                    txtDni.Focus();
+                    MessageBox.Show("Cliente ya existente, ingrese otro nombre de usuario");
                 }
             }
-            catch
+            else
             {
-                txtDni.Text = "";
-                txtDni.Focus();
-                MessageBox.Show("Usuario ya existente, ingrese otro nombre de usuario");
+                MessageBox.Show("Campos incompletos");
             }
         }
 
