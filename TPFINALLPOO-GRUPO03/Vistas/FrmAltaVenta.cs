@@ -15,6 +15,8 @@ namespace Vistas
 
         private void FrmAltaVenta_Load(object sender, EventArgs e)
         {
+            dtpFecha.MaxDate = DateTime.Today;
+            dtpFecha.MinDate = DateTime.Today.AddDays(-7);
             cargarBoxCliente(TrabajarCliente.ListaClienteD(true));
             cargarBoxVehiculo(TrabajarVehiculo.listarVehiculoDisponible(true));
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
