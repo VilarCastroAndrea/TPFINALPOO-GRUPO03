@@ -71,6 +71,7 @@
             this.txtNuevo.Name = "txtNuevo";
             this.txtNuevo.Size = new System.Drawing.Size(158, 20);
             this.txtNuevo.TabIndex = 8;
+            this.txtNuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNuevo_KeyPress);
             // 
             // btnAlta
             // 
@@ -145,6 +146,7 @@
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(164, 20);
             this.txtDetalle.TabIndex = 6;
+            this.txtDetalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDetalle_KeyPress);
             // 
             // label1
             // 
