@@ -17,6 +17,7 @@ namespace Vistas
         {
             cargarTipo();
             cargarClase();
+            cargarMarcas();
         }
 
         private bool poseeGPS()
@@ -32,14 +33,14 @@ namespace Vistas
         {
 
             String opcionGPS = "No";
-            if (cmbModelo.Text != "" && cmbCantPuert.Text != "" && cmbColor.Text != "" && txtALinea.Text != "" && cmbMarca.Text != "" && txtAMatricula.Text != "" && cmbTipo.Text != "" && txtAPrecio.Text != "" && cmbClase.Text != "")
+            if (cmbModelo.Text != "" && cmbCantPuert.Text != "" && cmbColor.Text != "" && cmbLinea.Text != "" && cmbMarca.Text != "" && txtAMatricula.Text != "" && cmbTipo.Text != "" && txtAPrecio.Text != "" && cmbClase.Text != "")
             {
                 int m = Convert.ToInt32(cmbModelo.Text);
                 int p = Convert.ToInt32(cmbCantPuert.Text);
                 Decimal precio = Convert.ToDecimal(txtAPrecio.Text);
                 int tipo = Convert.ToInt32(cmbTipo.SelectedValue);
                 int clase = Convert.ToInt32(cmbClase.SelectedValue);
-                Vehiculo vehiculo = new Vehiculo(txtAMatricula.Text, cmbMarca.Text, txtALinea.Text, m, cmbColor.Text, p, poseeGPS(), tipo, clase, precio, true);
+                Vehiculo vehiculo = new Vehiculo(txtAMatricula.Text, cmbMarca.Text, cmbLinea.Text, m, cmbColor.Text, p, poseeGPS(), tipo, clase, precio, true);
                 if (poseeGPS())
                 {
                     opcionGPS = "Si";
@@ -64,7 +65,7 @@ namespace Vistas
 
                         txtAMatricula.Text = "";
                         cmbMarca.Text = "";
-                        txtALinea.Text = "";
+                        cmbLinea.Text = "";
                         cmbModelo.Text = "";
                         cmbColor.Text = "";
                         cmbCantPuert.Text = "";
@@ -114,5 +115,25 @@ namespace Vistas
             cmbClase.DataSource = TrabajarClaseVehiculo.listarClaseVehDisponible();
         }
 
+        public void cargarMarcas()
+        {
+            cmbMarca.DisplayMember = "";
+            cmbMarca.ValueMember = "mar_Codigo";
+            cmbMarca.DataSource = TrabajarMarca.mostarMarcas();
+        }
+        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+            cargarLinea();
+            cmbLinea.Refresh();
+        }
+
+        public void cargarLinea()
+        {
+            cmbLinea.DisplayMember = "";
+            cmbLinea.ValueMember = "Descripcion" ;
+            cmbLinea.DataSource = TrabajarLinea.buscarPorMarca(cmbMarca.Text);
+           
+        }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.GPS = new System.Windows.Forms.GroupBox();
+            this.nGps = new System.Windows.Forms.RadioButton();
+            this.sGps = new System.Windows.Forms.RadioButton();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.cmbModelo = new System.Windows.Forms.ComboBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
@@ -40,7 +42,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtAMatricula = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtALinea = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,8 +49,8 @@
             this.btnAltaVeh = new System.Windows.Forms.Button();
             this.cmbClase = new System.Windows.Forms.ComboBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.sGps = new System.Windows.Forms.RadioButton();
-            this.nGps = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbLinea = new System.Windows.Forms.ComboBox();
             this.GPS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,23 +66,42 @@
             this.GPS.TabStop = false;
             this.GPS.Text = "GPS";
             // 
+            // nGps
+            // 
+            this.nGps.AutoSize = true;
+            this.nGps.BackColor = System.Drawing.Color.Transparent;
+            this.nGps.ForeColor = System.Drawing.Color.White;
+            this.nGps.Location = new System.Drawing.Point(118, 10);
+            this.nGps.Name = "nGps";
+            this.nGps.Size = new System.Drawing.Size(39, 17);
+            this.nGps.TabIndex = 83;
+            this.nGps.TabStop = true;
+            this.nGps.Text = "No";
+            this.nGps.UseVisualStyleBackColor = false;
+            // 
+            // sGps
+            // 
+            this.sGps.AutoSize = true;
+            this.sGps.BackColor = System.Drawing.Color.Transparent;
+            this.sGps.ForeColor = System.Drawing.Color.White;
+            this.sGps.Location = new System.Drawing.Point(58, 10);
+            this.sGps.Name = "sGps";
+            this.sGps.Size = new System.Drawing.Size(34, 17);
+            this.sGps.TabIndex = 82;
+            this.sGps.TabStop = true;
+            this.sGps.Text = "Si";
+            this.sGps.UseVisualStyleBackColor = false;
+            // 
             // cmbMarca
             // 
             this.cmbMarca.FormattingEnabled = true;
             this.cmbMarca.Items.AddRange(new object[] {
-            "Audi",
-            "BMW",
-            "Chevrolet",
-            "Fiat",
-            "Ford",
-            "Peugeot",
-            "Renault",
-            "Toyota",
-            "Volkswagen"});
+            "Selecciones una marca"});
             this.cmbMarca.Location = new System.Drawing.Point(20, 64);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(169, 21);
             this.cmbMarca.TabIndex = 58;
+            this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged);
             // 
             // cmbModelo
             // 
@@ -195,13 +215,6 @@
             this.label5.TabIndex = 53;
             this.label5.Text = "Matricula";
             // 
-            // txtALinea
-            // 
-            this.txtALinea.Location = new System.Drawing.Point(20, 104);
-            this.txtALinea.Name = "txtALinea";
-            this.txtALinea.Size = new System.Drawing.Size(169, 20);
-            this.txtALinea.TabIndex = 43;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -272,31 +285,25 @@
             this.cmbTipo.Size = new System.Drawing.Size(169, 21);
             this.cmbTipo.TabIndex = 80;
             // 
-            // sGps
+            // comboBox1
             // 
-            this.sGps.AutoSize = true;
-            this.sGps.BackColor = System.Drawing.Color.Transparent;
-            this.sGps.ForeColor = System.Drawing.Color.White;
-            this.sGps.Location = new System.Drawing.Point(58, 10);
-            this.sGps.Name = "sGps";
-            this.sGps.Size = new System.Drawing.Size(34, 17);
-            this.sGps.TabIndex = 82;
-            this.sGps.TabStop = true;
-            this.sGps.Text = "Si";
-            this.sGps.UseVisualStyleBackColor = false;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Selecciones una marca"});
+            this.comboBox1.Location = new System.Drawing.Point(19, 184);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(169, 21);
+            this.comboBox1.TabIndex = 82;
             // 
-            // nGps
+            // cmbLinea
             // 
-            this.nGps.AutoSize = true;
-            this.nGps.BackColor = System.Drawing.Color.Transparent;
-            this.nGps.ForeColor = System.Drawing.Color.White;
-            this.nGps.Location = new System.Drawing.Point(118, 10);
-            this.nGps.Name = "nGps";
-            this.nGps.Size = new System.Drawing.Size(39, 17);
-            this.nGps.TabIndex = 83;
-            this.nGps.TabStop = true;
-            this.nGps.Text = "No";
-            this.nGps.UseVisualStyleBackColor = false;
+            this.cmbLinea.FormattingEnabled = true;
+            this.cmbLinea.Items.AddRange(new object[] {
+            "Selecciones una marca"});
+            this.cmbLinea.Location = new System.Drawing.Point(20, 103);
+            this.cmbLinea.Name = "cmbLinea";
+            this.cmbLinea.Size = new System.Drawing.Size(169, 21);
+            this.cmbLinea.TabIndex = 83;
             // 
             // FrmAltaVehiculo
             // 
@@ -304,6 +311,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(207, 389);
+            this.Controls.Add(this.cmbLinea);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.cmbClase);
             this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.GPS);
@@ -318,7 +327,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtAMatricula);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtALinea);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -348,7 +356,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAMatricula;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtALinea;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -358,5 +365,7 @@
         public System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.RadioButton nGps;
         private System.Windows.Forms.RadioButton sGps;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbLinea;
     }
 }

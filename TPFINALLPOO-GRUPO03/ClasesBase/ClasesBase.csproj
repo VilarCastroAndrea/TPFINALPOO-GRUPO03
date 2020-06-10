@@ -55,6 +55,8 @@
     <Compile Include="TrabajarClaseVehiculo.cs" />
     <Compile Include="TrabajarCliente.cs" />
     <Compile Include="TrabajarFormaPago.cs" />
+    <Compile Include="TrabajarLinea.cs" />
+    <Compile Include="TrabajarMarca.cs" />
     <Compile Include="TrabajarTipoVehiculo.cs" />
     <Compile Include="TrabajarUsuario.cs" />
     <Compile Include="TrabajarVehiculo.cs" />
