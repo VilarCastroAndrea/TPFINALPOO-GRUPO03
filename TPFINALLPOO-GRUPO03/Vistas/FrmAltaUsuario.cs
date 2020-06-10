@@ -16,39 +16,53 @@ namespace Vistas
         {
             cargarRol();
         }
+        private bool camposVacios()
+        {
+            if (txtNombreApellidoUsuario.Text != "" && txtNombreUsuario.Text != "" && txtPass.Text != "")
+                return true;
+
+            return false;
+        }
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
-            Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
-            DataTable userX = new DataTable();
-            userX = TrabajarUsuario.buscarUsuario(txtNombreUsuario.Text);
-            if (userX.Rows.Count == 0)
+            if (camposVacios())
             {
-                if (mensaje(cargarDatos()) == DialogResult.OK)
+                Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
+                DataTable userX = new DataTable();
+                userX = TrabajarUsuario.buscarUsuario(txtNombreUsuario.Text);
+                if (userX.Rows.Count == 0)
                 {
-                    try
+                    if (mensaje(cargarDatos()) == DialogResult.OK)
                     {
-                        TrabajarUsuario.altaUsuario(cargarDatos());
-                        ((FrmUsuario)frmUsuario).listarUsuario();
-                        limpiarCampos();
+                        try
+                        {
+                            TrabajarUsuario.altaUsuario(cargarDatos());
+                            ((FrmUsuario)frmUsuario).listarUsuario();
+                            limpiarCampos();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Complete correctamente los datos");
+                        }
+
+
+
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Complete correctamente los datos");
+                        MessageBox.Show("Se cancelo el alta del usuario", "Cancelado");
                     }
-
-
-
                 }
                 else
                 {
-                    MessageBox.Show("Se cancelo el alta del usuario", "Cancelado");
+                    MessageBox.Show("Usuario ya existente, ingrese otro nombre de usuario");
+                    txtNombreUsuario.Text = "";
+                    txtNombreUsuario.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Usuario ya existente, ingrese otro nombre de usuario");
-                txtNombreUsuario.Text = "";
-                txtNombreUsuario.Focus();
+                MessageBox.Show("Complete todos los campos");
             }
         }
 
