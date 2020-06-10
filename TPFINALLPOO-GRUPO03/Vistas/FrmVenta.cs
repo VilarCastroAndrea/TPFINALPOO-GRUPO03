@@ -24,9 +24,8 @@ namespace Vistas
                 if (((FrmLogin)frmLogin).user.Rol_Codigo == "Auditor")
                 {
                     btnFp.Visible = false;
-                    btnMostrar.Visible = false;
                     btnRegistrarVenta.Visible = false;
-                    panelVenta.Visible = false;
+                    panelVenta.Enabled = false;
                 }
                 else
                 {

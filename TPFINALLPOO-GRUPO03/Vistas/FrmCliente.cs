@@ -29,9 +29,8 @@ namespace Vistas
             {
                 if (((FrmLogin)frmLogin).user.Rol_Codigo != "Vendedor")
                 {
-                    btnMostrar.Visible = false;
                     btnAgregar.Visible = false;
-                    panelCliente.Visible = false;
+                    panelCliente.Enabled = false;
                 }
                 else
                 {

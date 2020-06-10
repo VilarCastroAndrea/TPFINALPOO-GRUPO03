@@ -30,9 +30,8 @@ namespace Vistas
             {
                 if (((FrmLogin)frmLogin).user.Rol_Codigo != "Administrador")
                 {
-                    btnMostrar.Visible = false;
                     btnAlta.Visible = false;
-                    panelVehiculo.Visible = false;
+                    panelVehiculo.Enabled = false;
                     btnTipo.Visible = false;
                     btnClase.Visible = false;
                 }

@@ -15,22 +15,21 @@ namespace Vistas
         //restringe acceso segun el usuario
         public void restringirAcceso()
         {
-                Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
-                if (frmLogin != null)
+            Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
+            if (frmLogin != null)
+            {
+                if (((FrmLogin)frmLogin).user.Rol_Codigo != "Administrador")
                 {
-                    if (((FrmLogin)frmLogin).user.Rol_Codigo != "Administrador")
-                    {
-                        btnMostrarUsuario.Visible = false;
-                        btnAgregar.Visible = false;
-                        panelUsuario.Visible = false;
-                    }
-                    else
-                    {
-                        btnMostrarUsuario.Visible = true;
-                        btnAgregar.Visible = true;
-                        panelUsuario.Visible = true;
-                    }
+                    btnAgregar.Visible = false;
+                    panelUsuario.Enabled = false;
                 }
+                else
+                {
+                    btnMostrarUsuario.Visible = true;
+                    btnAgregar.Visible = true;
+                    panelUsuario.Visible = true;
+                }
+            }
         }
         //eventos al cargar el formulario
         private void FrmUsuario_Load(object sender, EventArgs e)
@@ -81,7 +80,7 @@ namespace Vistas
                     ((FrmMostrarUsuario)frmMostrarUsuario).txtNombreApellidoUsuario.Text = dgvListaUsuarios.CurrentRow.Cells["Apellido y Nombre"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).cmbRoles.Text = dgvListaUsuarios.CurrentRow.Cells["Rol"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).disponibilidadDeUsuario(Convert.ToBoolean(dgvListaUsuarios.CurrentRow.Cells["Disponible"].Value));
-                    ((FrmMostrarUsuario)frmMostrarUsuario).rol=dgvListaUsuarios.CurrentRow.Cells["Rol"].Value.ToString();
+                    ((FrmMostrarUsuario)frmMostrarUsuario).rol = dgvListaUsuarios.CurrentRow.Cells["Rol"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).btnActualizarUsuario.Enabled = false;
                 }
             }
