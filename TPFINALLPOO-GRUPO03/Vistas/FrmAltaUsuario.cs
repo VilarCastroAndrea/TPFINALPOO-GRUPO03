@@ -12,10 +12,14 @@ namespace Vistas
         {
             InitializeComponent();
         }
+
+        //Al cargar el formulario realiza la carga de roles disponibles
         private void FrmAltaUsuario_Load(object sender, EventArgs e)
         {
             cargarRol();
         }
+
+        //Determina que el usuario alla llenado todos los campos y que no existan campos vacios
         private bool camposVacios()
         {
             if (txtNombreApellidoUsuario.Text != "" && txtNombreUsuario.Text != "" && txtPass.Text != "")
@@ -23,6 +27,8 @@ namespace Vistas
 
             return false;
         }
+
+        //agrega un usuario a la base de datos si cumple con las condiciones necesarias
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
             if (camposVacios())
@@ -66,6 +72,7 @@ namespace Vistas
             }
         }
 
+        //carga los datos de los campos a una variable del tipo usuario
         public Usuario cargarDatos()
         {
             Usuario nuevoUsu = new Usuario();
@@ -84,6 +91,7 @@ namespace Vistas
             return nuevoUsu;
         }
 
+        //mensaje de confirmacion para el alta de cliente
         public DialogResult mensaje(Usuario nuevoUsu)
         {
             DialogResult result = MessageBox.Show("Los Datos ingresados son correctos? " + "\n" +
@@ -95,6 +103,7 @@ namespace Vistas
             return result;
         }
 
+        //Carga la lista de roles
         public void cargarRol()
         {
             cmbRoles.DisplayMember = "";
@@ -126,6 +135,7 @@ namespace Vistas
             cmbRoles.Text = "";
         }
 
+        //validacion del campo apellido nombre usuario solo letras
         private void txtNombreApellidoUsuario_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);

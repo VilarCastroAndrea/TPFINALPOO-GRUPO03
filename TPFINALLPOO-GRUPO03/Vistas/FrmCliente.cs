@@ -12,7 +12,7 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        //al cargar el formulario pone en el panel el formulario mostrar cliente y carga los clientes
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarCliente>().FirstOrDefault();
@@ -21,6 +21,7 @@ namespace Vistas
             cargarCliente();
         }
 
+        //restringe el acceso al usuario tipo vendedor
         public void restringirAcceso()
         {
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
@@ -65,6 +66,8 @@ namespace Vistas
             fh.Show();
         }
 
+
+        //carga los datos de la table con los clientes en el formulario frmMostrarCliente
         private void dataCliente_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dataCliente.CurrentRow != null)
@@ -83,12 +86,15 @@ namespace Vistas
             }
         }
 
+
+        //realiza el orden de clientes por apellido
         private void btnOrdenApellido_Click(object sender, EventArgs e)
         {
             dataCliente.DataSource = TrabajarCliente.ListaClientesPorApellido();
             dataCliente.Refresh();
         }
 
+        //realiza la busqueda de cliente en la bd
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (txtBuscarC.Text != "")
@@ -101,6 +107,7 @@ namespace Vistas
             }
         }
 
+        //carga el formulario frmMostrarCliente
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarCliente>().FirstOrDefault();
@@ -108,6 +115,7 @@ namespace Vistas
             AddFormInPanel(frmMostrarCliente);
         }
 
+        //Carga el formulario frmAltaCliente
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmAltaCliente>().FirstOrDefault();

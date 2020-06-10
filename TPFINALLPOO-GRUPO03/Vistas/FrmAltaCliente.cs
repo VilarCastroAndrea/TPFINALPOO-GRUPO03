@@ -12,6 +12,8 @@ namespace Vistas
         {
             InitializeComponent();
         }
+
+        //Valida que todos los campos tengan contenido
         private bool camposCargados()
         {
             if(txtApellido.Text!=""&&txtDireccion.Text!=""&&txtDni.Text!=""&&txtNombre.Text!=""&&txtTelefono.Text!="")
@@ -19,6 +21,8 @@ namespace Vistas
 
             return false;
         }
+
+        //Realiza el alta de cliente, limpia los campos y muestra un cartel con el resultado
         private void btnACliente_Click(object sender, EventArgs e)
         {
             if (camposCargados())
@@ -50,7 +54,7 @@ namespace Vistas
                 MessageBox.Show("Campos incompletos");
             }
         }
-
+        //carga los datos de los campos y los guarda en una variable cliente
         public Cliente cargarDatos()
 
         {
@@ -79,7 +83,7 @@ namespace Vistas
 
             return aCliente;
         }
-
+        //muestra el mensaje de confirmacion
         public DialogResult mensaje(Cliente cliente)
         {
             DialogResult result = MessageBox.Show("Los Datos ingresados son correctos? " + "\n" +
@@ -91,7 +95,7 @@ namespace Vistas
                                                               "Agregar Cliente", MessageBoxButtons.OKCancel);
             return result;
         }
-
+        //Valida que todos los campos esten completos
         public bool validarCampos()
         {
             bool respuesta = false;
@@ -102,6 +106,7 @@ namespace Vistas
             return respuesta;
         }
 
+        //limpia todos los campos
         public void limpiarCampos()
         {
             txtDni.Text = "";
