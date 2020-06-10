@@ -11,7 +11,6 @@ namespace ClasesBase
         public static DataTable ingresoUsuario(string user, string pswd)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
-
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "ingresoUsuario";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -24,7 +23,19 @@ namespace ClasesBase
             return dt;
         }
 
-
+        //busca todos los administradores
+        public static DataTable buscarAdministradores()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarAdministradores";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
 
         /// <summary>
         /// Alta usuario con stored procedure

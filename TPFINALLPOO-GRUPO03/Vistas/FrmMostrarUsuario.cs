@@ -8,7 +8,7 @@ namespace Vistas
 {
     public partial class FrmMostrarUsuario : Form
     {
-        string rol = "";
+        public string rol;
         public FrmMostrarUsuario()
         {
             InitializeComponent();
@@ -41,12 +41,46 @@ namespace Vistas
 
         private void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
+
             String msj = "Esta seguro que quiere elimnar el Usuario " + this.txtNombreUsuario.Text;
             int id = Convert.ToInt32(this.txtId.Text);
             DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
+
+                if (rol=="Administrador")
+                {
+                    eliminarAdministrador();
+                }
+                else
+                {
+                    try
+                    {
+                        TrabajarUsuario.bajaUsuarioFisica(id);
+
+                    }
+                    catch
+                    {
+                        TrabajarUsuario.bajaUsuario(id, false);
+                    }
+                    finally
+                    {
+                        Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
+                        ((FrmUsuario)frmUsuario).listarUsuario();
+                        MessageBox.Show("Usuario Eliminado");
+                    }
+                }
+            }
+        }
+
+
+        private void eliminarAdministrador()
+        {
+            int id = Convert.ToInt32(this.txtId.Text);
+            DataTable dataTable = new DataTable();
+        dataTable = TrabajarUsuario.buscarAdministradores();
+        if (dataTable.Rows.Count != 1)
+            {
                 try
                 {
                     TrabajarUsuario.bajaUsuarioFisica(id);
@@ -58,10 +92,14 @@ namespace Vistas
                 }
                 finally
                 {
+                    Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
                     ((FrmUsuario)frmUsuario).listarUsuario();
                     MessageBox.Show("Usuario Eliminado");
                 }
-
+            }
+            else
+            {
+                MessageBox.Show("Tiene que haber un minimo de un (1) Usuario tipo administrador");
             }
         }
 

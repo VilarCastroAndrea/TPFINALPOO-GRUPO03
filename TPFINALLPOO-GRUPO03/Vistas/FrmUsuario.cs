@@ -79,6 +79,7 @@ namespace Vistas
                     ((FrmMostrarUsuario)frmMostrarUsuario).txtNombreApellidoUsuario.Text = dgvListaUsuarios.CurrentRow.Cells["Apellido y Nombre"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).cmbRoles.Text = dgvListaUsuarios.CurrentRow.Cells["Rol"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).disponibilidadDeUsuario(Convert.ToBoolean(dgvListaUsuarios.CurrentRow.Cells["Disponible"].Value));
+                    ((FrmMostrarUsuario)frmMostrarUsuario).rol=dgvListaUsuarios.CurrentRow.Cells["Rol"].Value.ToString();
                     ((FrmMostrarUsuario)frmMostrarUsuario).btnActualizarUsuario.Enabled = false;
                 }
             }
