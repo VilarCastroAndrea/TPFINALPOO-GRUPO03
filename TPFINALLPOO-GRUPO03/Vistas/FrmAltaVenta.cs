@@ -15,6 +15,8 @@ namespace Vistas
 
         private void FrmAltaVenta_Load(object sender, EventArgs e)
         {
+            dtpFecha.MinDate = new DateTime(2010, 1, 1);
+            dtpFecha.MaxDate = DateTime.Now;
             cargarBoxCliente(TrabajarCliente.ListaClienteD(true));
             cargarBoxVehiculo(TrabajarVehiculo.listarVehiculoDisponible(true));
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
@@ -92,11 +94,18 @@ namespace Vistas
                     nuevaVenta.Usu_ID = ((FrmLogin)frmLogin).user.Usu_ID;
                     nuevaVenta.Fp_ID = forma;
                     nuevaVenta.Vta_PrecioFinal = Convert.ToDecimal(txtPrecio.Text);
-                    TrabajarVenta.altaVenta(nuevaVenta);
-                    limpiarCampos();
-                    Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
-                    ((FrmVenta)frmVenta).cargarVentas();
-                    TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
+                    if (nuevaVenta.Vta_PrecioFinal > 0)
+                    {
+                        TrabajarVenta.altaVenta(nuevaVenta);
+                        limpiarCampos();
+                        Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
+                        ((FrmVenta)frmVenta).cargarVentas();
+                        TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No puede Ingresar un Precio menor a 0");
+                    }
 
                 }
             }
@@ -142,7 +151,8 @@ namespace Vistas
         {
             cmbClientesDNI.Text = "";
             cmbVehiculos.Text = "";
-            dtpFecha.Value = DateTime.Now;
+            dtpFecha.MinDate = new DateTime(2010, 1, 1);
+            dtpFecha.MaxDate = DateTime.Now;
             cmbMedioDePago.Text = "";
             txtPrecio.Text = "";
         }
