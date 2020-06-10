@@ -134,5 +134,10 @@ namespace Vistas
                 btnActualizarUsuario.Enabled = true;
             }
         }
+
+        private void txtNombreApellidoUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
     }
 }

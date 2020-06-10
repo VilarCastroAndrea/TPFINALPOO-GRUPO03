@@ -74,7 +74,6 @@
             this.nGps.Name = "nGps";
             this.nGps.Size = new System.Drawing.Size(39, 17);
             this.nGps.TabIndex = 83;
-            this.nGps.TabStop = true;
             this.nGps.Text = "No";
             this.nGps.UseVisualStyleBackColor = false;
             // 
@@ -82,6 +81,7 @@
             // 
             this.sGps.AutoSize = true;
             this.sGps.BackColor = System.Drawing.Color.Transparent;
+            this.sGps.Checked = true;
             this.sGps.ForeColor = System.Drawing.Color.White;
             this.sGps.Location = new System.Drawing.Point(58, 10);
             this.sGps.Name = "sGps";

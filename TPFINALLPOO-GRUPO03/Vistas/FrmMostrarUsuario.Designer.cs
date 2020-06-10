@@ -130,6 +130,7 @@
             this.txtNombreApellidoUsuario.Size = new System.Drawing.Size(171, 20);
             this.txtNombreApellidoUsuario.TabIndex = 28;
             this.txtNombreApellidoUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreApellidoUsuario_KeyDown);
+            this.txtNombreApellidoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreApellidoUsuario_KeyPress);
             // 
             // txtNombreUsuario
             // 
