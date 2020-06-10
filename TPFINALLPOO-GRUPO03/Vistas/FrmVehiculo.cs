@@ -12,7 +12,7 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        //acciones que se realizan al cargar el formulario vehiculo
         private void FrmVehiculo_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarVehiculo>().FirstOrDefault();
@@ -46,6 +46,10 @@ namespace Vistas
                 }
             }
         }
+        /// <summary>
+        /// Agrega formulario al panel
+        /// </summary>
+        /// <param name="fh"></param>
         private void AddFormInPanel(Form fh)
         {
             if (this.panelVehiculo.Controls.Count > 0)
