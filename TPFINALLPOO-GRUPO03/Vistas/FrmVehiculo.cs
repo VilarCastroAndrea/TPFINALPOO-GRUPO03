@@ -20,6 +20,9 @@ namespace Vistas
             AddFormInPanel(frmLista);
             cargarVehiculos();
         }
+        /// <summary>
+        /// restringir acceso segun usuario
+        /// </summary>
         public void restringirAcceso()
         {
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
@@ -54,7 +57,7 @@ namespace Vistas
             this.panelVehiculo.Tag = fh;
             fh.Show();
         }
-
+        //carga la tabla con la lista de vehiculos
         public void cargarVehiculos()
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
@@ -89,34 +92,34 @@ namespace Vistas
             FrmMostrarVehiculo frmMostrar = form ?? new FrmMostrarVehiculo();
             AddFormInPanel(frmMostrar);
         }
-
+        //muestra el formulario de alta vehiculo
         private void btnAlta_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmAltaVehiculo>().FirstOrDefault();
             FrmAltaVehiculo frmAltaVehi = form ?? new FrmAltaVehiculo();
             AddFormInPanel(frmAltaVehi);
         }
-
+        //ordena vehiculos por marca
         private void rbtnMarca_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.ordenarVporMarca();
         }
-
+        //ordena vehiculos por linea
         private void rbtnLinea_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.ordenarVporLinea();
         }
-
+        //muestra los vehiculos disponibles
         private void rbtnDisponible_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculoDisponible(true);
         }
-
+        ///muestra los vehiculos NO disponibles
         private void rbtnVendido_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculoDisponible(false);
         }
-
+        //busqueda de vehiculos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string buscarvehiculo = txtBuscarVehiculo.Text;

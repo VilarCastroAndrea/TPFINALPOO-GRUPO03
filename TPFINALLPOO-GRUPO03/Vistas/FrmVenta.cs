@@ -13,7 +13,9 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// restringe acceso segun usuario
+        /// </summary>
         public void restringirAcceso()
         {
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
@@ -35,7 +37,7 @@ namespace Vistas
                 }
             }
         }
-
+        //eventos al cargar el formulario venta
         private void FrmVenta_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarVenta>().FirstOrDefault();
@@ -51,7 +53,7 @@ namespace Vistas
             dtpHasta.MaxDate = DateTime.Today;
             contar();
         }
-
+        //lista las ventas en la tabla
         public void cargarVentas()
         {
             dataVenta.DataSource = TrabajarVenta.listarVenta();
@@ -69,7 +71,9 @@ namespace Vistas
             this.panelVenta.Tag = fh;
             fh.Show();
         }
-
+        /// <summary>
+        /// cuenta las ventas 
+        /// </summary>
         private void contar()
         {
             int t = dataVenta.Rows.Count;
@@ -129,18 +133,22 @@ namespace Vistas
         {
             return textoCombo.Split('|')[0].TrimEnd();
         }
-
+        //busqueda por clientes
         private void cmbClientes_TextUpdate(object sender, EventArgs e)
         {
             cargarBoxCliente(TrabajarCliente.buscarCliente(cmbClientes.Text));
         }
-
+        //busqueda por marca
         private void btnBusacar_Click(object sender, EventArgs e)
         {
             dataVenta.DataSource = TrabajarVenta.buscarVenta(cmbMarca.Text, primerValorCombobox(cmbClientes.Text), dtpDesde.Value, dtpHasta.Value);
             contar();
         }
-
+        /// <summary>
+        /// Muestra el formulario de alta de ventas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegistrarVenta_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmAltaVenta>().FirstOrDefault();
