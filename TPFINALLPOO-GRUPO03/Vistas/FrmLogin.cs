@@ -7,8 +7,9 @@ namespace Vistas
 {
     public partial class FrmLogin : Form
     {
-
+        //variable necesaria para el revelado del capcha
         private int intentos;
+        //variable usada para guardar el usuario logueado para el siguiente formulario
         public Usuario user = new Usuario();
 
         public FrmLogin()
@@ -136,7 +137,7 @@ namespace Vistas
             user.Usu_ID = Convert.ToInt32(dt.Rows[0]["ID"].ToString());
         }
 
-
+        //limpia todos los campos del login y oculta el captcha
 
         public void limpiarCampos()
         {
