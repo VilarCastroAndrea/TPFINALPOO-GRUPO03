@@ -107,6 +107,7 @@
             this.txtNombreApellidoUsuario.Name = "txtNombreApellidoUsuario";
             this.txtNombreApellidoUsuario.Size = new System.Drawing.Size(171, 20);
             this.txtNombreApellidoUsuario.TabIndex = 33;
+            this.txtNombreApellidoUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreApellidoUsuario_KeyPress_1);
             // 
             // txtNombreUsuario
             // 
@@ -140,6 +141,7 @@
             this.Name = "FrmAltaUsuario";
             this.Text = "FrmAltaUsuario";
             this.Load += new System.EventHandler(this.FrmAltaUsuario_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

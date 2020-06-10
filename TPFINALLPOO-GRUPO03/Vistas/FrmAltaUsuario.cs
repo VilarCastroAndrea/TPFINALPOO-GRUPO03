@@ -111,5 +111,10 @@ namespace Vistas
             txtNombreApellidoUsuario.Text = "";
             cmbRoles.Text = "";
         }
+
+        private void txtNombreApellidoUsuario_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
     }
 }
