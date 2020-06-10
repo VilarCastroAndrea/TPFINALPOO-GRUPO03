@@ -117,7 +117,7 @@ namespace Vistas
         private void txtAMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtAMatricula.MaxLength = 7;
-               
+                   
           }
 
         private void txtAPrecio_KeyPress(object sender, KeyPressEventArgs e)
