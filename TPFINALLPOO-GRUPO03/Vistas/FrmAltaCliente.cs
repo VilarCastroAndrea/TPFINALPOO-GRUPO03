@@ -114,19 +114,25 @@ namespace Vistas
 
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
             Validar.soloNumeros(e);
             txtDni.MaxLength = 9 ;
+          
            
         }
 
         private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
         {
+            ErrorProvider errorProvider = new ErrorProvider();
             Validar.soloLetra(e);
+            errorProvider.SetError(txtNombre, "ingrese datos validos");
         }
 
         private void txtApellido_KeyPress_1(object sender, KeyPressEventArgs e)
         {
+            ErrorProvider errorProvider = new ErrorProvider();
             Validar.soloLetra(e);
+            errorProvider.SetError(txtApellido, "ingrese datos validos");
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
