@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.GPS = new System.Windows.Forms.GroupBox();
+            this.nGps = new System.Windows.Forms.RadioButton();
+            this.sGps = new System.Windows.Forms.RadioButton();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.cmbModelo = new System.Windows.Forms.ComboBox();
             this.cmbColor = new System.Windows.Forms.ComboBox();
@@ -48,8 +50,6 @@
             this.btnAltaVeh = new System.Windows.Forms.Button();
             this.cmbClase = new System.Windows.Forms.ComboBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.sGps = new System.Windows.Forms.RadioButton();
-            this.nGps = new System.Windows.Forms.RadioButton();
             this.GPS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,32 @@
             this.GPS.TabIndex = 61;
             this.GPS.TabStop = false;
             this.GPS.Text = "GPS";
+            // 
+            // nGps
+            // 
+            this.nGps.AutoSize = true;
+            this.nGps.BackColor = System.Drawing.Color.Transparent;
+            this.nGps.ForeColor = System.Drawing.Color.White;
+            this.nGps.Location = new System.Drawing.Point(118, 10);
+            this.nGps.Name = "nGps";
+            this.nGps.Size = new System.Drawing.Size(39, 17);
+            this.nGps.TabIndex = 83;
+            this.nGps.TabStop = true;
+            this.nGps.Text = "No";
+            this.nGps.UseVisualStyleBackColor = false;
+            // 
+            // sGps
+            // 
+            this.sGps.AutoSize = true;
+            this.sGps.BackColor = System.Drawing.Color.Transparent;
+            this.sGps.ForeColor = System.Drawing.Color.White;
+            this.sGps.Location = new System.Drawing.Point(58, 10);
+            this.sGps.Name = "sGps";
+            this.sGps.Size = new System.Drawing.Size(34, 17);
+            this.sGps.TabIndex = 82;
+            this.sGps.TabStop = true;
+            this.sGps.Text = "Si";
+            this.sGps.UseVisualStyleBackColor = false;
             // 
             // cmbMarca
             // 
@@ -137,6 +163,7 @@
             this.txtAPrecio.Name = "txtAPrecio";
             this.txtAPrecio.Size = new System.Drawing.Size(118, 20);
             this.txtAPrecio.TabIndex = 47;
+            this.txtAPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAPrecio_KeyPress);
             // 
             // label10
             // 
@@ -184,6 +211,7 @@
             this.txtAMatricula.Name = "txtAMatricula";
             this.txtAMatricula.Size = new System.Drawing.Size(170, 20);
             this.txtAMatricula.TabIndex = 42;
+            this.txtAMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAMatricula_KeyPress);
             // 
             // label5
             // 
@@ -271,32 +299,6 @@
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(169, 21);
             this.cmbTipo.TabIndex = 80;
-            // 
-            // sGps
-            // 
-            this.sGps.AutoSize = true;
-            this.sGps.BackColor = System.Drawing.Color.Transparent;
-            this.sGps.ForeColor = System.Drawing.Color.White;
-            this.sGps.Location = new System.Drawing.Point(58, 10);
-            this.sGps.Name = "sGps";
-            this.sGps.Size = new System.Drawing.Size(34, 17);
-            this.sGps.TabIndex = 82;
-            this.sGps.TabStop = true;
-            this.sGps.Text = "Si";
-            this.sGps.UseVisualStyleBackColor = false;
-            // 
-            // nGps
-            // 
-            this.nGps.AutoSize = true;
-            this.nGps.BackColor = System.Drawing.Color.Transparent;
-            this.nGps.ForeColor = System.Drawing.Color.White;
-            this.nGps.Location = new System.Drawing.Point(118, 10);
-            this.nGps.Name = "nGps";
-            this.nGps.Size = new System.Drawing.Size(39, 17);
-            this.nGps.TabIndex = 83;
-            this.nGps.TabStop = true;
-            this.nGps.Text = "No";
-            this.nGps.UseVisualStyleBackColor = false;
             // 
             // FrmAltaVehiculo
             // 

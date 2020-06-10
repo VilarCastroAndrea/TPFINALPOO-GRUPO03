@@ -98,22 +98,19 @@ namespace Vistas
             txtTelefono.Text = "";
         }
 
-        private void txtDni_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-        private void txtDni_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
             txtDni.MaxLength = 8;
         }
 
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
         }
 
-        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtApellido_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
         }
