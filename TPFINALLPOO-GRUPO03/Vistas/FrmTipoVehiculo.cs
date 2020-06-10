@@ -18,13 +18,27 @@ namespace Vistas
 
         private void btnMoficar_Click(object sender, System.EventArgs e)
         {
-            TipoVehiculo tv = new TipoVehiculo();
-            tv.Tv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-            tv.Tv_Descripcion = txtDetalle.Text;
-            tv.Tv_Disponible = checkDisponible.Checked;
-            TrabajarTipoVehiculo.modificacionTipo(tv);
-            MessageBox.Show("Tipo de vehiculo Modificado");
-            cargarTipo();
+            if (txtDetalle.Text != "")
+            {
+                if (this.validarTipoVehiculo(txtDetalle.Text))
+                {
+                    TipoVehiculo tv = new TipoVehiculo();
+                    tv.Tv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                    tv.Tv_Descripcion = txtDetalle.Text;
+                    tv.Tv_Disponible = checkDisponible.Checked;
+                    TrabajarTipoVehiculo.modificacionTipo(tv);
+                    MessageBox.Show("Tipo de vehiculo Modificado");
+                    cargarTipo();
+                }
+                else
+                {
+                    MessageBox.Show("Tipo de vehiculo ya existe");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos");
+            }
         }
 
         private void btnEliminar_Click(object sender, System.EventArgs e)
@@ -49,12 +63,19 @@ namespace Vistas
 
         private void btnAlta_Click(object sender, System.EventArgs e)
         {
-            if (txtNuevo.Text != " ")
+            if (txtNuevo.Text != "")
             {
-                TrabajarTipoVehiculo.altaTipo(txtNuevo.Text, true);
-                txtNuevo.Text = "";
-                dgwLista.DataSource = null;
-                cargarTipo();
+                if (this.validarTipoVehiculo(txtNuevo.Text))
+                {
+                    TrabajarTipoVehiculo.altaTipo(txtNuevo.Text, true);
+                    txtNuevo.Text = "";
+                    dgwLista.DataSource = null;
+                    cargarTipo();
+                }
+                else
+                {
+                    MessageBox.Show("El Tipo ya existe");
+                }
             }
             else
             {
@@ -75,5 +96,35 @@ namespace Vistas
                 checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
             }
         }
+
+        private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+
+        private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+
+
+        /// <summary>
+        /// valida para agregar un nuevo tipo de vehiculo
+        /// </summary>
+        /// <param name="tipo"></param>
+        private bool validarTipoVehiculo(string tipo)
+        {
+            string detalle;
+            foreach (DataGridViewRow fila in dgwLista.Rows)
+            {
+                detalle = Convert.ToString(fila.Cells["Descripcion"].Value);
+                if (detalle.Equals(tipo))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }

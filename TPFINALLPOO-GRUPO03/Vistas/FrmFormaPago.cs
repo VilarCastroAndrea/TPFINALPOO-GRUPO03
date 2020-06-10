@@ -16,17 +16,6 @@ namespace Vistas
             cargarFormaPago();
         }
 
-        private void btnMoficar_Click(object sender, EventArgs e)
-        {
-            FormaPago fp = new FormaPago();
-            fp.Fp_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-            fp.Fp_Descripcion = txtDetalle.Text;
-            fp.Fp_Disponible = checkDisponible.Checked;
-            TrabajarFormaPago.modificacionFormaPago(fp);
-            MessageBox.Show("Tipo de vehiculo Modificado");
-            cargarFormaPago();
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
@@ -49,12 +38,19 @@ namespace Vistas
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            if (txtNuevo.Text != " ")
+            if (txtNuevo.Text != "")
             {
-                TrabajarFormaPago.altaFormaPago(txtNuevo.Text, true);
-                txtNuevo.Text = "";
-                dgwLista.DataSource = null;
-                cargarFormaPago();
+                if (this.validarFormaPago(txtNuevo.Text))
+                {
+                    TrabajarFormaPago.altaFormaPago(txtNuevo.Text, true);
+                    txtNuevo.Text = "";
+                    dgwLista.DataSource = null;
+                    cargarFormaPago();
+                }
+                else
+                {
+                    MessageBox.Show("La Forma de pago ya existe");
+                }
             }
             else
             {
@@ -73,6 +69,60 @@ namespace Vistas
             {
                 txtDetalle.Text = dgwLista.CurrentRow.Cells["Descripcion"].Value.ToString();
                 checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
+            }
+        }
+
+        private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+
+        private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+
+
+        /// <summary>
+        /// valida para agregar un nuevo tipo de vehiculo
+        /// </summary>
+        /// <param name="tipo"></param>
+        private bool validarFormaPago(string descripcion)
+        {
+            string detalle;
+            foreach (DataGridViewRow fila in dgwLista.Rows)
+            {
+                detalle = Convert.ToString(fila.Cells["Descripcion"].Value);
+                if (detalle.Equals(descripcion))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void btnMoficar_Click_1(object sender, EventArgs e)
+        {
+            if (txtDetalle.Text != "")
+            {
+                if (this.validarFormaPago(txtDetalle.Text))
+                {
+                    FormaPago fp = new FormaPago();
+                    fp.Fp_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                    fp.Fp_Descripcion = txtDetalle.Text;
+                    fp.Fp_Disponible = checkDisponible.Checked;
+                    TrabajarFormaPago.modificacionFormaPago(fp);
+                    MessageBox.Show("Forma de Pago Modificado");
+                    cargarFormaPago();
+                }
+                else
+                {
+                    MessageBox.Show("Forma de pago ya existe");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El campo debe ser distinto de vacio");
             }
         }
     }
