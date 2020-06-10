@@ -117,8 +117,6 @@ namespace Vistas
             
             Validar.soloNumeros(e);
             txtDni.MaxLength = 9 ;
-          
-           
         }
 
         private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
@@ -138,6 +136,8 @@ namespace Vistas
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtTelefono, "ingrese solo numeros");
         }
     }
 }

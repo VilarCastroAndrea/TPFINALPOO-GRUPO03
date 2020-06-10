@@ -128,9 +128,9 @@ namespace Vistas
 
         private void txtNombreApellidoUsuario_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            ErrorProvider errorProvider = new ErrorProvider();
             Validar.soloLetra(e);
-            errorProvider.SetError(txtNombreApellidoUsuario, "ingrese datos validos");
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtNombreApellidoUsuario, "ingrese solo letras");
         }
     }
 }

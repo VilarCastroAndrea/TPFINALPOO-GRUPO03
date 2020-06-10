@@ -75,11 +75,15 @@ namespace Vistas
         private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtNuevo, "ingrese solo letras");
         }
 
         private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtDetalle, "ingrese solo letras");
         }
 
 

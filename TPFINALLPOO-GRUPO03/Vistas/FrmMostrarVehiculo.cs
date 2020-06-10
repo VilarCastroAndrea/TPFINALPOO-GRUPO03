@@ -128,11 +128,16 @@ namespace Vistas
         private void txtALinea_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtALinea, "ingrese solo letras");
+
         }
 
         private void txtAPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtAPrecio, "ingrese solo numeros");
         }
     }
 }

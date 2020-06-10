@@ -118,13 +118,13 @@ namespace Vistas
         {
             txtAMatricula.MaxLength = 7;
                    
-          }
+         }
 
         private void txtAPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
-            
-
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtAPrecio, "ingrese solo numeros");
         }
     }
 }
