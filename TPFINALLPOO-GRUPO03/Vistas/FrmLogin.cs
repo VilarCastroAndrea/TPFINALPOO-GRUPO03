@@ -7,14 +7,13 @@ namespace Vistas
 {
     public partial class FrmLogin : Form
     {
-        FrmMain formMain = new FrmMain();
+
         private int intentos;
         public Usuario user = new Usuario();
 
         public FrmLogin()
         {
             InitializeComponent();
-            intentos = 0;
             ocultarCapcha();
         }
 
@@ -37,6 +36,7 @@ namespace Vistas
             imgCapcha.Visible = false;
             txtResultadoCapcha.Visible = false;
             lblCapcha.Visible = false;
+            intentos = 0;
         }
 
         /// <summary>
@@ -89,6 +89,7 @@ namespace Vistas
         /// </summary>
         private void ingresar()
         {
+            FrmMain formMain = new FrmMain();
             DataTable dataTable = new DataTable();
             dataTable = TrabajarUsuario.ingresoUsuario(txtUsuario.Text, txtContra.Text);
             if (dataTable.Rows.Count != 0)
@@ -133,6 +134,17 @@ namespace Vistas
             user.Usu_ApellidoNombre = dt.Rows[0]["Apellido y Nombre"].ToString();
             user.Rol_Codigo = dt.Rows[0]["Rol"].ToString();
             user.Usu_ID = Convert.ToInt32(dt.Rows[0]["ID"].ToString());
+        }
+
+
+
+        public void limpiarCampos()
+        {
+            txtUsuario.Text = "";
+            txtContra.Text = "";
+            txtResultadoCapcha.Text = "";
+            ocultarCapcha();
+            txtUsuario.Focus();
         }
     }
 }

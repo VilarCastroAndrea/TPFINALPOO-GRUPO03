@@ -12,12 +12,10 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
         private void FrmAltaUsuario_Load(object sender, EventArgs e)
         {
             cargarRol();
         }
-
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
             Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);

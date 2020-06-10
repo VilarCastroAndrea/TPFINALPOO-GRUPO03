@@ -50,6 +50,7 @@ namespace Vistas
                 else if (((FrmLogin)frmLogin).user.Rol_Codigo == "Vendedor")
                 {
                     btnVehiculo.Visible = false;
+                    btnUsuario.Visible = false;
                 }
             }
 
@@ -102,10 +103,13 @@ namespace Vistas
         {
             DialogResult respuesta;
             respuesta = MessageBox.Show("Desea cerrar sesion?", "Atención", MessageBoxButtons.YesNo);
+
+            Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
+            ((FrmLogin)frmLogin).user = new ClasesBase.Usuario();
             if (respuesta == DialogResult.Yes)
             {
                 this.Close();
-                FrmLogin frmLogin = new FrmLogin();
+                ((FrmLogin)frmLogin).limpiarCampos();
                 frmLogin.Show();
             }
         }
