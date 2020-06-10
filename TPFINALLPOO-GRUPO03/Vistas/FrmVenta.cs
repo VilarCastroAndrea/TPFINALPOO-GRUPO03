@@ -59,7 +59,7 @@ namespace Vistas
             dataVenta.DataSource = TrabajarVenta.listarVenta();
             contar();
         }
-
+        //agregar formulario a un panel
         private void AddFormInPanel(Form fh)
         {
             if (this.panelVenta.Controls.Count > 0)
@@ -155,7 +155,7 @@ namespace Vistas
             FrmAltaVenta frmAltaVenta = form ?? new FrmAltaVenta();
             AddFormInPanel(frmAltaVenta);
         }
-
+        //Abre el formulario mostrar venta
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarVenta>().FirstOrDefault();
@@ -163,7 +163,11 @@ namespace Vistas
             frmVenta.restringirAcceso();
             AddFormInPanel(frmVenta);
         }
-
+        /// <summary>
+        /// Muestra una venta seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataVenta_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dataVenta.CurrentRow != null)
