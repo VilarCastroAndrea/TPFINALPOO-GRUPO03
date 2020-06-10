@@ -26,8 +26,8 @@ namespace Vistas.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\andii\\source\\repos\\T" +
-            "PFINALPOO-GRUPO03\\agencia.mdf;Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\RENE\\Downloads\\agenc" +
+            "ia.mdf;Integrated Security=True;Connect Timeout=30")]
         public string agenciaConnectionString {
             get {
                 return ((string)(this["agenciaConnectionString"]));
