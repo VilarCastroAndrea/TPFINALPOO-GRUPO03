@@ -304,6 +304,7 @@
             this.cmbLinea.Name = "cmbLinea";
             this.cmbLinea.Size = new System.Drawing.Size(169, 21);
             this.cmbLinea.TabIndex = 83;
+            this.cmbLinea.SelectedIndexChanged += new System.EventHandler(this.cmbLinea_SelectedIndexChanged);
             // 
             // FrmAltaVehiculo
             // 

@@ -8,6 +8,7 @@ namespace Vistas
 {
     public partial class FrmAltaVehiculo : Form
     {
+       
         public FrmAltaVehiculo()
         {
             InitializeComponent();
@@ -123,17 +124,25 @@ namespace Vistas
         }
         private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-            cargarLinea();
-            cmbLinea.Refresh();
+            cmbLinea.DataSource = null;
+            cmbLinea.DisplayMember = "line_Descripcion";
+            cmbLinea.ValueMember = "line_Descripcion";
+            cmbLinea.DataSource = TrabajarLinea.buscarPorMarca(cmbMarca.SelectedText);
+
         }
 
         public void cargarLinea()
         {
-            cmbLinea.DisplayMember = "";
-            cmbLinea.ValueMember = "Descripcion" ;
+            cmbLinea.Items.Clear();
+            cmbLinea.DisplayMember = "line_Descripcion";
+            cmbLinea.ValueMember = "line_Descripcion";
             cmbLinea.DataSource = TrabajarLinea.buscarPorMarca(cmbMarca.Text);
-           
+
+        }
+
+        private void cmbLinea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
