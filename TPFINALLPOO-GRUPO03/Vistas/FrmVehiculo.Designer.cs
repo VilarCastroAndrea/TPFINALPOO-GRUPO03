@@ -43,6 +43,7 @@
             this.rbtnLinea = new System.Windows.Forms.RadioButton();
             this.dataVehiculo = new System.Windows.Forms.DataGridView();
             this.btnMostrar = new System.Windows.Forms.Button();
+            this.btnMarca = new System.Windows.Forms.Button();
             this.panelListaVehiculo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gBox.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             this.panelListaVehiculo.BackColor = System.Drawing.Color.Black;
             this.panelListaVehiculo.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.panelListaVehiculo.Controls.Add(this.btnMarca);
             this.panelListaVehiculo.Controls.Add(this.btnClase);
             this.panelListaVehiculo.Controls.Add(this.btnTipo);
             this.panelListaVehiculo.Controls.Add(this.groupBox1);
@@ -246,6 +248,21 @@
             this.btnMostrar.UseVisualStyleBackColor = false;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
+            // btnMarca
+            // 
+            this.btnMarca.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.btnMarca.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.btnMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMarca.ForeColor = System.Drawing.Color.White;
+            this.btnMarca.Location = new System.Drawing.Point(263, 407);
+            this.btnMarca.Name = "btnMarca";
+            this.btnMarca.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnMarca.Size = new System.Drawing.Size(116, 23);
+            this.btnMarca.TabIndex = 33;
+            this.btnMarca.Text = "Clase marca";
+            this.btnMarca.UseVisualStyleBackColor = true;
+            this.btnMarca.Click += new System.EventHandler(this.btnMarca_Click);
+            // 
             // FrmVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,5 +303,6 @@
         private System.Windows.Forms.RadioButton rbtnVendido;
         private System.Windows.Forms.Button btnClase;
         private System.Windows.Forms.Button btnTipo;
+        private System.Windows.Forms.Button btnMarca;
     }
 }

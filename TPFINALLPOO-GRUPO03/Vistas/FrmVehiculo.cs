@@ -120,5 +120,11 @@ namespace Vistas
             FrmClaseVehiculo frmClaseVehiculo = new FrmClaseVehiculo();
             frmClaseVehiculo.Show();
         }
+
+        private void btnMarca_Click(object sender, EventArgs e)
+        {
+            FrmMarca frmMarca = new FrmMarca();
+            frmMarca.Show();
+        }
     }
 }
