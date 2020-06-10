@@ -12,7 +12,11 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnular_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere ANULAR la venta";
@@ -27,7 +31,9 @@ namespace Vistas
                 ((FrmVenta)frmVenta).cargarVentas();
             }
         }
-
+        /// <summary>
+        /// restringe el acceso segun el usuario
+        /// </summary>
         public void restringirAcceso()
         {
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
@@ -43,6 +49,7 @@ namespace Vistas
                 }
             }
             }
+        //Refrescar la Vista de vehiculos
         private void refrescarVistaVehiculo()
         {
             Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
@@ -51,7 +58,8 @@ namespace Vistas
                 ((FrmVehiculo)frmVehiculo).cargarVehiculos();
             }
         }
-
+        
+        //Actualiza el boton Anular
         public void actualizarBotonAnular()
         {
             if (estado.Text == "ANULADA")

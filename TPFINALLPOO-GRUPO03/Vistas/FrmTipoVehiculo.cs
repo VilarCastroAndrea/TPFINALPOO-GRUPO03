@@ -10,12 +10,16 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        //evento al cargar el formulario
         private void FrmTipoVehiculo_Load(object sender, System.EventArgs e)
         {
             cargarTipo();
         }
-
+        /// <summary>
+        /// Modifica tipo de vechiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMoficar_Click(object sender, System.EventArgs e)
         {
             if (txtDetalle.Text != "")
@@ -40,7 +44,11 @@ namespace Vistas
                 MessageBox.Show("Debe completar todos los campos");
             }
         }
-
+        /// <summary>
+        /// elimina un tipo de vehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, System.EventArgs e)
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
@@ -60,7 +68,7 @@ namespace Vistas
                 MessageBox.Show("Eliminado");
             }
         }
-
+        //Agrega un tipo de vehiculo
         private void btnAlta_Click(object sender, System.EventArgs e)
         {
             if (txtNuevo.Text != "")
@@ -82,7 +90,7 @@ namespace Vistas
                 MessageBox.Show("complete todos los campos");
             }
         }
-
+        //carga a la tabla la lista de tipos de vehiculos
         private void cargarTipo()
         {
             dgwLista.DataSource = TrabajarTipoVehiculo.listarTipoVehiculo();
@@ -96,7 +104,11 @@ namespace Vistas
                 checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
             }
         }
-
+        /// <summary>
+        /// VALIDACIONES
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);

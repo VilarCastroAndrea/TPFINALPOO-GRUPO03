@@ -32,7 +32,10 @@ namespace Vistas
             }
         }
 
-
+        /// <summary>
+        /// Habilita o Deshabilita los campos
+        /// </summary>
+        /// <param name="disponible"></param>
         public void habilitarDesabilitarCampos(bool disponible)
         {
             cmbMarca.Enabled = disponible;
@@ -110,21 +113,25 @@ namespace Vistas
             }
         }
 
-
+        //carga tipos de vehiculo en el comboBox
         public void cargarTipo()
         {
             cmbTipo.DisplayMember = "Descripcion";
             cmbTipo.ValueMember = "ID";
             cmbTipo.DataSource = TrabajarTipoVehiculo.listarTipoVehDisponible();
         }
-
+        //carga clase de vehiculos en el comboBox
         public void cargarClase()
         {
             cmbClase.DisplayMember = "Descripcion";
             cmbClase.ValueMember = "ID";
             cmbClase.DataSource = TrabajarClaseVehiculo.listarClaseVehDisponible();
         }
-
+        /// <summary>
+        /// Validaciones
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtALinea_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);

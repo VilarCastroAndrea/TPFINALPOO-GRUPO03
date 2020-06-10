@@ -12,6 +12,7 @@ namespace Vistas
         {
             InitializeComponent();
         }
+        //restringe acceso segun el usuario
         public void restringirAcceso()
         {
                 Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
@@ -31,6 +32,7 @@ namespace Vistas
                     }
                 }
         }
+        //eventos al cargar el formulario
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarUsuario>().FirstOrDefault();

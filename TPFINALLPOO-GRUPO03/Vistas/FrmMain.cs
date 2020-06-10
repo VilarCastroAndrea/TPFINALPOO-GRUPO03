@@ -11,6 +11,9 @@ namespace Vistas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Eventos al cargar el formulario
+        /// </summary>
         private void FrmMain_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmVenta>().FirstOrDefault();
@@ -69,7 +72,11 @@ namespace Vistas
             frmUsuario.restringirAcceso();
             AddFormInPanel(frmUsuario);
         }
-
+        /// <summary>
+        /// Ingresa a formulario Cliente al hacer click en boton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCliente_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmCliente>().FirstOrDefault();
@@ -77,7 +84,11 @@ namespace Vistas
             fcliente.restringirAcceso();
             AddFormInPanel(fcliente);
         }
-
+        /// <summary>
+        /// Ingresa a formulario Vehiculo al hacer click en boton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVehiculo_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmVehiculo>().FirstOrDefault();
@@ -85,7 +96,11 @@ namespace Vistas
             fvehiculo.restringirAcceso();
             AddFormInPanel(fvehiculo);
         }
-
+        /// <summary>
+        /// Ingresa a formulario Venta al hacer click en boton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVenta_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmVenta>().FirstOrDefault();
@@ -93,7 +108,11 @@ namespace Vistas
             fventa.restringirAcceso();
             AddFormInPanel(fventa);
         }
-
+        /// <summary>
+        /// Salir del Menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             DialogResult respuesta;
@@ -103,7 +122,11 @@ namespace Vistas
                 Application.Exit();
             }
         }
-
+        /// <summary>
+        /// Cerrar sesion 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             DialogResult respuesta;
@@ -118,7 +141,11 @@ namespace Vistas
                 frmLogin.Show();
             }
         }
-
+        /// <summary>
+        /// Muestra La hora en el menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToLongTimeString();
