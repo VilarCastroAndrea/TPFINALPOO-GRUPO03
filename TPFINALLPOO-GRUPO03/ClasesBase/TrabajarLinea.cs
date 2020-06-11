@@ -47,5 +47,57 @@ namespace ClasesBase
             da.Fill(dt);
             return dt;
         }
+        /// <summary>
+        /// Alta Linea con stored procedure
+        /// </summary>
+        /// <param name="marca"></param>
+        public static void AgregarLineaV(Linea linea)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "altaLinea";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@linea",linea.Li_Descripcion );
+            cmd.Parameters.AddWithValue("@codmar", linea.Mar_Codigo);
+
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        /// <summary>
+        /// Baja de Linea con stored procedure
+        /// </summary>
+        /// <param name="codigo"></param>
+        public static void EliminarLinea(String codigo)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "bajaLinea";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@id", codigo);
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+        /// <summary>
+        /// Modificar Linea con stored procedure
+        /// </summary>
+        /// <param name="marca"></param>
+        public static void ModificarLinea(Linea linea)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "modificarLinea";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@codigo", linea.Li_Descripcion);
+            cmd.Parameters.AddWithValue("@descripcion",linea.Mar_Codigo);
+
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
     }
 }
