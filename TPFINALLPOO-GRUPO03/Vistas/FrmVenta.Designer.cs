@@ -128,7 +128,7 @@
             // ingreso
             // 
             this.ingreso.AutoSize = true;
-            this.ingreso.Location = new System.Drawing.Point(480, 8);
+            this.ingreso.Location = new System.Drawing.Point(447, 8);
             this.ingreso.Name = "ingreso";
             this.ingreso.Size = new System.Drawing.Size(41, 13);
             this.ingreso.TabIndex = 39;
@@ -137,7 +137,7 @@
             // anuladas
             // 
             this.anuladas.AutoSize = true;
-            this.anuladas.Location = new System.Drawing.Point(338, 8);
+            this.anuladas.Location = new System.Drawing.Point(322, 8);
             this.anuladas.Name = "anuladas";
             this.anuladas.Size = new System.Drawing.Size(41, 13);
             this.anuladas.TabIndex = 38;
@@ -146,7 +146,7 @@
             // Total
             // 
             this.Total.AutoSize = true;
-            this.Total.Location = new System.Drawing.Point(156, 8);
+            this.Total.Location = new System.Drawing.Point(147, 8);
             this.Total.Name = "Total";
             this.Total.Size = new System.Drawing.Size(35, 13);
             this.Total.TabIndex = 37;
@@ -156,7 +156,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(402, 8);
+            this.label8.Location = new System.Drawing.Point(369, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 36;
@@ -166,7 +166,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(204, 8);
+            this.label7.Location = new System.Drawing.Point(188, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 13);
             this.label7.TabIndex = 35;
@@ -328,6 +328,7 @@
             this.dataVenta.AllowUserToDeleteRows = false;
             this.dataVenta.BackgroundColor = System.Drawing.Color.White;
             this.dataVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataVenta.GridColor = System.Drawing.Color.DarkOrange;
             this.dataVenta.Location = new System.Drawing.Point(19, 97);
             this.dataVenta.Margin = new System.Windows.Forms.Padding(2);
             this.dataVenta.Name = "dataVenta";

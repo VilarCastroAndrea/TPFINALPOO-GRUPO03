@@ -30,9 +30,8 @@ namespace Vistas
                 else
                 {
                     btnFp.Visible = true;
-                    btnMostrar.Visible = true;
                     btnRegistrarVenta.Visible = true;
-                    panelVenta.Visible = true;
+                    panelVenta.Enabled = true;
                 }
             }
         }
@@ -96,7 +95,7 @@ namespace Vistas
                 }
             }
             anuladas.Text = Convert.ToString(an);
-            ingreso.Text = Convert.ToString(to);
+            ingreso.Text = to.ToString("N2") + "$";
         }
 
         /// <summary>

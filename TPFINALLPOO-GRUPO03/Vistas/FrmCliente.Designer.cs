@@ -129,6 +129,7 @@
             this.dataCliente.AllowUserToDeleteRows = false;
             this.dataCliente.BackgroundColor = System.Drawing.Color.White;
             this.dataCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataCliente.GridColor = System.Drawing.Color.DarkOrange;
             this.dataCliente.Location = new System.Drawing.Point(19, 63);
             this.dataCliente.Margin = new System.Windows.Forms.Padding(2);
             this.dataCliente.Name = "dataCliente";

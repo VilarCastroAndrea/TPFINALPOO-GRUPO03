@@ -27,16 +27,15 @@ namespace Vistas
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
             if (frmLogin != null)
             {
-                if (((FrmLogin)frmLogin).user.Rol_Codigo != "Vendedor")
+                if (((FrmLogin)frmLogin).user.Rol_Codigo == "Auditor")
                 {
                     btnAgregar.Visible = false;
                     panelCliente.Enabled = false;
                 }
                 else
                 {
-                    btnMostrar.Visible = true;
                     btnAgregar.Visible = true;
-                    panelCliente.Visible = true;
+                    panelCliente.Enabled = true;
                 }
             }
         }

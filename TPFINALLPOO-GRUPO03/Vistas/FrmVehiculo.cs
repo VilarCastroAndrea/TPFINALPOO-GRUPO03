@@ -28,7 +28,7 @@ namespace Vistas
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
             if (frmLogin != null)
             {
-                if (((FrmLogin)frmLogin).user.Rol_Codigo != "Administrador")
+                if (((FrmLogin)frmLogin).user.Rol_Codigo == "Auditor")
                 {
                     btnAlta.Visible = false;
                     panelVehiculo.Enabled = false;
@@ -37,9 +37,8 @@ namespace Vistas
                 }
                 else
                 {
-                    btnMostrar.Visible = true;
                     btnAlta.Visible = true;
-                    panelVehiculo.Visible = true;
+                    panelVehiculo.Enabled = true;
                     btnTipo.Visible = true;
                     btnClase.Visible = true;
                 }

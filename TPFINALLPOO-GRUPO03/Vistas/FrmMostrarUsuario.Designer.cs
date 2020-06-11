@@ -144,6 +144,7 @@
             // 
             this.txtPass.Location = new System.Drawing.Point(19, 109);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(171, 20);
             this.txtPass.TabIndex = 27;
             this.txtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyDown);

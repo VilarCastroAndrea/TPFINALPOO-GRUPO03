@@ -18,7 +18,7 @@ namespace Vistas
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
             if (frmLogin != null)
             {
-                if (((FrmLogin)frmLogin).user.Rol_Codigo != "Administrador")
+                if (((FrmLogin)frmLogin).user.Rol_Codigo == "Auditor")
                 {
                     btnAgregar.Visible = false;
                     panelUsuario.Enabled = false;
@@ -28,6 +28,7 @@ namespace Vistas
                     btnMostrarUsuario.Visible = true;
                     btnAgregar.Visible = true;
                     panelUsuario.Visible = true;
+                    panelUsuario.Enabled = true;
                 }
             }
         }
@@ -62,6 +63,7 @@ namespace Vistas
         public void listarUsuario()
         {
             dgvListaUsuarios.DataSource = TrabajarUsuario.listarUsuario();
+            //dgvListaUsuarios..Cells["Contraseña"].Visible = false;
             dgvListaUsuarios.Refresh();
         }
 
@@ -146,5 +148,12 @@ namespace Vistas
             }
         }
 
+        private void dgvListaUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgvListaUsuarios.Columns[e.ColumnIndex].Name == "Contraseña")
+            {
+                e.Value = "********";
+            }
+        }
     }
 }

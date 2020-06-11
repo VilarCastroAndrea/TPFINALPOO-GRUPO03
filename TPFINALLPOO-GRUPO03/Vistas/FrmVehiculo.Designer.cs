@@ -221,6 +221,7 @@
             this.dataVehiculo.AllowUserToDeleteRows = false;
             this.dataVehiculo.BackgroundColor = System.Drawing.Color.White;
             this.dataVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataVehiculo.GridColor = System.Drawing.Color.DarkOrange;
             this.dataVehiculo.Location = new System.Drawing.Point(19, 69);
             this.dataVehiculo.Margin = new System.Windows.Forms.Padding(2);
             this.dataVehiculo.Name = "dataVehiculo";

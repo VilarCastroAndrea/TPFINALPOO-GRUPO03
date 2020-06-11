@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnMostrarUsuario = new System.Windows.Forms.Button();
             this.panelUsuario = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -36,9 +37,13 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarUsuario = new System.Windows.Forms.TextBox();
             this.dgvListaUsuarios = new System.Windows.Forms.DataGridView();
+            this.agenciaDataSet = new Vistas.agenciaDataSet();
+            this.agenciaDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelListaCliente.SuspendLayout();
             this.Buscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agenciaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agenciaDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMostrarUsuario
@@ -129,6 +134,7 @@
             this.dgvListaUsuarios.AllowUserToDeleteRows = false;
             this.dgvListaUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaUsuarios.GridColor = System.Drawing.Color.DarkOrange;
             this.dgvListaUsuarios.Location = new System.Drawing.Point(19, 63);
             this.dgvListaUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.dgvListaUsuarios.Name = "dgvListaUsuarios";
@@ -137,7 +143,18 @@
             this.dgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaUsuarios.Size = new System.Drawing.Size(721, 355);
             this.dgvListaUsuarios.TabIndex = 1;
+            this.dgvListaUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListaUsuarios_CellFormatting);
             this.dgvListaUsuarios.CurrentCellChanged += new System.EventHandler(this.dgvListaUsuarios_CurrentCellChanged_1);
+            // 
+            // agenciaDataSet
+            // 
+            this.agenciaDataSet.DataSetName = "agenciaDataSet";
+            this.agenciaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // agenciaDataSetBindingSource
+            // 
+            this.agenciaDataSetBindingSource.DataSource = this.agenciaDataSet;
+            this.agenciaDataSetBindingSource.Position = 0;
             // 
             // FrmUsuario
             // 
@@ -156,6 +173,8 @@
             this.Buscar.ResumeLayout(false);
             this.Buscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agenciaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agenciaDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,5 +189,7 @@
         private System.Windows.Forms.TextBox txtBuscarUsuario;
         public System.Windows.Forms.DataGridView dgvListaUsuarios;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.BindingSource agenciaDataSetBindingSource;
+        private agenciaDataSet agenciaDataSet;
     }
 }
