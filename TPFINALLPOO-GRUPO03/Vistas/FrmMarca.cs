@@ -63,6 +63,8 @@ namespace Vistas
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
+
+
             Marca marca = new Marca();
             if (string.IsNullOrEmpty(txtCodigo.Text))
             {
@@ -81,14 +83,20 @@ namespace Vistas
                 else
                 {
 
-               
-                marca.Mar_Codigo = txtCodigo.Text;
-                marca.Mar_Descripcion = txtDescripcion.Text;
-                TrabajarMarca.altaMarca(marca);
-                txtCodigo.Text = "";
-                txtDescripcion.Text = "";
-                dgwMarca.DataSource = null;
-                cargarMarca();
+                    if (TrabajarMarca.buscarRepetido(txtCodigo.Text).Rows.Count == 0)
+                    {
+                        marca.Mar_Codigo = txtCodigo.Text;
+                        marca.Mar_Descripcion = txtDescripcion.Text;
+                        TrabajarMarca.altaMarca(marca);
+                        txtCodigo.Text = "";
+                        txtDescripcion.Text = "";
+                        dgwMarca.DataSource = null;
+                        cargarMarca();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Marca repetida");
+                    }
                 }
             }
             
