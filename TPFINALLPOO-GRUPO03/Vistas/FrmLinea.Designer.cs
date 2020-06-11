@@ -107,6 +107,7 @@
             this.btnModificar.TabIndex = 19;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -120,6 +121,7 @@
             this.btnEliminar.TabIndex = 18;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // dgwLista
             // 
@@ -132,6 +134,7 @@
             this.dgwLista.ReadOnly = true;
             this.dgwLista.Size = new System.Drawing.Size(281, 233);
             this.dgwLista.TabIndex = 16;
+            this.dgwLista.CurrentCellChanged += new System.EventHandler(this.dgwLista_CurrentCellChanged);
             // 
             // panel1
             // 
