@@ -278,6 +278,7 @@
             this.btnLinea.TabIndex = 34;
             this.btnLinea.Text = "Linea de Vehiculo";
             this.btnLinea.UseVisualStyleBackColor = true;
+            this.btnLinea.Click += new System.EventHandler(this.btnLinea_Click);
             // 
             // FrmVehiculo
             // 

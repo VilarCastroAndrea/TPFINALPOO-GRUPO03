@@ -126,5 +126,11 @@ namespace Vistas
             FrmMarca frmMarca = new FrmMarca();
             frmMarca.Show();
         }
+
+        private void btnLinea_Click(object sender, EventArgs e)
+        {
+            FrmLinea frmLinea = new FrmLinea();
+            frmLinea.Show();
+        }
     }
 }

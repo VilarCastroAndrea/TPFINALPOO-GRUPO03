@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClasesBase;
 
 namespace Vistas
 {
@@ -15,6 +16,23 @@ namespace Vistas
         public FrmLinea()
         {
             InitializeComponent();
+        }
+
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            Linea linea = new Linea();
+            if (txtNuevaLinea.Text != " ")
+            {
+                TrabajarLinea.AgregarLineaV(linea);
+                txtNuevaLinea.Text = "";
+                dgwLista.DataSource = null;
+                cargarTi();
+            }
+            else
+            {
+                MessageBox.Show("complete todos los campos");
+            }
         }
     }
 }

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtNuevo = new System.Windows.Forms.TextBox();
+            this.txtNuevaLinea = new System.Windows.Forms.TextBox();
             this.btnAlta = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDetalle = new System.Windows.Forms.TextBox();
+            this.txtLinea = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnMoficar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgwLista = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,12 +44,12 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtNuevo
+            // txtNuevaLinea
             // 
-            this.txtNuevo.Location = new System.Drawing.Point(3, 23);
-            this.txtNuevo.Name = "txtNuevo";
-            this.txtNuevo.Size = new System.Drawing.Size(158, 20);
-            this.txtNuevo.TabIndex = 8;
+            this.txtNuevaLinea.Location = new System.Drawing.Point(3, 23);
+            this.txtNuevaLinea.Name = "txtNuevaLinea";
+            this.txtNuevaLinea.Size = new System.Drawing.Size(158, 20);
+            this.txtNuevaLinea.TabIndex = 8;
             // 
             // btnAlta
             // 
@@ -64,6 +64,7 @@
             this.btnAlta.TabIndex = 3;
             this.btnAlta.Text = "Agregar";
             this.btnAlta.UseVisualStyleBackColor = false;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
             // label1
             // 
@@ -76,12 +77,12 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Nueva";
             // 
-            // txtDetalle
+            // txtLinea
             // 
-            this.txtDetalle.Location = new System.Drawing.Point(299, 28);
-            this.txtDetalle.Name = "txtDetalle";
-            this.txtDetalle.Size = new System.Drawing.Size(164, 20);
-            this.txtDetalle.TabIndex = 21;
+            this.txtLinea.Location = new System.Drawing.Point(299, 28);
+            this.txtLinea.Name = "txtLinea";
+            this.txtLinea.Size = new System.Drawing.Size(164, 20);
+            this.txtLinea.TabIndex = 21;
             // 
             // label2
             // 
@@ -94,18 +95,18 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Linea";
             // 
-            // btnMoficar
+            // btnModificar
             // 
-            this.btnMoficar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnMoficar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMoficar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoficar.ForeColor = System.Drawing.Color.White;
-            this.btnMoficar.Location = new System.Drawing.Point(299, 54);
-            this.btnMoficar.Name = "btnMoficar";
-            this.btnMoficar.Size = new System.Drawing.Size(164, 23);
-            this.btnMoficar.TabIndex = 19;
-            this.btnMoficar.Text = "Modificar";
-            this.btnMoficar.UseVisualStyleBackColor = false;
+            this.btnModificar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Location = new System.Drawing.Point(299, 54);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(164, 23);
+            this.btnModificar.TabIndex = 19;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
@@ -138,7 +139,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.cmbMarca);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtNuevo);
+            this.panel1.Controls.Add(this.txtNuevaLinea);
             this.panel1.Controls.Add(this.btnAlta);
             this.panel1.Location = new System.Drawing.Point(299, 125);
             this.panel1.Name = "panel1";
@@ -182,9 +183,9 @@
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(478, 257);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtDetalle);
+            this.Controls.Add(this.txtLinea);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnMoficar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgwLista);
             this.Controls.Add(this.panel1);
@@ -200,12 +201,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNuevo;
+        private System.Windows.Forms.TextBox txtNuevaLinea;
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDetalle;
+        private System.Windows.Forms.TextBox txtLinea;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnMoficar;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgwLista;
         private System.Windows.Forms.Panel panel1;
