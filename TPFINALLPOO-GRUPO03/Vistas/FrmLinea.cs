@@ -16,11 +16,13 @@ namespace Vistas
         public FrmLinea()
         {
             InitializeComponent();
+            cargarLineas();
         }
         private void cargarLineas()
         {
             dgwLista.DataSource = TrabajarLinea.MostrarLineas();
         }
+
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
