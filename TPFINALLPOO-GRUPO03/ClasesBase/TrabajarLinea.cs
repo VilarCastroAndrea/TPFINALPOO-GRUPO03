@@ -74,7 +74,7 @@ namespace ClasesBase
             cmd.CommandText = "altaLinea";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@linea",linea.Li_Descripcion );
+            cmd.Parameters.AddWithValue("@linea",linea.Li_Descripcion);
             cmd.Parameters.AddWithValue("@codmar", linea.Mar_Codigo);
 
             cnn.Open();

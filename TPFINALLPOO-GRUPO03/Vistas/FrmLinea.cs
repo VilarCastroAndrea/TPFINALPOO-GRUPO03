@@ -17,18 +17,29 @@ namespace Vistas
         {
             InitializeComponent();
             cargarLineas();
+            cargarComboMarca();
         }
+
         private void cargarLineas()
         {
             dgwLista.DataSource = TrabajarLinea.MostrarLineas();
+        }
+        public void cargarComboMarca()
+        {
+            cmbMarca.DisplayMember = "MAR_Codigo";
+          
+            cmbMarca.DataSource = TrabajarMarca.mostarMarcas();
         }
 
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
+            
             Linea linea = new Linea();
+           
             if (txtNuevaLinea.Text != " ")
             {
+                linea.Mar_Codigo = cmbMarca.Text;
                 TrabajarLinea.AgregarLineaV(linea);
                 txtNuevaLinea.Text = "";
                 dgwLista.DataSource = null;
@@ -38,6 +49,42 @@ namespace Vistas
             {
                 MessageBox.Show("complete todos los campos");
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            String msj = "Esta seguro que quiere elimnar " + this.txtLinea.Text;
+            String codigo = Convert.ToString(dgwLista.CurrentRow.Cells[0].Value);
+            MessageBox.Show(msj, "Atencion");
+            TrabajarMarca.bajaMarca(codigo);
+
+            cargarLineas();
+            MessageBox.Show("Eliminado");
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+            Linea linea = new Linea();
+            linea.Mar_Codigo = Convert.ToString(dgwLista.CurrentRow.Cells[0].Value);
+            linea.Li_Descripcion= txtLinea.Text;
+            TrabajarLinea.ModificarLinea(linea);
+            MessageBox.Show("Linea Modificada");
+            cargarLineas();
+        }
+
+        private void dgwLista_CurrentCellChanged(object sender, EventArgs e)
+        {
+            if (dgwLista.CurrentRow != null)
+            {
+                txtLinea.Text = dgwLista.CurrentRow.Cells[1].Value.ToString();
+
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
