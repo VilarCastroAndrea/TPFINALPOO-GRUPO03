@@ -31,6 +31,7 @@
             this.panelVehiculo = new System.Windows.Forms.Panel();
             this.btnAlta = new System.Windows.Forms.Button();
             this.panelListaVehiculo = new System.Windows.Forms.Panel();
+            this.btnLinea = new System.Windows.Forms.Button();
             this.btnMarca = new System.Windows.Forms.Button();
             this.btnClase = new System.Windows.Forms.Button();
             this.btnTipo = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.rbtnLinea = new System.Windows.Forms.RadioButton();
             this.dataVehiculo = new System.Windows.Forms.DataGridView();
             this.btnMostrar = new System.Windows.Forms.Button();
-            this.btnLinea = new System.Windows.Forms.Button();
             this.panelListaVehiculo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gBox.SuspendLayout();
@@ -89,6 +89,21 @@
             this.panelListaVehiculo.Size = new System.Drawing.Size(770, 437);
             this.panelListaVehiculo.TabIndex = 29;
             // 
+            // btnLinea
+            // 
+            this.btnLinea.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.btnLinea.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
+            this.btnLinea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLinea.ForeColor = System.Drawing.Color.White;
+            this.btnLinea.Location = new System.Drawing.Point(633, 407);
+            this.btnLinea.Name = "btnLinea";
+            this.btnLinea.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnLinea.Size = new System.Drawing.Size(116, 23);
+            this.btnLinea.TabIndex = 34;
+            this.btnLinea.Text = "Linea de Vehiculo";
+            this.btnLinea.UseVisualStyleBackColor = true;
+            this.btnLinea.Click += new System.EventHandler(this.btnLinea_Click);
+            // 
             // btnMarca
             // 
             this.btnMarca.BackgroundImage = global::Vistas.Properties.Resources.fondo;
@@ -100,7 +115,7 @@
             this.btnMarca.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnMarca.Size = new System.Drawing.Size(116, 23);
             this.btnMarca.TabIndex = 33;
-            this.btnMarca.Text = "Clase marca";
+            this.btnMarca.Text = "Marca Vehiculo";
             this.btnMarca.UseVisualStyleBackColor = true;
             this.btnMarca.Click += new System.EventHandler(this.btnMarca_Click);
             // 
@@ -264,21 +279,6 @@
             this.btnMostrar.Text = "Mostrar";
             this.btnMostrar.UseVisualStyleBackColor = false;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
-            // 
-            // btnLinea
-            // 
-            this.btnLinea.BackgroundImage = global::Vistas.Properties.Resources.fondo;
-            this.btnLinea.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
-            this.btnLinea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLinea.ForeColor = System.Drawing.Color.White;
-            this.btnLinea.Location = new System.Drawing.Point(633, 407);
-            this.btnLinea.Name = "btnLinea";
-            this.btnLinea.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnLinea.Size = new System.Drawing.Size(116, 23);
-            this.btnLinea.TabIndex = 34;
-            this.btnLinea.Text = "Linea de Vehiculo";
-            this.btnLinea.UseVisualStyleBackColor = true;
-            this.btnLinea.Click += new System.EventHandler(this.btnLinea_Click);
             // 
             // FrmVehiculo
             // 

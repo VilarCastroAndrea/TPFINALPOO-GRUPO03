@@ -40,6 +40,7 @@ namespace Vistas
             if (txtNuevaLinea.Text != " ")
             {
                 linea.Mar_Codigo = cmbMarca.Text;
+                linea.Li_Descripcion = txtNuevaLinea.Text;
                 TrabajarLinea.AgregarLineaV(linea);
                 txtNuevaLinea.Text = "";
                 dgwLista.DataSource = null;
@@ -52,11 +53,11 @@ namespace Vistas
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
-        {
+        {   
             String msj = "Esta seguro que quiere elimnar " + this.txtLinea.Text;
-            String codigo = Convert.ToString(dgwLista.CurrentRow.Cells[0].Value);
+            int codigo = Convert.ToInt32(dgwLista.CurrentRow.Cells[0].Value);
             MessageBox.Show(msj, "Atencion");
-            TrabajarMarca.bajaMarca(codigo);
+            TrabajarLinea.EliminarLinea(codigo);
 
             cargarLineas();
             MessageBox.Show("Eliminado");
@@ -66,7 +67,8 @@ namespace Vistas
         {
 
             Linea linea = new Linea();
-            linea.Mar_Codigo = Convert.ToString(dgwLista.CurrentRow.Cells[0].Value);
+            linea.Li_Id = Convert.ToInt32(dgwLista.CurrentRow.Cells[0].Value);
+            linea.Mar_Codigo =cmbMarca.Text;
             linea.Li_Descripcion= txtLinea.Text;
             TrabajarLinea.ModificarLinea(linea);
             MessageBox.Show("Linea Modificada");

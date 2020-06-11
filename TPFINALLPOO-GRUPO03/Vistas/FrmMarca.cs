@@ -42,12 +42,22 @@ namespace Vistas
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtMarca.Text;
-            String codigo = Convert.ToString(dgwMarca.CurrentRow.Cells[0].Value);
-            MessageBox.Show(msj, "Atencion");
-            TrabajarMarca.bajaMarca(codigo);
-               
+
+            try
+            {
+                String codigo = Convert.ToString(dgwMarca.CurrentRow.Cells[0].Value);
+                MessageBox.Show(msj, "Atencion");
+                TrabajarMarca.bajaMarca(codigo);
+
                 cargarMarca();
                 MessageBox.Show("Eliminado");
+
+            }
+            catch
+            {
+                MessageBox.Show("No se puede eliminar porque tiene una referencia a linea");
+            }
+           
             
         }
 

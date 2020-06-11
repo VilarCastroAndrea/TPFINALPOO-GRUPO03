@@ -55,7 +55,7 @@ namespace ClasesBase
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "MostrarLineas";
+            cmd.CommandText = "ListarLinea";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -74,8 +74,8 @@ namespace ClasesBase
             cmd.CommandText = "altaLinea";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@linea",linea.Li_Descripcion);
-            cmd.Parameters.AddWithValue("@codmar", linea.Mar_Codigo);
+            cmd.Parameters.AddWithValue("@lineDescripcion",linea.Li_Descripcion);
+            cmd.Parameters.AddWithValue("@marCodigo", linea.Mar_Codigo);
 
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -85,14 +85,14 @@ namespace ClasesBase
         /// Baja de Linea con stored procedure
         /// </summary>
         /// <param name="codigo"></param>
-        public static void EliminarLinea(String codigo)
+        public static void EliminarLinea(int codigo)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "bajaLinea";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@id", codigo);
+            cmd.Parameters.AddWithValue("@lineId", codigo);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -108,8 +108,9 @@ namespace ClasesBase
             cmd.CommandText = "modificarLinea";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@codigo", linea.Li_Descripcion);
-            cmd.Parameters.AddWithValue("@descripcion",linea.Mar_Codigo);
+            cmd.Parameters.AddWithValue("@lineId", linea.Li_Id);
+            cmd.Parameters.AddWithValue("@lineDescripcion", linea.Li_Descripcion);
+            cmd.Parameters.AddWithValue("@marCodigo",linea.Mar_Codigo);
 
             cnn.Open();
             cmd.ExecuteNonQuery();
