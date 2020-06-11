@@ -32,7 +32,7 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Lista toda las marcas
+        /// Lista toda las lineas
         /// </summary>
         /// <returns></returns>
         public static DataTable listarLineas()
@@ -48,9 +48,25 @@ namespace ClasesBase
             return dt;
         }
         /// <summary>
+        /// Muestra todas las lineas con detalle
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable MostrarLineas()
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "MostrarLineas";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        /// <summary>
         /// Alta Linea con stored procedure
         /// </summary>
-        /// <param name="marca"></param>
+        /// <param name="linea"></param>
         public static void AgregarLineaV(Linea linea)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
@@ -84,7 +100,7 @@ namespace ClasesBase
         /// <summary>
         /// Modificar Linea con stored procedure
         /// </summary>
-        /// <param name="marca"></param>
+        /// <param name="linea"></param>
         public static void ModificarLinea(Linea linea)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);

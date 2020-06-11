@@ -17,7 +17,10 @@ namespace Vistas
         {
             InitializeComponent();
         }
-
+        private void cargarLineas()
+        {
+            dgwLista.DataSource = TrabajarLinea.MostrarLineas();
+        }
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
@@ -27,7 +30,7 @@ namespace Vistas
                 TrabajarLinea.AgregarLineaV(linea);
                 txtNuevaLinea.Text = "";
                 dgwLista.DataSource = null;
-                cargarTi();
+                cargarLineas();
             }
             else
             {
