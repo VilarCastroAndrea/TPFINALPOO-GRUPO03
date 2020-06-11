@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLista)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -132,13 +133,14 @@
             this.dgwLista.Location = new System.Drawing.Point(12, 12);
             this.dgwLista.Name = "dgwLista";
             this.dgwLista.ReadOnly = true;
-            this.dgwLista.Size = new System.Drawing.Size(281, 233);
+            this.dgwLista.Size = new System.Drawing.Size(281, 266);
             this.dgwLista.TabIndex = 16;
             this.dgwLista.CurrentCellChanged += new System.EventHandler(this.dgwLista_CurrentCellChanged);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.cmbMarca);
             this.panel1.Controls.Add(this.label3);
@@ -146,7 +148,7 @@
             this.panel1.Controls.Add(this.btnAlta);
             this.panel1.Location = new System.Drawing.Point(299, 125);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 120);
+            this.panel1.Size = new System.Drawing.Size(164, 153);
             this.panel1.TabIndex = 17;
             // 
             // label3
@@ -179,12 +181,27 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Marca de Vehiculo";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSalir.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(3, 123);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(158, 23);
+            this.btnSalir.TabIndex = 11;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(478, 257);
+            this.ClientSize = new System.Drawing.Size(478, 288);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLinea);
             this.Controls.Add(this.label2);
@@ -216,5 +233,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
