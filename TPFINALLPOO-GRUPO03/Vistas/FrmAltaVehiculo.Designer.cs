@@ -102,6 +102,7 @@
             this.cmbMarca.Size = new System.Drawing.Size(169, 21);
             this.cmbMarca.TabIndex = 58;
             this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged);
+            this.cmbMarca.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbMarca_MouseClick);
             // 
             // cmbModelo
             // 
@@ -346,7 +347,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox GPS;
-        private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.ComboBox cmbModelo;
         private System.Windows.Forms.ComboBox cmbColor;
         private System.Windows.Forms.ComboBox cmbCantPuert;
@@ -367,6 +367,7 @@
         private System.Windows.Forms.RadioButton nGps;
         private System.Windows.Forms.RadioButton sGps;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox cmbLinea;
+        public System.Windows.Forms.ComboBox cmbMarca;
+        public System.Windows.Forms.ComboBox cmbLinea;
     }
 }

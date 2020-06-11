@@ -14,7 +14,7 @@ namespace Vistas
             InitializeComponent();
         }
 
-        private void FrmAltaVehiculo_Load(object sender, EventArgs e)
+        public void FrmAltaVehiculo_Load(object sender, EventArgs e)
         {
             cargarTipo();
             cargarClase();
@@ -118,8 +118,8 @@ namespace Vistas
 
         public void cargarMarcas()
         {
-            cmbMarca.DisplayMember = "";
-            cmbMarca.ValueMember = "mar_Codigo";
+            cmbMarca.DisplayMember = "mar_Codigo";
+            cmbMarca.ValueMember = "";
             cmbMarca.DataSource = TrabajarMarca.mostarMarcas();
         }
         private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,6 +143,12 @@ namespace Vistas
         private void cmbLinea_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbMarca_MouseClick(object sender, MouseEventArgs e)
+        {
+
+          
         }
     }
 }

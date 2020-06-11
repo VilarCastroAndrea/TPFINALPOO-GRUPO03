@@ -75,8 +75,8 @@ namespace ClasesBase
             cmd.CommandText = "modificarMarca";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@codigo", marca.Mar_Codigo);
-            cmd.Parameters.AddWithValue("descripcion", marca.Mar_Descripcion);
+            cmd.Parameters.AddWithValue("@marCodigo", marca.Mar_Codigo);
+            cmd.Parameters.AddWithValue("@marDescripcion", marca.Mar_Descripcion);
            
             cnn.Open();
             cmd.ExecuteNonQuery();

@@ -21,11 +21,11 @@ namespace Vistas
 
         private void btnMoficar_Click(object sender, EventArgs e)
         {
-                        
+                   String cod= Convert.ToString(dgwMarca.CurrentRow.Cells[0].Value);
                 Marca marca = new Marca();
-                marca.Mar_Codigo = Convert.ToString(dgwMarca.CurrentRow.Cells[0].Value);
-                marca.Mar_Descripcion = txtDetalleMarca.Text;
-                TrabajarMarca.modificarMarca(marca);
+                marca.Mar_Codigo = cod;
+            marca.Mar_Descripcion = txtDetalle.Text;
+            TrabajarMarca.modificarMarca(marca);
                 MessageBox.Show("Marca Modificado");
                 cargarMarca();
             
@@ -41,7 +41,7 @@ namespace Vistas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            String msj = "Esta seguro que quiere elimnar " + this.txtDetalleMarca.Text;
+            String msj = "Esta seguro que quiere elimnar " + this.txtMarca.Text;
             String codigo = Convert.ToString(dgwMarca.CurrentRow.Cells[0].Value);
             MessageBox.Show(msj, "Atencion");
             TrabajarMarca.bajaMarca(codigo);
@@ -86,16 +86,29 @@ namespace Vistas
 
         private void dgwMarca_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void dgwMarca_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgwMarca.CurrentRow != null)
             {
-                txtDetalleMarca.Text = dgwMarca.CurrentRow.Cells[1].Value.ToString();
-               
+                txtMarca.Text = dgwMarca.CurrentRow.Cells[0].Value.ToString();
+                txtDetalle.Text = dgwMarca.CurrentRow.Cells[1].Value.ToString();
+
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form frmAltaVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmAltaVehiculo);
+            ((FrmAltaVehiculo)frmAltaVehiculo).cmbMarca.ResetText();
+           ((FrmAltaVehiculo)frmAltaVehiculo).cargarMarcas();
+
+            
+
+
         }
     }
     
