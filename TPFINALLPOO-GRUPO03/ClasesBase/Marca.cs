@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClasesBase
 {
-    class Marca
+  public class Marca
     {
         
         
