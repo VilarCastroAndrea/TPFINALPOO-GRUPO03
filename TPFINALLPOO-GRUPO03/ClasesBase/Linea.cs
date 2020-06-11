@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClasesBase
 {
-    class Linea
+   public class Linea
     {
         private int li_Id;
         private string li_Descripcion;
