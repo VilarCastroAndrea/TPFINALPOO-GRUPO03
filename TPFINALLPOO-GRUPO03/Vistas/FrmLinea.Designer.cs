@@ -30,7 +30,6 @@
         {
             this.txtNuevo = new System.Windows.Forms.TextBox();
             this.btnAlta = new System.Windows.Forms.Button();
-            this.checkDisponible = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDetalle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +38,8 @@
             this.dgwLista = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLista)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,24 +58,12 @@
             this.btnAlta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlta.ForeColor = System.Drawing.Color.White;
-            this.btnAlta.Location = new System.Drawing.Point(3, 59);
+            this.btnAlta.Location = new System.Drawing.Point(3, 94);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(158, 23);
             this.btnAlta.TabIndex = 3;
             this.btnAlta.Text = "Agregar";
             this.btnAlta.UseVisualStyleBackColor = false;
-            // 
-            // checkDisponible
-            // 
-            this.checkDisponible.AutoSize = true;
-            this.checkDisponible.BackColor = System.Drawing.Color.Transparent;
-            this.checkDisponible.ForeColor = System.Drawing.Color.White;
-            this.checkDisponible.Location = new System.Drawing.Point(385, 8);
-            this.checkDisponible.Name = "checkDisponible";
-            this.checkDisponible.Size = new System.Drawing.Size(75, 17);
-            this.checkDisponible.TabIndex = 23;
-            this.checkDisponible.Text = "Disponible";
-            this.checkDisponible.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -140,18 +129,20 @@
             this.dgwLista.Location = new System.Drawing.Point(12, 12);
             this.dgwLista.Name = "dgwLista";
             this.dgwLista.ReadOnly = true;
-            this.dgwLista.Size = new System.Drawing.Size(281, 201);
+            this.dgwLista.Size = new System.Drawing.Size(281, 233);
             this.dgwLista.TabIndex = 16;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.cmbMarca);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtNuevo);
             this.panel1.Controls.Add(this.btnAlta);
             this.panel1.Location = new System.Drawing.Point(299, 125);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 88);
+            this.panel1.Size = new System.Drawing.Size(164, 120);
             this.panel1.TabIndex = 17;
             // 
             // label3
@@ -165,13 +156,31 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Linea de Vehiculo";
             // 
+            // cmbMarca
+            // 
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(5, 63);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(156, 21);
+            this.cmbMarca.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Marca de Vehiculo";
+            // 
             // FrmLinea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(478, 227);
-            this.Controls.Add(this.checkDisponible);
+            this.ClientSize = new System.Drawing.Size(478, 257);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDetalle);
             this.Controls.Add(this.label2);
@@ -193,7 +202,6 @@
 
         private System.Windows.Forms.TextBox txtNuevo;
         private System.Windows.Forms.Button btnAlta;
-        private System.Windows.Forms.CheckBox checkDisponible;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDetalle;
         private System.Windows.Forms.Label label2;
@@ -202,5 +210,7 @@
         private System.Windows.Forms.DataGridView dgwLista;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbMarca;
     }
 }
