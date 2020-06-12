@@ -26,27 +26,33 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnMoficar_Click(object sender, System.EventArgs e)
         {
-            if (txtDetalle.Text != "")
+            String msj = "Esta seguro que quiere modificar este tipo de vehiculo " +txtDetalle.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Anular venta?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (this.validarTipoVehiculo(txtDetalle.Text))
+                if (txtDetalle.Text != "")
                 {
-                    TipoVehiculo tv = new TipoVehiculo();
-                    tv.Tv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-                    tv.Tv_Descripcion = txtDetalle.Text;
-                    tv.Tv_Disponible = checkDisponible.Checked;
-                    TrabajarTipoVehiculo.modificacionTipo(tv);
-                    MessageBox.Show("Tipo de vehiculo Modificado");
-                    cargarTipo();
+                    if (this.validarTipoVehiculo(txtDetalle.Text))
+                    {
+                        TipoVehiculo tv = new TipoVehiculo();
+                        tv.Tv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                        tv.Tv_Descripcion = txtDetalle.Text;
+                        tv.Tv_Disponible = checkDisponible.Checked;
+                        TrabajarTipoVehiculo.modificacionTipo(tv);
+                        MessageBox.Show("Tipo de vehiculo Modificado");
+                        cargarTipo();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tipo de vehiculo ya existe");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Tipo de vehiculo ya existe");
+                    MessageBox.Show("Debe completar todos los campos");
                 }
             }
-            else
-            {
-                MessageBox.Show("Debe completar todos los campos");
-            }
+
         }
         /// <summary>
         /// elimina un tipo de vehiculo
@@ -57,7 +63,7 @@ namespace Vistas
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
             int id = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-            DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -79,24 +85,30 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnAlta_Click(object sender, System.EventArgs e)
         {
-            if (txtNuevo.Text != "")
+            String msj = "Esta seguro que quiere Agregar este tipo de vehiculo " + txtNuevo.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (this.validarTipoVehiculo(txtNuevo.Text))
+                if (txtNuevo.Text != "")
                 {
-                    TrabajarTipoVehiculo.altaTipo(txtNuevo.Text, true);
-                    txtNuevo.Text = "";
-                    dgwLista.DataSource = null;
-                    cargarTipo();
+                    if (this.validarTipoVehiculo(txtNuevo.Text))
+                    {
+                        TrabajarTipoVehiculo.altaTipo(txtNuevo.Text, true);
+                        txtNuevo.Text = "";
+                        dgwLista.DataSource = null;
+                        cargarTipo();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Tipo ya existe");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El Tipo ya existe");
+                    MessageBox.Show("complete todos los campos");
                 }
             }
-            else
-            {
-                MessageBox.Show("complete todos los campos");
-            }
+ 
         }
         /// <summary>
         /// carga a la tabla la lista de tipos de vehiculos

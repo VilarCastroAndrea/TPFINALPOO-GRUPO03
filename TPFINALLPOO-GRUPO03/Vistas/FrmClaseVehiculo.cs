@@ -26,26 +26,32 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnMoficar_Click(object sender, EventArgs e)
         {
-            if (txtDetalle.Text != "")
+            String msj = "Esta seguro que quiere modificar esta clase de vehiculo " + this.txtDetalle.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                if (this.validarClaseVehiculo(txtDetalle.Text))
+                if (txtDetalle.Text != "")
                 {
-                    ClaseVehiculo cv = new ClaseVehiculo();
-                    cv.Cv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-                    cv.Cv_Descripcion = txtDetalle.Text;
-                    cv.Cv_Disponible = checkDisponible.Checked;
-                    TrabajarClaseVehiculo.modificacionClase(cv);
-                    MessageBox.Show("Clase de vehiculo Modificado");
-                    cargarClasesV();
+                    if (this.validarClaseVehiculo(txtDetalle.Text))
+                    {
+                        ClaseVehiculo cv = new ClaseVehiculo();
+                        cv.Cv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                        cv.Cv_Descripcion = txtDetalle.Text;
+                        cv.Cv_Disponible = checkDisponible.Checked;
+                        TrabajarClaseVehiculo.modificacionClase(cv);
+                        MessageBox.Show("Clase de vehiculo Modificado");
+                        cargarClasesV();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Clase de vehiculo ya exsite");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Clase de vehiculo ya exsite");
+                    MessageBox.Show("Complete todos los campos");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Complete todos los campos");
             }
         }
         /// <summary>
@@ -55,9 +61,10 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
+
+            String msj = "Esta seguro que quiere elimnar esta clase de vehiculo? " + this.txtDetalle.Text;
             int id = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-            DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -78,25 +85,31 @@ namespace Vistas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAlta_Click(object sender, EventArgs e)
-        {
-            if (txtNuevo.Text != "")
+        { String msj = "Esta seguro que quiere agregar esta clase de vehiculo? " + this.txtNuevo.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                if (validarClaseVehiculo(txtNuevo.Text))
+                if (txtNuevo.Text != "")
                 {
-                    TrabajarClaseVehiculo.altaClase(txtNuevo.Text, true);
-                    txtNuevo.Text = "";
-                    dgwLista.DataSource = null;
-                    cargarClasesV();
+                    if (validarClaseVehiculo(txtNuevo.Text))
+                    {
+                        TrabajarClaseVehiculo.altaClase(txtNuevo.Text, true);
+                        txtNuevo.Text = "";
+                        dgwLista.DataSource = null;
+                        cargarClasesV();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Clase vehiculo ya exsite");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Clase vehiculo ya exsite");
+                    MessageBox.Show("Complete todos los campos");
                 }
             }
-            else
-            {
-                MessageBox.Show("Complete todos los campos");
-            }
+
         }
         /// <summary>
         /// carga las clases de vehiculo

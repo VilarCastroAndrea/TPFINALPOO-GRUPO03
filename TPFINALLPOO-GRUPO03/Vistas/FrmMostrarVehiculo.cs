@@ -83,25 +83,33 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnMVehiculo_Click(object sender, System.EventArgs e)
         {
-            Vehiculo v = new Vehiculo();
-            Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
-            if (frmVehiculo != null)
-            {
-                v.Veh_Matricula = txtAMatricula.Text;
-                v.Veh_Marca = cmbMarca.Text;
-                v.Veh_Linea = txtALinea.Text;
-                v.Veh_Modelo = Convert.ToInt32(cmbModelo.Text);
-                v.Veh_Color = cmbColor.Text;
-                v.Veh_Puertas = Convert.ToInt32(cmbCantPuert.Text);
-                v.Tv_ID = Convert.ToInt32(cmbTipo.SelectedValue);
-                v.Cv_ID = Convert.ToInt32(cmbClase.SelectedValue);
-                v.Veh_GPS = poseeGPS();
-                v.Veh_Precio = Convert.ToDecimal(txtAPrecio.Text);
-                v.Veh_Disponible = true;
-                TrabajarVehiculo.modificarVehiculo(v);
+            String msj = "Esta seguro que quiere modificar este Vehiculo " + this.txtAMatricula.Text + " " + cmbMarca.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
 
-                MessageBox.Show("Vehiculo Modificado");
-                ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+            if (dialogResult == DialogResult.Yes)
+            {
+
+
+                Vehiculo v = new Vehiculo();
+                Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
+                if (frmVehiculo != null)
+                {
+                    v.Veh_Matricula = txtAMatricula.Text;
+                    v.Veh_Marca = cmbMarca.Text;
+                    v.Veh_Linea = txtALinea.Text;
+                    v.Veh_Modelo = Convert.ToInt32(cmbModelo.Text);
+                    v.Veh_Color = cmbColor.Text;
+                    v.Veh_Puertas = Convert.ToInt32(cmbCantPuert.Text);
+                    v.Tv_ID = Convert.ToInt32(cmbTipo.SelectedValue);
+                    v.Cv_ID = Convert.ToInt32(cmbClase.SelectedValue);
+                    v.Veh_GPS = poseeGPS();
+                    v.Veh_Precio = Convert.ToDecimal(txtAPrecio.Text);
+                    v.Veh_Disponible = true;
+                    TrabajarVehiculo.modificarVehiculo(v);
+
+                    MessageBox.Show("Vehiculo Modificado");
+                    ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                }
             }
         }
 
@@ -113,9 +121,14 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnEVehiculo_Click(object sender, System.EventArgs e)
         {
-            Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
-            if (frmVehiculo != null)
+            String msj = "Esta seguro que quiere Eliminar este Vehiculo " + this.txtAMatricula.Text + " " + cmbMarca.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
             {
+                Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
+                if (frmVehiculo != null)
+                {
 
                     try
                     {
@@ -128,9 +141,9 @@ namespace Vistas
                         MessageBox.Show("Vehiculo Vendido");
                     }
 
+                }
             }
         }
-
         /// <summary>
         /// carga tipos de vehiculo en el comboBox
         /// </summary>
