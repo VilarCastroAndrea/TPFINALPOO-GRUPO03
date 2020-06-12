@@ -8,6 +8,7 @@ namespace Vistas
 {
     public partial class FrmAltaCliente : Form
     {
+        private Cliente cliente;
         public FrmAltaCliente()
         {
             InitializeComponent();
@@ -38,16 +39,21 @@ namespace Vistas
 
                 try
                 {
-                    if (mensaje(cargarDatos()) == DialogResult.OK)
+
+                    if (cargarDatos())
                     {
-                        TrabajarCliente.altaCliente(cargarDatos());
-                        ((FrmCliente)frmCliente).cargarCliente();
-                        limpiarCampos();
+                        if (mensaje(cliente) == DialogResult.OK)
+                        {
+                            TrabajarCliente.altaCliente(cliente);
+                            ((FrmCliente)frmCliente).cargarCliente();
+                            limpiarCampos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se cancelo el alta de Cliente", "Cancelado");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Se cancelo el alta de Cliente", "Cancelado");
-                    }
+
                 }
                 catch
                 {
@@ -65,20 +71,22 @@ namespace Vistas
         /// carga los datos de los campos y los guarda en una variable cliente
         /// </summary>
         /// <returns></returns>
-        public Cliente cargarDatos()
+        public bool cargarDatos()
 
         {
-            Cliente aCliente = new Cliente();
-            if (txtDni.Text.Length == 8) {
+            cliente = new Cliente();
+            if (txtDni.Text.Length == 8 || txtDni.Text.Length == 7)
+            {
 
                 if (validarCampos() != false)
                 {
-                    aCliente.Cli_DNI = txtDni.Text;
-                    aCliente.Cli_Nombre = txtNombre.Text;
-                    aCliente.Cli_Apellido = txtApellido.Text;
-                    aCliente.Cli_Direccion = txtDireccion.Text;
-                    aCliente.Cli_Telefono = txtTelefono.Text;
-                    aCliente.Cli_Disponible = true;
+                    cliente.Cli_DNI = txtDni.Text;
+                    cliente.Cli_Nombre = txtNombre.Text;
+                    cliente.Cli_Apellido = txtApellido.Text;
+                    cliente.Cli_Direccion = txtDireccion.Text;
+                    cliente.Cli_Telefono = txtTelefono.Text;
+                    cliente.Cli_Disponible = true;
+                    return true;
                 }
                 else
                 {
@@ -87,11 +95,10 @@ namespace Vistas
             }
             else
             {
-                MessageBox.Show("Ingrese un DNI valido (8 digitos)");
+                MessageBox.Show("Ingrese un DNI valido (7/8 digitos)");
             }
+            return false;
 
-
-            return aCliente;
         }
         /// <summary>
         /// muestra el mensaje de confirmacion
@@ -145,7 +152,7 @@ namespace Vistas
         {
             
             Validar.soloNumeros(e);
-            txtDni.MaxLength = 9 ;
+            txtDni.MaxLength = 8 ;
         }
         /// <summary>
         /// validacion solo letras
