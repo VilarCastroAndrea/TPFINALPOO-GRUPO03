@@ -150,7 +150,7 @@ namespace Vistas
             cmbClase.DataSource = TrabajarClaseVehiculo.listarClaseVehDisponible();
         }
         /// <summary>
-        /// Validaciones
+        /// Validacion solo letras
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -158,15 +158,37 @@ namespace Vistas
         {
             Validar.soloLetra(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtALinea, "ingrese solo letras");
+            errorProvider.SetError(txtALinea, "Solo se permiten letras");
 
         }
-
+        /// <summary>
+        /// validacion solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtAPrecio, "ingrese solo numeros");
+            errorProvider.SetError(txtAPrecio, "Solo se permiten letras");
+        }
+        /// <summary>
+        /// refresca el combobox tipo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbTipo_DropDown(object sender, EventArgs e)
+        {
+            cargarTipo();
+        }
+        /// <summary>
+        /// refresca el combobox clase
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbClase_DropDown(object sender, EventArgs e)
+        {
+            cargarClase();
         }
     }
 }

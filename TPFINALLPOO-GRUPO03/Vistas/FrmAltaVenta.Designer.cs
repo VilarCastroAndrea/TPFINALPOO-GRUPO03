@@ -52,6 +52,7 @@
             this.cmbMedioDePago.Name = "cmbMedioDePago";
             this.cmbMedioDePago.Size = new System.Drawing.Size(171, 21);
             this.cmbMedioDePago.TabIndex = 17;
+            this.cmbMedioDePago.DropDown += new System.EventHandler(this.cmbMedioDePago_DropDown);
             // 
             // label6
             // 

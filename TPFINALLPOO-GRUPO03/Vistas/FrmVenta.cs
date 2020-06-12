@@ -13,11 +13,15 @@ namespace Vistas
         {
             InitializeComponent();
         }
+
+
         /// <summary>
         /// restringe acceso segun usuario
         /// </summary>
         public void restringirAcceso()
         {
+
+
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
             if (frmLogin != null)
             {
@@ -230,5 +234,7 @@ namespace Vistas
             FrmFormaPago frmFormaPago = new FrmFormaPago();
             frmFormaPago.Show();
         }
+
+
     }
 }

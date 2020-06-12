@@ -293,6 +293,7 @@
             this.cmbClase.Name = "cmbClase";
             this.cmbClase.Size = new System.Drawing.Size(169, 21);
             this.cmbClase.TabIndex = 81;
+            this.cmbClase.DropDown += new System.EventHandler(this.cmbClase_DropDown);
             // 
             // cmbTipo
             // 
@@ -302,6 +303,7 @@
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(169, 21);
             this.cmbTipo.TabIndex = 80;
+            this.cmbTipo.DropDown += new System.EventHandler(this.cmbTipo_DropDown);
             // 
             // FrmAltaVehiculo
             // 

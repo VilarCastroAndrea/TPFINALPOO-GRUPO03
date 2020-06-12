@@ -108,6 +108,7 @@
             this.panelListaVenta.Name = "panelListaVenta";
             this.panelListaVenta.Size = new System.Drawing.Size(778, 437);
             this.panelListaVenta.TabIndex = 30;
+
             // 
             // Informacion
             // 

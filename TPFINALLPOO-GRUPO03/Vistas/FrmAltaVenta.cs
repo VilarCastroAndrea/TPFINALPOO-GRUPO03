@@ -233,5 +233,14 @@ namespace Vistas
             ErrorProvider errorProvider = new ErrorProvider();
             errorProvider.SetError(txtPrecio, "ingrese solo numeros");
         }
+        /// <summary>
+        /// refresca el combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbMedioDePago_DropDown(object sender, EventArgs e)
+        {
+            cargarForma();
+        }
     }
 }

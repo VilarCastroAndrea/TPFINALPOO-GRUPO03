@@ -154,5 +154,24 @@ namespace Vistas
             ErrorProvider errorProvider = new ErrorProvider();
             errorProvider.SetError(txtAPrecio, "Solo se permiten numeros");
         }
+
+        /// <summary>
+        /// refresca el combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbTipo_DropDown(object sender, EventArgs e)
+        {
+            cargarTipo();
+        }
+        /// <summary>
+        /// refresca el combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbClase_DropDown(object sender, EventArgs e)
+        {
+            cargarClase();
+        }
     }
 }
