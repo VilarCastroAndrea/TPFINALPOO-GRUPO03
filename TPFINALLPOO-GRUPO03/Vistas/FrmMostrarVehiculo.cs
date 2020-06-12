@@ -170,8 +170,6 @@ namespace Vistas
         private void txtALinea_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtALinea, "Solo se permiten letras");
 
         }
         /// <summary>
@@ -182,8 +180,6 @@ namespace Vistas
         private void txtAPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtAPrecio, "Solo se permiten letras");
         }
         /// <summary>
         /// refresca el combobox tipo

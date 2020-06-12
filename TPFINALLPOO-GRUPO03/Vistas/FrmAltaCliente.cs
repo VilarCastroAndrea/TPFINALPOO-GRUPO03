@@ -161,9 +161,7 @@ namespace Vistas
         /// <param name="e"></param>
         private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            ErrorProvider errorProvider = new ErrorProvider();
             Validar.soloLetra(e);
-            errorProvider.SetError(txtNombre, "Solo se permiten letras");
         }
         /// <summary>
         /// validacion sono letras
@@ -172,9 +170,7 @@ namespace Vistas
         /// <param name="e"></param>
         private void txtApellido_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            ErrorProvider errorProvider = new ErrorProvider();
             Validar.soloLetra(e);
-            errorProvider.SetError(txtApellido, "Solo se permiten letras");
         }
         /// <summary>
         /// validacion solo numeros
@@ -184,8 +180,7 @@ namespace Vistas
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtTelefono, "Solo se permiten numeros");
+
         }
     }
 }

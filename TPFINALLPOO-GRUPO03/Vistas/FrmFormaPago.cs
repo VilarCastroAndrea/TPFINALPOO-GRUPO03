@@ -152,8 +152,6 @@ namespace Vistas
         private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtNuevo, "Solo se permiten letras");
         }
         /// <summary>
         /// validacion solo letras
@@ -163,8 +161,6 @@ namespace Vistas
         private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtDetalle, "Solo se permiten letras");
         }
     }
 }

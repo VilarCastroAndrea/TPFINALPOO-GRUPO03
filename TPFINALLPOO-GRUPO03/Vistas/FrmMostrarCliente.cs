@@ -93,22 +93,16 @@ namespace Vistas
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtNombre, "Solo se permiten letras");
         }
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtApellido, "Solo se permiten letras");
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtTelefono, "Solo se permiten numeros");
         }
     }
 }

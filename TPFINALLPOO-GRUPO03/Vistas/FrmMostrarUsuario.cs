@@ -168,8 +168,6 @@ namespace Vistas
         private void txtNombreApellidoUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtNombreApellidoUsuario, "ingrese solo numeros");
         }
     }
 }

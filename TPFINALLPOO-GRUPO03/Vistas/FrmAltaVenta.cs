@@ -230,8 +230,6 @@ namespace Vistas
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
-            ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtPrecio, "ingrese solo numeros");
         }
         /// <summary>
         /// refresca el combo
