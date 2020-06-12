@@ -12,7 +12,11 @@ namespace Vistas
         {
             InitializeComponent();
         }
-        //acciones que se realizan al cargar el formulario vehiculo
+        /// <summary>
+        /// acciones que se realizan al cargar el formulario vehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmVehiculo_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarVehiculo>().FirstOrDefault();
@@ -59,12 +63,20 @@ namespace Vistas
             this.panelVehiculo.Tag = fh;
             fh.Show();
         }
-        //carga la tabla con la lista de vehiculos
+        /// <summary>
+        /// carga la tabla con la lista de vehiculos
+        /// </summary>
         public void cargarVehiculos()
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
         }
 
+
+        /// <summary>
+        /// carga los datos del data grid vehiculo al formulario frmMostrarVehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataVehiculo_CurrentCellChanged(object sender, EventArgs e)
         {
             if (this.dataVehiculo.CurrentRow != null)
@@ -88,40 +100,70 @@ namespace Vistas
             }
         }
 
+
+        /// <summary>
+        /// carga en el panel el formulario frmMostrarVehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarVehiculo>().FirstOrDefault();
             FrmMostrarVehiculo frmMostrar = form ?? new FrmMostrarVehiculo();
             AddFormInPanel(frmMostrar);
         }
-        //muestra el formulario de alta vehiculo
+        /// <summary>
+        ///  carga en el panel el formulario frmMostrarVehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAlta_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmAltaVehiculo>().FirstOrDefault();
             FrmAltaVehiculo frmAltaVehi = form ?? new FrmAltaVehiculo();
             AddFormInPanel(frmAltaVehi);
         }
-        //ordena vehiculos por marca
+        /// <summary>
+        /// ordena vehiculos por marca
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbtnMarca_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.ordenarVporMarca();
         }
-        //ordena vehiculos por linea
+        /// <summary>
+        /// ordena vehiculos por linea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbtnLinea_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.ordenarVporLinea();
         }
-        //muestra los vehiculos disponibles
+        /// <summary>
+        /// muestra los vehiculos disponibles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbtnDisponible_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculoDisponible(true);
         }
-        ///muestra los vehiculos NO disponibles
+        /// <summary>
+        /// muestra los vehiculos NO disponibles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbtnVendido_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculoDisponible(false);
         }
-        //busqueda de vehiculos
+        /// <summary>
+        /// busqueda de vehiculos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string buscarvehiculo = txtBuscarVehiculo.Text;
@@ -135,13 +177,21 @@ namespace Vistas
                 dataVehiculo.Refresh();
             }
         }
-
+        /// <summary>
+        /// abre el formulario tipo vehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTipo_Click(object sender, EventArgs e)
         {
             FrmTipoVehiculo frmTipoVehiculo = new FrmTipoVehiculo();
             frmTipoVehiculo.Show();
         }
-
+        /// <summary>
+        /// abre el formulario clase vehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClase_Click(object sender, EventArgs e)
         {
             FrmClaseVehiculo frmClaseVehiculo = new FrmClaseVehiculo();

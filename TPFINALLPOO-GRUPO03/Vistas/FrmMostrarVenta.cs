@@ -13,14 +13,14 @@ namespace Vistas
             InitializeComponent();
         }
         /// <summary>
-        /// 
+        /// anula la venta
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAnular_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere ANULAR la venta";
-            DialogResult dialogResult = MessageBox.Show(msj, "Some Title", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Anular venta?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
@@ -49,7 +49,9 @@ namespace Vistas
                 }
             }
             }
-        //Refrescar la Vista de vehiculos
+        /// <summary>
+        /// Refrescar la Vista de vehiculos
+        /// </summary>
         private void refrescarVistaVehiculo()
         {
             Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
@@ -58,8 +60,10 @@ namespace Vistas
                 ((FrmVehiculo)frmVehiculo).cargarVehiculos();
             }
         }
-        
-        //Actualiza el boton Anular
+
+        /// <summary>
+        /// Actualiza el boton Anular
+        /// </summary>
         public void actualizarBotonAnular()
         {
             if (estado.Text == "ANULADA")

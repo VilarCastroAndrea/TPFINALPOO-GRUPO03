@@ -86,21 +86,21 @@ namespace Vistas
         {
             Validar.soloLetra(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtNombre, "ingrese solo letras");
+            errorProvider.SetError(txtNombre, "Solo se permiten letras");
         }
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtApellido, "ingrese solo letras");
+            errorProvider.SetError(txtApellido, "Solo se permiten letras");
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtTelefono, "ingrese solo numeros");
+            errorProvider.SetError(txtTelefono, "Solo se permiten numeros");
         }
     }
 }

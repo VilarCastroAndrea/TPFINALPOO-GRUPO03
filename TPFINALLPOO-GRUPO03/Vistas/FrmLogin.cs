@@ -113,7 +113,9 @@ namespace Vistas
             }
         }
 
-        //aumenta la variable intentos (necesaria capcha 5 inentos) y lo habilita de ser necesario, borra la contraseña escrita y se para en esa parte
+        /// <summary>
+        /// aumenta la variable intentos (necesaria capcha 5 inentos) y lo habilita de ser necesario, borra la contraseña escrita y se para en esa parte
+        /// </summary>
         private void ingresoIncorrecto()
         {
             intentos++;
@@ -146,7 +148,9 @@ namespace Vistas
             user.Usu_ID = Convert.ToInt32(dt.Rows[0]["ID"].ToString());
         }
 
-        //limpia todos los campos del login y oculta el captcha
+        /// <summary>
+        /// limpia todos los campos del login y oculta el captcha
+        /// </summary>
 
         public void limpiarCampos()
         {

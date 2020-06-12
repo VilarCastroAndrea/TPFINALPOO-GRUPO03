@@ -10,13 +10,21 @@ namespace Vistas
         {
             InitializeComponent();
         }
-        //al cargar el formulario carga todas las formas de pago
+        /// <summary>
+        /// al cargar el formulario carga todas las formas de pago
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmFormaPago_Load(object sender, EventArgs e)
         {
             cargarFormaPago();
         }
 
-        //elimina una forma de pago, si esta no esta siendo utilizada realiza una baja fisica caso contrario una baja lgica
+        /// <summary>
+        /// elimina una forma de pago, si esta no esta siendo utilizada realiza una baja fisica caso contrario una baja logica
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
@@ -37,7 +45,11 @@ namespace Vistas
             }
         }
 
-        //Realiza el alta de Forma de pago con sus respectivas verificaciones
+        /// <summary>
+        /// Realiza el alta de Forma de pago con sus respectivas verificaciones
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAlta_Click(object sender, EventArgs e)
         {
             if (txtNuevo.Text != "")
@@ -59,14 +71,20 @@ namespace Vistas
                 MessageBox.Show("complete todos los campos");
             }
         }
-        //carga las formas de pago
+        /// <summary>
+        /// carga las formas de pago
+        /// </summary>
         private void cargarFormaPago()
         {
             dgwLista.DataSource = TrabajarFormaPago.listarFormaPago();
         }
 
 
-        //cuando se selecciona un elemento de la tabla esta se ve reflejada en los campos del lado derecho para su posible modificacion
+        /// <summary>
+        /// cuando se selecciona un elemento de la tabla esta se ve reflejada en los campos del lado derecho para su posible modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgwLista_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgwLista.CurrentRow != null)
@@ -96,7 +114,11 @@ namespace Vistas
             }
             return true;
         }
-        //modifica una forma de pago
+        /// <summary>
+        /// modifica una forma de pago
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMoficar_Click_1(object sender, EventArgs e)
         {
             if (txtDetalle.Text != "")
@@ -122,19 +144,27 @@ namespace Vistas
             }
         }
 
-        //validaciones
+        /// <summary>
+        /// validacion solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtNuevo, "ingrese solo letras");
+            errorProvider.SetError(txtNuevo, "Solo se permiten letras");
         }
-
+        /// <summary>
+        /// validacion solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtDetalle, "ingrese solo letras");
+            errorProvider.SetError(txtDetalle, "Solo se permiten letras");
         }
     }
 }

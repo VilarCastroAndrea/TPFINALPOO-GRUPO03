@@ -45,6 +45,7 @@
             // 
             // cmbMedioDePago
             // 
+            this.cmbMedioDePago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMedioDePago.FormattingEnabled = true;
             this.cmbMedioDePago.Location = new System.Drawing.Point(20, 175);
             this.cmbMedioDePago.Margin = new System.Windows.Forms.Padding(2);
@@ -115,6 +116,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(171, 20);
             this.txtPrecio.TabIndex = 20;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtDatosVendedor
             // 

@@ -13,7 +13,10 @@ namespace Vistas
             InitializeComponent();
         }
 
-        //Valida que todos los campos tengan contenido
+        /// <summary>
+        /// Valida que todos los campos tengan contenido
+        /// </summary>
+        /// <returns></returns>
         private bool camposCargados()
         {
             if(txtApellido.Text!=""&&txtDireccion.Text!=""&&txtDni.Text!=""&&txtNombre.Text!=""&&txtTelefono.Text!="")
@@ -22,7 +25,11 @@ namespace Vistas
             return false;
         }
 
-        //Realiza el alta de cliente, limpia los campos y muestra un cartel con el resultado
+        /// <summary>
+        /// Realiza el alta de cliente, limpia los campos y muestra un cartel con el resultado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnACliente_Click(object sender, EventArgs e)
         {
             if (camposCargados())
@@ -54,7 +61,10 @@ namespace Vistas
                 MessageBox.Show("Campos incompletos");
             }
         }
-        //carga los datos de los campos y los guarda en una variable cliente
+        /// <summary>
+        /// carga los datos de los campos y los guarda en una variable cliente
+        /// </summary>
+        /// <returns></returns>
         public Cliente cargarDatos()
 
         {
@@ -83,7 +93,11 @@ namespace Vistas
 
             return aCliente;
         }
-        //muestra el mensaje de confirmacion
+        /// <summary>
+        /// muestra el mensaje de confirmacion
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
         public DialogResult mensaje(Cliente cliente)
         {
             DialogResult result = MessageBox.Show("Los Datos ingresados son correctos? " + "\n" +
@@ -95,7 +109,10 @@ namespace Vistas
                                                               "Agregar Cliente", MessageBoxButtons.OKCancel);
             return result;
         }
-        //Valida que todos los campos esten completos
+        /// <summary>
+        /// Valida que todos los campos esten completos
+        /// </summary>
+        /// <returns></returns>
         public bool validarCampos()
         {
             bool respuesta = false;
@@ -106,7 +123,9 @@ namespace Vistas
             return respuesta;
         }
 
-        //limpia todos los campos
+        /// <summary>
+        /// limpia todos los campos
+        /// </summary>
         public void limpiarCampos()
         {
             txtDni.Text = "";
@@ -117,32 +136,49 @@ namespace Vistas
         }
 
 
+        /// <summary>
+        /// validacion solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
             
             Validar.soloNumeros(e);
             txtDni.MaxLength = 9 ;
         }
-
+        /// <summary>
+        /// validacion solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             ErrorProvider errorProvider = new ErrorProvider();
             Validar.soloLetra(e);
-            errorProvider.SetError(txtNombre, "ingrese datos validos");
+            errorProvider.SetError(txtNombre, "Solo se permiten letras");
         }
-
+        /// <summary>
+        /// validacion sono letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtApellido_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             ErrorProvider errorProvider = new ErrorProvider();
             Validar.soloLetra(e);
-            errorProvider.SetError(txtApellido, "ingrese datos validos");
+            errorProvider.SetError(txtApellido, "Solo se permiten letras");
         }
-
+        /// <summary>
+        /// validacion solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtTelefono, "ingrese solo numeros");
+            errorProvider.SetError(txtTelefono, "Solo se permiten numeros");
         }
     }
 }

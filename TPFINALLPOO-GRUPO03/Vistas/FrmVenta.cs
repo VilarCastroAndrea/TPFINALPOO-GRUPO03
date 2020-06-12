@@ -35,7 +35,11 @@ namespace Vistas
                 }
             }
         }
-        //eventos al cargar el formulario venta
+        /// <summary>
+        /// eventos al cargar el formulario venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmVenta_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarVenta>().FirstOrDefault();
@@ -51,13 +55,18 @@ namespace Vistas
             dtpHasta.MaxDate = DateTime.Today;
             contar();
         }
-        //lista las ventas en la tabla
+        /// <summary>
+        /// lista las ventas en la tabla
+        /// </summary>
         public void cargarVentas()
         {
             dataVenta.DataSource = TrabajarVenta.listarVenta();
             contar();
         }
-        //agregar formulario a un panel
+        /// <summary>
+        /// agregar formulario a un panel
+        /// </summary>
+        /// <param name="fh"></param>
         private void AddFormInPanel(Form fh)
         {
             if (this.panelVenta.Controls.Count > 0)
@@ -126,17 +135,29 @@ namespace Vistas
                 cmbMarca.Items.Add(tablaVehiculo.Rows[i][0].ToString());
             }
         }
-
+        /// <summary>
+        /// obtiene el primer valor del combobox (clave primaria)
+        /// </summary>
+        /// <param name="textoCombo"></param>
+        /// <returns></returns>
         private string primerValorCombobox(string textoCombo)
         {
             return textoCombo.Split('|')[0].TrimEnd();
         }
-        //busqueda por clientes
+        /// <summary>
+        /// busqueda por clientes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbClientes_TextUpdate(object sender, EventArgs e)
         {
             cargarBoxCliente(TrabajarCliente.buscarCliente(cmbClientes.Text));
         }
-        //busqueda por marca
+        /// <summary>
+        /// busqueda por marca
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBusacar_Click(object sender, EventArgs e)
         {
             dataVenta.DataSource = TrabajarVenta.buscarVenta(cmbMarca.Text, primerValorCombobox(cmbClientes.Text), dtpDesde.Value, dtpHasta.Value);
@@ -153,7 +174,11 @@ namespace Vistas
             FrmAltaVenta frmAltaVenta = form ?? new FrmAltaVenta();
             AddFormInPanel(frmAltaVenta);
         }
-        //Abre el formulario mostrar venta
+        /// <summary>
+        /// carga en el panel el formulario FrmMostrarVenta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarVenta>().FirstOrDefault();
@@ -195,7 +220,11 @@ namespace Vistas
                 }
             }
         }
-
+        /// <summary>
+        /// abre el formulario forma de pago
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFp_Click(object sender, EventArgs e)
         {
             FrmFormaPago frmFormaPago = new FrmFormaPago();

@@ -55,6 +55,7 @@
             // 
             // cmbRoles
             // 
+            this.cmbRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoles.FormattingEnabled = true;
             this.cmbRoles.Location = new System.Drawing.Point(24, 212);
             this.cmbRoles.Name = "cmbRoles";
@@ -141,7 +142,6 @@
             this.Name = "FrmAltaUsuario";
             this.Text = "FrmAltaUsuario";
             this.Load += new System.EventHandler(this.FrmAltaUsuario_Load);
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -287,6 +287,7 @@
             // 
             // cmbClase
             // 
+            this.cmbClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClase.FormattingEnabled = true;
             this.cmbClase.Location = new System.Drawing.Point(20, 266);
             this.cmbClase.Name = "cmbClase";
@@ -295,6 +296,7 @@
             // 
             // cmbTipo
             // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FormattingEnabled = true;
             this.cmbTipo.Location = new System.Drawing.Point(20, 226);
             this.cmbTipo.Name = "cmbTipo";

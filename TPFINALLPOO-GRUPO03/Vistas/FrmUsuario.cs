@@ -12,7 +12,9 @@ namespace Vistas
         {
             InitializeComponent();
         }
-        //restringe acceso segun el usuario
+        /// <summary>
+        /// restringe acceso segun el usuario
+        /// </summary>
         public void restringirAcceso()
         {
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
@@ -32,7 +34,11 @@ namespace Vistas
                 }
             }
         }
-        //eventos al cargar el formulario
+        /// <summary>
+        /// eventos al cargar el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarUsuario>().FirstOrDefault();
@@ -63,11 +69,14 @@ namespace Vistas
         public void listarUsuario()
         {
             dgvListaUsuarios.DataSource = TrabajarUsuario.listarUsuario();
-            //dgvListaUsuarios..Cells["Contraseña"].Visible = false;
             dgvListaUsuarios.Refresh();
         }
 
-
+        /// <summary>
+        /// toma los datos de la tabla y los carga para ser modificados mas adelante
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvListaUsuarios_CurrentCellChanged_1(object sender, EventArgs e)
         {
             if (dgvListaUsuarios.CurrentRow != null)
@@ -88,6 +97,12 @@ namespace Vistas
             }
         }
 
+
+        /// <summary>
+        /// carga en el panel el formulario frmMostrarUsuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMostrarUsuario_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarUsuario>().FirstOrDefault();
@@ -129,12 +144,23 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// carga en el panel el formulario frmAltaUsuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmAltaUsuario>().FirstOrDefault();
             FrmAltaUsuario frmAltaUsuario = form ?? new FrmAltaUsuario();
             AddFormInPanel(frmAltaUsuario);
         }
+
+        /// <summary>
+        /// realiza la busqueda de usuarios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
@@ -147,7 +173,11 @@ namespace Vistas
                 listarUsuario();
             }
         }
-
+        /// <summary>
+        /// esconde la contraseña de la tabla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvListaUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (this.dgvListaUsuarios.Columns[e.ColumnIndex].Name == "Contraseña")

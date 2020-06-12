@@ -12,7 +12,11 @@ namespace Vistas
         {
             InitializeComponent();
         }
-        //al cargar el formulario pone en el panel el formulario mostrar cliente y carga los clientes
+        /// <summary>
+        /// al cargar el formulario pone en el panel el formulario mostrar cliente y carga los clientes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmCliente_Load(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarCliente>().FirstOrDefault();
@@ -21,7 +25,9 @@ namespace Vistas
             cargarCliente();
         }
 
-        //restringe el acceso al usuario tipo vendedor
+        /// <summary>
+        /// restringe el acceso al usuario tipo vendedor
+        /// </summary>
         public void restringirAcceso()
         {
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
@@ -65,7 +71,11 @@ namespace Vistas
         }
 
 
-        //carga los datos de la table con los clientes en el formulario frmMostrarCliente
+        /// <summary>
+        /// carga los datos de la table con los clientes en el formulario frmMostrarCliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataCliente_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dataCliente.CurrentRow != null)
@@ -85,14 +95,22 @@ namespace Vistas
         }
 
 
-        //realiza el orden de clientes por apellido
+        /// <summary>
+        /// realiza el orden de clientes por apellido
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOrdenApellido_Click(object sender, EventArgs e)
         {
             dataCliente.DataSource = TrabajarCliente.ListaClientesPorApellido();
             dataCliente.Refresh();
         }
 
-        //realiza la busqueda de cliente en la bd
+        /// <summary>
+        /// realiza la busqueda de cliente en la bd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (txtBuscarC.Text != "")
@@ -105,7 +123,11 @@ namespace Vistas
             }
         }
 
-        //carga el formulario frmMostrarCliente
+        /// <summary>
+        /// carga el formulario frmMostrarCliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmMostrarCliente>().FirstOrDefault();
@@ -113,7 +135,11 @@ namespace Vistas
             AddFormInPanel(frmMostrarCliente);
         }
 
-        //Carga el formulario frmAltaCliente
+        /// <summary>
+        /// Carga el formulario frmAltaCliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var form = Application.OpenForms.OfType<FrmAltaCliente>().FirstOrDefault();

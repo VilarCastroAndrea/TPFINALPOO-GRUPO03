@@ -13,13 +13,20 @@ namespace Vistas
             InitializeComponent();
         }
 
-        //Al cargar el formulario realiza la carga de roles disponibles
+        /// <summary>
+        /// Al cargar el formulario realiza la carga de roles disponibles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAltaUsuario_Load(object sender, EventArgs e)
         {
             cargarRol();
         }
 
-        //Determina que el usuario alla llenado todos los campos y que no existan campos vacios
+        /// <summary>
+        /// Determina que el usuario alla llenado todos los campos y que no existan campos vacios
+        /// </summary>
+        /// <returns></returns>
         private bool camposVacios()
         {
             if (txtNombreApellidoUsuario.Text != "" && txtNombreUsuario.Text != "" && txtPass.Text != "")
@@ -28,7 +35,11 @@ namespace Vistas
             return false;
         }
 
-        //agrega un usuario a la base de datos si cumple con las condiciones necesarias
+        /// <summary>
+        /// agrega un usuario a la base de datos si cumple con las condiciones necesarias
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregarUsuario_Click(object sender, EventArgs e)
         {
             if (camposVacios())
@@ -72,7 +83,10 @@ namespace Vistas
             }
         }
 
-        //carga los datos de los campos a una variable del tipo usuario
+        /// <summary>
+        /// Carga los datos de los campos a una variable del tipo usuario
+        /// </summary>
+        /// <returns></returns>
         public Usuario cargarDatos()
         {
             Usuario nuevoUsu = new Usuario();
@@ -91,7 +105,11 @@ namespace Vistas
             return nuevoUsu;
         }
 
-        //mensaje de confirmacion para el alta de cliente
+        /// <summary>
+        /// mensaje de confirmacion para el alta de cliente
+        /// </summary>
+        /// <param name="nuevoUsu"></param>
+        /// <returns></returns>
         public DialogResult mensaje(Usuario nuevoUsu)
         {
             DialogResult result = MessageBox.Show("Los Datos ingresados son correctos? " + "\n" +
@@ -103,7 +121,9 @@ namespace Vistas
             return result;
         }
 
-        //Carga la lista de roles
+        /// <summary>
+        /// Carga la lista de roles
+        /// </summary>
         public void cargarRol()
         {
             cmbRoles.DisplayMember = "";
@@ -140,7 +160,7 @@ namespace Vistas
         {
             Validar.soloLetra(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtNombreApellidoUsuario, "ingrese solo letras");
+            errorProvider.SetError(txtNombreApellidoUsuario, "Solo se permiten letras");
         }
     }
 }

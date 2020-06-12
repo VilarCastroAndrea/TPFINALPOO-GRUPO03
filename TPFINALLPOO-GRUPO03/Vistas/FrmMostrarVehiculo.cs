@@ -12,14 +12,21 @@ namespace Vistas
         {
             InitializeComponent();
         }
-        //carga los tipos y clases de vehiculos
+        /// <summary>
+        /// carga los tipos y clases de vehiculos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmMostrarVehiculo_Load(object sender, EventArgs e)
         {
             cargarTipo();
             cargarClase();
         }
 
-        //determina la ubicacion del check al traerlo de un formulario anterior
+        /// <summary>
+        /// determina la ubicacion del check al traerlo de un formulario anterior
+        /// </summary>
+        /// <param name="gps"></param>
         public void determinarVistaGps(bool gps)
         {
             if (gps)
@@ -55,7 +62,10 @@ namespace Vistas
 
 
 
-        //determina si fue seleccionado el check de posee o no un gps
+        /// <summary>
+        /// determina si fue seleccionado el check de posee o no un gps
+        /// </summary>
+        /// <returns></returns>
         private bool poseeGPS()
         {
             if (sGps.Checked)
@@ -66,7 +76,11 @@ namespace Vistas
         }
 
 
-        //MODIFICCA EL VEHICULO
+        /// <summary>
+        /// MODIFICA EL VEHICULO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMVehiculo_Click(object sender, System.EventArgs e)
         {
             Vehiculo v = new Vehiculo();
@@ -92,7 +106,11 @@ namespace Vistas
         }
 
 
-        //Elimina el vehiculo
+        /// <summary>
+        /// Elimina el vehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEVehiculo_Click(object sender, System.EventArgs e)
         {
             Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
@@ -113,14 +131,18 @@ namespace Vistas
             }
         }
 
-        //carga tipos de vehiculo en el comboBox
+        /// <summary>
+        /// carga tipos de vehiculo en el comboBox
+        /// </summary>
         public void cargarTipo()
         {
             cmbTipo.DisplayMember = "Descripcion";
             cmbTipo.ValueMember = "ID";
             cmbTipo.DataSource = TrabajarTipoVehiculo.listarTipoVehDisponible();
         }
-        //carga clase de vehiculos en el comboBox
+        /// <summary>
+        /// carga clase de vehiculos en el comboBox
+        /// </summary>
         public void cargarClase()
         {
             cmbClase.DisplayMember = "Descripcion";

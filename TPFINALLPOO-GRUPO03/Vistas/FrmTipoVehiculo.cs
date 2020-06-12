@@ -10,7 +10,11 @@ namespace Vistas
         {
             InitializeComponent();
         }
-        //evento al cargar el formulario
+        /// <summary>
+        /// evento al cargar el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmTipoVehiculo_Load(object sender, System.EventArgs e)
         {
             cargarTipo();
@@ -68,7 +72,11 @@ namespace Vistas
                 MessageBox.Show("Eliminado");
             }
         }
-        //Agrega un tipo de vehiculo
+        /// <summary>
+        /// Agrega un tipo de vehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAlta_Click(object sender, System.EventArgs e)
         {
             if (txtNuevo.Text != "")
@@ -90,7 +98,9 @@ namespace Vistas
                 MessageBox.Show("complete todos los campos");
             }
         }
-        //carga a la tabla la lista de tipos de vehiculos
+        /// <summary>
+        /// carga a la tabla la lista de tipos de vehiculos
+        /// </summary>
         private void cargarTipo()
         {
             dgwLista.DataSource = TrabajarTipoVehiculo.listarTipoVehiculo();
@@ -104,6 +114,30 @@ namespace Vistas
                 checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
             }
         }
+
+
+
+
+        /// <summary>
+        /// valida para agregar un nuevo tipo de vehiculo
+        /// </summary>
+        /// <param name="tipo"></param>
+        private bool validarTipoVehiculo(string tipo)
+        {
+            string detalle;
+            foreach (DataGridViewRow fila in dgwLista.Rows)
+            {
+                detalle = Convert.ToString(fila.Cells["Descripcion"].Value);
+                if (detalle.Equals(tipo))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+
         /// <summary>
         /// VALIDACIONES
         /// </summary>
@@ -124,23 +158,6 @@ namespace Vistas
         }
 
 
-        /// <summary>
-        /// valida para agregar un nuevo tipo de vehiculo
-        /// </summary>
-        /// <param name="tipo"></param>
-        private bool validarTipoVehiculo(string tipo)
-        {
-            string detalle;
-            foreach (DataGridViewRow fila in dgwLista.Rows)
-            {
-                detalle = Convert.ToString(fila.Cells["Descripcion"].Value);
-                if (detalle.Equals(tipo))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
 
     }
 }

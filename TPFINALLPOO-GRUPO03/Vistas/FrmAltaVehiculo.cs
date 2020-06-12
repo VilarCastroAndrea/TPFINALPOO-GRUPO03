@@ -12,13 +12,20 @@ namespace Vistas
         {
             InitializeComponent();
         }
-        //al cargar el formulario carga todos los tipos y las clases
+        /// <summary>
+        /// al cargar el formulario carga todos los tipos y las clases
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAltaVehiculo_Load(object sender, EventArgs e)
         {
             cargarTipo();
             cargarClase();
         }
-        //Determina si posee gps
+        /// <summary>
+        /// Determina si posee gps
+        /// </summary>
+        /// <returns></returns>
         private bool poseeGPS()
         {
             if (sGps.Checked)
@@ -27,7 +34,11 @@ namespace Vistas
             }
             return false;
         }
-        // Realiza el alta de vehiculo
+        /// <summary>
+        ///  Realiza el alta de vehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAltaVeh_Click(object sender, EventArgs e)
         {
 
@@ -100,14 +111,18 @@ namespace Vistas
             }
         }
 
-        //carga los tipos de vehiculos
+        /// <summary>
+        /// carga los tipos de vehiculos
+        /// </summary>
         public void cargarTipo()
         {
             cmbTipo.DisplayMember = "Descripcion";
             cmbTipo.ValueMember = "ID";
             cmbTipo.DataSource = TrabajarTipoVehiculo.listarTipoVehDisponible();
         }
-        //carga las clases de vehiculo
+        /// <summary>
+        /// carga las clases de vehiculo
+        /// </summary>
         public void cargarClase()
         {
             cmbClase.DisplayMember = "Descripcion";
@@ -117,19 +132,27 @@ namespace Vistas
 
 
 
-        //validacion matricula maxima de 7
+        /// <summary>
+        /// validacion matricula maxima de 7
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtAMatricula.MaxLength = 7;
                    
          }
 
-        //Valida el que el campo precio solo tenga numeros
+        /// <summary>
+        /// Valida el que el campo precio solo tenga numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloNumeros(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtAPrecio, "ingrese solo numeros");
+            errorProvider.SetError(txtAPrecio, "Solo se permiten numeros");
         }
     }
 }

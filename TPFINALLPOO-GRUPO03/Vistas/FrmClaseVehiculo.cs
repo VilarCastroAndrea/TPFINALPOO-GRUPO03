@@ -10,12 +10,20 @@ namespace Vistas
         {
             InitializeComponent();
         }
-        //carga las clases de vehiculos
+        /// <summary>
+        /// carga las clases de vehiculos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmClaseVehiculo_Load(object sender, EventArgs e)
         {
             cargarClasesV();
         }
-        //modifica la clase seleccionada
+        /// <summary>
+        /// modifica la clase seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMoficar_Click(object sender, EventArgs e)
         {
             if (txtDetalle.Text != "")
@@ -27,12 +35,12 @@ namespace Vistas
                     cv.Cv_Descripcion = txtDetalle.Text;
                     cv.Cv_Disponible = checkDisponible.Checked;
                     TrabajarClaseVehiculo.modificacionClase(cv);
-                    MessageBox.Show("Clase vehiculo Modificado");
+                    MessageBox.Show("Clase de vehiculo Modificado");
                     cargarClasesV();
                 }
                 else
                 {
-                    MessageBox.Show("Clase vehiculo ya exsite");
+                    MessageBox.Show("Clase de vehiculo ya exsite");
                 }
             }
             else
@@ -40,7 +48,11 @@ namespace Vistas
                 MessageBox.Show("Complete todos los campos");
             }
         }
-        //Elimina fisicamente la clase si no esta relacionada caso contrario realiza eliminacion logica
+        /// <summary>
+        /// Elimina fisicamente la clase si no esta relacionada caso contrario realiza eliminacion logica
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
@@ -60,7 +72,11 @@ namespace Vistas
                 MessageBox.Show("Eliminado");
             }
         }
-        //realiza la alta de una nueva clase
+        /// <summary>
+        /// realiza la alta de una nueva clase
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAlta_Click(object sender, EventArgs e)
         {
             if (txtNuevo.Text != "")
@@ -82,12 +98,19 @@ namespace Vistas
                 MessageBox.Show("Complete todos los campos");
             }
         }
-
+        /// <summary>
+        /// carga las clases de vehiculo
+        /// </summary>
         public void cargarClasesV()
         {
             dgwLista.DataSource = TrabajarClaseVehiculo.listarClaseVehiculo();
         }
 
+        /// <summary>
+        /// al seleccionar elementos del datagrid este se pasa a los campos a la derecha
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgwLista_CurrentCellChanged(object sender, EventArgs e)
         {
             if (dgwLista.CurrentRow != null)
@@ -115,19 +138,27 @@ namespace Vistas
             }
             return true;
         }
-
+        /// <summary>
+        /// validacion solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtDetalle, "ingrese solo letras");
+            errorProvider.SetError(txtDetalle, "Solo se permiten letras");
         }
-
+        /// <summary>
+        /// validacion solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
             ErrorProvider errorProvider = new ErrorProvider();
-            errorProvider.SetError(txtNuevo, "ingrese solo letras");
+            errorProvider.SetError(txtNuevo, "Solo se permiten letras");
         }
     }
 }

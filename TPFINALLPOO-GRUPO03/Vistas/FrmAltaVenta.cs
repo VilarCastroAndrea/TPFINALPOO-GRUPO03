@@ -13,7 +13,11 @@ namespace Vistas
             InitializeComponent();
         }
 
-        //al cargar el formulario carga automaticamente los box 
+        /// <summary>
+        /// al cargar el formulario carga automaticamente los box 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAltaVenta_Load(object sender, EventArgs e)
         {
             dtpFecha.MinDate = new DateTime(2010, 1, 1);
@@ -28,7 +32,10 @@ namespace Vistas
             cargarForma();
         }
 
-        //carga los combobox vehiculo
+        /// <summary>
+        /// carga los combobox vehiculo
+        /// </summary>
+        /// <param name="tablaVehiculo"></param>
         private void cargarBoxVehiculo(DataTable tablaVehiculo)
         {
             cmbVehiculos.Items.Clear();
@@ -42,7 +49,10 @@ namespace Vistas
                     + " | " + tablaVehiculo.Rows[i]["Clase"].ToString() + " | " + tablaVehiculo.Rows[i]["Precio"].ToString());
             }
         }
-        //carga el combobox de cliente
+        /// <summary>
+        /// carga el combobox de cliente
+        /// </summary>
+        /// <param name="tablaCliente"></param>
         private void cargarBoxCliente(DataTable tablaCliente)
         {
             cmbClientesDNI.Items.Clear();
@@ -55,7 +65,11 @@ namespace Vistas
         }
 
 
-        //registra la venta en la base de datos
+        /// <summary>
+        /// Registra la venta en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVender_Click(object sender, EventArgs e)
         {
             int forma = Convert.ToInt32(cmbMedioDePago.SelectedValue);
@@ -92,7 +106,9 @@ namespace Vistas
             }
         }
 
-        //carga el combo medio de pago
+        /// <summary>
+        /// carga el combo medio de pago
+        /// </summary>
         public void cargarForma()
         {
             cmbMedioDePago.DisplayMember = "Descripcion";
@@ -100,7 +116,10 @@ namespace Vistas
             cmbMedioDePago.DataSource = TrabajarFormaPago.listarFormaPagoDisponible();
         }
 
-        //valida los campos
+        /// <summary>
+        /// valida los campos
+        /// </summary>
+        /// <returns></returns>
         private bool validarCampos()
         {
             if (cmbClientesDNI.Text != "" && cmbClientesDNI.Text.Split('|').Length == 3)
@@ -120,14 +139,20 @@ namespace Vistas
             return false;
         }
 
-        //retorna el primer valor del combobox
+        /// <summary>
+        /// retorna el primer valor del combobox
+        /// </summary>
+        /// <param name="textoCombo"></param>
+        /// <returns></returns>
         private string primerValorCombobox(string textoCombo)
         {
             return textoCombo.Split('|')[0].TrimEnd();
         }
 
 
-        //limpia todos los campos del formulario
+        /// <summary>
+        /// limpia todos los campos del formulario
+        /// </summary>
         private void limpiarCampos()
         {
             cmbClientesDNI.Text = "";
@@ -141,22 +166,44 @@ namespace Vistas
 
 
 
-        //validaciones
+        /// <summary>
+        /// carga la lista de clientes disponibles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbClientesDNI_DropDown(object sender, EventArgs e)
         {
             cargarBoxCliente(TrabajarCliente.ListaClienteD(true));
         }
 
+
+
+        /// <summary>
+        /// busca los clientes mientras el usuario escribe en el combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbClientesDNI_TextUpdate(object sender, EventArgs e)
         {
             cargarBoxCliente(TrabajarCliente.buscarClienteDisponible(cmbClientesDNI.Text));
         }
 
+
+        /// <summary>
+        /// carga los vehiculos disponibles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbVehiculos_DropDown(object sender, EventArgs e)
         {
             cargarBoxVehiculo(TrabajarVehiculo.listarVehiculoDisponible(true));
         }
 
+        /// <summary>
+        /// pone un precio por defecto en el campo precio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] cadena = cmbVehiculos.Text.Split('|');
@@ -164,10 +211,27 @@ namespace Vistas
             txtPrecio.Text = txtPrecio.Text.TrimStart();
         }
 
+        /// <summary>
+        /// mientras que se escribe los datos del vehiculo se carga automaticamente el combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbVehiculos_TextUpdate(object sender, EventArgs e)
         {
             cargarBoxVehiculo(TrabajarVehiculo.buscarVehiculo(cmbVehiculos.Text));
         }
 
+
+        /// <summary>
+        /// validacion precio solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
+            ErrorProvider errorProvider = new ErrorProvider();
+            errorProvider.SetError(txtPrecio, "ingrese solo numeros");
+        }
     }
 }
