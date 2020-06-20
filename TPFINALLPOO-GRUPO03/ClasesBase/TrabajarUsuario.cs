@@ -133,7 +133,7 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Buscar Usuario especifico con stored procedure
+        /// Buscar Usuario parecidos con stored procedure
         /// </summary>
         /// <param name="nombreUsuario"></param>
         /// <returns></returns>
@@ -145,6 +145,26 @@ namespace ClasesBase
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             cmd.Parameters.AddWithValue("@nombreUsuario", "%" + nombreUsuario + "%");
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            return dt;
+        }
+
+
+        /// <summary>
+        /// Buscar Usuario especifico con stored procedure
+        /// </summary>
+        /// <param name="nombreUsuario"></param>
+        /// <returns></returns>
+        public static DataTable buscarUsuarioPreciso(String nombreUsuario)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.agenciaConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario );
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);

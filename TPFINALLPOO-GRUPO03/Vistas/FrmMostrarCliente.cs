@@ -108,5 +108,25 @@ namespace Vistas
         {
             Validar.soloNumeros(e);
         }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMCliente.Enabled = true;
+        }
+
+        private void txtApellido_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMCliente.Enabled = true;
+        }
+
+        private void txtDireccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMCliente.Enabled = true;
+        }
+
+        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMCliente.Enabled = true;
+        }
     }
 }

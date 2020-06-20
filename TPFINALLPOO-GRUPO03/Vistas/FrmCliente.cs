@@ -92,6 +92,7 @@ namespace Vistas
                     ((FrmMostrarCliente)frmMostrarCliente).txtDireccion.Text = dataCliente.CurrentRow.Cells["Direccion"].Value.ToString();
                     ((FrmMostrarCliente)frmMostrarCliente).txtTelefono.Text = dataCliente.CurrentRow.Cells["Telefono"].Value.ToString();
                     ((FrmMostrarCliente)frmMostrarCliente).disponibilidadDelCliente(Convert.ToBoolean(dataCliente.CurrentRow.Cells["Disponible"].Value));
+                    ((FrmMostrarCliente)frmMostrarCliente).btnMCliente.Enabled = false;
                 }
             }
         }

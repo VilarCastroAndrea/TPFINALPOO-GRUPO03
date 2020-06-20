@@ -46,7 +46,7 @@ namespace Vistas
             {
                 Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
                 DataTable userX = new DataTable();
-                userX = TrabajarUsuario.buscarUsuario(txtNombreUsuario.Text);
+                userX = TrabajarUsuario.buscarUsuarioPreciso(txtNombreUsuario.Text);
                 if (userX.Rows.Count == 0)
                 {
                     if (mensaje(cargarDatos()) == DialogResult.OK)
