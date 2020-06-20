@@ -135,6 +135,7 @@ namespace Vistas
                         TrabajarVehiculo.eliminarVehiculo(txtAMatricula.Text);
                         MessageBox.Show("Vehiculo Eliminado");
                         ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                        ((FrmVehiculo)frmVehiculo).contar();
                     }
                     catch
                     {

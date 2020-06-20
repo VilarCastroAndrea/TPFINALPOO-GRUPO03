@@ -46,6 +46,7 @@ namespace Vistas
                         {
                             TrabajarCliente.altaCliente(cliente);
                             ((FrmCliente)frmCliente).cargarCliente();
+                            ((FrmCliente)frmCliente).contar();
                             limpiarCampos();
                         }
                         else

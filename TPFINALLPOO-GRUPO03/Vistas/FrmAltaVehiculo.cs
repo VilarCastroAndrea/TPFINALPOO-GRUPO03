@@ -89,6 +89,7 @@ namespace Vistas
                         {
                             ((FrmVehiculo)frmListaVehiculo).dataVehiculo.DataSource = null;
                             ((FrmVehiculo)frmListaVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                            ((FrmVehiculo)frmListaVehiculo).contar();
                         }
                     }
                     else

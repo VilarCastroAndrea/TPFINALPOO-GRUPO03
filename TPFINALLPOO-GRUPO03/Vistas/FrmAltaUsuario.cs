@@ -55,6 +55,7 @@ namespace Vistas
                         {
                             TrabajarUsuario.altaUsuario(cargarDatos());
                             ((FrmUsuario)frmUsuario).listarUsuario();
+                            ((FrmUsuario)frmUsuario).contar();
                             limpiarCampos();
                         }
                         catch

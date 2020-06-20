@@ -73,13 +73,17 @@ namespace Vistas
                     {
                         TrabajarCliente.bajaClienteFisica(txtDni.Text);
                         MessageBox.Show("Cliente Eliminado");
-                        ((FrmCliente)frmCliente).cargarCliente();
                     }
                     catch
                     {
                         TrabajarCliente.bajaCliente(txtDni.Text, false);
                         MessageBox.Show("Cliente Eliminado");
+                        
+                    }
+                    finally
+                    {
                         ((FrmCliente)frmCliente).cargarCliente();
+                        ((FrmCliente)frmCliente).contar();
                     }
 
                 }

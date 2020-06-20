@@ -105,21 +105,29 @@
             // 
             // txtContra
             // 
+            this.txtContra.BackColor = System.Drawing.SystemColors.Window;
+            this.txtContra.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtContra.Location = new System.Drawing.Point(46, 214);
             this.txtContra.Name = "txtContra";
             this.txtContra.PasswordChar = '*';
             this.txtContra.Size = new System.Drawing.Size(177, 20);
             this.txtContra.TabIndex = 16;
-            this.txtContra.UseSystemPasswordChar = true;
+            this.txtContra.Text = "Password";
+            this.txtContra.Enter += new System.EventHandler(this.placeHolderPass_Enter);
+            this.txtContra.Leave += new System.EventHandler(this.placeHolderPass_Leave);
             // 
             // txtUsuario
             // 
             this.txtUsuario.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUsuario.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtUsuario.Location = new System.Drawing.Point(46, 173);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(177, 20);
             this.txtUsuario.TabIndex = 15;
+            this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.Enter += new System.EventHandler(this.placeholderUsuario_Enter);
+            this.txtUsuario.Leave += new System.EventHandler(this.placeHolderUsuario_Leave);
             // 
             // btnIngresar
             // 
