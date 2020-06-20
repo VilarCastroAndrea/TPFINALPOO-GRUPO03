@@ -311,9 +311,8 @@
             this.dni.ForeColor = System.Drawing.Color.White;
             this.dni.Location = new System.Drawing.Point(50, 25);
             this.dni.Name = "dni";
-            this.dni.Size = new System.Drawing.Size(41, 13);
+            this.dni.Size = new System.Drawing.Size(0, 13);
             this.dni.TabIndex = 24;
-            this.dni.Text = "label12";
             // 
             // apellido
             // 
@@ -322,9 +321,8 @@
             this.apellido.ForeColor = System.Drawing.Color.White;
             this.apellido.Location = new System.Drawing.Point(67, 38);
             this.apellido.Name = "apellido";
-            this.apellido.Size = new System.Drawing.Size(41, 13);
+            this.apellido.Size = new System.Drawing.Size(0, 13);
             this.apellido.TabIndex = 25;
-            this.apellido.Text = "label12";
             // 
             // nombre
             // 
@@ -333,9 +331,8 @@
             this.nombre.ForeColor = System.Drawing.Color.White;
             this.nombre.Location = new System.Drawing.Point(67, 51);
             this.nombre.Name = "nombre";
-            this.nombre.Size = new System.Drawing.Size(41, 13);
+            this.nombre.Size = new System.Drawing.Size(0, 13);
             this.nombre.TabIndex = 26;
-            this.nombre.Text = "label12";
             // 
             // telefono
             // 
@@ -344,9 +341,8 @@
             this.telefono.ForeColor = System.Drawing.Color.White;
             this.telefono.Location = new System.Drawing.Point(74, 64);
             this.telefono.Name = "telefono";
-            this.telefono.Size = new System.Drawing.Size(41, 13);
+            this.telefono.Size = new System.Drawing.Size(0, 13);
             this.telefono.TabIndex = 27;
-            this.telefono.Text = "label12";
             // 
             // matricula
             // 
@@ -355,9 +351,8 @@
             this.matricula.ForeColor = System.Drawing.Color.White;
             this.matricula.Location = new System.Drawing.Point(74, 103);
             this.matricula.Name = "matricula";
-            this.matricula.Size = new System.Drawing.Size(41, 13);
+            this.matricula.Size = new System.Drawing.Size(0, 13);
             this.matricula.TabIndex = 28;
-            this.matricula.Text = "label12";
             // 
             // marca
             // 
@@ -366,9 +361,8 @@
             this.marca.ForeColor = System.Drawing.Color.White;
             this.marca.Location = new System.Drawing.Point(60, 116);
             this.marca.Name = "marca";
-            this.marca.Size = new System.Drawing.Size(41, 13);
+            this.marca.Size = new System.Drawing.Size(0, 13);
             this.marca.TabIndex = 29;
-            this.marca.Text = "label12";
             // 
             // linea
             // 
@@ -377,9 +371,8 @@
             this.linea.ForeColor = System.Drawing.Color.White;
             this.linea.Location = new System.Drawing.Point(55, 129);
             this.linea.Name = "linea";
-            this.linea.Size = new System.Drawing.Size(41, 13);
+            this.linea.Size = new System.Drawing.Size(0, 13);
             this.linea.TabIndex = 30;
-            this.linea.Text = "label12";
             // 
             // modelo
             // 
@@ -388,9 +381,8 @@
             this.modelo.ForeColor = System.Drawing.Color.White;
             this.modelo.Location = new System.Drawing.Point(63, 142);
             this.modelo.Name = "modelo";
-            this.modelo.Size = new System.Drawing.Size(41, 13);
+            this.modelo.Size = new System.Drawing.Size(0, 13);
             this.modelo.TabIndex = 31;
-            this.modelo.Text = "label12";
             // 
             // color
             // 
@@ -399,9 +391,8 @@
             this.color.ForeColor = System.Drawing.Color.White;
             this.color.Location = new System.Drawing.Point(150, 142);
             this.color.Name = "color";
-            this.color.Size = new System.Drawing.Size(41, 13);
+            this.color.Size = new System.Drawing.Size(0, 13);
             this.color.TabIndex = 32;
-            this.color.Text = "label12";
             // 
             // tipo
             // 
@@ -410,9 +401,8 @@
             this.tipo.ForeColor = System.Drawing.Color.White;
             this.tipo.Location = new System.Drawing.Point(95, 155);
             this.tipo.Name = "tipo";
-            this.tipo.Size = new System.Drawing.Size(41, 13);
+            this.tipo.Size = new System.Drawing.Size(0, 13);
             this.tipo.TabIndex = 33;
-            this.tipo.Text = "label12";
             // 
             // clase
             // 
@@ -421,9 +411,8 @@
             this.clase.ForeColor = System.Drawing.Color.White;
             this.clase.Location = new System.Drawing.Point(100, 168);
             this.clase.Name = "clase";
-            this.clase.Size = new System.Drawing.Size(41, 13);
+            this.clase.Size = new System.Drawing.Size(0, 13);
             this.clase.TabIndex = 34;
-            this.clase.Text = "label12";
             // 
             // aynv
             // 
@@ -432,9 +421,8 @@
             this.aynv.ForeColor = System.Drawing.Color.White;
             this.aynv.Location = new System.Drawing.Point(55, 206);
             this.aynv.Name = "aynv";
-            this.aynv.Size = new System.Drawing.Size(41, 13);
+            this.aynv.Size = new System.Drawing.Size(0, 13);
             this.aynv.TabIndex = 35;
-            this.aynv.Text = "label12";
             // 
             // fecha
             // 
@@ -443,9 +431,8 @@
             this.fecha.ForeColor = System.Drawing.Color.White;
             this.fecha.Location = new System.Drawing.Point(60, 246);
             this.fecha.Name = "fecha";
-            this.fecha.Size = new System.Drawing.Size(41, 13);
+            this.fecha.Size = new System.Drawing.Size(0, 13);
             this.fecha.TabIndex = 36;
-            this.fecha.Text = "label12";
             // 
             // forma
             // 
@@ -454,9 +441,8 @@
             this.forma.ForeColor = System.Drawing.Color.White;
             this.forma.Location = new System.Drawing.Point(100, 259);
             this.forma.Name = "forma";
-            this.forma.Size = new System.Drawing.Size(41, 13);
+            this.forma.Size = new System.Drawing.Size(0, 13);
             this.forma.TabIndex = 37;
-            this.forma.Text = "label12";
             // 
             // precio
             // 
@@ -465,9 +451,8 @@
             this.precio.ForeColor = System.Drawing.Color.White;
             this.precio.Location = new System.Drawing.Point(81, 272);
             this.precio.Name = "precio";
-            this.precio.Size = new System.Drawing.Size(41, 13);
+            this.precio.Size = new System.Drawing.Size(0, 13);
             this.precio.TabIndex = 38;
-            this.precio.Text = "label12";
             // 
             // estado
             // 
@@ -476,9 +461,8 @@
             this.estado.ForeColor = System.Drawing.Color.White;
             this.estado.Location = new System.Drawing.Point(119, 285);
             this.estado.Name = "estado";
-            this.estado.Size = new System.Drawing.Size(41, 13);
+            this.estado.Size = new System.Drawing.Size(0, 13);
             this.estado.TabIndex = 39;
-            this.estado.Text = "label12";
             // 
             // id
             // 
@@ -487,9 +471,8 @@
             this.id.ForeColor = System.Drawing.Color.White;
             this.id.Location = new System.Drawing.Point(153, 8);
             this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(41, 13);
+            this.id.Size = new System.Drawing.Size(0, 13);
             this.id.TabIndex = 40;
-            this.id.Text = "label12";
             this.id.Visible = false;
             // 
             // FrmMostrarVenta
