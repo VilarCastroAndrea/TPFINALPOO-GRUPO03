@@ -74,6 +74,7 @@ namespace Vistas
                     {
                         Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
                         ((FrmUsuario)frmUsuario).listarUsuario();
+                        ((FrmUsuario)frmUsuario).contar();
                         MessageBox.Show("Usuario Eliminado");
                     }
                 }
@@ -105,7 +106,8 @@ namespace Vistas
                     {
                         Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
                         ((FrmUsuario)frmUsuario).listarUsuario();
-                        MessageBox.Show("Usuario Eliminado");
+                    ((FrmUsuario)frmUsuario).contar();
+                    MessageBox.Show("Usuario Eliminado");
                     }
                 }
                 else
@@ -138,6 +140,7 @@ namespace Vistas
                 usuario.Rol_Codigo = cmbRoles.Text;
                 TrabajarUsuario.modificarUsuario(usuario);
                 ((FrmUsuario)frmUsuario).listarUsuario();
+                ((FrmUsuario)frmUsuario).contar();
                 MessageBox.Show("Usuario Modificado");
             }
         }

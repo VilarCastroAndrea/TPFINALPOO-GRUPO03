@@ -215,7 +215,7 @@ namespace Vistas
         /// <summary>
         /// cuenta vehiculos: vendidos.disponibles,total
         /// </summary>
-        private void contar()
+        public void contar()
         {
             dataVehiculo.Refresh();
             int t = dataVehiculo.Rows.Count;

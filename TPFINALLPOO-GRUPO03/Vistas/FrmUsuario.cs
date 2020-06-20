@@ -194,7 +194,7 @@ namespace Vistas
         /// cuenta la cantidad de usuarios para mostrar en informacion
         /// </summary>
 
-        private void contar()
+        public void contar()
         {
             int t = dgvListaUsuarios.Rows.Count;
             lblUsuarios.Text = Convert.ToString(t);

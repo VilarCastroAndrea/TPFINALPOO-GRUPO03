@@ -152,7 +152,7 @@ namespace Vistas
         /// <summary>
         /// cuenta vehiculos: vendidos.disponibles,total
         /// </summary>
-        private void contar()
+        public void contar()
         {
             int t = dataCliente.Rows.Count;
             lblCliente.Text = Convert.ToString(t);
