@@ -60,6 +60,7 @@
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(164, 20);
             this.txtDetalle.TabIndex = 13;
+            this.txtDetalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDetalle_KeyDown);
             this.txtDetalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDetalle_KeyPress);
             // 
             // label2
@@ -170,6 +171,7 @@
             this.checkDisponible.TabIndex = 15;
             this.checkDisponible.Text = "Disponible";
             this.checkDisponible.UseVisualStyleBackColor = false;
+            this.checkDisponible.CheckedChanged += new System.EventHandler(this.checkDisponible_CheckedChanged);
             // 
             // FrmTipoVehiculo
             // 

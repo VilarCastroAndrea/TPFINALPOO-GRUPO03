@@ -130,6 +130,7 @@ namespace Vistas
             {
                 txtDetalle.Text = dgwLista.CurrentRow.Cells["Descripcion"].Value.ToString();
                 checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
+                btnMoficar.Enabled = false;
             }
         }
 
@@ -168,6 +169,24 @@ namespace Vistas
         private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
+        }
+        /// <summary>
+        /// habilita el boton modificar al escribir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkDisponible_CheckedChanged(object sender, EventArgs e)
+        {
+            btnMoficar.Enabled = true;
+        }
+        /// <summary>
+        /// habilita el boton modificar al cambiar el estado del check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtDetalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMoficar.Enabled = true;
         }
     }
 }
