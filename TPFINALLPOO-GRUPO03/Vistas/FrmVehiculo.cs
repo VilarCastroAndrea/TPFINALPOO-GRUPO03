@@ -208,10 +208,7 @@ namespace Vistas
             frmClaseVehiculo.Show();
         }
 
-        private void Informacion_Enter(object sender, EventArgs e)
-        {
 
-        }
         /// <summary>
         /// cuenta vehiculos: vendidos.disponibles,total
         /// </summary>

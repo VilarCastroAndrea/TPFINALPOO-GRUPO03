@@ -104,6 +104,7 @@
             this.lblcantVehiculo.Name = "lblcantVehiculo";
             this.lblcantVehiculo.Size = new System.Drawing.Size(0, 13);
             this.lblcantVehiculo.TabIndex = 40;
+            this.lblcantVehiculo.BackColor = System.Drawing.Color.Transparent;
             // 
             // dataVehiculo
             // 
@@ -259,6 +260,7 @@
             // 
             // Informacion
             // 
+            this.Informacion.BackColor = System.Drawing.Color.Transparent;
             this.Informacion.Controls.Add(this.lblVehDiponibles);
             this.Informacion.Controls.Add(this.lblVehiculosVendi);
             this.Informacion.Controls.Add(this.label8);
@@ -271,7 +273,6 @@
             this.Informacion.TabIndex = 36;
             this.Informacion.TabStop = false;
             this.Informacion.Text = "Informacion";
-            this.Informacion.Enter += new System.EventHandler(this.Informacion_Enter);
             // 
             // lblVehDiponibles
             // 
@@ -280,6 +281,7 @@
             this.lblVehDiponibles.Name = "lblVehDiponibles";
             this.lblVehDiponibles.Size = new System.Drawing.Size(0, 13);
             this.lblVehDiponibles.TabIndex = 41;
+            this.lblVehDiponibles.BackColor = System.Drawing.Color.Transparent;
             // 
             // lblVehiculosVendi
             // 
