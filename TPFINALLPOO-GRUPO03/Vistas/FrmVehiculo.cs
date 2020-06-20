@@ -175,15 +175,13 @@ namespace Vistas
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string buscarvehiculo = txtBuscarVehiculo.Text;
-            if (txtBuscarVehiculo.Text != "")
+            if (txtBuscarVehiculo.Text != "Buscar Vehiculo")
             {
                 dataVehiculo.DataSource = TrabajarVehiculo.buscarVehiculo(txtBuscarVehiculo.Text);
             }
             else
             {
                 cargarVehiculos();
-                //dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
-               // dataVehiculo.Refresh();
                 
             }
         }

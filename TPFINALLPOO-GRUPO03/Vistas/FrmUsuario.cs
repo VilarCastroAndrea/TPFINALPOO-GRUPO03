@@ -167,7 +167,7 @@ namespace Vistas
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            if (txtBuscarUsuario.Text != "")
+            if (txtBuscarUsuario.Text != "Buscar Usuario")
             {
                 dgvListaUsuarios.DataSource = TrabajarUsuario.buscarUsuario(txtBuscarUsuario.Text);
             }
