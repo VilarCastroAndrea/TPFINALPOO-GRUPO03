@@ -28,17 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.Buscar = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarC = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panelCliente = new System.Windows.Forms.Panel();
             this.panelListaCliente = new System.Windows.Forms.Panel();
+            this.Informacion = new System.Windows.Forms.GroupBox();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.lblClienteDisponible = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnOrdenApellido = new System.Windows.Forms.Button();
             this.dataCliente = new System.Windows.Forms.DataGridView();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.Buscar.SuspendLayout();
             this.panelListaCliente.SuspendLayout();
+            this.Informacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,20 +66,24 @@
             this.btnBuscar.AllowDrop = true;
             this.btnBuscar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.Location = new System.Drawing.Point(208, 15);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(25, 23);
             this.btnBuscar.TabIndex = 4;
-            this.btnBuscar.Text = "B";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscarC
             // 
+            this.txtBuscarC.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtBuscarC.Location = new System.Drawing.Point(6, 17);
             this.txtBuscarC.Name = "txtBuscarC";
             this.txtBuscarC.Size = new System.Drawing.Size(205, 20);
             this.txtBuscarC.TabIndex = 2;
+            this.txtBuscarC.Text = "Buscar Cliente";
+            this.txtBuscarC.Enter += new System.EventHandler(this.placeHolderCliente_Enter);
+            this.txtBuscarC.Leave += new System.EventHandler(this.placeHolderCliente_Leave);
             // 
             // btnAgregar
             // 
@@ -101,6 +112,7 @@
             // 
             this.panelListaCliente.BackColor = System.Drawing.Color.Transparent;
             this.panelListaCliente.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.panelListaCliente.Controls.Add(this.Informacion);
             this.panelListaCliente.Controls.Add(this.Buscar);
             this.panelListaCliente.Controls.Add(this.btnOrdenApellido);
             this.panelListaCliente.Controls.Add(this.dataCliente);
@@ -108,6 +120,56 @@
             this.panelListaCliente.Name = "panelListaCliente";
             this.panelListaCliente.Size = new System.Drawing.Size(769, 435);
             this.panelListaCliente.TabIndex = 25;
+            // 
+            // Informacion
+            // 
+            this.Informacion.Controls.Add(this.lblCliente);
+            this.Informacion.Controls.Add(this.lblClienteDisponible);
+            this.Informacion.Controls.Add(this.label7);
+            this.Informacion.Controls.Add(this.label6);
+            this.Informacion.ForeColor = System.Drawing.Color.White;
+            this.Informacion.Location = new System.Drawing.Point(19, 399);
+            this.Informacion.Name = "Informacion";
+            this.Informacion.Size = new System.Drawing.Size(730, 26);
+            this.Informacion.TabIndex = 37;
+            this.Informacion.TabStop = false;
+            this.Informacion.Text = "Informacion";
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(249, 8);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(0, 13);
+            this.lblCliente.TabIndex = 41;
+            // 
+            // lblClienteDisponible
+            // 
+            this.lblClienteDisponible.AutoSize = true;
+            this.lblClienteDisponible.Location = new System.Drawing.Point(553, 8);
+            this.lblClienteDisponible.Name = "lblClienteDisponible";
+            this.lblClienteDisponible.Size = new System.Drawing.Size(0, 13);
+            this.lblClienteDisponible.TabIndex = 42;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(401, 8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(147, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Cant. de Clientes Disponibles:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(153, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Cant. de Clientes:";
             // 
             // btnOrdenApellido
             // 
@@ -135,7 +197,7 @@
             this.dataCliente.Name = "dataCliente";
             this.dataCliente.ReadOnly = true;
             this.dataCliente.RowTemplate.Height = 24;
-            this.dataCliente.Size = new System.Drawing.Size(728, 348);
+            this.dataCliente.Size = new System.Drawing.Size(728, 328);
             this.dataCliente.TabIndex = 1;
             this.dataCliente.CurrentCellChanged += new System.EventHandler(this.dataCliente_CurrentCellChanged);
             // 
@@ -171,6 +233,8 @@
             this.Buscar.ResumeLayout(false);
             this.Buscar.PerformLayout();
             this.panelListaCliente.ResumeLayout(false);
+            this.Informacion.ResumeLayout(false);
+            this.Informacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataCliente)).EndInit();
             this.ResumeLayout(false);
 
@@ -187,5 +251,10 @@
         public System.Windows.Forms.DataGridView dataCliente;
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.GroupBox Informacion;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.Label lblClienteDisponible;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }

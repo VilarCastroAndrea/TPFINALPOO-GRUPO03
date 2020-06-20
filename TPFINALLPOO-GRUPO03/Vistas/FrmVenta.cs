@@ -235,6 +235,9 @@ namespace Vistas
             frmFormaPago.Show();
         }
 
+        private void Informacion_Enter(object sender, EventArgs e)
+        {
 
+        }
     }
 }

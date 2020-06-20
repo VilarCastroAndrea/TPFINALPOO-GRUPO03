@@ -1,6 +1,7 @@
 ﻿using ClasesBase;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -23,6 +24,7 @@ namespace Vistas
             FrmMostrarVehiculo frmLista = form ?? new FrmMostrarVehiculo();
             AddFormInPanel(frmLista);
             cargarVehiculos();
+            
         }
         /// <summary>
         /// restringir acceso segun usuario
@@ -69,6 +71,8 @@ namespace Vistas
         public void cargarVehiculos()
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+            contar();
+ 
         }
 
 
@@ -122,6 +126,8 @@ namespace Vistas
             var form = Application.OpenForms.OfType<FrmAltaVehiculo>().FirstOrDefault();
             FrmAltaVehiculo frmAltaVehi = form ?? new FrmAltaVehiculo();
             AddFormInPanel(frmAltaVehi);
+            
+            
         }
         /// <summary>
         /// ordena vehiculos por marca
@@ -149,6 +155,7 @@ namespace Vistas
         private void rbtnDisponible_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculoDisponible(true);
+           
         }
         /// <summary>
         /// muestra los vehiculos NO disponibles
@@ -158,6 +165,7 @@ namespace Vistas
         private void rbtnVendido_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculoDisponible(false);
+           
         }
         /// <summary>
         /// busqueda de vehiculos
@@ -173,8 +181,10 @@ namespace Vistas
             }
             else
             {
-                dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
-                dataVehiculo.Refresh();
+                cargarVehiculos();
+                //dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+               // dataVehiculo.Refresh();
+                
             }
         }
         /// <summary>
@@ -196,6 +206,60 @@ namespace Vistas
         {
             FrmClaseVehiculo frmClaseVehiculo = new FrmClaseVehiculo();
             frmClaseVehiculo.Show();
+        }
+
+        private void Informacion_Enter(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// cuenta vehiculos: vendidos.disponibles,total
+        /// </summary>
+        private void contar()
+        {
+            dataVehiculo.Refresh();
+            int t = dataVehiculo.Rows.Count;
+            lblcantVehiculo.Text = Convert.ToString(t);
+
+            int disponible = 0;
+            int vendido = 0;
+
+            foreach (DataGridViewRow fila in dataVehiculo.Rows)
+            {               
+                if (fila.Cells[10].Value.Equals(true))
+                {
+                    disponible = disponible + 1;
+                }
+                else
+                {
+                   vendido = vendido + 1;
+                }
+            }
+            lblVehDiponibles.Text = Convert.ToString(disponible);
+            lblVehiculosVendi.Text = Convert.ToString(vendido);
+            
+        }
+        /// <summary>
+        /// PLACE HOLDER DE BUSCAR USUARIO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void placeHolderVehiculo(object sender, EventArgs e)
+        {
+            if (txtBuscarVehiculo.Text == "Buscar Vehiculo")
+            {
+                txtBuscarVehiculo.Text = "";
+                txtBuscarVehiculo.ForeColor = Color.Black;
+            }
+        }
+
+        private void placeHolderVehiculo_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarVehiculo.Text == "")
+            {
+                txtBuscarVehiculo.Text = "Buscar Vehiculo";
+                txtBuscarVehiculo.ForeColor = Color.Silver;
+            }
         }
     }
 }

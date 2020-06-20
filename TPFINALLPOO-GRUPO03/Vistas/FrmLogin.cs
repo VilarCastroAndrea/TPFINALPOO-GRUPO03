@@ -1,6 +1,7 @@
 ﻿using ClasesBase;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Vistas
@@ -159,6 +160,42 @@ namespace Vistas
             txtResultadoCapcha.Text = "";
             ocultarCapcha();
             txtUsuario.Focus();
+        }
+
+        private void placeholderUsuario_Enter(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == "Usuario")
+            {
+                txtUsuario.Text = "";
+                txtUsuario.ForeColor = Color.Black;
+            }
+        }
+
+        private void placeHolderPass_Enter(object sender, EventArgs e)
+        {
+            if (txtContra.Text == "Password")
+            {
+                txtContra.Text = "";
+                txtContra.ForeColor = Color.Black;
+            }
+        }
+
+        private void placeHolderUsuario_Leave(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == "")
+            {
+                txtUsuario.Text = "Usuario";
+                txtUsuario.ForeColor = Color.Silver;
+            }
+        }
+
+        private void placeHolderPass_Leave(object sender, EventArgs e)
+        {
+            if (txtContra.Text == "")
+            {
+                txtContra.Text = "Password";
+                txtContra.ForeColor = Color.Silver;
+            }
         }
     }
 }

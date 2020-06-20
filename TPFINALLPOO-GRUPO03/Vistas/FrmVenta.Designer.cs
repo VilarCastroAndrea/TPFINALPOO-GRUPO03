@@ -108,7 +108,6 @@
             this.panelListaVenta.Name = "panelListaVenta";
             this.panelListaVenta.Size = new System.Drawing.Size(778, 437);
             this.panelListaVenta.TabIndex = 30;
-
             // 
             // Informacion
             // 
@@ -125,33 +124,31 @@
             this.Informacion.TabIndex = 35;
             this.Informacion.TabStop = false;
             this.Informacion.Text = "Informacion";
+            this.Informacion.Enter += new System.EventHandler(this.Informacion_Enter);
             // 
             // ingreso
             // 
             this.ingreso.AutoSize = true;
             this.ingreso.Location = new System.Drawing.Point(447, 8);
             this.ingreso.Name = "ingreso";
-            this.ingreso.Size = new System.Drawing.Size(41, 13);
+            this.ingreso.Size = new System.Drawing.Size(0, 13);
             this.ingreso.TabIndex = 39;
-            this.ingreso.Text = "label11";
             // 
             // anuladas
             // 
             this.anuladas.AutoSize = true;
             this.anuladas.Location = new System.Drawing.Point(322, 8);
             this.anuladas.Name = "anuladas";
-            this.anuladas.Size = new System.Drawing.Size(41, 13);
+            this.anuladas.Size = new System.Drawing.Size(0, 13);
             this.anuladas.TabIndex = 38;
-            this.anuladas.Text = "label10";
             // 
             // Total
             // 
             this.Total.AutoSize = true;
             this.Total.Location = new System.Drawing.Point(147, 8);
             this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(35, 13);
+            this.Total.Size = new System.Drawing.Size(0, 13);
             this.Total.TabIndex = 37;
-            this.Total.Text = "label9";
             // 
             // label8
             // 
