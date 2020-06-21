@@ -33,20 +33,15 @@ namespace Vistas
             {
                 if (txtDetalle.Text != "")
                 {
-                    if (this.validarClaseVehiculo(txtDetalle.Text))
-                    {
-                        ClaseVehiculo cv = new ClaseVehiculo();
-                        cv.Cv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-                        cv.Cv_Descripcion = txtDetalle.Text;
-                        cv.Cv_Disponible = checkDisponible.Checked;
-                        TrabajarClaseVehiculo.modificacionClase(cv);
-                        MessageBox.Show("Clase de vehiculo Modificado");
-                        cargarClasesV();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Clase de vehiculo ya exsite");
-                    }
+
+                    ClaseVehiculo cv = new ClaseVehiculo();
+                    cv.Cv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                    cv.Cv_Descripcion = txtDetalle.Text;
+                    cv.Cv_Disponible = checkDisponible.Checked;
+                    TrabajarClaseVehiculo.modificacionClase(cv);
+                    MessageBox.Show("Clase de vehiculo Modificado");
+                    cargarClasesV();
+
                 }
                 else
                 {
@@ -85,7 +80,8 @@ namespace Vistas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAlta_Click(object sender, EventArgs e)
-        { String msj = "Esta seguro que quiere agregar esta clase de vehiculo? " + this.txtNuevo.Text;
+        {
+            String msj = "Esta seguro que quiere agregar esta clase de vehiculo? " + this.txtNuevo.Text;
             DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
@@ -187,6 +183,11 @@ namespace Vistas
         private void txtDetalle_KeyDown(object sender, KeyEventArgs e)
         {
             btnMoficar.Enabled = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
