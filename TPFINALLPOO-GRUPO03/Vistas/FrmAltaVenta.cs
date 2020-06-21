@@ -31,7 +31,6 @@ namespace Vistas
             }
             cargarForma();
         }
-
         /// <summary>
         /// carga los combobox vehiculo
         /// </summary>
@@ -63,8 +62,6 @@ namespace Vistas
                     tablaCliente.Rows[i]["Nombre"].ToString() + " | " + tablaCliente.Rows[i]["Apellido"].ToString());
             }
         }
-
-
         /// <summary>
         /// Registra la venta en la base de datos
         /// </summary>
@@ -87,11 +84,19 @@ namespace Vistas
                     nuevaVenta.Vta_PrecioFinal = Convert.ToDecimal(txtPrecio.Text);
                     if (nuevaVenta.Vta_PrecioFinal > 0)
                     {
-                        TrabajarVenta.altaVenta(nuevaVenta);
-                        limpiarCampos();
-                        Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
-                        ((FrmVenta)frmVenta).cargarVentas();
-                        TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
+                        if (mensaje(nuevaVenta) == DialogResult.OK)
+                        {
+                            TrabajarVenta.altaVenta(nuevaVenta);
+                            limpiarCampos();
+                            Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
+                            ((FrmVenta)frmVenta).cargarVentas();
+                            TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Venta cancelada", "Cancelado");
+                        }
+
                     }
                     else
                     {
@@ -102,10 +107,9 @@ namespace Vistas
             }
             else
             {
-                MessageBox.Show("Campos Incompletos");
+                MessageBox.Show("Campos Incorrectos");
             }
         }
-
         /// <summary>
         /// carga el combo medio de pago
         /// </summary>
@@ -115,7 +119,6 @@ namespace Vistas
             cmbMedioDePago.ValueMember = "ID";
             cmbMedioDePago.DataSource = TrabajarFormaPago.listarFormaPagoDisponible();
         }
-
         /// <summary>
         /// valida los campos
         /// </summary>
@@ -138,7 +141,21 @@ namespace Vistas
             }
             return false;
         }
-
+        /// <summary>
+        /// Mensjae de confirmacion
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
+        public DialogResult mensaje(Venta nueva)
+        {
+            DialogResult result = MessageBox.Show("Los Datos ingresados son correctos? " + "\n" +
+                                                              "Cliente: " + cmbClientesDNI.Text + "\n" +
+                                                              "Vehiculo: " + cmbVehiculos.Text + "\n" +
+                                                              "Precio Final: " + txtPrecio.Text + "\n" +
+                                                              "Forma de pago: " + cmbMedioDePago.Text + "\n",
+                                                              "Desea registrar venta", MessageBoxButtons.OKCancel);
+            return result;
+        }
         /// <summary>
         /// retorna el primer valor del combobox
         /// </summary>
@@ -148,8 +165,6 @@ namespace Vistas
         {
             return textoCombo.Split('|')[0].TrimEnd();
         }
-
-
         /// <summary>
         /// limpia todos los campos del formulario
         /// </summary>
@@ -162,10 +177,6 @@ namespace Vistas
             cmbMedioDePago.Text = "";
             txtPrecio.Text = "";
         }
-
-
-
-
         /// <summary>
         /// carga la lista de clientes disponibles
         /// </summary>
@@ -175,9 +186,6 @@ namespace Vistas
         {
             cargarBoxCliente(TrabajarCliente.ListaClienteD(true));
         }
-
-
-
         /// <summary>
         /// busca los clientes mientras el usuario escribe en el combo
         /// </summary>
@@ -187,8 +195,6 @@ namespace Vistas
         {
             cargarBoxCliente(TrabajarCliente.buscarClienteDisponible(cmbClientesDNI.Text));
         }
-
-
         /// <summary>
         /// carga los vehiculos disponibles
         /// </summary>
@@ -198,7 +204,6 @@ namespace Vistas
         {
             cargarBoxVehiculo(TrabajarVehiculo.listarVehiculoDisponible(true));
         }
-
         /// <summary>
         /// pone un precio por defecto en el campo precio
         /// </summary>
@@ -210,7 +215,6 @@ namespace Vistas
             txtPrecio.Text = cadena[8];
             txtPrecio.Text = txtPrecio.Text.TrimStart();
         }
-
         /// <summary>
         /// mientras que se escribe los datos del vehiculo se carga automaticamente el combobox
         /// </summary>
@@ -220,8 +224,6 @@ namespace Vistas
         {
             cargarBoxVehiculo(TrabajarVehiculo.buscarVehiculo(cmbVehiculos.Text));
         }
-
-
         /// <summary>
         /// validacion precio solo numeros
         /// </summary>

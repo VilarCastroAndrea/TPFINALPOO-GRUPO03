@@ -48,7 +48,7 @@ namespace Vistas
                     btnAnular.Visible = true;
                 }
             }
-            }
+        }
         /// <summary>
         /// Refrescar la Vista de vehiculos
         /// </summary>
@@ -74,6 +74,22 @@ namespace Vistas
             {
                 btnAnular.Enabled = true;
             }
+        }
+
+        public void anularBtn()
+        {
+            Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
+            int total = ((FrmVenta)frmVenta).dataVenta.Rows.Count;
+            Console.Write(total);
+            if (total < 1)
+            {
+                btnAnular.Enabled = false;
+            }
+        }
+
+        private void FrmMostrarVenta_Load(object sender, EventArgs e)
+        {
+            anularBtn();
         }
     }
 }
