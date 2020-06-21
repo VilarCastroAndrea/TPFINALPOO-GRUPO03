@@ -46,11 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="agenciaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>agenciaDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FrmAltaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,17 +207,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="agenciaDataSet.xsc">
-      <DependentUpon>agenciaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="agenciaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>agenciaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="agenciaDataSet.xss">
-      <DependentUpon>agenciaDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

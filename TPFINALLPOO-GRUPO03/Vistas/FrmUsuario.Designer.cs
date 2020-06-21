@@ -47,13 +47,11 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarUsuario = new System.Windows.Forms.TextBox();
             this.dgvListaUsuarios = new System.Windows.Forms.DataGridView();
-            this.agenciaDataSet = new Vistas.agenciaDataSet();
             this.agenciaDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelListaCliente.SuspendLayout();
             this.Informacion.SuspendLayout();
             this.Buscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agenciaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agenciaDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -252,16 +250,6 @@
             this.dgvListaUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListaUsuarios_CellFormatting);
             this.dgvListaUsuarios.CurrentCellChanged += new System.EventHandler(this.dgvListaUsuarios_CurrentCellChanged_1);
             // 
-            // agenciaDataSet
-            // 
-            this.agenciaDataSet.DataSetName = "agenciaDataSet";
-            this.agenciaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // agenciaDataSetBindingSource
-            // 
-            this.agenciaDataSetBindingSource.DataSource = this.agenciaDataSet;
-            this.agenciaDataSetBindingSource.Position = 0;
-            // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,7 +269,6 @@
             this.Buscar.ResumeLayout(false);
             this.Buscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaUsuarios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.agenciaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.agenciaDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -298,7 +285,6 @@
         public System.Windows.Forms.DataGridView dgvListaUsuarios;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.BindingSource agenciaDataSetBindingSource;
-        private agenciaDataSet agenciaDataSet;
         private System.Windows.Forms.GroupBox Informacion;
         private System.Windows.Forms.Label lblAdministradores;
         private System.Windows.Forms.Label lblVendedores;
