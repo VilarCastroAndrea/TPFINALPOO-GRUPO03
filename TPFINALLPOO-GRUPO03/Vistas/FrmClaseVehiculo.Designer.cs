@@ -39,6 +39,7 @@
             this.txtDetalle = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkDisponible = new System.Windows.Forms.CheckBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLista)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +52,7 @@
             this.panel1.Controls.Add(this.btnAlta);
             this.panel1.Location = new System.Drawing.Point(299, 125);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 88);
+            this.panel1.Size = new System.Drawing.Size(164, 80);
             this.panel1.TabIndex = 0;
             // 
             // label3
@@ -80,7 +81,7 @@
             this.btnAlta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlta.ForeColor = System.Drawing.Color.White;
-            this.btnAlta.Location = new System.Drawing.Point(3, 59);
+            this.btnAlta.Location = new System.Drawing.Point(3, 49);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(158, 23);
             this.btnAlta.TabIndex = 3;
@@ -97,7 +98,7 @@
             this.dgwLista.Location = new System.Drawing.Point(12, 12);
             this.dgwLista.Name = "dgwLista";
             this.dgwLista.ReadOnly = true;
-            this.dgwLista.Size = new System.Drawing.Size(281, 201);
+            this.dgwLista.Size = new System.Drawing.Size(281, 222);
             this.dgwLista.TabIndex = 0;
             this.dgwLista.CurrentCellChanged += new System.EventHandler(this.dgwLista_CurrentCellChanged);
             // 
@@ -173,12 +174,27 @@
             this.checkDisponible.UseVisualStyleBackColor = false;
             this.checkDisponible.CheckedChanged += new System.EventHandler(this.checkDisponible_CheckedChanged);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(299, 211);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(164, 23);
+            this.btnSalir.TabIndex = 17;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmClaseVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(477, 227);
+            this.ClientSize = new System.Drawing.Size(477, 244);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.checkDisponible);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDetalle);
@@ -212,5 +228,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox txtNuevo;
         public System.Windows.Forms.CheckBox checkDisponible;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

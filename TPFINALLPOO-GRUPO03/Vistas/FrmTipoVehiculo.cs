@@ -26,26 +26,20 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnMoficar_Click(object sender, System.EventArgs e)
         {
-            String msj = "Esta seguro que quiere modificar este tipo de vehiculo " +txtDetalle.Text;
+            String msj = "Esta seguro que quiere modificar este tipo de vehiculo " + txtDetalle.Text;
             DialogResult dialogResult = MessageBox.Show(msj, "Anular venta?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 if (txtDetalle.Text != "")
                 {
-                    if (this.validarTipoVehiculo(txtDetalle.Text))
-                    {
-                        TipoVehiculo tv = new TipoVehiculo();
-                        tv.Tv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-                        tv.Tv_Descripcion = txtDetalle.Text;
-                        tv.Tv_Disponible = checkDisponible.Checked;
-                        TrabajarTipoVehiculo.modificacionTipo(tv);
-                        MessageBox.Show("Tipo de vehiculo Modificado");
-                        cargarTipo();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Tipo de vehiculo ya existe");
-                    }
+                    TipoVehiculo tv = new TipoVehiculo();
+                    tv.Tv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                    tv.Tv_Descripcion = txtDetalle.Text;
+                    tv.Tv_Disponible = checkDisponible.Checked;
+                    TrabajarTipoVehiculo.modificacionTipo(tv);
+                    MessageBox.Show("Tipo de vehiculo Modificado");
+                    cargarTipo();
+
                 }
                 else
                 {
@@ -108,7 +102,7 @@ namespace Vistas
                     MessageBox.Show("complete todos los campos");
                 }
             }
- 
+
         }
         /// <summary>
         /// carga a la tabla la lista de tipos de vehiculos
@@ -187,6 +181,11 @@ namespace Vistas
         private void checkDisponible_CheckedChanged(object sender, EventArgs e)
         {
             btnMoficar.Enabled = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

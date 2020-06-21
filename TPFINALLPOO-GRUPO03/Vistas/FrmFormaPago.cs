@@ -124,20 +124,14 @@ namespace Vistas
         {
             if (txtDetalle.Text != "")
             {
-                if (this.validarFormaPago(txtDetalle.Text))
-                {
-                    FormaPago fp = new FormaPago();
-                    fp.Fp_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-                    fp.Fp_Descripcion = txtDetalle.Text;
-                    fp.Fp_Disponible = checkDisponible.Checked;
-                    TrabajarFormaPago.modificacionFormaPago(fp);
-                    MessageBox.Show("Forma de Pago Modificado");
-                    cargarFormaPago();
-                }
-                else
-                {
-                    MessageBox.Show("Forma de pago ya existe");
-                }
+                FormaPago fp = new FormaPago();
+                fp.Fp_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                fp.Fp_Descripcion = txtDetalle.Text;
+                fp.Fp_Disponible = checkDisponible.Checked;
+                TrabajarFormaPago.modificacionFormaPago(fp);
+                MessageBox.Show("Forma de Pago Modificado");
+                cargarFormaPago();
+
             }
             else
             {
@@ -181,6 +175,11 @@ namespace Vistas
         private void checkDisponible_CheckedChanged(object sender, EventArgs e)
         {
             btnMoficar.Enabled = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
