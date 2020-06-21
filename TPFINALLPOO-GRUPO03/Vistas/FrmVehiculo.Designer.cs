@@ -32,6 +32,9 @@
             this.panelVehiculo = new System.Windows.Forms.Panel();
             this.btnAlta = new System.Windows.Forms.Button();
             this.panelListaVehiculo = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbtnVendido = new System.Windows.Forms.RadioButton();
+            this.rbtnDisponible = new System.Windows.Forms.RadioButton();
             this.lblcantVehiculo = new System.Windows.Forms.Label();
             this.dataVehiculo = new System.Windows.Forms.DataGridView();
             this.btnClase = new System.Windows.Forms.Button();
@@ -45,19 +48,16 @@
             this.Informacion = new System.Windows.Forms.GroupBox();
             this.lblVehDiponibles = new System.Windows.Forms.Label();
             this.lblVehiculosVendi = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnMostrar = new System.Windows.Forms.Button();
-            this.rbtnDisponible = new System.Windows.Forms.RadioButton();
-            this.rbtnVendido = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panelListaVehiculo.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataVehiculo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gBox.SuspendLayout();
             this.Informacion.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelVehiculo
@@ -87,10 +87,9 @@
             this.panelListaVehiculo.BackColor = System.Drawing.Color.Black;
             this.panelListaVehiculo.BackgroundImage = global::Vistas.Properties.Resources.fondo;
             this.panelListaVehiculo.Controls.Add(this.groupBox2);
-            this.panelListaVehiculo.Controls.Add(this.lblcantVehiculo);
             this.panelListaVehiculo.Controls.Add(this.dataVehiculo);
-            this.panelListaVehiculo.Controls.Add(this.btnClase);
             this.panelListaVehiculo.Controls.Add(this.btnTipo);
+            this.panelListaVehiculo.Controls.Add(this.btnClase);
             this.panelListaVehiculo.Controls.Add(this.groupBox1);
             this.panelListaVehiculo.Controls.Add(this.gBox);
             this.panelListaVehiculo.Controls.Add(this.Informacion);
@@ -99,12 +98,51 @@
             this.panelListaVehiculo.Size = new System.Drawing.Size(770, 437);
             this.panelListaVehiculo.TabIndex = 29;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.rbtnVendido);
+            this.groupBox2.Controls.Add(this.rbtnDisponible);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Window;
+            this.groupBox2.Location = new System.Drawing.Point(491, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(258, 52);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filtrar:";
+            // 
+            // rbtnVendido
+            // 
+            this.rbtnVendido.AutoSize = true;
+            this.rbtnVendido.ForeColor = System.Drawing.SystemColors.Control;
+            this.rbtnVendido.Location = new System.Drawing.Point(150, 20);
+            this.rbtnVendido.Name = "rbtnVendido";
+            this.rbtnVendido.Size = new System.Drawing.Size(64, 17);
+            this.rbtnVendido.TabIndex = 9;
+            this.rbtnVendido.TabStop = true;
+            this.rbtnVendido.Text = "Vendido";
+            this.rbtnVendido.UseVisualStyleBackColor = true;
+            this.rbtnVendido.CheckedChanged += new System.EventHandler(this.rbtnVendido_CheckedChanged);
+            // 
+            // rbtnDisponible
+            // 
+            this.rbtnDisponible.AutoSize = true;
+            this.rbtnDisponible.ForeColor = System.Drawing.SystemColors.Control;
+            this.rbtnDisponible.Location = new System.Drawing.Point(35, 19);
+            this.rbtnDisponible.Name = "rbtnDisponible";
+            this.rbtnDisponible.Size = new System.Drawing.Size(74, 17);
+            this.rbtnDisponible.TabIndex = 8;
+            this.rbtnDisponible.TabStop = true;
+            this.rbtnDisponible.Text = "Disponible";
+            this.rbtnDisponible.UseVisualStyleBackColor = true;
+            this.rbtnDisponible.CheckedChanged += new System.EventHandler(this.rbtnDisponible_CheckedChanged);
+            // 
             // lblcantVehiculo
             // 
             this.lblcantVehiculo.AutoSize = true;
             this.lblcantVehiculo.BackColor = System.Drawing.Color.Transparent;
             this.lblcantVehiculo.ForeColor = System.Drawing.Color.White;
-            this.lblcantVehiculo.Location = new System.Drawing.Point(204, 407);
+            this.lblcantVehiculo.Location = new System.Drawing.Point(163, 10);
             this.lblcantVehiculo.Name = "lblcantVehiculo";
             this.lblcantVehiculo.Size = new System.Drawing.Size(0, 13);
             this.lblcantVehiculo.TabIndex = 40;
@@ -123,7 +161,7 @@
             this.dataVehiculo.ReadOnly = true;
             this.dataVehiculo.RowTemplate.Height = 24;
             this.dataVehiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataVehiculo.Size = new System.Drawing.Size(730, 297);
+            this.dataVehiculo.Size = new System.Drawing.Size(730, 326);
             this.dataVehiculo.TabIndex = 1;
             this.dataVehiculo.CurrentCellChanged += new System.EventHandler(this.dataVehiculo_CurrentCellChanged);
             // 
@@ -133,7 +171,7 @@
             this.btnClase.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnClase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClase.ForeColor = System.Drawing.Color.White;
-            this.btnClase.Location = new System.Drawing.Point(141, 371);
+            this.btnClase.Location = new System.Drawing.Point(141, 402);
             this.btnClase.Name = "btnClase";
             this.btnClase.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnClase.Size = new System.Drawing.Size(116, 23);
@@ -148,7 +186,7 @@
             this.btnTipo.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTipo.ForeColor = System.Drawing.Color.White;
-            this.btnTipo.Location = new System.Drawing.Point(19, 371);
+            this.btnTipo.Location = new System.Drawing.Point(19, 402);
             this.btnTipo.Name = "btnTipo";
             this.btnTipo.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnTipo.Size = new System.Drawing.Size(116, 23);
@@ -238,14 +276,15 @@
             // 
             this.Informacion.BackColor = System.Drawing.Color.Transparent;
             this.Informacion.Controls.Add(this.lblVehDiponibles);
+            this.Informacion.Controls.Add(this.lblcantVehiculo);
             this.Informacion.Controls.Add(this.lblVehiculosVendi);
-            this.Informacion.Controls.Add(this.label8);
-            this.Informacion.Controls.Add(this.label7);
             this.Informacion.Controls.Add(this.label6);
+            this.Informacion.Controls.Add(this.label7);
+            this.Informacion.Controls.Add(this.label8);
             this.Informacion.ForeColor = System.Drawing.Color.White;
-            this.Informacion.Location = new System.Drawing.Point(25, 400);
+            this.Informacion.Location = new System.Drawing.Point(264, 400);
             this.Informacion.Name = "Informacion";
-            this.Informacion.Size = new System.Drawing.Size(730, 26);
+            this.Informacion.Size = new System.Drawing.Size(485, 26);
             this.Informacion.TabIndex = 36;
             this.Informacion.TabStop = false;
             this.Informacion.Text = "Informacion";
@@ -254,7 +293,7 @@
             // 
             this.lblVehDiponibles.AutoSize = true;
             this.lblVehDiponibles.BackColor = System.Drawing.Color.Transparent;
-            this.lblVehDiponibles.Location = new System.Drawing.Point(393, 8);
+            this.lblVehDiponibles.Location = new System.Drawing.Point(294, 10);
             this.lblVehDiponibles.Name = "lblVehDiponibles";
             this.lblVehDiponibles.Size = new System.Drawing.Size(0, 13);
             this.lblVehDiponibles.TabIndex = 41;
@@ -262,40 +301,40 @@
             // lblVehiculosVendi
             // 
             this.lblVehiculosVendi.AutoSize = true;
-            this.lblVehiculosVendi.Location = new System.Drawing.Point(632, 8);
+            this.lblVehiculosVendi.Location = new System.Drawing.Point(419, 10);
             this.lblVehiculosVendi.Name = "lblVehiculosVendi";
             this.lblVehiculosVendi.Size = new System.Drawing.Size(0, 13);
             this.lblVehiculosVendi.TabIndex = 42;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(477, 8);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(146, 13);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "Cant. de Vehiculos Vendidos:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(258, 8);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(129, 13);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Cant. de Veh.Disponibles:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(72, 8);
+            this.label6.Location = new System.Drawing.Point(65, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 13);
+            this.label6.Size = new System.Drawing.Size(98, 13);
             this.label6.TabIndex = 34;
-            this.label6.Text = "Cant. de Vehiculos:";
+            this.label6.Text = "Total de Vehiculos:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(208, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Veh.Disponibles:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(334, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 13);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Veh. Vendidos:";
             // 
             // btnMostrar
             // 
@@ -312,45 +351,6 @@
             this.btnMostrar.UseVisualStyleBackColor = false;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
-            // rbtnDisponible
-            // 
-            this.rbtnDisponible.AutoSize = true;
-            this.rbtnDisponible.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnDisponible.Location = new System.Drawing.Point(35, 19);
-            this.rbtnDisponible.Name = "rbtnDisponible";
-            this.rbtnDisponible.Size = new System.Drawing.Size(74, 17);
-            this.rbtnDisponible.TabIndex = 8;
-            this.rbtnDisponible.TabStop = true;
-            this.rbtnDisponible.Text = "Disponible";
-            this.rbtnDisponible.UseVisualStyleBackColor = true;
-            this.rbtnDisponible.CheckedChanged += new System.EventHandler(this.rbtnDisponible_CheckedChanged);
-            // 
-            // rbtnVendido
-            // 
-            this.rbtnVendido.AutoSize = true;
-            this.rbtnVendido.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnVendido.Location = new System.Drawing.Point(150, 20);
-            this.rbtnVendido.Name = "rbtnVendido";
-            this.rbtnVendido.Size = new System.Drawing.Size(64, 17);
-            this.rbtnVendido.TabIndex = 9;
-            this.rbtnVendido.TabStop = true;
-            this.rbtnVendido.Text = "Vendido";
-            this.rbtnVendido.UseVisualStyleBackColor = true;
-            this.rbtnVendido.CheckedChanged += new System.EventHandler(this.rbtnVendido_CheckedChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.rbtnVendido);
-            this.groupBox2.Controls.Add(this.rbtnDisponible);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.Window;
-            this.groupBox2.Location = new System.Drawing.Point(491, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(258, 52);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Filtrar:";
-            // 
             // FrmVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,7 +365,8 @@
             this.Text = "FrmVehiculo";
             this.Load += new System.EventHandler(this.FrmVehiculo_Load);
             this.panelListaVehiculo.ResumeLayout(false);
-            this.panelListaVehiculo.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataVehiculo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -373,8 +374,6 @@
             this.gBox.PerformLayout();
             this.Informacion.ResumeLayout(false);
             this.Informacion.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

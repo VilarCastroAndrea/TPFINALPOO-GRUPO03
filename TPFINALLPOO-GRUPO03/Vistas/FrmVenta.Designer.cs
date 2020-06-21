@@ -325,7 +325,7 @@
             // 
             this.dataVenta.AllowUserToAddRows = false;
             this.dataVenta.AllowUserToDeleteRows = false;
-            this.dataVenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataVenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataVenta.BackgroundColor = System.Drawing.Color.White;
             this.dataVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataVenta.GridColor = System.Drawing.Color.DarkOrange;
