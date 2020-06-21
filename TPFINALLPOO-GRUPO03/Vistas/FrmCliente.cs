@@ -116,7 +116,7 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtBuscarC.Text != "")
+            if (txtBuscarC.Text != "Buscar Cliente")
             {
                 dataCliente.DataSource = TrabajarCliente.buscarCliente(txtBuscarC.Text);
             }
@@ -159,17 +159,17 @@ namespace Vistas
             lblCliente.Text = Convert.ToString(t);
 
             int disponible = 0;
-           
+
             foreach (DataGridViewRow fila in dataCliente.Rows)
             {
                 if (fila.Cells[5].Value.Equals(true))
                 {
                     disponible = disponible + 1;
                 }
-                
+
             }
             lblClienteDisponible.Text = Convert.ToString(disponible);
-         }
+        }
 
         private void placeHolderCliente_Enter(object sender, EventArgs e)
         {

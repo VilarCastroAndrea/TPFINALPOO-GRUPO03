@@ -8,6 +8,15 @@ namespace Vistas
 {
     public partial class FrmMostrarVehiculo : Form
     {
+        public string marca;
+        public string modelo;
+        public string color;
+        public string cantPuertas;
+        public string tipoVehiculo;
+        public string claseVehiculo;
+        public bool gps;
+
+        public Vehiculo vehiculoModificado;
         public FrmMostrarVehiculo()
         {
             InitializeComponent();
@@ -199,6 +208,72 @@ namespace Vistas
         private void cmbClase_DropDown(object sender, EventArgs e)
         {
             cargarClase();
+        }
+
+        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (marca != cmbMarca.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+        private void txtALinea_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMVehiculo.Enabled = true;
+        }
+
+        private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modelo != cmbModelo.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+        private void cmbColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (color != cmbColor.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+        private void cmbCantPuert_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cantPuertas != cmbCantPuert.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tipoVehiculo != cmbTipo.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+        private void cmbClase_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (claseVehiculo != cmbClase.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+        private void sGps_CheckedChanged(object sender, EventArgs e)
+        {
+            if (gps != sGps.Checked)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+        private void txtAPrecio_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMVehiculo.Enabled = true;
         }
     }
 }

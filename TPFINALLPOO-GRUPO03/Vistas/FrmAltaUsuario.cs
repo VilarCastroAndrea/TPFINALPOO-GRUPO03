@@ -116,7 +116,7 @@ namespace Vistas
             DialogResult result = MessageBox.Show("Los Datos ingresados son correctos? " + "\n" +
                                                          "Nombre de Usuario: " + nuevoUsu.Usu_NombreUsuario + "\n" +
                                                          "Contraseña: " + nuevoUsu.Usu_Contraseña + "\n" +
-                                                         "Nombre y Apellido: " + nuevoUsu.Usu_ApellidoNombre + "\n" +
+                                                         "Apellido y Nombre: " + nuevoUsu.Usu_ApellidoNombre + "\n" +
                                                          "Rol: " + nuevoUsu.Rol_Codigo,
                                                          "Agregar usuario", MessageBoxButtons.OKCancel);
             return result;

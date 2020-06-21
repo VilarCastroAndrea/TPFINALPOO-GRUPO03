@@ -40,8 +40,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarVehiculo = new System.Windows.Forms.TextBox();
             this.gBox = new System.Windows.Forms.GroupBox();
-            this.rbtnVendido = new System.Windows.Forms.RadioButton();
-            this.rbtnDisponible = new System.Windows.Forms.RadioButton();
             this.rbtnMarca = new System.Windows.Forms.RadioButton();
             this.rbtnLinea = new System.Windows.Forms.RadioButton();
             this.Informacion = new System.Windows.Forms.GroupBox();
@@ -51,11 +49,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnMostrar = new System.Windows.Forms.Button();
+            this.rbtnDisponible = new System.Windows.Forms.RadioButton();
+            this.rbtnVendido = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panelListaVehiculo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataVehiculo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gBox.SuspendLayout();
             this.Informacion.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelVehiculo
@@ -84,6 +86,7 @@
             // 
             this.panelListaVehiculo.BackColor = System.Drawing.Color.Black;
             this.panelListaVehiculo.BackgroundImage = global::Vistas.Properties.Resources.fondo;
+            this.panelListaVehiculo.Controls.Add(this.groupBox2);
             this.panelListaVehiculo.Controls.Add(this.lblcantVehiculo);
             this.panelListaVehiculo.Controls.Add(this.dataVehiculo);
             this.panelListaVehiculo.Controls.Add(this.btnClase);
@@ -99,17 +102,18 @@
             // lblcantVehiculo
             // 
             this.lblcantVehiculo.AutoSize = true;
+            this.lblcantVehiculo.BackColor = System.Drawing.Color.Transparent;
             this.lblcantVehiculo.ForeColor = System.Drawing.Color.White;
             this.lblcantVehiculo.Location = new System.Drawing.Point(204, 407);
             this.lblcantVehiculo.Name = "lblcantVehiculo";
             this.lblcantVehiculo.Size = new System.Drawing.Size(0, 13);
             this.lblcantVehiculo.TabIndex = 40;
-            this.lblcantVehiculo.BackColor = System.Drawing.Color.Transparent;
             // 
             // dataVehiculo
             // 
             this.dataVehiculo.AllowUserToAddRows = false;
             this.dataVehiculo.AllowUserToDeleteRows = false;
+            this.dataVehiculo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataVehiculo.BackgroundColor = System.Drawing.Color.White;
             this.dataVehiculo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataVehiculo.GridColor = System.Drawing.Color.DarkOrange;
@@ -194,49 +198,21 @@
             // gBox
             // 
             this.gBox.BackColor = System.Drawing.Color.Transparent;
-            this.gBox.Controls.Add(this.rbtnVendido);
-            this.gBox.Controls.Add(this.rbtnDisponible);
             this.gBox.Controls.Add(this.rbtnMarca);
             this.gBox.Controls.Add(this.rbtnLinea);
             this.gBox.ForeColor = System.Drawing.SystemColors.Window;
             this.gBox.Location = new System.Drawing.Point(243, 12);
             this.gBox.Name = "gBox";
-            this.gBox.Size = new System.Drawing.Size(371, 52);
+            this.gBox.Size = new System.Drawing.Size(242, 52);
             this.gBox.TabIndex = 9;
             this.gBox.TabStop = false;
             this.gBox.Text = "Ordenar segun:";
-            // 
-            // rbtnVendido
-            // 
-            this.rbtnVendido.AutoSize = true;
-            this.rbtnVendido.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnVendido.Location = new System.Drawing.Point(278, 20);
-            this.rbtnVendido.Name = "rbtnVendido";
-            this.rbtnVendido.Size = new System.Drawing.Size(64, 17);
-            this.rbtnVendido.TabIndex = 9;
-            this.rbtnVendido.TabStop = true;
-            this.rbtnVendido.Text = "Vendido";
-            this.rbtnVendido.UseVisualStyleBackColor = true;
-            this.rbtnVendido.CheckedChanged += new System.EventHandler(this.rbtnVendido_CheckedChanged);
-            // 
-            // rbtnDisponible
-            // 
-            this.rbtnDisponible.AutoSize = true;
-            this.rbtnDisponible.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnDisponible.Location = new System.Drawing.Point(179, 20);
-            this.rbtnDisponible.Name = "rbtnDisponible";
-            this.rbtnDisponible.Size = new System.Drawing.Size(74, 17);
-            this.rbtnDisponible.TabIndex = 8;
-            this.rbtnDisponible.TabStop = true;
-            this.rbtnDisponible.Text = "Disponible";
-            this.rbtnDisponible.UseVisualStyleBackColor = true;
-            this.rbtnDisponible.CheckedChanged += new System.EventHandler(this.rbtnDisponible_CheckedChanged);
             // 
             // rbtnMarca
             // 
             this.rbtnMarca.AutoSize = true;
             this.rbtnMarca.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnMarca.Location = new System.Drawing.Point(21, 19);
+            this.rbtnMarca.Location = new System.Drawing.Point(43, 20);
             this.rbtnMarca.Name = "rbtnMarca";
             this.rbtnMarca.Size = new System.Drawing.Size(55, 17);
             this.rbtnMarca.TabIndex = 7;
@@ -249,7 +225,7 @@
             // 
             this.rbtnLinea.AutoSize = true;
             this.rbtnLinea.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnLinea.Location = new System.Drawing.Point(101, 20);
+            this.rbtnLinea.Location = new System.Drawing.Point(145, 20);
             this.rbtnLinea.Name = "rbtnLinea";
             this.rbtnLinea.Size = new System.Drawing.Size(51, 17);
             this.rbtnLinea.TabIndex = 6;
@@ -277,11 +253,11 @@
             // lblVehDiponibles
             // 
             this.lblVehDiponibles.AutoSize = true;
+            this.lblVehDiponibles.BackColor = System.Drawing.Color.Transparent;
             this.lblVehDiponibles.Location = new System.Drawing.Point(393, 8);
             this.lblVehDiponibles.Name = "lblVehDiponibles";
             this.lblVehDiponibles.Size = new System.Drawing.Size(0, 13);
             this.lblVehDiponibles.TabIndex = 41;
-            this.lblVehDiponibles.BackColor = System.Drawing.Color.Transparent;
             // 
             // lblVehiculosVendi
             // 
@@ -336,6 +312,45 @@
             this.btnMostrar.UseVisualStyleBackColor = false;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
+            // rbtnDisponible
+            // 
+            this.rbtnDisponible.AutoSize = true;
+            this.rbtnDisponible.ForeColor = System.Drawing.SystemColors.Control;
+            this.rbtnDisponible.Location = new System.Drawing.Point(35, 19);
+            this.rbtnDisponible.Name = "rbtnDisponible";
+            this.rbtnDisponible.Size = new System.Drawing.Size(74, 17);
+            this.rbtnDisponible.TabIndex = 8;
+            this.rbtnDisponible.TabStop = true;
+            this.rbtnDisponible.Text = "Disponible";
+            this.rbtnDisponible.UseVisualStyleBackColor = true;
+            this.rbtnDisponible.CheckedChanged += new System.EventHandler(this.rbtnDisponible_CheckedChanged);
+            // 
+            // rbtnVendido
+            // 
+            this.rbtnVendido.AutoSize = true;
+            this.rbtnVendido.ForeColor = System.Drawing.SystemColors.Control;
+            this.rbtnVendido.Location = new System.Drawing.Point(150, 20);
+            this.rbtnVendido.Name = "rbtnVendido";
+            this.rbtnVendido.Size = new System.Drawing.Size(64, 17);
+            this.rbtnVendido.TabIndex = 9;
+            this.rbtnVendido.TabStop = true;
+            this.rbtnVendido.Text = "Vendido";
+            this.rbtnVendido.UseVisualStyleBackColor = true;
+            this.rbtnVendido.CheckedChanged += new System.EventHandler(this.rbtnVendido_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox2.Controls.Add(this.rbtnVendido);
+            this.groupBox2.Controls.Add(this.rbtnDisponible);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Window;
+            this.groupBox2.Location = new System.Drawing.Point(491, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(258, 52);
+            this.groupBox2.TabIndex = 41;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filtrar:";
+            // 
             // FrmVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +373,8 @@
             this.gBox.PerformLayout();
             this.Informacion.ResumeLayout(false);
             this.Informacion.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -375,8 +392,6 @@
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.RadioButton rbtnDisponible;
-        private System.Windows.Forms.RadioButton rbtnVendido;
         private System.Windows.Forms.Button btnClase;
         private System.Windows.Forms.Button btnTipo;
         private System.Windows.Forms.GroupBox Informacion;
@@ -386,5 +401,8 @@
         private System.Windows.Forms.Label lblcantVehiculo;
         private System.Windows.Forms.Label lblVehiculosVendi;
         private System.Windows.Forms.Label lblVehDiponibles;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbtnVendido;
+        private System.Windows.Forms.RadioButton rbtnDisponible;
     }
 }

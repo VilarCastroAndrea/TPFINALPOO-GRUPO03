@@ -20,8 +20,8 @@ namespace Vistas
         /// <returns></returns>
         private bool camposCargados()
         {
-            if(txtApellido.Text!=""&&txtDireccion.Text!=""&&txtDni.Text!=""&&txtNombre.Text!=""&&txtTelefono.Text!="")
-            return true;
+            if (txtApellido.Text != "" && txtDireccion.Text != "" && txtDni.Text != "" && txtNombre.Text != "" && txtTelefono.Text != "")
+                return true;
 
             return false;
         }
@@ -60,7 +60,7 @@ namespace Vistas
                 {
                     txtDni.Text = "";
                     txtDni.Focus();
-                    MessageBox.Show("Cliente ya existente, ingrese otro nombre de usuario");
+                    MessageBox.Show("Ya existe un cliente con el dni ingresado");
                 }
             }
             else
@@ -151,9 +151,9 @@ namespace Vistas
         /// <param name="e"></param>
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             Validar.soloNumeros(e);
-            txtDni.MaxLength = 8 ;
+            txtDni.MaxLength = 8;
         }
         /// <summary>
         /// validacion solo letras

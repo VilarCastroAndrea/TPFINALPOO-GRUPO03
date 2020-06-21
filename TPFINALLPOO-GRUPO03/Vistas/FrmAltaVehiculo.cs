@@ -63,8 +63,8 @@ namespace Vistas
                                                        "Color: " + vehiculo.Veh_Color + "\n" +
                                                        "Puertas: " + vehiculo.Veh_Puertas + "\n" +
                                                        "GPS: " + opcionGPS + "\n" +
-                                                       "Tipo de Vehiculo: " + vehiculo.Tv_ID + "\n" +
-                                                       "Clase de Vehiculo: " + vehiculo.Cv_ID + "\n" +
+                                                       "Tipo de Vehiculo: " + this.cmbTipo.Text + "\n" +
+                                                       "Clase de Vehiculo: " + this.cmbClase.Text + "\n" +
                                                        "Precio: " + vehiculo.Veh_Precio, "Agregar Vehiculo", MessageBoxButtons.OKCancel);
 
                 try
@@ -100,7 +100,7 @@ namespace Vistas
                 }
                 catch
                 {
-                    MessageBox.Show("Matricula Repetida");
+                    MessageBox.Show("Ya existe un vehiculo con la matricula ingresada", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtAMatricula.Text = "";
                     txtAMatricula.Focus();
                 }
@@ -141,8 +141,8 @@ namespace Vistas
         private void txtAMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtAMatricula.MaxLength = 7;
-                   
-         }
+
+        }
 
         /// <summary>
         /// Valida el que el campo precio solo tenga numeros

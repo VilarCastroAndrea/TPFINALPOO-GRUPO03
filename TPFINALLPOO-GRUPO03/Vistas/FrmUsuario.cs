@@ -46,7 +46,7 @@ namespace Vistas
             FrmMostrarUsuario frmMostrarUsuario = form ?? new FrmMostrarUsuario();
             AddFormInPanel(frmMostrarUsuario);
             listarUsuario();
-            
+
         }
 
         /// <summary>
@@ -217,7 +217,7 @@ namespace Vistas
                     }
                     else
                     {
-                       auditor = auditor + 1;
+                        auditor = auditor + 1;
                     }
                 }
             }

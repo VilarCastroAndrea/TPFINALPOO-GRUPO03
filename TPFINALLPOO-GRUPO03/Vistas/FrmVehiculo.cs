@@ -24,7 +24,7 @@ namespace Vistas
             FrmMostrarVehiculo frmLista = form ?? new FrmMostrarVehiculo();
             AddFormInPanel(frmLista);
             cargarVehiculos();
-            
+
         }
         /// <summary>
         /// restringir acceso segun usuario
@@ -72,7 +72,7 @@ namespace Vistas
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
             contar();
- 
+
         }
 
 
@@ -100,6 +100,14 @@ namespace Vistas
                     ((FrmMostrarVehiculo)frmMostrarVehiculo).txtAPrecio.Text = dataVehiculo.CurrentRow.Cells[9].Value.ToString();
                     ((FrmMostrarVehiculo)frmMostrarVehiculo).determinarVistaGps(Convert.ToBoolean(dataVehiculo.CurrentRow.Cells[8].Value));
                     ((FrmMostrarVehiculo)frmMostrarVehiculo).habilitarDesabilitarCampos(Convert.ToBoolean(dataVehiculo.CurrentRow.Cells[10].Value));
+                    ((FrmMostrarVehiculo)frmMostrarVehiculo).btnMVehiculo.Enabled = false;
+                    ((FrmMostrarVehiculo)frmMostrarVehiculo).marca = dataVehiculo.CurrentRow.Cells[1].Value.ToString();
+                    ((FrmMostrarVehiculo)frmMostrarVehiculo).modelo = dataVehiculo.CurrentRow.Cells[3].Value.ToString();
+                    ((FrmMostrarVehiculo)frmMostrarVehiculo).color = dataVehiculo.CurrentRow.Cells[4].Value.ToString();
+                    ((FrmMostrarVehiculo)frmMostrarVehiculo).cantPuertas = dataVehiculo.CurrentRow.Cells[5].Value.ToString();
+                    ((FrmMostrarVehiculo)frmMostrarVehiculo).tipoVehiculo = dataVehiculo.CurrentRow.Cells[6].Value.ToString();
+                    ((FrmMostrarVehiculo)frmMostrarVehiculo).claseVehiculo = dataVehiculo.CurrentRow.Cells[7].Value.ToString();
+                    ((FrmMostrarVehiculo)frmMostrarVehiculo).gps = Convert.ToBoolean(dataVehiculo.CurrentRow.Cells[8].Value);
                 }
             }
         }
@@ -126,8 +134,8 @@ namespace Vistas
             var form = Application.OpenForms.OfType<FrmAltaVehiculo>().FirstOrDefault();
             FrmAltaVehiculo frmAltaVehi = form ?? new FrmAltaVehiculo();
             AddFormInPanel(frmAltaVehi);
-            
-            
+
+
         }
         /// <summary>
         /// ordena vehiculos por marca
@@ -155,7 +163,7 @@ namespace Vistas
         private void rbtnDisponible_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculoDisponible(true);
-           
+
         }
         /// <summary>
         /// muestra los vehiculos NO disponibles
@@ -165,7 +173,7 @@ namespace Vistas
         private void rbtnVendido_CheckedChanged(object sender, EventArgs e)
         {
             dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculoDisponible(false);
-           
+
         }
         /// <summary>
         /// busqueda de vehiculos
@@ -182,7 +190,7 @@ namespace Vistas
             else
             {
                 cargarVehiculos();
-                
+
             }
         }
         /// <summary>
@@ -220,19 +228,19 @@ namespace Vistas
             int vendido = 0;
 
             foreach (DataGridViewRow fila in dataVehiculo.Rows)
-            {               
+            {
                 if (fila.Cells[10].Value.Equals(true))
                 {
                     disponible = disponible + 1;
                 }
                 else
                 {
-                   vendido = vendido + 1;
+                    vendido = vendido + 1;
                 }
             }
             lblVehDiponibles.Text = Convert.ToString(disponible);
             lblVehiculosVendi.Text = Convert.ToString(vendido);
-            
+
         }
         /// <summary>
         /// PLACE HOLDER DE BUSCAR USUARIO

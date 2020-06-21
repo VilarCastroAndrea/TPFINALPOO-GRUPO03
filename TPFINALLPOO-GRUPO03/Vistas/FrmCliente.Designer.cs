@@ -189,6 +189,7 @@
             // 
             this.dataCliente.AllowUserToAddRows = false;
             this.dataCliente.AllowUserToDeleteRows = false;
+            this.dataCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataCliente.BackgroundColor = System.Drawing.Color.White;
             this.dataCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataCliente.GridColor = System.Drawing.Color.DarkOrange;
@@ -197,6 +198,7 @@
             this.dataCliente.Name = "dataCliente";
             this.dataCliente.ReadOnly = true;
             this.dataCliente.RowTemplate.Height = 24;
+            this.dataCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataCliente.Size = new System.Drawing.Size(728, 328);
             this.dataCliente.TabIndex = 1;
             this.dataCliente.CurrentCellChanged += new System.EventHandler(this.dataCliente_CurrentCellChanged);

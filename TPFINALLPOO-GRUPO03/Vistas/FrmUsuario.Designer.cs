@@ -84,7 +84,7 @@
             this.btnAgregar.BackColor = System.Drawing.Color.Black;
             this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(905, 22);
             this.btnAgregar.Name = "btnAgregar";
@@ -122,12 +122,12 @@
             this.Informacion.Size = new System.Drawing.Size(720, 26);
             this.Informacion.TabIndex = 37;
             this.Informacion.TabStop = false;
-            this.Informacion.Text = "Informacion";
+            this.Informacion.Text = "Informacion de Usuarios";
             // 
             // lblUsuarios
             // 
             this.lblUsuarios.AutoSize = true;
-            this.lblUsuarios.Location = new System.Drawing.Point(125, 7);
+            this.lblUsuarios.Location = new System.Drawing.Point(299, 10);
             this.lblUsuarios.Name = "lblUsuarios";
             this.lblUsuarios.Size = new System.Drawing.Size(0, 13);
             this.lblUsuarios.TabIndex = 45;
@@ -135,7 +135,7 @@
             // lblAuditores
             // 
             this.lblAuditores.AutoSize = true;
-            this.lblAuditores.Location = new System.Drawing.Point(597, 7);
+            this.lblAuditores.Location = new System.Drawing.Point(666, 10);
             this.lblAuditores.Name = "lblAuditores";
             this.lblAuditores.Size = new System.Drawing.Size(0, 13);
             this.lblAuditores.TabIndex = 44;
@@ -144,7 +144,7 @@
             // 
             this.lbl6.AutoSize = true;
             this.lbl6.ForeColor = System.Drawing.Color.White;
-            this.lbl6.Location = new System.Drawing.Point(541, 8);
+            this.lbl6.Location = new System.Drawing.Point(606, 10);
             this.lbl6.Name = "lbl6";
             this.lbl6.Size = new System.Drawing.Size(54, 13);
             this.lbl6.TabIndex = 43;
@@ -153,7 +153,7 @@
             // lblAdministradores
             // 
             this.lblAdministradores.AutoSize = true;
-            this.lblAdministradores.Location = new System.Drawing.Point(299, 9);
+            this.lblAdministradores.Location = new System.Drawing.Point(456, 10);
             this.lblAdministradores.Name = "lblAdministradores";
             this.lblAdministradores.Size = new System.Drawing.Size(0, 13);
             this.lblAdministradores.TabIndex = 41;
@@ -161,7 +161,7 @@
             // lblVendedores
             // 
             this.lblVendedores.AutoSize = true;
-            this.lblVendedores.Location = new System.Drawing.Point(451, 8);
+            this.lblVendedores.Location = new System.Drawing.Point(555, 10);
             this.lblVendedores.Name = "lblVendedores";
             this.lblVendedores.Size = new System.Drawing.Size(0, 13);
             this.lblVendedores.TabIndex = 42;
@@ -170,7 +170,7 @@
             // 
             this.lbl5.AutoSize = true;
             this.lbl5.ForeColor = System.Drawing.Color.White;
-            this.lbl5.Location = new System.Drawing.Point(380, 10);
+            this.lbl5.Location = new System.Drawing.Point(482, 10);
             this.lbl5.Name = "lbl5";
             this.lbl5.Size = new System.Drawing.Size(67, 13);
             this.lbl5.TabIndex = 36;
@@ -180,7 +180,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(204, 8);
+            this.label7.Location = new System.Drawing.Point(352, 10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 13);
             this.label7.TabIndex = 35;
@@ -190,11 +190,11 @@
             // 
             this.lbl4.AutoSize = true;
             this.lbl4.ForeColor = System.Drawing.Color.White;
-            this.lbl4.Location = new System.Drawing.Point(72, 8);
+            this.lbl4.Location = new System.Drawing.Point(204, 10);
             this.lbl4.Name = "lbl4";
-            this.lbl4.Size = new System.Drawing.Size(51, 13);
+            this.lbl4.Size = new System.Drawing.Size(89, 13);
             this.lbl4.TabIndex = 34;
-            this.lbl4.Text = "Usuarios:";
+            this.lbl4.Text = "Usuarios Totales:";
             // 
             // Buscar
             // 
@@ -236,6 +236,7 @@
             // 
             this.dgvListaUsuarios.AllowUserToAddRows = false;
             this.dgvListaUsuarios.AllowUserToDeleteRows = false;
+            this.dgvListaUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.dgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaUsuarios.GridColor = System.Drawing.Color.DarkOrange;
@@ -245,7 +246,7 @@
             this.dgvListaUsuarios.ReadOnly = true;
             this.dgvListaUsuarios.RowTemplate.Height = 24;
             this.dgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaUsuarios.Size = new System.Drawing.Size(721, 318);
+            this.dgvListaUsuarios.Size = new System.Drawing.Size(721, 331);
             this.dgvListaUsuarios.TabIndex = 1;
             this.dgvListaUsuarios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvListaUsuarios_CellFormatting);
             this.dgvListaUsuarios.CurrentCellChanged += new System.EventHandler(this.dgvListaUsuarios_CurrentCellChanged_1);
