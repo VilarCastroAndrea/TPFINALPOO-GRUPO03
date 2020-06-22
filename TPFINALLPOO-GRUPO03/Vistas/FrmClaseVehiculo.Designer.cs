@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClaseVehiculo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNuevo = new System.Windows.Forms.TextBox();
@@ -197,7 +198,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(477, 244);
-            this.ControlBox = false;
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.checkDisponible);
             this.Controls.Add(this.label1);
@@ -207,6 +207,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgwLista);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FrmClaseVehiculo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
