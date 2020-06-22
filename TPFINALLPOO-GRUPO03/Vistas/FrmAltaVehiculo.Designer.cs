@@ -128,6 +128,7 @@
             this.cmbModelo.Name = "cmbModelo";
             this.cmbModelo.Size = new System.Drawing.Size(118, 21);
             this.cmbModelo.TabIndex = 45;
+            this.cmbModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbModelo_KeyPress);
             // 
             // cmbColor
             // 
@@ -144,6 +145,7 @@
             this.cmbColor.Name = "cmbColor";
             this.cmbColor.Size = new System.Drawing.Size(118, 21);
             this.cmbColor.TabIndex = 46;
+            this.cmbColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbColor_KeyPress);
             // 
             // cmbCantPuert
             // 
@@ -156,6 +158,7 @@
             this.cmbCantPuert.Name = "cmbCantPuert";
             this.cmbCantPuert.Size = new System.Drawing.Size(51, 21);
             this.cmbCantPuert.TabIndex = 47;
+            this.cmbCantPuert.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCantPuert_KeyPress);
             // 
             // txtAPrecio
             // 
@@ -208,6 +211,7 @@
             // 
             // txtAMatricula
             // 
+            this.txtAMatricula.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAMatricula.Location = new System.Drawing.Point(20, 25);
             this.txtAMatricula.Name = "txtAMatricula";
             this.txtAMatricula.Size = new System.Drawing.Size(170, 20);

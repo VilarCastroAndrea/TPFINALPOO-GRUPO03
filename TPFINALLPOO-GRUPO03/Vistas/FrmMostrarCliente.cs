@@ -33,7 +33,7 @@ namespace Vistas
         private void btnMCliente_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere modificar este Cliente " + this.txtDni.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -64,7 +64,7 @@ namespace Vistas
             Form frmCliente = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmCliente);
             String msj = "Esta seguro que quiere Elimnar este Cliente" + this.txtDni.Text;
             int id = Convert.ToInt32(txtDni.Text);
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmacion", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 if (frmCliente != null)
@@ -72,12 +72,12 @@ namespace Vistas
                     try
                     {
                         TrabajarCliente.bajaClienteFisica(txtDni.Text);
-                        MessageBox.Show("Cliente Eliminado");
+                        MessageBox.Show("Cliente Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
                     catch
                     {
                         TrabajarCliente.bajaCliente(txtDni.Text, false);
-                        MessageBox.Show("Cliente Eliminado");
+                        MessageBox.Show("Cliente Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.None);
                         
                     }
                     finally

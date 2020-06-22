@@ -28,7 +28,7 @@ namespace Vistas
         private void btnMoficar_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere modificar esta clase de vehiculo " + this.txtDetalle.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -61,7 +61,7 @@ namespace Vistas
 
             String msj = "Esta seguro que quiere elimnar esta clase de vehiculo? " + this.txtDetalle.Text;
             int id = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -85,7 +85,7 @@ namespace Vistas
         private void btnAlta_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere agregar esta clase de vehiculo? " + this.txtNuevo.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -100,17 +100,20 @@ namespace Vistas
                     }
                     else
                     {
-                        MessageBox.Show("Clase vehiculo ya exsite");
+                        MessageBox.Show("Clase vehiculo ya exsite", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Complete todos los campos");
+                    MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             actualizarComboClase();
         }
 
+        /// <summary>
+        /// actualiza el combo clase del formulario mostrar vehiculo
+        /// </summary>
         private void actualizarComboClase()
         {
             FrmMostrarVehiculo frmMosVehiculo = new FrmMostrarVehiculo();
@@ -198,6 +201,12 @@ namespace Vistas
             btnMoficar.Enabled = true;
         }
 
+
+        /// <summary>
+        /// cierra este formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -51,7 +51,7 @@ namespace Vistas
 
             String msj = "Esta seguro que quiere elimnar el Usuario " + this.txtNombreUsuario.Text + "?";
             int id = Convert.ToInt32(this.txtId.Text);
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
 
@@ -112,7 +112,7 @@ namespace Vistas
             }
             else
             {
-                MessageBox.Show("Tiene que haber un minimo de un (1) Usuario tipo administrador");
+                MessageBox.Show("Tiene que haber un minimo de un (1) Usuario tipo administrador","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
@@ -127,7 +127,7 @@ namespace Vistas
         private void btnActualizarUsuario_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere modificar este Usuario " + this.txtNombreUsuario.Text + "?";
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {

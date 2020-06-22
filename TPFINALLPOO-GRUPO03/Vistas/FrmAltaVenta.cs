@@ -94,20 +94,20 @@ namespace Vistas
                         }
                         else
                         {
-                            MessageBox.Show("Venta cancelada", "Cancelado");
+                            MessageBox.Show("Venta cancelada", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("No puede Ingresar un Precio menor a 0");
+                        MessageBox.Show("No puede Ingresar un Precio menor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
             }
             else
             {
-                MessageBox.Show("Campos Incorrectos");
+                MessageBox.Show("Campos Incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         /// <summary>
@@ -153,7 +153,7 @@ namespace Vistas
                                                               "Vehiculo: " + cmbVehiculos.Text + "\n" +
                                                               "Precio Final: " + txtPrecio.Text + "\n" +
                                                               "Forma de pago: " + cmbMedioDePago.Text + "\n",
-                                                              "Desea registrar venta", MessageBoxButtons.OKCancel);
+                                                              "Desea registrar venta", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
             return result;
         }
         /// <summary>

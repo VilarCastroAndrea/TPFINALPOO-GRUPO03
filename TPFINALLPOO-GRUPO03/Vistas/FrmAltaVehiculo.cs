@@ -65,7 +65,7 @@ namespace Vistas
                                                        "GPS: " + opcionGPS + "\n" +
                                                        "Tipo de Vehiculo: " + this.cmbTipo.Text + "\n" +
                                                        "Clase de Vehiculo: " + this.cmbClase.Text + "\n" +
-                                                       "Precio: " + vehiculo.Veh_Precio, "Agregar Vehiculo", MessageBoxButtons.OKCancel);
+                                                       "Precio: " + vehiculo.Veh_Precio, "Agregar Vehiculo", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
 
                 try
                 {
@@ -94,7 +94,7 @@ namespace Vistas
                     }
                     else
                     {
-                        MessageBox.Show("Se cancelo el alta del Vehiculo", "Cancelado");
+                        MessageBox.Show("Se cancelo el alta del Vehiculo", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         result = new DialogResult();
                     }
                 }
@@ -108,7 +108,7 @@ namespace Vistas
             }
             else
             {
-                MessageBox.Show("Complete todos los campos");
+                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -171,6 +171,33 @@ namespace Vistas
         private void cmbClase_DropDown(object sender, EventArgs e)
         {
             cargarClase();
+        }
+        /// <summary>
+        /// valida solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
+        }
+        /// <summary>
+        /// valida solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+        /// <summary>
+        /// valida solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbCantPuert_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
         }
     }
 }

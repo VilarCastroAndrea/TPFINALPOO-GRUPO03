@@ -93,7 +93,7 @@ namespace Vistas
         private void btnMVehiculo_Click(object sender, System.EventArgs e)
         {
             String msj = "Esta seguro que quiere modificar este Vehiculo " + this.txtAMatricula.Text + " " + cmbMarca.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -131,7 +131,7 @@ namespace Vistas
         private void btnEVehiculo_Click(object sender, System.EventArgs e)
         {
             String msj = "Esta seguro que quiere Eliminar este Vehiculo " + this.txtAMatricula.Text + " " + cmbMarca.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -148,7 +148,10 @@ namespace Vistas
                     }
                     catch
                     {
-                        MessageBox.Show("Vehiculo Vendido");
+                        MessageBox.Show("Vehiculo Eliminado");
+                        TrabajarVehiculo.eliminarVehiculo(txtAMatricula.Text);
+                        ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                        ((FrmVehiculo)frmVehiculo).contar();
                     }
 
                 }
@@ -192,7 +195,11 @@ namespace Vistas
             Validar.soloNumeros(e);
         }
 
-
+        /// <summary>
+        /// validacion sobre marca
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (marca != cmbMarca.Text)
@@ -200,12 +207,20 @@ namespace Vistas
                 btnMVehiculo.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtALinea_KeyDown(object sender, KeyEventArgs e)
         {
             btnMVehiculo.Enabled = true;
         }
-
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (modelo != cmbModelo.Text)
@@ -213,7 +228,11 @@ namespace Vistas
                 btnMVehiculo.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbColor_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (color != cmbColor.Text)
@@ -221,7 +240,11 @@ namespace Vistas
                 btnMVehiculo.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbCantPuert_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cantPuertas != cmbCantPuert.Text)
@@ -229,7 +252,11 @@ namespace Vistas
                 btnMVehiculo.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tipoVehiculo != cmbTipo.Text)
@@ -237,7 +264,11 @@ namespace Vistas
                 btnMVehiculo.Enabled = true;
             }
         }
-
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbClase_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (claseVehiculo != cmbClase.Text)
@@ -246,6 +277,12 @@ namespace Vistas
             }
         }
 
+
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sGps_CheckedChanged(object sender, EventArgs e)
         {
             if (gps != sGps.Checked)
@@ -254,9 +291,41 @@ namespace Vistas
             }
         }
 
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAPrecio_KeyDown(object sender, KeyEventArgs e)
         {
             btnMVehiculo.Enabled = true;
+        }
+        /// <summary>
+        /// valida solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
+        }
+        /// <summary>
+        /// valida solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+        /// <summary>
+        /// valida solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbCantPuert_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
         }
     }
 }

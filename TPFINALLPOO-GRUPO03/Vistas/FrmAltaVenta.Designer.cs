@@ -92,7 +92,7 @@
             this.btnVender.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnVender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVender.ForeColor = System.Drawing.Color.White;
-            this.btnVender.Location = new System.Drawing.Point(19, 344);
+            this.btnVender.Location = new System.Drawing.Point(19, 341);
             this.btnVender.Margin = new System.Windows.Forms.Padding(2);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(171, 23);

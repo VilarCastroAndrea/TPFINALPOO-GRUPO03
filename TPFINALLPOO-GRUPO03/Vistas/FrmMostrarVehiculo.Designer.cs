@@ -128,6 +128,7 @@
             this.cmbModelo.Size = new System.Drawing.Size(120, 21);
             this.cmbModelo.TabIndex = 60;
             this.cmbModelo.SelectedIndexChanged += new System.EventHandler(this.cmbModelo_SelectedIndexChanged);
+            this.cmbModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbModelo_KeyPress);
             // 
             // cmbColor
             // 
@@ -145,6 +146,7 @@
             this.cmbColor.Size = new System.Drawing.Size(120, 21);
             this.cmbColor.TabIndex = 61;
             this.cmbColor.SelectedIndexChanged += new System.EventHandler(this.cmbColor_SelectedIndexChanged);
+            this.cmbColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbColor_KeyPress);
             // 
             // cmbCantPuert
             // 
@@ -158,6 +160,7 @@
             this.cmbCantPuert.Size = new System.Drawing.Size(55, 21);
             this.cmbCantPuert.TabIndex = 62;
             this.cmbCantPuert.SelectedIndexChanged += new System.EventHandler(this.cmbCantPuert_SelectedIndexChanged);
+            this.cmbCantPuert.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCantPuert_KeyPress);
             // 
             // txtAPrecio
             // 

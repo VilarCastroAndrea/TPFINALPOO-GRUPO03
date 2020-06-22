@@ -20,7 +20,7 @@ namespace Vistas
         private void btnAnular_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere ANULAR la venta";
-            DialogResult dialogResult = MessageBox.Show(msj, "Anular venta?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Anular venta?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);

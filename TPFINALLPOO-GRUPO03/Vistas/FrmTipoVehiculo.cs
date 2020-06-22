@@ -28,7 +28,7 @@ namespace Vistas
         private void btnMoficar_Click(object sender, System.EventArgs e)
         {
             String msj = "Esta seguro que quiere modificar este tipo de vehiculo " + txtDetalle.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Anular venta?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Anular tipo de venta?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 if (txtDetalle.Text != "")
@@ -44,7 +44,7 @@ namespace Vistas
                 }
                 else
                 {
-                    MessageBox.Show("Debe completar todos los campos");
+                    MessageBox.Show("Debe completar todos los campos","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
             actualizarComboTipo();
@@ -58,7 +58,7 @@ namespace Vistas
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
             int id = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -82,7 +82,7 @@ namespace Vistas
         private void btnAlta_Click(object sender, System.EventArgs e)
         {
             String msj = "Esta seguro que quiere Agregar este tipo de vehiculo " + txtNuevo.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 if (txtNuevo.Text != "")
@@ -96,17 +96,20 @@ namespace Vistas
                     }
                     else
                     {
-                        MessageBox.Show("El Tipo ya existe");
+                        MessageBox.Show("El Tipo de vehiculo ya existe","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("complete todos los campos");
+                    MessageBox.Show("complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             actualizarComboTipo();
         }
 
+        /// <summary>
+        /// actualiza el combobox del formulario mostrar vehiculo
+        /// </summary>
         private void actualizarComboTipo()
         {
             FrmMostrarVehiculo frmMosVehiculo = new FrmMostrarVehiculo();
@@ -195,6 +198,12 @@ namespace Vistas
             btnMoficar.Enabled = true;
         }
 
+
+        /// <summary>
+        /// cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
