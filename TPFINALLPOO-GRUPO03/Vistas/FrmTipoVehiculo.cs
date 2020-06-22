@@ -1,5 +1,6 @@
 ﻿using ClasesBase;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Vistas
@@ -46,7 +47,7 @@ namespace Vistas
                     MessageBox.Show("Debe completar todos los campos");
                 }
             }
-
+            actualizarComboTipo();
         }
         /// <summary>
         /// elimina un tipo de vehiculo
@@ -71,6 +72,7 @@ namespace Vistas
                 cargarTipo();
                 MessageBox.Show("Eliminado");
             }
+            actualizarComboTipo();
         }
         /// <summary>
         /// Agrega un tipo de vehiculo
@@ -102,7 +104,17 @@ namespace Vistas
                     MessageBox.Show("complete todos los campos");
                 }
             }
+            actualizarComboTipo();
+        }
 
+        private void actualizarComboTipo()
+        {
+            FrmMostrarVehiculo frmMosVehiculo = new FrmMostrarVehiculo();
+            Form frmMostrarVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmMostrarVehiculo);
+            if (frmMostrarVehiculo != null)
+            {
+                ((FrmMostrarVehiculo)frmMostrarVehiculo).cargarTipo();
+            }
         }
         /// <summary>
         /// carga a la tabla la lista de tipos de vehiculos

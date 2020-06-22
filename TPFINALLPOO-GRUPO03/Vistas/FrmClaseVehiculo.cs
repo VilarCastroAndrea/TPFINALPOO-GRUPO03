@@ -1,5 +1,6 @@
 ﻿using ClasesBase;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Vistas
@@ -48,6 +49,7 @@ namespace Vistas
                     MessageBox.Show("Complete todos los campos");
                 }
             }
+            actualizarComboClase();
         }
         /// <summary>
         /// Elimina fisicamente la clase si no esta relacionada caso contrario realiza eliminacion logica
@@ -73,6 +75,7 @@ namespace Vistas
                 cargarClasesV();
                 MessageBox.Show("Eliminado");
             }
+            actualizarComboClase();
         }
         /// <summary>
         /// realiza la alta de una nueva clase
@@ -105,7 +108,17 @@ namespace Vistas
                     MessageBox.Show("Complete todos los campos");
                 }
             }
+            actualizarComboClase();
+        }
 
+        private void actualizarComboClase()
+        {
+            FrmMostrarVehiculo frmMosVehiculo = new FrmMostrarVehiculo();
+            Form frmMostrarVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmMostrarVehiculo);
+            if (frmMostrarVehiculo != null)
+            {
+                ((FrmMostrarVehiculo)frmMostrarVehiculo).cargarClase();
+            }
         }
         /// <summary>
         /// carga las clases de vehiculo

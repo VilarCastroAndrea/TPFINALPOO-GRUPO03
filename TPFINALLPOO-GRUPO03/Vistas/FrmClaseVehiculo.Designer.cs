@@ -93,6 +93,7 @@
             // 
             this.dgwLista.AllowUserToAddRows = false;
             this.dgwLista.AllowUserToDeleteRows = false;
+            this.dgwLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwLista.BackgroundColor = System.Drawing.Color.White;
             this.dgwLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwLista.Location = new System.Drawing.Point(12, 12);
@@ -143,6 +144,7 @@
             // 
             // txtDetalle
             // 
+            this.txtDetalle.Enabled = false;
             this.txtDetalle.Location = new System.Drawing.Point(299, 28);
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(164, 20);
@@ -195,6 +197,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(477, 244);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.checkDisponible);
             this.Controls.Add(this.label1);

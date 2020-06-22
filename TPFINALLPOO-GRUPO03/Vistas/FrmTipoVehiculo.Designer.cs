@@ -33,15 +33,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnMoficar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.dgwLista = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNuevo = new System.Windows.Forms.TextBox();
             this.btnAlta = new System.Windows.Forms.Button();
             this.checkDisponible = new System.Windows.Forms.CheckBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwLista)).BeginInit();
+            this.dgwLista = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwLista)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,6 +57,7 @@
             // 
             // txtDetalle
             // 
+            this.txtDetalle.Enabled = false;
             this.txtDetalle.Location = new System.Drawing.Point(302, 29);
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(164, 20);
@@ -102,19 +103,6 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // dgwLista
-            // 
-            this.dgwLista.AllowUserToAddRows = false;
-            this.dgwLista.AllowUserToDeleteRows = false;
-            this.dgwLista.BackgroundColor = System.Drawing.Color.White;
-            this.dgwLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwLista.Location = new System.Drawing.Point(15, 13);
-            this.dgwLista.Name = "dgwLista";
-            this.dgwLista.ReadOnly = true;
-            this.dgwLista.Size = new System.Drawing.Size(281, 219);
-            this.dgwLista.TabIndex = 8;
-            this.dgwLista.CurrentCellChanged += new System.EventHandler(this.dgwLista_CurrentCellChanged);
             // 
             // panel1
             // 
@@ -188,6 +176,20 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // dgwLista
+            // 
+            this.dgwLista.AllowUserToAddRows = false;
+            this.dgwLista.AllowUserToDeleteRows = false;
+            this.dgwLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwLista.BackgroundColor = System.Drawing.Color.White;
+            this.dgwLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwLista.Location = new System.Drawing.Point(15, 13);
+            this.dgwLista.Name = "dgwLista";
+            this.dgwLista.ReadOnly = true;
+            this.dgwLista.Size = new System.Drawing.Size(281, 219);
+            this.dgwLista.TabIndex = 8;
+            this.dgwLista.CurrentCellChanged += new System.EventHandler(this.dgwLista_CurrentCellChanged);
+            // 
             // FrmTipoVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +197,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(480, 244);
+            this.ControlBox = false;
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.checkDisponible);
             this.Controls.Add(this.label1);
@@ -209,9 +212,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tipo de Vehiculo";
             this.Load += new System.EventHandler(this.FrmTipoVehiculo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwLista)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwLista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,12 +227,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnMoficar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.DataGridView dgwLista;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNuevo;
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.CheckBox checkDisponible;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.DataGridView dgwLista;
     }
 }
