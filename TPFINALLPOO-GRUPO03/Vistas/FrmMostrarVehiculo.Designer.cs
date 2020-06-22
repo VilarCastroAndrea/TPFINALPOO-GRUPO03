@@ -306,7 +306,6 @@
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(172, 21);
             this.cmbTipo.TabIndex = 63;
-            this.cmbTipo.DropDown += new System.EventHandler(this.cmbTipo_DropDown);
             this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
             // 
             // cmbClase
@@ -317,7 +316,6 @@
             this.cmbClase.Name = "cmbClase";
             this.cmbClase.Size = new System.Drawing.Size(172, 21);
             this.cmbClase.TabIndex = 64;
-            this.cmbClase.DropDown += new System.EventHandler(this.cmbClase_DropDown);
             this.cmbClase.SelectedIndexChanged += new System.EventHandler(this.cmbClase_SelectedIndexChanged);
             // 
             // cmbMarca
