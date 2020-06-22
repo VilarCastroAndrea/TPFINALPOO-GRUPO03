@@ -69,46 +69,54 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnVender_Click(object sender, EventArgs e)
         {
-            int forma = Convert.ToInt32(cmbMedioDePago.SelectedValue);
-            if (validarCampos())
+            try
             {
-                Venta nuevaVenta = new Venta();
-                nuevaVenta.Cli_DNI = primerValorCombobox(cmbClientesDNI.Text);
-                nuevaVenta.Veh_Matricula = primerValorCombobox(cmbVehiculos.Text);
-                nuevaVenta.Vta_Fecha = dtpFecha.Value;
-                Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
-                if (frmLogin != null)
+                int forma = Convert.ToInt32(cmbMedioDePago.SelectedValue);
+                if (validarCampos())
                 {
-                    nuevaVenta.Usu_ID = ((FrmLogin)frmLogin).user.Usu_ID;
-                    nuevaVenta.Fp_ID = forma;
-                    nuevaVenta.Vta_PrecioFinal = Convert.ToDecimal(txtPrecio.Text);
-                    if (nuevaVenta.Vta_PrecioFinal > 0)
+                    Venta nuevaVenta = new Venta();
+                    nuevaVenta.Cli_DNI = primerValorCombobox(cmbClientesDNI.Text);
+                    nuevaVenta.Veh_Matricula = primerValorCombobox(cmbVehiculos.Text);
+                    nuevaVenta.Vta_Fecha = dtpFecha.Value;
+                    Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
+                    if (frmLogin != null)
                     {
-                        if (mensaje(nuevaVenta) == DialogResult.OK)
+                        nuevaVenta.Usu_ID = ((FrmLogin)frmLogin).user.Usu_ID;
+                        nuevaVenta.Fp_ID = forma;
+                        nuevaVenta.Vta_PrecioFinal = Convert.ToDecimal(txtPrecio.Text);
+                        if (nuevaVenta.Vta_PrecioFinal > 0)
                         {
-                            TrabajarVenta.altaVenta(nuevaVenta);
-                            limpiarCampos();
-                            Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
-                            ((FrmVenta)frmVenta).cargarVentas();
-                            TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
+                            if (mensaje(nuevaVenta) == DialogResult.OK)
+                            {
+                                TrabajarVenta.altaVenta(nuevaVenta);
+                                limpiarCampos();
+                                Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
+                                ((FrmVenta)frmVenta).cargarVentas();
+                                TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Venta cancelada", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+
                         }
                         else
                         {
-                            MessageBox.Show("Venta cancelada", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("No puede Ingresar un Precio menor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No puede Ingresar un Precio menor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
+                }
+                else
+                {
+                    MessageBox.Show("Campos Incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Campos Incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Espere unos momentos mientras se esta cargando la base de datos e intentelo mas tarde", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
         /// <summary>
         /// carga el combo medio de pago
