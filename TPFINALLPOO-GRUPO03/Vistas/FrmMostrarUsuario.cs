@@ -21,7 +21,6 @@ namespace Vistas
         public void disponibilidadDeUsuario(bool disponible)
         {
             txtNombreApellidoUsuario.Enabled = disponible;
-            txtNombreUsuario.Enabled = disponible;
             txtPass.Enabled = disponible;
             cmbRoles.Enabled = disponible;
             btnEliminarUsuario.Enabled = disponible;
