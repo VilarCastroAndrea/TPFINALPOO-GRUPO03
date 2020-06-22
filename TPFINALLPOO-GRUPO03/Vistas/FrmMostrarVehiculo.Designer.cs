@@ -75,7 +75,7 @@
             this.nGps.Location = new System.Drawing.Point(117, 10);
             this.nGps.Name = "nGps";
             this.nGps.Size = new System.Drawing.Size(39, 17);
-            this.nGps.TabIndex = 81;
+            this.nGps.TabIndex = 66;
             this.nGps.TabStop = true;
             this.nGps.Text = "No";
             this.nGps.UseVisualStyleBackColor = false;
@@ -88,10 +88,11 @@
             this.sGps.Location = new System.Drawing.Point(57, 9);
             this.sGps.Name = "sGps";
             this.sGps.Size = new System.Drawing.Size(34, 17);
-            this.sGps.TabIndex = 82;
+            this.sGps.TabIndex = 65;
             this.sGps.TabStop = true;
             this.sGps.Text = "Si";
             this.sGps.UseVisualStyleBackColor = false;
+            this.sGps.CheckedChanged += new System.EventHandler(this.sGps_CheckedChanged);
             // 
             // btnMVehiculo
             // 
@@ -102,7 +103,7 @@
             this.btnMVehiculo.Location = new System.Drawing.Point(19, 328);
             this.btnMVehiculo.Name = "btnMVehiculo";
             this.btnMVehiculo.Size = new System.Drawing.Size(172, 23);
-            this.btnMVehiculo.TabIndex = 66;
+            this.btnMVehiculo.TabIndex = 68;
             this.btnMVehiculo.Text = "Modificar Vehiculo";
             this.btnMVehiculo.UseVisualStyleBackColor = false;
             this.btnMVehiculo.Click += new System.EventHandler(this.btnMVehiculo_Click);
@@ -126,6 +127,8 @@
             this.cmbModelo.Name = "cmbModelo";
             this.cmbModelo.Size = new System.Drawing.Size(120, 21);
             this.cmbModelo.TabIndex = 60;
+            this.cmbModelo.SelectedIndexChanged += new System.EventHandler(this.cmbModelo_SelectedIndexChanged);
+            this.cmbModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbModelo_KeyPress);
             // 
             // cmbColor
             // 
@@ -142,6 +145,8 @@
             this.cmbColor.Name = "cmbColor";
             this.cmbColor.Size = new System.Drawing.Size(120, 21);
             this.cmbColor.TabIndex = 61;
+            this.cmbColor.SelectedIndexChanged += new System.EventHandler(this.cmbColor_SelectedIndexChanged);
+            this.cmbColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbColor_KeyPress);
             // 
             // cmbCantPuert
             // 
@@ -154,13 +159,16 @@
             this.cmbCantPuert.Name = "cmbCantPuert";
             this.cmbCantPuert.Size = new System.Drawing.Size(55, 21);
             this.cmbCantPuert.TabIndex = 62;
+            this.cmbCantPuert.SelectedIndexChanged += new System.EventHandler(this.cmbCantPuert_SelectedIndexChanged);
+            this.cmbCantPuert.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCantPuert_KeyPress);
             // 
             // txtAPrecio
             // 
             this.txtAPrecio.Location = new System.Drawing.Point(73, 304);
             this.txtAPrecio.Name = "txtAPrecio";
             this.txtAPrecio.Size = new System.Drawing.Size(118, 20);
-            this.txtAPrecio.TabIndex = 65;
+            this.txtAPrecio.TabIndex = 67;
+            this.txtAPrecio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAPrecio_KeyDown);
             this.txtAPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAPrecio_KeyPress);
             // 
             // label10
@@ -232,6 +240,7 @@
             this.txtALinea.Name = "txtALinea";
             this.txtALinea.Size = new System.Drawing.Size(120, 20);
             this.txtALinea.TabIndex = 59;
+            this.txtALinea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtALinea_KeyDown);
             this.txtALinea.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtALinea_KeyPress);
             // 
             // label4
@@ -287,7 +296,7 @@
             this.btnEVehiculo.Location = new System.Drawing.Point(19, 357);
             this.btnEVehiculo.Name = "btnEVehiculo";
             this.btnEVehiculo.Size = new System.Drawing.Size(172, 23);
-            this.btnEVehiculo.TabIndex = 67;
+            this.btnEVehiculo.TabIndex = 69;
             this.btnEVehiculo.Text = "Eliminar Vehiculo";
             this.btnEVehiculo.UseVisualStyleBackColor = false;
             this.btnEVehiculo.Click += new System.EventHandler(this.btnEVehiculo_Click);
@@ -299,8 +308,8 @@
             this.cmbTipo.Location = new System.Drawing.Point(19, 208);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(172, 21);
-            this.cmbTipo.TabIndex = 78;
-            this.cmbTipo.DropDown += new System.EventHandler(this.cmbTipo_DropDown);
+            this.cmbTipo.TabIndex = 63;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
             // 
             // cmbClase
             // 
@@ -309,8 +318,8 @@
             this.cmbClase.Location = new System.Drawing.Point(19, 248);
             this.cmbClase.Name = "cmbClase";
             this.cmbClase.Size = new System.Drawing.Size(172, 21);
-            this.cmbClase.TabIndex = 79;
-            this.cmbClase.DropDown += new System.EventHandler(this.cmbClase_DropDown);
+            this.cmbClase.TabIndex = 64;
+            this.cmbClase.SelectedIndexChanged += new System.EventHandler(this.cmbClase_SelectedIndexChanged);
             // 
             // cmbMarca
             // 
@@ -329,6 +338,7 @@
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(120, 21);
             this.cmbMarca.TabIndex = 80;
+            this.cmbMarca.SelectedIndexChanged += new System.EventHandler(this.cmbMarca_SelectedIndexChanged);
             // 
             // FrmMostrarVehiculo
             // 
@@ -370,7 +380,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox GPS;
-        private System.Windows.Forms.Button btnMVehiculo;
         public System.Windows.Forms.ComboBox cmbModelo;
         public System.Windows.Forms.ComboBox cmbColor;
         public System.Windows.Forms.ComboBox cmbCantPuert;
@@ -392,5 +401,6 @@
         public System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.RadioButton nGps;
         private System.Windows.Forms.RadioButton sGps;
+        public System.Windows.Forms.Button btnMVehiculo;
     }
 }

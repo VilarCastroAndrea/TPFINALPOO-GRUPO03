@@ -1,6 +1,7 @@
 ﻿using ClasesBase;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Vistas
@@ -67,22 +68,30 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (intentos < 5)
+            try
             {
-                ingresar();
-            }
-            else
-            {
-                if (lblCapcha.Text == txtResultadoCapcha.Text)
+                if (intentos < 5)
                 {
                     ingresar();
                 }
                 else
                 {
-                    MessageBox.Show("Capcha incorrecto");
-                    lblCapcha.Text = generarCapcha();
+                    if (lblCapcha.Text == txtResultadoCapcha.Text)
+                    {
+                        ingresar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Capcha incorrecto","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        lblCapcha.Text = generarCapcha();
+                    }
                 }
             }
+            catch
+            {
+                MessageBox.Show("Espere unos momentos e intentelo nuevamente mas tarde", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         /// <summary>
@@ -161,24 +170,81 @@ namespace Vistas
             txtUsuario.Focus();
         }
 
-        private void txtUsuario_MouseHover(object sender, EventArgs e)
+        /// <summary>
+        /// limpieza de placeholder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void placeholderUsuario_Enter(object sender, EventArgs e)
         {
-            label1.Text = "Ingrese Usuario";
+            if (txtUsuario.Text == "Usuario")
+            {
+                txtUsuario.Text = "";
+                txtUsuario.ForeColor = Color.Black;
+            }
         }
-
-        private void txtUsuario_MouseLeave(object sender, EventArgs e)
+        /// <summary>
+        /// limpieza de placeholder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void placeHolderPass_Enter(object sender, EventArgs e)
         {
-            label1.Text = " ";
+            if (txtContra.Text == "Password")
+            {
+                txtContra.Text = "";
+                txtContra.ForeColor = Color.Black;
+            }
         }
-
-        private void txtContra_MouseHover(object sender, EventArgs e)
+        /// <summary>
+        /// texto placee holder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void placeHolderUsuario_Leave(object sender, EventArgs e)
         {
-            label2.Text = "Ingrese contraseña";
+            if (txtUsuario.Text == "")
+            {
+                txtUsuario.Text = "Usuario";
+                txtUsuario.ForeColor = Color.Silver;
+            }
         }
-
-        private void txtContra_MouseLeave(object sender, EventArgs e)
+        /// <summary>
+        /// texto place holder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void placeHolderPass_Leave(object sender, EventArgs e)
         {
-            label2.Text = " ";
+            if (txtContra.Text == "")
+            {
+                txtContra.Text = "Password";
+                txtContra.ForeColor = Color.Silver;
+            }
+        }
+        /// <summary>
+        /// realiza el ingreso al apretar enter en el text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if ((int)e.KeyChar == (int)Keys.Enter)
+                {
+                btnIngresar.PerformClick();
+                }
+        }
+        /// <summary>
+        /// realiza el ingreso al apretar enter en el text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtResultadoCapcha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                btnIngresar.PerformClick();
+            }
         }
     }
 }

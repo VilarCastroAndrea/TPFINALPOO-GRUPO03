@@ -63,9 +63,9 @@ namespace Vistas
                                                        "Color: " + vehiculo.Veh_Color + "\n" +
                                                        "Puertas: " + vehiculo.Veh_Puertas + "\n" +
                                                        "GPS: " + opcionGPS + "\n" +
-                                                       "Tipo de Vehiculo: " + vehiculo.Tv_ID + "\n" +
-                                                       "Clase de Vehiculo: " + vehiculo.Cv_ID + "\n" +
-                                                       "Precio: " + vehiculo.Veh_Precio, "Agregar Vehiculo", MessageBoxButtons.OKCancel);
+                                                       "Tipo de Vehiculo: " + this.cmbTipo.Text + "\n" +
+                                                       "Clase de Vehiculo: " + this.cmbClase.Text + "\n" +
+                                                       "Precio: " + vehiculo.Veh_Precio, "Agregar Vehiculo", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
 
                 try
                 {
@@ -89,17 +89,18 @@ namespace Vistas
                         {
                             ((FrmVehiculo)frmListaVehiculo).dataVehiculo.DataSource = null;
                             ((FrmVehiculo)frmListaVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                            ((FrmVehiculo)frmListaVehiculo).contar();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Se cancelo el alta del Vehiculo", "Cancelado");
+                        MessageBox.Show("Se cancelo el alta del Vehiculo", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         result = new DialogResult();
                     }
                 }
                 catch
                 {
-                    MessageBox.Show("Matricula Repetida");
+                    MessageBox.Show("Ya existe un vehiculo con la matricula ingresada", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtAMatricula.Text = "";
                     txtAMatricula.Focus();
                 }
@@ -107,7 +108,7 @@ namespace Vistas
             }
             else
             {
-                MessageBox.Show("Complete todos los campos");
+                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,8 +141,8 @@ namespace Vistas
         private void txtAMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
             txtAMatricula.MaxLength = 7;
-                   
-         }
+
+        }
 
         /// <summary>
         /// Valida el que el campo precio solo tenga numeros
@@ -170,6 +171,33 @@ namespace Vistas
         private void cmbClase_DropDown(object sender, EventArgs e)
         {
             cargarClase();
+        }
+        /// <summary>
+        /// valida solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
+        }
+        /// <summary>
+        /// valida solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+        /// <summary>
+        /// valida solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbCantPuert_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
         }
     }
 }

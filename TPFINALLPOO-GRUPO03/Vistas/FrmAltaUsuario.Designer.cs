@@ -78,9 +78,9 @@
             this.lblNombreApellidoUsuario.ForeColor = System.Drawing.SystemColors.Control;
             this.lblNombreApellidoUsuario.Location = new System.Drawing.Point(21, 147);
             this.lblNombreApellidoUsuario.Name = "lblNombreApellidoUsuario";
-            this.lblNombreApellidoUsuario.Size = new System.Drawing.Size(91, 13);
+            this.lblNombreApellidoUsuario.Size = new System.Drawing.Size(92, 13);
             this.lblNombreApellidoUsuario.TabIndex = 38;
-            this.lblNombreApellidoUsuario.Text = "Nombre y apellido";
+            this.lblNombreApellidoUsuario.Text = "Apellido y Nombre";
             // 
             // lblPass
             // 

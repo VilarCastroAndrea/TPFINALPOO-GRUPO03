@@ -46,7 +46,7 @@ namespace Vistas
             {
                 Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
                 DataTable userX = new DataTable();
-                userX = TrabajarUsuario.buscarUsuario(txtNombreUsuario.Text);
+                userX = TrabajarUsuario.buscarUsuarioPreciso(txtNombreUsuario.Text);
                 if (userX.Rows.Count == 0)
                 {
                     if (mensaje(cargarDatos()) == DialogResult.OK)
@@ -55,11 +55,12 @@ namespace Vistas
                         {
                             TrabajarUsuario.altaUsuario(cargarDatos());
                             ((FrmUsuario)frmUsuario).listarUsuario();
+                            ((FrmUsuario)frmUsuario).contar();
                             limpiarCampos();
                         }
                         catch
                         {
-                            MessageBox.Show("Complete correctamente los datos");
+                            MessageBox.Show("Complete correctamente los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
 
@@ -67,19 +68,19 @@ namespace Vistas
                     }
                     else
                     {
-                        MessageBox.Show("Se cancelo el alta del usuario", "Cancelado");
+                        MessageBox.Show("Se cancelo el alta del usuario", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Usuario ya existente, ingrese otro nombre de usuario");
+                    MessageBox.Show("Usuario ya existente, ingrese otro nombre de usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtNombreUsuario.Text = "";
                     txtNombreUsuario.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Complete todos los campos");
+                MessageBox.Show("Complete todos los campos","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -100,7 +101,7 @@ namespace Vistas
             }
             else
             {
-                MessageBox.Show("Complete todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return nuevoUsu;
         }
@@ -115,9 +116,9 @@ namespace Vistas
             DialogResult result = MessageBox.Show("Los Datos ingresados son correctos? " + "\n" +
                                                          "Nombre de Usuario: " + nuevoUsu.Usu_NombreUsuario + "\n" +
                                                          "Contraseña: " + nuevoUsu.Usu_Contraseña + "\n" +
-                                                         "Nombre y Apellido: " + nuevoUsu.Usu_ApellidoNombre + "\n" +
+                                                         "Apellido y Nombre: " + nuevoUsu.Usu_ApellidoNombre + "\n" +
                                                          "Rol: " + nuevoUsu.Rol_Codigo,
-                                                         "Agregar usuario", MessageBoxButtons.OKCancel);
+                                                         "Agregar usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             return result;
         }
 
@@ -155,7 +156,11 @@ namespace Vistas
             cmbRoles.Text = "";
         }
 
-        //validacion del campo apellido nombre usuario solo letras
+        /// <summary>
+        /// validacion del campo apellido nombre usuario solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreApellidoUsuario_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);

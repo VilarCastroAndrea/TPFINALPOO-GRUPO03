@@ -43,7 +43,7 @@ namespace Vistas
             else
             {
                 v.Handled = true;
-                MessageBox.Show("Solo Numeros");
+                MessageBox.Show("Solo se permiten Numeros","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

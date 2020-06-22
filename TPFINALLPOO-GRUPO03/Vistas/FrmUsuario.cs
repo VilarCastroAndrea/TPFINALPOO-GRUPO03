@@ -1,6 +1,7 @@
 ﻿using ClasesBase;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -45,6 +46,7 @@ namespace Vistas
             FrmMostrarUsuario frmMostrarUsuario = form ?? new FrmMostrarUsuario();
             AddFormInPanel(frmMostrarUsuario);
             listarUsuario();
+
         }
 
         /// <summary>
@@ -70,6 +72,7 @@ namespace Vistas
         {
             dgvListaUsuarios.DataSource = TrabajarUsuario.listarUsuario();
             dgvListaUsuarios.Refresh();
+            contar();
         }
 
         /// <summary>
@@ -164,7 +167,7 @@ namespace Vistas
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            if (txtBuscarUsuario.Text != "")
+            if (txtBuscarUsuario.Text != "Buscar Usuario")
             {
                 dgvListaUsuarios.DataSource = TrabajarUsuario.buscarUsuario(txtBuscarUsuario.Text);
             }
@@ -183,6 +186,61 @@ namespace Vistas
             if (this.dgvListaUsuarios.Columns[e.ColumnIndex].Name == "Contraseña")
             {
                 e.Value = "********";
+            }
+        }
+
+
+        /// <summary>
+        /// cuenta la cantidad de usuarios para mostrar en informacion
+        /// </summary>
+
+        public void contar()
+        {
+            int t = dgvListaUsuarios.Rows.Count;
+            lblUsuarios.Text = Convert.ToString(t);
+
+            int admin = 0;
+            int vendedor = 0;
+            int auditor = 0;
+
+            foreach (DataGridViewRow fila in dgvListaUsuarios.Rows)
+            {
+                if (fila.Cells[5].Value.Equals("Administrador"))
+                {
+                    admin = admin + 1;
+                }
+                else
+                {
+                    if (fila.Cells[5].Value.Equals("Vendedor"))
+                    {
+                        vendedor = vendedor + 1;
+                    }
+                    else
+                    {
+                        auditor = auditor + 1;
+                    }
+                }
+            }
+            lblVendedores.Text = Convert.ToString(vendedor);
+            lblAdministradores.Text = Convert.ToString(admin);
+            lblAuditores.Text = Convert.ToString(auditor);
+        }
+
+        private void placeHolderUsuario_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarUsuario.Text == "Buscar Usuario")
+            {
+                txtBuscarUsuario.Text = "";
+                txtBuscarUsuario.ForeColor = Color.Black;
+            }
+        }
+
+        private void placeHolderUsuario_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarUsuario.Text == "")
+            {
+                txtBuscarUsuario.Text = "Buscar Usuario";
+                txtBuscarUsuario.ForeColor = Color.Silver;
             }
         }
     }

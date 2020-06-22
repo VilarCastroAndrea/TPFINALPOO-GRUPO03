@@ -1,5 +1,6 @@
 ﻿using ClasesBase;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Vistas
@@ -27,32 +28,28 @@ namespace Vistas
         private void btnMoficar_Click(object sender, EventArgs e)
         {
             String msj = "Esta seguro que quiere modificar esta clase de vehiculo " + this.txtDetalle.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
                 if (txtDetalle.Text != "")
                 {
-                    if (this.validarClaseVehiculo(txtDetalle.Text))
-                    {
-                        ClaseVehiculo cv = new ClaseVehiculo();
-                        cv.Cv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-                        cv.Cv_Descripcion = txtDetalle.Text;
-                        cv.Cv_Disponible = checkDisponible.Checked;
-                        TrabajarClaseVehiculo.modificacionClase(cv);
-                        MessageBox.Show("Clase de vehiculo Modificado");
-                        cargarClasesV();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Clase de vehiculo ya exsite");
-                    }
+
+                    ClaseVehiculo cv = new ClaseVehiculo();
+                    cv.Cv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                    cv.Cv_Descripcion = txtDetalle.Text;
+                    cv.Cv_Disponible = checkDisponible.Checked;
+                    TrabajarClaseVehiculo.modificacionClase(cv);
+                    MessageBox.Show("Clase de vehiculo Modificado");
+                    cargarClasesV();
+
                 }
                 else
                 {
                     MessageBox.Show("Complete todos los campos");
                 }
             }
+            actualizarComboClase();
         }
         /// <summary>
         /// Elimina fisicamente la clase si no esta relacionada caso contrario realiza eliminacion logica
@@ -64,7 +61,7 @@ namespace Vistas
 
             String msj = "Esta seguro que quiere elimnar esta clase de vehiculo? " + this.txtDetalle.Text;
             int id = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -78,6 +75,7 @@ namespace Vistas
                 cargarClasesV();
                 MessageBox.Show("Eliminado");
             }
+            actualizarComboClase();
         }
         /// <summary>
         /// realiza la alta de una nueva clase
@@ -85,8 +83,9 @@ namespace Vistas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAlta_Click(object sender, EventArgs e)
-        { String msj = "Esta seguro que quiere agregar esta clase de vehiculo? " + this.txtNuevo.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+        {
+            String msj = "Esta seguro que quiere agregar esta clase de vehiculo? " + this.txtNuevo.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -101,15 +100,28 @@ namespace Vistas
                     }
                     else
                     {
-                        MessageBox.Show("Clase vehiculo ya exsite");
+                        MessageBox.Show("Clase vehiculo ya exsite", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Complete todos los campos");
+                    MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            actualizarComboClase();
+        }
 
+        /// <summary>
+        /// actualiza el combo clase del formulario mostrar vehiculo
+        /// </summary>
+        private void actualizarComboClase()
+        {
+            FrmMostrarVehiculo frmMosVehiculo = new FrmMostrarVehiculo();
+            Form frmMostrarVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmMostrarVehiculo);
+            if (frmMostrarVehiculo != null)
+            {
+                ((FrmMostrarVehiculo)frmMostrarVehiculo).cargarClase();
+            }
         }
         /// <summary>
         /// carga las clases de vehiculo
@@ -130,6 +142,7 @@ namespace Vistas
             {
                 txtDetalle.Text = dgwLista.CurrentRow.Cells["Descripcion"].Value.ToString();
                 checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
+                btnMoficar.Enabled = false;
             }
         }
 
@@ -168,6 +181,35 @@ namespace Vistas
         private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
+        }
+        /// <summary>
+        /// habilita el boton modificar al escribir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkDisponible_CheckedChanged(object sender, EventArgs e)
+        {
+            btnMoficar.Enabled = true;
+        }
+        /// <summary>
+        /// habilita el boton modificar al cambiar el estado del check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtDetalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMoficar.Enabled = true;
+        }
+
+
+        /// <summary>
+        /// cierra este formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

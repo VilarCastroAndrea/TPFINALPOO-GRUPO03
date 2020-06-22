@@ -8,6 +8,15 @@ namespace Vistas
 {
     public partial class FrmMostrarVehiculo : Form
     {
+        public string marca;
+        public string modelo;
+        public string color;
+        public string cantPuertas;
+        public string tipoVehiculo;
+        public string claseVehiculo;
+        public bool gps;
+
+        public Vehiculo vehiculoModificado;
         public FrmMostrarVehiculo()
         {
             InitializeComponent();
@@ -84,7 +93,7 @@ namespace Vistas
         private void btnMVehiculo_Click(object sender, System.EventArgs e)
         {
             String msj = "Esta seguro que quiere modificar este Vehiculo " + this.txtAMatricula.Text + " " + cmbMarca.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -122,7 +131,7 @@ namespace Vistas
         private void btnEVehiculo_Click(object sender, System.EventArgs e)
         {
             String msj = "Esta seguro que quiere Eliminar este Vehiculo " + this.txtAMatricula.Text + " " + cmbMarca.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -135,10 +144,14 @@ namespace Vistas
                         TrabajarVehiculo.eliminarVehiculo(txtAMatricula.Text);
                         MessageBox.Show("Vehiculo Eliminado");
                         ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                        ((FrmVehiculo)frmVehiculo).contar();
                     }
                     catch
                     {
-                        MessageBox.Show("Vehiculo Vendido");
+                        MessageBox.Show("Vehiculo Eliminado");
+                        TrabajarVehiculo.eliminarVehiculo(txtAMatricula.Text);
+                        ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                        ((FrmVehiculo)frmVehiculo).contar();
                     }
 
                 }
@@ -181,23 +194,138 @@ namespace Vistas
         {
             Validar.soloNumeros(e);
         }
+
         /// <summary>
-        /// refresca el combobox tipo
+        /// validacion sobre marca
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void cmbTipo_DropDown(object sender, EventArgs e)
+        private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cargarTipo();
+            if (marca != cmbMarca.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
         }
         /// <summary>
-        /// refresca el combobox clase
+        /// habilitacion de boton en caso de modificacion
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void cmbClase_DropDown(object sender, EventArgs e)
+        private void txtALinea_KeyDown(object sender, KeyEventArgs e)
         {
-            cargarClase();
+            btnMVehiculo.Enabled = true;
+        }
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbModelo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modelo != cmbModelo.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (color != cmbColor.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbCantPuert_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cantPuertas != cmbCantPuert.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tipoVehiculo != cmbTipo.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbClase_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (claseVehiculo != cmbClase.Text)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sGps_CheckedChanged(object sender, EventArgs e)
+        {
+            if (gps != sGps.Checked)
+            {
+                btnMVehiculo.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// habilitacion de boton en caso de modificacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtAPrecio_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMVehiculo.Enabled = true;
+        }
+        /// <summary>
+        /// valida solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
+        }
+        /// <summary>
+        /// valida solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloLetra(e);
+        }
+        /// <summary>
+        /// valida solo numeros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbCantPuert_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.soloNumeros(e);
         }
     }
 }

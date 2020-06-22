@@ -73,7 +73,7 @@
             this.nGps.Location = new System.Drawing.Point(118, 10);
             this.nGps.Name = "nGps";
             this.nGps.Size = new System.Drawing.Size(39, 17);
-            this.nGps.TabIndex = 83;
+            this.nGps.TabIndex = 51;
             this.nGps.Text = "No";
             this.nGps.UseVisualStyleBackColor = false;
             // 
@@ -86,7 +86,7 @@
             this.sGps.Location = new System.Drawing.Point(58, 10);
             this.sGps.Name = "sGps";
             this.sGps.Size = new System.Drawing.Size(34, 17);
-            this.sGps.TabIndex = 82;
+            this.sGps.TabIndex = 50;
             this.sGps.TabStop = true;
             this.sGps.Text = "Si";
             this.sGps.UseVisualStyleBackColor = false;
@@ -107,7 +107,7 @@
             this.cmbMarca.Location = new System.Drawing.Point(20, 64);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(169, 21);
-            this.cmbMarca.TabIndex = 58;
+            this.cmbMarca.TabIndex = 43;
             // 
             // cmbModelo
             // 
@@ -127,7 +127,8 @@
             this.cmbModelo.Location = new System.Drawing.Point(71, 130);
             this.cmbModelo.Name = "cmbModelo";
             this.cmbModelo.Size = new System.Drawing.Size(118, 21);
-            this.cmbModelo.TabIndex = 44;
+            this.cmbModelo.TabIndex = 45;
+            this.cmbModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbModelo_KeyPress);
             // 
             // cmbColor
             // 
@@ -143,7 +144,8 @@
             this.cmbColor.Location = new System.Drawing.Point(71, 157);
             this.cmbColor.Name = "cmbColor";
             this.cmbColor.Size = new System.Drawing.Size(118, 21);
-            this.cmbColor.TabIndex = 45;
+            this.cmbColor.TabIndex = 46;
+            this.cmbColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbColor_KeyPress);
             // 
             // cmbCantPuert
             // 
@@ -155,7 +157,8 @@
             this.cmbCantPuert.Location = new System.Drawing.Point(138, 184);
             this.cmbCantPuert.Name = "cmbCantPuert";
             this.cmbCantPuert.Size = new System.Drawing.Size(51, 21);
-            this.cmbCantPuert.TabIndex = 46;
+            this.cmbCantPuert.TabIndex = 47;
+            this.cmbCantPuert.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCantPuert_KeyPress);
             // 
             // txtAPrecio
             // 
@@ -163,7 +166,7 @@
             this.txtAPrecio.MaxLength = 7;
             this.txtAPrecio.Name = "txtAPrecio";
             this.txtAPrecio.Size = new System.Drawing.Size(118, 20);
-            this.txtAPrecio.TabIndex = 47;
+            this.txtAPrecio.TabIndex = 52;
             this.txtAPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAPrecio_KeyPress);
             // 
             // label10
@@ -208,6 +211,7 @@
             // 
             // txtAMatricula
             // 
+            this.txtAMatricula.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAMatricula.Location = new System.Drawing.Point(20, 25);
             this.txtAMatricula.Name = "txtAMatricula";
             this.txtAMatricula.Size = new System.Drawing.Size(170, 20);
@@ -229,7 +233,7 @@
             this.txtALinea.Location = new System.Drawing.Point(20, 104);
             this.txtALinea.Name = "txtALinea";
             this.txtALinea.Size = new System.Drawing.Size(169, 20);
-            this.txtALinea.TabIndex = 43;
+            this.txtALinea.TabIndex = 44;
             // 
             // label4
             // 
@@ -280,7 +284,7 @@
             this.btnAltaVeh.Location = new System.Drawing.Point(20, 356);
             this.btnAltaVeh.Name = "btnAltaVeh";
             this.btnAltaVeh.Size = new System.Drawing.Size(169, 23);
-            this.btnAltaVeh.TabIndex = 48;
+            this.btnAltaVeh.TabIndex = 53;
             this.btnAltaVeh.Text = "Agregar";
             this.btnAltaVeh.UseVisualStyleBackColor = false;
             this.btnAltaVeh.Click += new System.EventHandler(this.btnAltaVeh_Click);
@@ -292,7 +296,7 @@
             this.cmbClase.Location = new System.Drawing.Point(20, 266);
             this.cmbClase.Name = "cmbClase";
             this.cmbClase.Size = new System.Drawing.Size(169, 21);
-            this.cmbClase.TabIndex = 81;
+            this.cmbClase.TabIndex = 49;
             this.cmbClase.DropDown += new System.EventHandler(this.cmbClase_DropDown);
             // 
             // cmbTipo
@@ -302,7 +306,7 @@
             this.cmbTipo.Location = new System.Drawing.Point(20, 226);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(169, 21);
-            this.cmbTipo.TabIndex = 80;
+            this.cmbTipo.TabIndex = 48;
             this.cmbTipo.DropDown += new System.EventHandler(this.cmbTipo_DropDown);
             // 
             // FrmAltaVehiculo

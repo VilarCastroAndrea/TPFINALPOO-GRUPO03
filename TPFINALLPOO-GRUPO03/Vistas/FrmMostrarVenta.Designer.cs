@@ -73,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(9, 8);
+            this.label1.Location = new System.Drawing.Point(13, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 0;
@@ -84,7 +84,7 @@
             this.txtApellido.AutoSize = true;
             this.txtApellido.BackColor = System.Drawing.Color.Transparent;
             this.txtApellido.ForeColor = System.Drawing.Color.Transparent;
-            this.txtApellido.Location = new System.Drawing.Point(21, 38);
+            this.txtApellido.Location = new System.Drawing.Point(25, 60);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(47, 13);
             this.txtApellido.TabIndex = 1;
@@ -95,7 +95,7 @@
             this.txtNombre.AutoSize = true;
             this.txtNombre.BackColor = System.Drawing.Color.Transparent;
             this.txtNombre.ForeColor = System.Drawing.Color.Transparent;
-            this.txtNombre.Location = new System.Drawing.Point(21, 51);
+            this.txtNombre.Location = new System.Drawing.Point(25, 73);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(47, 13);
             this.txtNombre.TabIndex = 2;
@@ -106,7 +106,7 @@
             this.txtDNI.AutoSize = true;
             this.txtDNI.BackColor = System.Drawing.Color.Transparent;
             this.txtDNI.ForeColor = System.Drawing.Color.Transparent;
-            this.txtDNI.Location = new System.Drawing.Point(21, 25);
+            this.txtDNI.Location = new System.Drawing.Point(25, 47);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(32, 13);
             this.txtDNI.TabIndex = 3;
@@ -117,7 +117,7 @@
             this.txtTelefono.AutoSize = true;
             this.txtTelefono.BackColor = System.Drawing.Color.Transparent;
             this.txtTelefono.ForeColor = System.Drawing.Color.Transparent;
-            this.txtTelefono.Location = new System.Drawing.Point(21, 64);
+            this.txtTelefono.Location = new System.Drawing.Point(25, 86);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(52, 13);
             this.txtTelefono.TabIndex = 4;
@@ -128,7 +128,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label2.Location = new System.Drawing.Point(9, 85);
+            this.label2.Location = new System.Drawing.Point(13, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 5;
@@ -139,7 +139,7 @@
             this.txtMatricula.AutoSize = true;
             this.txtMatricula.BackColor = System.Drawing.Color.Transparent;
             this.txtMatricula.ForeColor = System.Drawing.Color.Transparent;
-            this.txtMatricula.Location = new System.Drawing.Point(21, 103);
+            this.txtMatricula.Location = new System.Drawing.Point(25, 125);
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(53, 13);
             this.txtMatricula.TabIndex = 6;
@@ -150,7 +150,7 @@
             this.txtMarca.AutoSize = true;
             this.txtMarca.BackColor = System.Drawing.Color.Transparent;
             this.txtMarca.ForeColor = System.Drawing.Color.Transparent;
-            this.txtMarca.Location = new System.Drawing.Point(21, 116);
+            this.txtMarca.Location = new System.Drawing.Point(25, 138);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(40, 13);
             this.txtMarca.TabIndex = 7;
@@ -161,7 +161,7 @@
             this.txtLinea.AutoSize = true;
             this.txtLinea.BackColor = System.Drawing.Color.Transparent;
             this.txtLinea.ForeColor = System.Drawing.Color.Transparent;
-            this.txtLinea.Location = new System.Drawing.Point(21, 129);
+            this.txtLinea.Location = new System.Drawing.Point(25, 151);
             this.txtLinea.Name = "txtLinea";
             this.txtLinea.Size = new System.Drawing.Size(36, 13);
             this.txtLinea.TabIndex = 8;
@@ -172,7 +172,7 @@
             this.txtModelo.AutoSize = true;
             this.txtModelo.BackColor = System.Drawing.Color.Transparent;
             this.txtModelo.ForeColor = System.Drawing.Color.Transparent;
-            this.txtModelo.Location = new System.Drawing.Point(21, 142);
+            this.txtModelo.Location = new System.Drawing.Point(25, 164);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(45, 13);
             this.txtModelo.TabIndex = 9;
@@ -183,7 +183,7 @@
             this.txtColor.AutoSize = true;
             this.txtColor.BackColor = System.Drawing.Color.Transparent;
             this.txtColor.ForeColor = System.Drawing.Color.Transparent;
-            this.txtColor.Location = new System.Drawing.Point(115, 142);
+            this.txtColor.Location = new System.Drawing.Point(119, 164);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(34, 13);
             this.txtColor.TabIndex = 10;
@@ -194,7 +194,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(21, 155);
+            this.label3.Location = new System.Drawing.Point(25, 177);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 11;
@@ -205,7 +205,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(21, 168);
+            this.label4.Location = new System.Drawing.Point(25, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 12;
@@ -216,7 +216,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label5.Location = new System.Drawing.Point(9, 190);
+            this.label5.Location = new System.Drawing.Point(13, 212);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 13;
@@ -227,7 +227,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(21, 206);
+            this.label6.Location = new System.Drawing.Point(25, 228);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 14;
@@ -238,7 +238,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.ForeColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(21, 246);
+            this.label7.Location = new System.Drawing.Point(25, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 15;
@@ -249,7 +249,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label8.Location = new System.Drawing.Point(9, 228);
+            this.label8.Location = new System.Drawing.Point(13, 250);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 16;
@@ -260,7 +260,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(21, 259);
+            this.label9.Location = new System.Drawing.Point(25, 281);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 13);
             this.label9.TabIndex = 17;
@@ -271,7 +271,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.ForeColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(22, 272);
+            this.label10.Location = new System.Drawing.Point(26, 294);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 13);
             this.label10.TabIndex = 18;
@@ -282,7 +282,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.ForeColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(22, 285);
+            this.label11.Location = new System.Drawing.Point(26, 307);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 13);
             this.label11.TabIndex = 19;
@@ -295,7 +295,7 @@
             this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnular.ForeColor = System.Drawing.Color.White;
-            this.btnAnular.Location = new System.Drawing.Point(15, 323);
+            this.btnAnular.Location = new System.Drawing.Point(16, 353);
             this.btnAnular.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(178, 23);
@@ -309,7 +309,7 @@
             this.dni.AutoSize = true;
             this.dni.BackColor = System.Drawing.Color.Transparent;
             this.dni.ForeColor = System.Drawing.Color.White;
-            this.dni.Location = new System.Drawing.Point(50, 25);
+            this.dni.Location = new System.Drawing.Point(54, 47);
             this.dni.Name = "dni";
             this.dni.Size = new System.Drawing.Size(0, 13);
             this.dni.TabIndex = 24;
@@ -319,7 +319,7 @@
             this.apellido.AutoSize = true;
             this.apellido.BackColor = System.Drawing.Color.Transparent;
             this.apellido.ForeColor = System.Drawing.Color.White;
-            this.apellido.Location = new System.Drawing.Point(67, 38);
+            this.apellido.Location = new System.Drawing.Point(71, 60);
             this.apellido.Name = "apellido";
             this.apellido.Size = new System.Drawing.Size(0, 13);
             this.apellido.TabIndex = 25;
@@ -329,7 +329,7 @@
             this.nombre.AutoSize = true;
             this.nombre.BackColor = System.Drawing.Color.Transparent;
             this.nombre.ForeColor = System.Drawing.Color.White;
-            this.nombre.Location = new System.Drawing.Point(67, 51);
+            this.nombre.Location = new System.Drawing.Point(71, 73);
             this.nombre.Name = "nombre";
             this.nombre.Size = new System.Drawing.Size(0, 13);
             this.nombre.TabIndex = 26;
@@ -339,7 +339,7 @@
             this.telefono.AutoSize = true;
             this.telefono.BackColor = System.Drawing.Color.Transparent;
             this.telefono.ForeColor = System.Drawing.Color.White;
-            this.telefono.Location = new System.Drawing.Point(74, 64);
+            this.telefono.Location = new System.Drawing.Point(78, 86);
             this.telefono.Name = "telefono";
             this.telefono.Size = new System.Drawing.Size(0, 13);
             this.telefono.TabIndex = 27;
@@ -349,7 +349,7 @@
             this.matricula.AutoSize = true;
             this.matricula.BackColor = System.Drawing.Color.Transparent;
             this.matricula.ForeColor = System.Drawing.Color.White;
-            this.matricula.Location = new System.Drawing.Point(74, 103);
+            this.matricula.Location = new System.Drawing.Point(78, 125);
             this.matricula.Name = "matricula";
             this.matricula.Size = new System.Drawing.Size(0, 13);
             this.matricula.TabIndex = 28;
@@ -359,7 +359,7 @@
             this.marca.AutoSize = true;
             this.marca.BackColor = System.Drawing.Color.Transparent;
             this.marca.ForeColor = System.Drawing.Color.White;
-            this.marca.Location = new System.Drawing.Point(60, 116);
+            this.marca.Location = new System.Drawing.Point(64, 138);
             this.marca.Name = "marca";
             this.marca.Size = new System.Drawing.Size(0, 13);
             this.marca.TabIndex = 29;
@@ -369,7 +369,7 @@
             this.linea.AutoSize = true;
             this.linea.BackColor = System.Drawing.Color.Transparent;
             this.linea.ForeColor = System.Drawing.Color.White;
-            this.linea.Location = new System.Drawing.Point(55, 129);
+            this.linea.Location = new System.Drawing.Point(59, 151);
             this.linea.Name = "linea";
             this.linea.Size = new System.Drawing.Size(0, 13);
             this.linea.TabIndex = 30;
@@ -379,7 +379,7 @@
             this.modelo.AutoSize = true;
             this.modelo.BackColor = System.Drawing.Color.Transparent;
             this.modelo.ForeColor = System.Drawing.Color.White;
-            this.modelo.Location = new System.Drawing.Point(63, 142);
+            this.modelo.Location = new System.Drawing.Point(67, 164);
             this.modelo.Name = "modelo";
             this.modelo.Size = new System.Drawing.Size(0, 13);
             this.modelo.TabIndex = 31;
@@ -389,7 +389,7 @@
             this.color.AutoSize = true;
             this.color.BackColor = System.Drawing.Color.Transparent;
             this.color.ForeColor = System.Drawing.Color.White;
-            this.color.Location = new System.Drawing.Point(150, 142);
+            this.color.Location = new System.Drawing.Point(154, 164);
             this.color.Name = "color";
             this.color.Size = new System.Drawing.Size(0, 13);
             this.color.TabIndex = 32;
@@ -399,7 +399,7 @@
             this.tipo.AutoSize = true;
             this.tipo.BackColor = System.Drawing.Color.Transparent;
             this.tipo.ForeColor = System.Drawing.Color.White;
-            this.tipo.Location = new System.Drawing.Point(95, 155);
+            this.tipo.Location = new System.Drawing.Point(99, 177);
             this.tipo.Name = "tipo";
             this.tipo.Size = new System.Drawing.Size(0, 13);
             this.tipo.TabIndex = 33;
@@ -409,7 +409,7 @@
             this.clase.AutoSize = true;
             this.clase.BackColor = System.Drawing.Color.Transparent;
             this.clase.ForeColor = System.Drawing.Color.White;
-            this.clase.Location = new System.Drawing.Point(100, 168);
+            this.clase.Location = new System.Drawing.Point(104, 190);
             this.clase.Name = "clase";
             this.clase.Size = new System.Drawing.Size(0, 13);
             this.clase.TabIndex = 34;
@@ -419,7 +419,7 @@
             this.aynv.AutoSize = true;
             this.aynv.BackColor = System.Drawing.Color.Transparent;
             this.aynv.ForeColor = System.Drawing.Color.White;
-            this.aynv.Location = new System.Drawing.Point(55, 206);
+            this.aynv.Location = new System.Drawing.Point(59, 228);
             this.aynv.Name = "aynv";
             this.aynv.Size = new System.Drawing.Size(0, 13);
             this.aynv.TabIndex = 35;
@@ -429,7 +429,7 @@
             this.fecha.AutoSize = true;
             this.fecha.BackColor = System.Drawing.Color.Transparent;
             this.fecha.ForeColor = System.Drawing.Color.White;
-            this.fecha.Location = new System.Drawing.Point(60, 246);
+            this.fecha.Location = new System.Drawing.Point(64, 268);
             this.fecha.Name = "fecha";
             this.fecha.Size = new System.Drawing.Size(0, 13);
             this.fecha.TabIndex = 36;
@@ -439,7 +439,7 @@
             this.forma.AutoSize = true;
             this.forma.BackColor = System.Drawing.Color.Transparent;
             this.forma.ForeColor = System.Drawing.Color.White;
-            this.forma.Location = new System.Drawing.Point(100, 259);
+            this.forma.Location = new System.Drawing.Point(104, 281);
             this.forma.Name = "forma";
             this.forma.Size = new System.Drawing.Size(0, 13);
             this.forma.TabIndex = 37;
@@ -449,7 +449,7 @@
             this.precio.AutoSize = true;
             this.precio.BackColor = System.Drawing.Color.Transparent;
             this.precio.ForeColor = System.Drawing.Color.White;
-            this.precio.Location = new System.Drawing.Point(81, 272);
+            this.precio.Location = new System.Drawing.Point(85, 294);
             this.precio.Name = "precio";
             this.precio.Size = new System.Drawing.Size(0, 13);
             this.precio.TabIndex = 38;
@@ -459,7 +459,7 @@
             this.estado.AutoSize = true;
             this.estado.BackColor = System.Drawing.Color.Transparent;
             this.estado.ForeColor = System.Drawing.Color.White;
-            this.estado.Location = new System.Drawing.Point(119, 285);
+            this.estado.Location = new System.Drawing.Point(123, 307);
             this.estado.Name = "estado";
             this.estado.Size = new System.Drawing.Size(0, 13);
             this.estado.TabIndex = 39;
@@ -469,7 +469,7 @@
             this.id.AutoSize = true;
             this.id.BackColor = System.Drawing.Color.Transparent;
             this.id.ForeColor = System.Drawing.Color.White;
-            this.id.Location = new System.Drawing.Point(153, 8);
+            this.id.Location = new System.Drawing.Point(157, 30);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(0, 13);
             this.id.TabIndex = 40;
@@ -480,7 +480,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(209, 357);
+            this.ClientSize = new System.Drawing.Size(209, 389);
             this.Controls.Add(this.id);
             this.Controls.Add(this.estado);
             this.Controls.Add(this.precio);
@@ -521,6 +521,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmMostrarVenta";
             this.Text = "FrmMostrarVenta";
+            this.Load += new System.EventHandler(this.FrmMostrarVenta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

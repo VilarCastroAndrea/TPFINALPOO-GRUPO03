@@ -49,13 +49,13 @@ namespace Vistas
         private void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
 
-            String msj = "Esta seguro que quiere elimnar el Usuario " + this.txtNombreUsuario.Text;
+            String msj = "Esta seguro que quiere elimnar el Usuario " + this.txtNombreUsuario.Text + "?";
             int id = Convert.ToInt32(this.txtId.Text);
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
 
-                if (rol=="Administrador")
+                if (rol == "Administrador")
                 {
                     eliminarAdministrador();
                 }
@@ -74,6 +74,7 @@ namespace Vistas
                     {
                         Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
                         ((FrmUsuario)frmUsuario).listarUsuario();
+                        ((FrmUsuario)frmUsuario).contar();
                         MessageBox.Show("Usuario Eliminado");
                     }
                 }
@@ -87,35 +88,36 @@ namespace Vistas
         {
 
 
-                int id = Convert.ToInt32(this.txtId.Text);
-                DataTable dataTable = new DataTable();
-                dataTable = TrabajarUsuario.buscarAdministradores();
-                if (dataTable.Rows.Count != 1)
+            int id = Convert.ToInt32(this.txtId.Text);
+            DataTable dataTable = new DataTable();
+            dataTable = TrabajarUsuario.buscarAdministradores();
+            if (dataTable.Rows.Count != 1)
+            {
+                try
                 {
-                    try
-                    {
-                        TrabajarUsuario.bajaUsuarioFisica(id);
+                    TrabajarUsuario.bajaUsuarioFisica(id);
 
-                    }
-                    catch
-                    {
-                        TrabajarUsuario.bajaUsuario(id, false);
-                    }
-                    finally
-                    {
-                        Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
-                        ((FrmUsuario)frmUsuario).listarUsuario();
-                        MessageBox.Show("Usuario Eliminado");
-                    }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Tiene que haber un minimo de un (1) Usuario tipo administrador");
+                    TrabajarUsuario.bajaUsuario(id, false);
                 }
+                finally
+                {
+                    Form frmUsuario = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmUsuario);
+                    ((FrmUsuario)frmUsuario).listarUsuario();
+                    ((FrmUsuario)frmUsuario).contar();
+                    MessageBox.Show("Usuario Eliminado!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tiene que haber un minimo de un (1) Usuario tipo administrador","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            
 
- 
+
+
         }
         /// <summary>
         /// Actualiza un usuario
@@ -124,8 +126,8 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnActualizarUsuario_Click(object sender, EventArgs e)
         {
-            String msj = "Esta seguro que quiere modificar este Usuario " + this.txtNombreUsuario.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            String msj = "Esta seguro que quiere modificar este Usuario " + this.txtNombreUsuario.Text + "?";
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -138,7 +140,8 @@ namespace Vistas
                 usuario.Rol_Codigo = cmbRoles.Text;
                 TrabajarUsuario.modificarUsuario(usuario);
                 ((FrmUsuario)frmUsuario).listarUsuario();
-                MessageBox.Show("Usuario Modificado");
+                ((FrmUsuario)frmUsuario).contar();
+                MessageBox.Show("Usuario Modificado!");
             }
         }
 

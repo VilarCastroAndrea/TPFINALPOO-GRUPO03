@@ -31,7 +31,6 @@ namespace Vistas
             }
             cargarForma();
         }
-
         /// <summary>
         /// carga los combobox vehiculo
         /// </summary>
@@ -63,8 +62,6 @@ namespace Vistas
                     tablaCliente.Rows[i]["Nombre"].ToString() + " | " + tablaCliente.Rows[i]["Apellido"].ToString());
             }
         }
-
-
         /// <summary>
         /// Registra la venta en la base de datos
         /// </summary>
@@ -72,40 +69,55 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnVender_Click(object sender, EventArgs e)
         {
-            int forma = Convert.ToInt32(cmbMedioDePago.SelectedValue);
-            if (validarCampos())
+            try
             {
-                Venta nuevaVenta = new Venta();
-                nuevaVenta.Cli_DNI = primerValorCombobox(cmbClientesDNI.Text);
-                nuevaVenta.Veh_Matricula = primerValorCombobox(cmbVehiculos.Text);
-                nuevaVenta.Vta_Fecha = dtpFecha.Value;
-                Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
-                if (frmLogin != null)
+                int forma = Convert.ToInt32(cmbMedioDePago.SelectedValue);
+                if (validarCampos())
                 {
-                    nuevaVenta.Usu_ID = ((FrmLogin)frmLogin).user.Usu_ID;
-                    nuevaVenta.Fp_ID = forma;
-                    nuevaVenta.Vta_PrecioFinal = Convert.ToDecimal(txtPrecio.Text);
-                    if (nuevaVenta.Vta_PrecioFinal > 0)
+                    Venta nuevaVenta = new Venta();
+                    nuevaVenta.Cli_DNI = primerValorCombobox(cmbClientesDNI.Text);
+                    nuevaVenta.Veh_Matricula = primerValorCombobox(cmbVehiculos.Text);
+                    nuevaVenta.Vta_Fecha = dtpFecha.Value;
+                    Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
+                    if (frmLogin != null)
                     {
-                        TrabajarVenta.altaVenta(nuevaVenta);
-                        limpiarCampos();
-                        Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
-                        ((FrmVenta)frmVenta).cargarVentas();
-                        TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
-                    }
-                    else
-                    {
-                        MessageBox.Show("No puede Ingresar un Precio menor a 0");
-                    }
+                        nuevaVenta.Usu_ID = ((FrmLogin)frmLogin).user.Usu_ID;
+                        nuevaVenta.Fp_ID = forma;
+                        nuevaVenta.Vta_PrecioFinal = Convert.ToDecimal(txtPrecio.Text);
+                        if (nuevaVenta.Vta_PrecioFinal > 0)
+                        {
+                            if (mensaje(nuevaVenta) == DialogResult.OK)
+                            {
+                                TrabajarVenta.altaVenta(nuevaVenta);
+                                limpiarCampos();
+                                Form frmVenta = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVenta);
+                                ((FrmVenta)frmVenta).cargarVentas();
+                                TrabajarVehiculo.bajaVehiculo(nuevaVenta.Veh_Matricula, false);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Venta cancelada", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("No puede Ingresar un Precio menor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Campos Incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Campos Incompletos");
+                MessageBox.Show("Espere unos momentos mientras se esta cargando la base de datos e intentelo mas tarde", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
 
+        }
         /// <summary>
         /// carga el combo medio de pago
         /// </summary>
@@ -115,7 +127,6 @@ namespace Vistas
             cmbMedioDePago.ValueMember = "ID";
             cmbMedioDePago.DataSource = TrabajarFormaPago.listarFormaPagoDisponible();
         }
-
         /// <summary>
         /// valida los campos
         /// </summary>
@@ -138,7 +149,21 @@ namespace Vistas
             }
             return false;
         }
-
+        /// <summary>
+        /// Mensjae de confirmacion
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
+        public DialogResult mensaje(Venta nueva)
+        {
+            DialogResult result = MessageBox.Show("Los Datos ingresados son correctos? " + "\n" +
+                                                              "Cliente: " + cmbClientesDNI.Text + "\n" +
+                                                              "Vehiculo: " + cmbVehiculos.Text + "\n" +
+                                                              "Precio Final: " + txtPrecio.Text + "\n" +
+                                                              "Forma de pago: " + cmbMedioDePago.Text + "\n",
+                                                              "Desea registrar venta", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+            return result;
+        }
         /// <summary>
         /// retorna el primer valor del combobox
         /// </summary>
@@ -148,8 +173,6 @@ namespace Vistas
         {
             return textoCombo.Split('|')[0].TrimEnd();
         }
-
-
         /// <summary>
         /// limpia todos los campos del formulario
         /// </summary>
@@ -162,10 +185,6 @@ namespace Vistas
             cmbMedioDePago.Text = "";
             txtPrecio.Text = "";
         }
-
-
-
-
         /// <summary>
         /// carga la lista de clientes disponibles
         /// </summary>
@@ -175,9 +194,6 @@ namespace Vistas
         {
             cargarBoxCliente(TrabajarCliente.ListaClienteD(true));
         }
-
-
-
         /// <summary>
         /// busca los clientes mientras el usuario escribe en el combo
         /// </summary>
@@ -187,8 +203,6 @@ namespace Vistas
         {
             cargarBoxCliente(TrabajarCliente.buscarClienteDisponible(cmbClientesDNI.Text));
         }
-
-
         /// <summary>
         /// carga los vehiculos disponibles
         /// </summary>
@@ -198,7 +212,6 @@ namespace Vistas
         {
             cargarBoxVehiculo(TrabajarVehiculo.listarVehiculoDisponible(true));
         }
-
         /// <summary>
         /// pone un precio por defecto en el campo precio
         /// </summary>
@@ -210,7 +223,6 @@ namespace Vistas
             txtPrecio.Text = cadena[8];
             txtPrecio.Text = txtPrecio.Text.TrimStart();
         }
-
         /// <summary>
         /// mientras que se escribe los datos del vehiculo se carga automaticamente el combobox
         /// </summary>
@@ -220,8 +232,6 @@ namespace Vistas
         {
             cargarBoxVehiculo(TrabajarVehiculo.buscarVehiculo(cmbVehiculos.Text));
         }
-
-
         /// <summary>
         /// validacion precio solo numeros
         /// </summary>

@@ -33,5 +33,16 @@ namespace Vistas.Properties {
                 return ((string)(this["agenciaConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\BDLPOOI\\agencia.mdf;Integr" +
+            "ated Security=True;Connect Timeout=30")]
+        public string agenciaConnectionString1 {
+            get {
+                return ((string)(this["agenciaConnectionString1"]));
+            }
+        }
     }
 }

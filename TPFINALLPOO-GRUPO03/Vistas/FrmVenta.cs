@@ -20,8 +20,6 @@ namespace Vistas
         /// </summary>
         public void restringirAcceso()
         {
-
-
             Form frmLogin = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmLogin);
             if (frmLogin != null)
             {
@@ -33,7 +31,10 @@ namespace Vistas
                 }
                 else
                 {
-                    btnFp.Visible = true;
+                    if (((FrmLogin)frmLogin).user.Rol_Codigo == "Vendedor")
+                    {
+                        btnFp.Visible = false;
+                    }
                     btnRegistrarVenta.Visible = true;
                     panelVenta.Enabled = true;
                 }
@@ -218,7 +219,7 @@ namespace Vistas
                     ((FrmMostrarVenta)frmMostrar).aynv.Text = dataVenta.CurrentRow.Cells["Apellido y Nombre"].Value.ToString();
                     ((FrmMostrarVenta)frmMostrar).fecha.Text = dataVenta.CurrentRow.Cells["Fecha de Venta"].Value.ToString();
                     ((FrmMostrarVenta)frmMostrar).forma.Text = dataVenta.CurrentRow.Cells["Forma de Pago"].Value.ToString();
-                    ((FrmMostrarVenta)frmMostrar).precio.Text = dataVenta.CurrentRow.Cells["Precio Final"].Value.ToString();
+                    ((FrmMostrarVenta)frmMostrar).precio.Text = dataVenta.CurrentRow.Cells["Precio Final"].Value.ToString() + " $";
                     ((FrmMostrarVenta)frmMostrar).estado.Text = dataVenta.CurrentRow.Cells["Estado de la Venta"].Value.ToString();
                     ((FrmMostrarVenta)frmMostrar).actualizarBotonAnular();
                 }
@@ -235,6 +236,9 @@ namespace Vistas
             frmFormaPago.Show();
         }
 
+        private void Informacion_Enter(object sender, EventArgs e)
+        {
 
+        }
     }
 }

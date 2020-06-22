@@ -47,7 +47,7 @@
             // 
             this.cmbMedioDePago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMedioDePago.FormattingEnabled = true;
-            this.cmbMedioDePago.Location = new System.Drawing.Point(20, 175);
+            this.cmbMedioDePago.Location = new System.Drawing.Point(19, 192);
             this.cmbMedioDePago.Margin = new System.Windows.Forms.Padding(2);
             this.cmbMedioDePago.Name = "cmbMedioDePago";
             this.cmbMedioDePago.Size = new System.Drawing.Size(171, 21);
@@ -58,7 +58,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(17, 160);
+            this.label6.Location = new System.Drawing.Point(16, 177);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
@@ -69,7 +69,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(17, 210);
+            this.label5.Location = new System.Drawing.Point(16, 227);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
@@ -78,7 +78,9 @@
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(20, 225);
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(19, 242);
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(171, 20);
@@ -90,7 +92,7 @@
             this.btnVender.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrange;
             this.btnVender.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVender.ForeColor = System.Drawing.Color.White;
-            this.btnVender.Location = new System.Drawing.Point(20, 327);
+            this.btnVender.Location = new System.Drawing.Point(19, 341);
             this.btnVender.Margin = new System.Windows.Forms.Padding(2);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(171, 23);
@@ -103,7 +105,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(17, 261);
+            this.label4.Location = new System.Drawing.Point(16, 278);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 13);
@@ -112,7 +114,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(20, 276);
+            this.txtPrecio.Location = new System.Drawing.Point(19, 293);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(171, 20);
@@ -122,7 +124,7 @@
             // txtDatosVendedor
             // 
             this.txtDatosVendedor.Enabled = false;
-            this.txtDatosVendedor.Location = new System.Drawing.Point(20, 124);
+            this.txtDatosVendedor.Location = new System.Drawing.Point(19, 141);
             this.txtDatosVendedor.Margin = new System.Windows.Forms.Padding(2);
             this.txtDatosVendedor.Name = "txtDatosVendedor";
             this.txtDatosVendedor.Size = new System.Drawing.Size(171, 20);
@@ -132,7 +134,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(17, 109);
+            this.label3.Location = new System.Drawing.Point(16, 126);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
@@ -142,7 +144,7 @@
             // cmbVehiculos
             // 
             this.cmbVehiculos.FormattingEnabled = true;
-            this.cmbVehiculos.Location = new System.Drawing.Point(20, 72);
+            this.cmbVehiculos.Location = new System.Drawing.Point(19, 89);
             this.cmbVehiculos.Margin = new System.Windows.Forms.Padding(2);
             this.cmbVehiculos.Name = "cmbVehiculos";
             this.cmbVehiculos.Size = new System.Drawing.Size(171, 21);
@@ -155,7 +157,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(17, 57);
+            this.label2.Location = new System.Drawing.Point(16, 74);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
@@ -166,7 +168,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(17, 6);
+            this.label1.Location = new System.Drawing.Point(16, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
@@ -176,7 +178,7 @@
             // cmbClientesDNI
             // 
             this.cmbClientesDNI.FormattingEnabled = true;
-            this.cmbClientesDNI.Location = new System.Drawing.Point(20, 21);
+            this.cmbClientesDNI.Location = new System.Drawing.Point(19, 38);
             this.cmbClientesDNI.Margin = new System.Windows.Forms.Padding(2);
             this.cmbClientesDNI.Name = "cmbClientesDNI";
             this.cmbClientesDNI.Size = new System.Drawing.Size(171, 21);
@@ -189,7 +191,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(209, 357);
+            this.ClientSize = new System.Drawing.Size(209, 371);
             this.Controls.Add(this.cmbMedioDePago);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);

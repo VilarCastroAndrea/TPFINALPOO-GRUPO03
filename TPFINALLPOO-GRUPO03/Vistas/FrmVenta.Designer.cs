@@ -63,12 +63,13 @@
             this.btnRegistrarVenta.BackColor = System.Drawing.Color.Black;
             this.btnRegistrarVenta.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRegistrarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRegistrarVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarVenta.ForeColor = System.Drawing.Color.White;
             this.btnRegistrarVenta.Location = new System.Drawing.Point(909, 21);
             this.btnRegistrarVenta.Name = "btnRegistrarVenta";
             this.btnRegistrarVenta.Size = new System.Drawing.Size(102, 38);
             this.btnRegistrarVenta.TabIndex = 29;
-            this.btnRegistrarVenta.Text = "Registrar Venta";
+            this.btnRegistrarVenta.Text = "Nueva Venta";
             this.btnRegistrarVenta.UseVisualStyleBackColor = false;
             this.btnRegistrarVenta.Click += new System.EventHandler(this.btnRegistrarVenta_Click);
             // 
@@ -82,7 +83,7 @@
             // 
             // btnMostrar
             // 
-            this.btnMostrar.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnMostrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnMostrar.BackgroundImage = global::Vistas.Properties.Resources.fondo;
             this.btnMostrar.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
             this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -108,7 +109,6 @@
             this.panelListaVenta.Name = "panelListaVenta";
             this.panelListaVenta.Size = new System.Drawing.Size(778, 437);
             this.panelListaVenta.TabIndex = 30;
-
             // 
             // Informacion
             // 
@@ -119,45 +119,43 @@
             this.Informacion.Controls.Add(this.label7);
             this.Informacion.Controls.Add(this.label6);
             this.Informacion.ForeColor = System.Drawing.Color.White;
-            this.Informacion.Location = new System.Drawing.Point(205, 403);
+            this.Informacion.Location = new System.Drawing.Point(154, 403);
             this.Informacion.Name = "Informacion";
-            this.Informacion.Size = new System.Drawing.Size(553, 26);
+            this.Informacion.Size = new System.Drawing.Size(604, 26);
             this.Informacion.TabIndex = 35;
             this.Informacion.TabStop = false;
             this.Informacion.Text = "Informacion";
+            this.Informacion.Enter += new System.EventHandler(this.Informacion_Enter);
             // 
             // ingreso
             // 
             this.ingreso.AutoSize = true;
-            this.ingreso.Location = new System.Drawing.Point(447, 8);
+            this.ingreso.Location = new System.Drawing.Point(469, 8);
             this.ingreso.Name = "ingreso";
-            this.ingreso.Size = new System.Drawing.Size(41, 13);
+            this.ingreso.Size = new System.Drawing.Size(0, 13);
             this.ingreso.TabIndex = 39;
-            this.ingreso.Text = "label11";
             // 
             // anuladas
             // 
             this.anuladas.AutoSize = true;
-            this.anuladas.Location = new System.Drawing.Point(322, 8);
+            this.anuladas.Location = new System.Drawing.Point(341, 8);
             this.anuladas.Name = "anuladas";
-            this.anuladas.Size = new System.Drawing.Size(41, 13);
+            this.anuladas.Size = new System.Drawing.Size(0, 13);
             this.anuladas.TabIndex = 38;
-            this.anuladas.Text = "label10";
             // 
             // Total
             // 
             this.Total.AutoSize = true;
             this.Total.Location = new System.Drawing.Point(147, 8);
             this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(35, 13);
+            this.Total.Size = new System.Drawing.Size(0, 13);
             this.Total.TabIndex = 37;
-            this.Total.Text = "label9";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(369, 8);
+            this.label8.Location = new System.Drawing.Point(391, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 36;
@@ -167,7 +165,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(188, 8);
+            this.label7.Location = new System.Drawing.Point(207, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 13);
             this.label7.TabIndex = 35;
@@ -327,6 +325,7 @@
             // 
             this.dataVenta.AllowUserToAddRows = false;
             this.dataVenta.AllowUserToDeleteRows = false;
+            this.dataVenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataVenta.BackgroundColor = System.Drawing.Color.White;
             this.dataVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataVenta.GridColor = System.Drawing.Color.DarkOrange;
@@ -380,7 +379,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbMarca;
         public System.Windows.Forms.DataGridView dataVenta;
-        private System.Windows.Forms.Button btnFp;
         private System.Windows.Forms.GroupBox Informacion;
         private System.Windows.Forms.Label ingreso;
         private System.Windows.Forms.Label anuladas;
@@ -388,5 +386,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Button btnFp;
     }
 }

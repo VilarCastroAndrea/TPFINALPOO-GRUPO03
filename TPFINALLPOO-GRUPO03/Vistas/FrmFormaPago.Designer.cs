@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFormaPago));
             this.label1 = new System.Windows.Forms.Label();
             this.txtDetalle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@
             this.txtNuevo = new System.Windows.Forms.TextBox();
             this.btnAlta = new System.Windows.Forms.Button();
             this.checkDisponible = new System.Windows.Forms.CheckBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwLista)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,10 +58,12 @@
             // 
             // txtDetalle
             // 
+            this.txtDetalle.Enabled = false;
             this.txtDetalle.Location = new System.Drawing.Point(300, 29);
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(164, 20);
-            this.txtDetalle.TabIndex = 13;
+            this.txtDetalle.TabIndex = 16;
+            this.txtDetalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDetalle_KeyDown);
             this.txtDetalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDetalle_KeyPress);
             // 
             // label2
@@ -82,7 +86,7 @@
             this.btnMoficar.Location = new System.Drawing.Point(300, 55);
             this.btnMoficar.Name = "btnMoficar";
             this.btnMoficar.Size = new System.Drawing.Size(164, 23);
-            this.btnMoficar.TabIndex = 11;
+            this.btnMoficar.TabIndex = 17;
             this.btnMoficar.Text = "Modificar";
             this.btnMoficar.UseVisualStyleBackColor = false;
             this.btnMoficar.Click += new System.EventHandler(this.btnMoficar_Click_1);
@@ -96,7 +100,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(300, 84);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(164, 23);
-            this.btnEliminar.TabIndex = 10;
+            this.btnEliminar.TabIndex = 18;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -105,12 +109,13 @@
             // 
             this.dgwLista.AllowUserToAddRows = false;
             this.dgwLista.AllowUserToDeleteRows = false;
+            this.dgwLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgwLista.BackgroundColor = System.Drawing.Color.White;
             this.dgwLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwLista.Location = new System.Drawing.Point(13, 13);
             this.dgwLista.Name = "dgwLista";
             this.dgwLista.ReadOnly = true;
-            this.dgwLista.Size = new System.Drawing.Size(281, 201);
+            this.dgwLista.Size = new System.Drawing.Size(281, 220);
             this.dgwLista.TabIndex = 8;
             this.dgwLista.CurrentCellChanged += new System.EventHandler(this.dgwLista_CurrentCellChanged);
             // 
@@ -122,7 +127,7 @@
             this.panel1.Controls.Add(this.btnAlta);
             this.panel1.Location = new System.Drawing.Point(300, 126);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(164, 88);
+            this.panel1.Size = new System.Drawing.Size(164, 77);
             this.panel1.TabIndex = 9;
             // 
             // label3
@@ -141,7 +146,7 @@
             this.txtNuevo.Location = new System.Drawing.Point(3, 23);
             this.txtNuevo.Name = "txtNuevo";
             this.txtNuevo.Size = new System.Drawing.Size(158, 20);
-            this.txtNuevo.TabIndex = 8;
+            this.txtNuevo.TabIndex = 19;
             this.txtNuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNuevo_KeyPress);
             // 
             // btnAlta
@@ -151,10 +156,10 @@
             this.btnAlta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlta.ForeColor = System.Drawing.Color.White;
-            this.btnAlta.Location = new System.Drawing.Point(3, 59);
+            this.btnAlta.Location = new System.Drawing.Point(3, 49);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(158, 23);
-            this.btnAlta.TabIndex = 3;
+            this.btnAlta.TabIndex = 20;
             this.btnAlta.Text = "Agregar";
             this.btnAlta.UseVisualStyleBackColor = false;
             this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
@@ -170,13 +175,31 @@
             this.checkDisponible.TabIndex = 15;
             this.checkDisponible.Text = "Disponible";
             this.checkDisponible.UseVisualStyleBackColor = false;
+            this.checkDisponible.CheckedChanged += new System.EventHandler(this.checkDisponible_CheckedChanged);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(300, 210);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(164, 23);
+            this.btnSalir.TabIndex = 21;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmFormaPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(477, 227);
+            this.ClientSize = new System.Drawing.Size(477, 245);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.checkDisponible);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDetalle);
@@ -185,6 +208,8 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgwLista);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmFormaPago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forma de Pago";
@@ -210,5 +235,6 @@
         private System.Windows.Forms.TextBox txtNuevo;
         private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.CheckBox checkDisponible;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

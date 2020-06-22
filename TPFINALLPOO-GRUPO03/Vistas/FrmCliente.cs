@@ -1,6 +1,7 @@
 ﻿using ClasesBase;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -52,6 +53,7 @@ namespace Vistas
         public void cargarCliente()
         {
             dataCliente.DataSource = TrabajarCliente.ListaCliente();
+            contar();
         }
 
         /// <summary>
@@ -90,6 +92,7 @@ namespace Vistas
                     ((FrmMostrarCliente)frmMostrarCliente).txtDireccion.Text = dataCliente.CurrentRow.Cells["Direccion"].Value.ToString();
                     ((FrmMostrarCliente)frmMostrarCliente).txtTelefono.Text = dataCliente.CurrentRow.Cells["Telefono"].Value.ToString();
                     ((FrmMostrarCliente)frmMostrarCliente).disponibilidadDelCliente(Convert.ToBoolean(dataCliente.CurrentRow.Cells["Disponible"].Value));
+                    ((FrmMostrarCliente)frmMostrarCliente).btnMCliente.Enabled = false;
                 }
             }
         }
@@ -113,7 +116,7 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtBuscarC.Text != "")
+            if (txtBuscarC.Text != "Buscar Cliente")
             {
                 dataCliente.DataSource = TrabajarCliente.buscarCliente(txtBuscarC.Text);
             }
@@ -145,6 +148,45 @@ namespace Vistas
             var form = Application.OpenForms.OfType<FrmAltaCliente>().FirstOrDefault();
             FrmAltaCliente frmAltaCliente = form ?? new FrmAltaCliente();
             AddFormInPanel(frmAltaCliente);
+        }
+
+        /// <summary>
+        /// cuenta vehiculos: vendidos.disponibles,total
+        /// </summary>
+        public void contar()
+        {
+            int t = dataCliente.Rows.Count;
+            lblCliente.Text = Convert.ToString(t);
+
+            int disponible = 0;
+
+            foreach (DataGridViewRow fila in dataCliente.Rows)
+            {
+                if (fila.Cells[5].Value.Equals(true))
+                {
+                    disponible = disponible + 1;
+                }
+
+            }
+            lblClienteDisponible.Text = Convert.ToString(disponible);
+        }
+
+        private void placeHolderCliente_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarC.Text == "Buscar Cliente")
+            {
+                txtBuscarC.Text = "";
+                txtBuscarC.ForeColor = Color.Black;
+            }
+        }
+
+        private void placeHolderCliente_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarC.Text == "")
+            {
+                txtBuscarC.Text = "Buscar Cliente";
+                txtBuscarC.ForeColor = Color.Silver;
+            }
         }
     }
 }

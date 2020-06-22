@@ -1,5 +1,6 @@
 ﻿using ClasesBase;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Vistas
@@ -26,33 +27,27 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnMoficar_Click(object sender, System.EventArgs e)
         {
-            String msj = "Esta seguro que quiere modificar este tipo de vehiculo " +txtDetalle.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Anular venta?", MessageBoxButtons.YesNo);
+            String msj = "Esta seguro que quiere modificar este tipo de vehiculo " + txtDetalle.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Anular tipo de venta?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 if (txtDetalle.Text != "")
                 {
-                    if (this.validarTipoVehiculo(txtDetalle.Text))
-                    {
-                        TipoVehiculo tv = new TipoVehiculo();
-                        tv.Tv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-                        tv.Tv_Descripcion = txtDetalle.Text;
-                        tv.Tv_Disponible = checkDisponible.Checked;
-                        TrabajarTipoVehiculo.modificacionTipo(tv);
-                        MessageBox.Show("Tipo de vehiculo Modificado");
-                        cargarTipo();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Tipo de vehiculo ya existe");
-                    }
+                    TipoVehiculo tv = new TipoVehiculo();
+                    tv.Tv_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
+                    tv.Tv_Descripcion = txtDetalle.Text;
+                    tv.Tv_Disponible = checkDisponible.Checked;
+                    TrabajarTipoVehiculo.modificacionTipo(tv);
+                    MessageBox.Show("Tipo de vehiculo Modificado");
+                    cargarTipo();
+
                 }
                 else
                 {
-                    MessageBox.Show("Debe completar todos los campos");
+                    MessageBox.Show("Debe completar todos los campos","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
-
+            actualizarComboTipo();
         }
         /// <summary>
         /// elimina un tipo de vehiculo
@@ -63,7 +58,7 @@ namespace Vistas
         {
             String msj = "Esta seguro que quiere elimnar " + this.txtDetalle.Text;
             int id = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -77,6 +72,7 @@ namespace Vistas
                 cargarTipo();
                 MessageBox.Show("Eliminado");
             }
+            actualizarComboTipo();
         }
         /// <summary>
         /// Agrega un tipo de vehiculo
@@ -86,7 +82,7 @@ namespace Vistas
         private void btnAlta_Click(object sender, System.EventArgs e)
         {
             String msj = "Esta seguro que quiere Agregar este tipo de vehiculo " + txtNuevo.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 if (txtNuevo.Text != "")
@@ -100,15 +96,28 @@ namespace Vistas
                     }
                     else
                     {
-                        MessageBox.Show("El Tipo ya existe");
+                        MessageBox.Show("El Tipo de vehiculo ya existe","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("complete todos los campos");
+                    MessageBox.Show("complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
- 
+            actualizarComboTipo();
+        }
+
+        /// <summary>
+        /// actualiza el combobox del formulario mostrar vehiculo
+        /// </summary>
+        private void actualizarComboTipo()
+        {
+            FrmMostrarVehiculo frmMosVehiculo = new FrmMostrarVehiculo();
+            Form frmMostrarVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmMostrarVehiculo);
+            if (frmMostrarVehiculo != null)
+            {
+                ((FrmMostrarVehiculo)frmMostrarVehiculo).cargarTipo();
+            }
         }
         /// <summary>
         /// carga a la tabla la lista de tipos de vehiculos
@@ -124,6 +133,7 @@ namespace Vistas
             {
                 txtDetalle.Text = dgwLista.CurrentRow.Cells["Descripcion"].Value.ToString();
                 checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
+                btnMoficar.Enabled = false;
             }
         }
 
@@ -151,7 +161,7 @@ namespace Vistas
 
 
         /// <summary>
-        /// VALIDACIONES
+        /// Valida solo letras
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -160,12 +170,43 @@ namespace Vistas
             Validar.soloLetra(e);
         }
 
+        /// <summary>
+        /// valida solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNuevo_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
         }
+        /// <summary>
+        /// habilita el boton modificar al escribir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtDetalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMoficar.Enabled = true;
+        }
+        /// <summary>
+        /// habilita el boton modificar al cambiar el estado del check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkDisponible_CheckedChanged(object sender, EventArgs e)
+        {
+            btnMoficar.Enabled = true;
+        }
 
 
-
+        /// <summary>
+        /// cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -63,12 +63,12 @@ namespace Vistas
                 }
                 else
                 {
-                    MessageBox.Show("La Forma de pago ya existe");
+                    MessageBox.Show("La Forma de pago ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("complete todos los campos");
+                MessageBox.Show("complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         /// <summary>
@@ -91,6 +91,7 @@ namespace Vistas
             {
                 txtDetalle.Text = dgwLista.CurrentRow.Cells["Descripcion"].Value.ToString();
                 checkDisponible.Checked = Convert.ToBoolean(dgwLista.CurrentRow.Cells["Disponible"].Value);
+                btnMoficar.Enabled = false;
             }
         }
 
@@ -121,9 +122,12 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnMoficar_Click_1(object sender, EventArgs e)
         {
-            if (txtDetalle.Text != "")
+            String msj = "Esta seguro que quiere modificar esta forma de pago " + this.txtDetalle.Text;
+            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
             {
-                if (this.validarFormaPago(txtDetalle.Text))
+                if (txtDetalle.Text != "")
                 {
                     FormaPago fp = new FormaPago();
                     fp.Fp_ID = Convert.ToInt32(dgwLista.CurrentRow.Cells["ID"].Value);
@@ -132,16 +136,14 @@ namespace Vistas
                     TrabajarFormaPago.modificacionFormaPago(fp);
                     MessageBox.Show("Forma de Pago Modificado");
                     cargarFormaPago();
+
                 }
                 else
                 {
-                    MessageBox.Show("Forma de pago ya existe");
+                    MessageBox.Show("El campo no puede estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show("El campo debe ser distinto de vacio");
-            }
+
         }
 
         /// <summary>
@@ -161,6 +163,36 @@ namespace Vistas
         private void txtDetalle_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validar.soloLetra(e);
+        }
+
+        /// <summary>
+        /// habilita el boton modificar al escribir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtDetalle_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnMoficar.Enabled = true;
+        }
+        /// <summary>
+        /// habilita el boton modificar al cambiar el estado del check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkDisponible_CheckedChanged(object sender, EventArgs e)
+        {
+            btnMoficar.Enabled = true;
+        }
+
+
+        /// <summary>
+        /// sale del formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

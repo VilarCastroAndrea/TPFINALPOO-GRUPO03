@@ -20,8 +20,8 @@ namespace Vistas
         /// <returns></returns>
         private bool camposCargados()
         {
-            if(txtApellido.Text!=""&&txtDireccion.Text!=""&&txtDni.Text!=""&&txtNombre.Text!=""&&txtTelefono.Text!="")
-            return true;
+            if (txtApellido.Text != "" && txtDireccion.Text != "" && txtDni.Text != "" && txtNombre.Text != "" && txtTelefono.Text != "")
+                return true;
 
             return false;
         }
@@ -46,11 +46,12 @@ namespace Vistas
                         {
                             TrabajarCliente.altaCliente(cliente);
                             ((FrmCliente)frmCliente).cargarCliente();
+                            ((FrmCliente)frmCliente).contar();
                             limpiarCampos();
                         }
                         else
                         {
-                            MessageBox.Show("Se cancelo el alta de Cliente", "Cancelado");
+                            MessageBox.Show("Se cancelo el alta de Cliente", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
 
@@ -59,12 +60,12 @@ namespace Vistas
                 {
                     txtDni.Text = "";
                     txtDni.Focus();
-                    MessageBox.Show("Cliente ya existente, ingrese otro nombre de usuario");
+                    MessageBox.Show("Ya existe un cliente con el dni ingresado","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Campos incompletos");
+                MessageBox.Show("Campos incompletos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         /// <summary>
@@ -90,12 +91,12 @@ namespace Vistas
                 }
                 else
                 {
-                    MessageBox.Show("Complete todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("Complete todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Ingrese un DNI valido (7/8 digitos)");
+                MessageBox.Show("Ingrese un DNI valido (7/8 digitos)", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return false;
 
@@ -113,7 +114,7 @@ namespace Vistas
                                                               "Apellido: " + txtApellido.Text + "\n" +
                                                               "Direccion: " + txtDireccion.Text + "\n" +
                                                               "Telefono: " + txtTelefono.Text,
-                                                              "Agregar Cliente", MessageBoxButtons.OKCancel);
+                                                              "Agregar Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             return result;
         }
         /// <summary>
@@ -150,9 +151,9 @@ namespace Vistas
         /// <param name="e"></param>
         private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             Validar.soloNumeros(e);
-            txtDni.MaxLength = 8 ;
+            txtDni.MaxLength = 8;
         }
         /// <summary>
         /// validacion solo letras
