@@ -160,5 +160,25 @@ namespace Vistas
             ocultarCapcha();
             txtUsuario.Focus();
         }
+
+        private void txtUsuario_MouseHover(object sender, EventArgs e)
+        {
+            label1.Text = "Ingrese Usuario";
+        }
+
+        private void txtUsuario_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Text = " ";
+        }
+
+        private void txtContra_MouseHover(object sender, EventArgs e)
+        {
+            label2.Text = "Ingrese contraseña";
+        }
+
+        private void txtContra_MouseLeave(object sender, EventArgs e)
+        {
+            label2.Text = " ";
+        }
     }
 }

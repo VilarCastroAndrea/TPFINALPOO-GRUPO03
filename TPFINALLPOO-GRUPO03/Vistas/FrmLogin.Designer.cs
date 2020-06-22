@@ -37,9 +37,9 @@
             this.txtContra = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.lblInfoContra = new System.Windows.Forms.Label();
-            this.lblnfoUsu = new System.Windows.Forms.Label();
             this.imgCapcha = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -111,6 +111,8 @@
             this.txtContra.Size = new System.Drawing.Size(177, 20);
             this.txtContra.TabIndex = 16;
             this.txtContra.UseSystemPasswordChar = true;
+            this.txtContra.MouseLeave += new System.EventHandler(this.txtContra_MouseLeave);
+            this.txtContra.MouseHover += new System.EventHandler(this.txtContra_MouseHover);
             // 
             // txtUsuario
             // 
@@ -120,6 +122,8 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(177, 20);
             this.txtUsuario.TabIndex = 15;
+            this.txtUsuario.MouseLeave += new System.EventHandler(this.txtUsuario_MouseLeave);
+            this.txtUsuario.MouseHover += new System.EventHandler(this.txtUsuario_MouseHover);
             // 
             // btnIngresar
             // 
@@ -139,26 +143,6 @@
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // lblInfoContra
-            // 
-            this.lblInfoContra.AutoSize = true;
-            this.lblInfoContra.BackColor = System.Drawing.Color.Transparent;
-            this.lblInfoContra.ForeColor = System.Drawing.Color.White;
-            this.lblInfoContra.Location = new System.Drawing.Point(50, 237);
-            this.lblInfoContra.Name = "lblInfoContra";
-            this.lblInfoContra.Size = new System.Drawing.Size(0, 13);
-            this.lblInfoContra.TabIndex = 20;
-            // 
-            // lblnfoUsu
-            // 
-            this.lblnfoUsu.AutoSize = true;
-            this.lblnfoUsu.BackColor = System.Drawing.Color.Transparent;
-            this.lblnfoUsu.ForeColor = System.Drawing.Color.White;
-            this.lblnfoUsu.Location = new System.Drawing.Point(50, 198);
-            this.lblnfoUsu.Name = "lblnfoUsu";
-            this.lblnfoUsu.Size = new System.Drawing.Size(0, 13);
-            this.lblnfoUsu.TabIndex = 21;
-            // 
             // imgCapcha
             // 
             this.imgCapcha.BackColor = System.Drawing.Color.Transparent;
@@ -171,6 +155,26 @@
             this.imgCapcha.TabIndex = 22;
             this.imgCapcha.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(43, 196);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(43, 237);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 24;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,9 +182,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(239, 346);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.imgCapcha);
-            this.Controls.Add(this.lblnfoUsu);
-            this.Controls.Add(this.lblInfoContra);
             this.Controls.Add(this.txtResultadoCapcha);
             this.Controls.Add(this.lblCapcha);
             this.Controls.Add(this.txtContra);
@@ -211,8 +215,8 @@
         public System.Windows.Forms.TextBox txtContra;
         public System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnIngresar;
-        private System.Windows.Forms.Label lblInfoContra;
-        private System.Windows.Forms.Label lblnfoUsu;
         private System.Windows.Forms.PictureBox imgCapcha;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
