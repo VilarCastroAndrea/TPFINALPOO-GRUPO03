@@ -82,7 +82,7 @@ namespace Vistas
                     }
                     else
                     {
-                        MessageBox.Show("Capcha incorrecto","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Capcha incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         lblCapcha.Text = generarCapcha();
                     }
                 }
@@ -229,10 +229,10 @@ namespace Vistas
         /// <param name="e"></param>
         private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
         {
-                if ((int)e.KeyChar == (int)Keys.Enter)
-                {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
                 btnIngresar.PerformClick();
-                }
+            }
         }
         /// <summary>
         /// realiza el ingreso al apretar enter en el text box
@@ -245,6 +245,25 @@ namespace Vistas
             {
                 btnIngresar.PerformClick();
             }
+        }
+        private void txtUsuario_MouseHover(object sender, EventArgs e)
+        {
+            label1.Text = "Ingrese Usuario";
+        }
+
+        private void txtUsuario_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Text = " ";
+        }
+
+        private void txtContra_MouseHover(object sender, EventArgs e)
+        {
+            label2.Text = "Ingrese contraseña";
+        }
+
+        private void txtContra_MouseLeave(object sender, EventArgs e)
+        {
+            label2.Text = " ";
         }
     }
 }
