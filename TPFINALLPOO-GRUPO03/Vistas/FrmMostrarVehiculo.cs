@@ -191,24 +191,7 @@ namespace Vistas
         {
             Validar.soloNumeros(e);
         }
-        /// <summary>
-        /// refresca el combobox tipo
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmbTipo_DropDown(object sender, EventArgs e)
-        {
-            cargarTipo();
-        }
-        /// <summary>
-        /// refresca el combobox clase
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmbClase_DropDown(object sender, EventArgs e)
-        {
-            cargarClase();
-        }
+
 
         private void cmbMarca_SelectedIndexChanged(object sender, EventArgs e)
         {

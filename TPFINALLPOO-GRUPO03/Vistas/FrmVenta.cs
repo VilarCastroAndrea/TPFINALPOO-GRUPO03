@@ -219,7 +219,7 @@ namespace Vistas
                     ((FrmMostrarVenta)frmMostrar).aynv.Text = dataVenta.CurrentRow.Cells["Apellido y Nombre"].Value.ToString();
                     ((FrmMostrarVenta)frmMostrar).fecha.Text = dataVenta.CurrentRow.Cells["Fecha de Venta"].Value.ToString();
                     ((FrmMostrarVenta)frmMostrar).forma.Text = dataVenta.CurrentRow.Cells["Forma de Pago"].Value.ToString();
-                    ((FrmMostrarVenta)frmMostrar).precio.Text = dataVenta.CurrentRow.Cells["Precio Final"].Value.ToString();
+                    ((FrmMostrarVenta)frmMostrar).precio.Text = dataVenta.CurrentRow.Cells["Precio Final"].Value.ToString() + " $";
                     ((FrmMostrarVenta)frmMostrar).estado.Text = dataVenta.CurrentRow.Cells["Estado de la Venta"].Value.ToString();
                     ((FrmMostrarVenta)frmMostrar).actualizarBotonAnular();
                 }
