@@ -89,6 +89,7 @@
             this.txtResultadoCapcha.Name = "txtResultadoCapcha";
             this.txtResultadoCapcha.Size = new System.Drawing.Size(149, 21);
             this.txtResultadoCapcha.TabIndex = 17;
+            this.txtResultadoCapcha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtResultadoCapcha_KeyPress_1);
             // 
             // lblCapcha
             // 
@@ -111,6 +112,7 @@
             this.txtContra.Size = new System.Drawing.Size(177, 20);
             this.txtContra.TabIndex = 16;
             this.txtContra.UseSystemPasswordChar = true;
+            this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress_1);
             this.txtContra.MouseLeave += new System.EventHandler(this.txtContra_MouseLeave);
             this.txtContra.MouseHover += new System.EventHandler(this.txtContra_MouseHover);
             // 
@@ -193,6 +195,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresar al Sistema";

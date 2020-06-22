@@ -265,5 +265,21 @@ namespace Vistas
         {
             label2.Text = " ";
         }
+
+        private void txtContra_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                btnIngresar.PerformClick();
+            }
+        }
+
+        private void txtResultadoCapcha_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                btnIngresar.PerformClick();
+            }
+        }
     }
 }
