@@ -162,6 +162,11 @@ namespace Vistas
             txtUsuario.Focus();
         }
 
+        /// <summary>
+        /// limpieza de placeholder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void placeholderUsuario_Enter(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "Usuario")
@@ -170,7 +175,11 @@ namespace Vistas
                 txtUsuario.ForeColor = Color.Black;
             }
         }
-
+        /// <summary>
+        /// limpieza de placeholder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void placeHolderPass_Enter(object sender, EventArgs e)
         {
             if (txtContra.Text == "Password")
@@ -179,7 +188,11 @@ namespace Vistas
                 txtContra.ForeColor = Color.Black;
             }
         }
-
+        /// <summary>
+        /// texto placee holder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void placeHolderUsuario_Leave(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "")
@@ -188,13 +201,41 @@ namespace Vistas
                 txtUsuario.ForeColor = Color.Silver;
             }
         }
-
+        /// <summary>
+        /// texto place holder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void placeHolderPass_Leave(object sender, EventArgs e)
         {
             if (txtContra.Text == "")
             {
                 txtContra.Text = "Password";
                 txtContra.ForeColor = Color.Silver;
+            }
+        }
+        /// <summary>
+        /// realiza el ingreso al apretar enter en el text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtContra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                if ((int)e.KeyChar == (int)Keys.Enter)
+                {
+                btnIngresar.PerformClick();
+                }
+        }
+        /// <summary>
+        /// realiza el ingreso al apretar enter en el text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtResultadoCapcha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                btnIngresar.PerformClick();
             }
         }
     }

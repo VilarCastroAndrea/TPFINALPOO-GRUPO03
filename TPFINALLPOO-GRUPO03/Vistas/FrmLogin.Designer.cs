@@ -89,6 +89,7 @@
             this.txtResultadoCapcha.Name = "txtResultadoCapcha";
             this.txtResultadoCapcha.Size = new System.Drawing.Size(149, 21);
             this.txtResultadoCapcha.TabIndex = 17;
+            this.txtResultadoCapcha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtResultadoCapcha_KeyPress);
             // 
             // lblCapcha
             // 
@@ -114,6 +115,7 @@
             this.txtContra.TabIndex = 16;
             this.txtContra.Text = "Password";
             this.txtContra.Enter += new System.EventHandler(this.placeHolderPass_Enter);
+            this.txtContra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContra_KeyPress);
             this.txtContra.Leave += new System.EventHandler(this.placeHolderPass_Leave);
             // 
             // txtUsuario
@@ -183,6 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(239, 346);
@@ -197,6 +200,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingresar al Sistema";

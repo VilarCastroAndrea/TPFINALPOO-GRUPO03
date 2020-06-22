@@ -75,7 +75,7 @@
             this.nGps.Location = new System.Drawing.Point(117, 10);
             this.nGps.Name = "nGps";
             this.nGps.Size = new System.Drawing.Size(39, 17);
-            this.nGps.TabIndex = 81;
+            this.nGps.TabIndex = 66;
             this.nGps.TabStop = true;
             this.nGps.Text = "No";
             this.nGps.UseVisualStyleBackColor = false;
@@ -88,7 +88,7 @@
             this.sGps.Location = new System.Drawing.Point(57, 9);
             this.sGps.Name = "sGps";
             this.sGps.Size = new System.Drawing.Size(34, 17);
-            this.sGps.TabIndex = 82;
+            this.sGps.TabIndex = 65;
             this.sGps.TabStop = true;
             this.sGps.Text = "Si";
             this.sGps.UseVisualStyleBackColor = false;
@@ -103,7 +103,7 @@
             this.btnMVehiculo.Location = new System.Drawing.Point(19, 328);
             this.btnMVehiculo.Name = "btnMVehiculo";
             this.btnMVehiculo.Size = new System.Drawing.Size(172, 23);
-            this.btnMVehiculo.TabIndex = 66;
+            this.btnMVehiculo.TabIndex = 68;
             this.btnMVehiculo.Text = "Modificar Vehiculo";
             this.btnMVehiculo.UseVisualStyleBackColor = false;
             this.btnMVehiculo.Click += new System.EventHandler(this.btnMVehiculo_Click);
@@ -164,7 +164,7 @@
             this.txtAPrecio.Location = new System.Drawing.Point(73, 304);
             this.txtAPrecio.Name = "txtAPrecio";
             this.txtAPrecio.Size = new System.Drawing.Size(118, 20);
-            this.txtAPrecio.TabIndex = 65;
+            this.txtAPrecio.TabIndex = 67;
             this.txtAPrecio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAPrecio_KeyDown);
             this.txtAPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAPrecio_KeyPress);
             // 
@@ -293,7 +293,7 @@
             this.btnEVehiculo.Location = new System.Drawing.Point(19, 357);
             this.btnEVehiculo.Name = "btnEVehiculo";
             this.btnEVehiculo.Size = new System.Drawing.Size(172, 23);
-            this.btnEVehiculo.TabIndex = 67;
+            this.btnEVehiculo.TabIndex = 69;
             this.btnEVehiculo.Text = "Eliminar Vehiculo";
             this.btnEVehiculo.UseVisualStyleBackColor = false;
             this.btnEVehiculo.Click += new System.EventHandler(this.btnEVehiculo_Click);
@@ -305,7 +305,7 @@
             this.cmbTipo.Location = new System.Drawing.Point(19, 208);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(172, 21);
-            this.cmbTipo.TabIndex = 78;
+            this.cmbTipo.TabIndex = 63;
             this.cmbTipo.DropDown += new System.EventHandler(this.cmbTipo_DropDown);
             this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
             // 
@@ -316,7 +316,7 @@
             this.cmbClase.Location = new System.Drawing.Point(19, 248);
             this.cmbClase.Name = "cmbClase";
             this.cmbClase.Size = new System.Drawing.Size(172, 21);
-            this.cmbClase.TabIndex = 79;
+            this.cmbClase.TabIndex = 64;
             this.cmbClase.DropDown += new System.EventHandler(this.cmbClase_DropDown);
             this.cmbClase.SelectedIndexChanged += new System.EventHandler(this.cmbClase_SelectedIndexChanged);
             // 

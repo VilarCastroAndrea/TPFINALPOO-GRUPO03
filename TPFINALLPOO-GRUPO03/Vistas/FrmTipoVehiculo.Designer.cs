@@ -60,7 +60,7 @@
             this.txtDetalle.Location = new System.Drawing.Point(302, 29);
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.Size = new System.Drawing.Size(164, 20);
-            this.txtDetalle.TabIndex = 13;
+            this.txtDetalle.TabIndex = 16;
             this.txtDetalle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDetalle_KeyDown);
             this.txtDetalle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDetalle_KeyPress);
             // 
@@ -84,7 +84,7 @@
             this.btnMoficar.Location = new System.Drawing.Point(302, 55);
             this.btnMoficar.Name = "btnMoficar";
             this.btnMoficar.Size = new System.Drawing.Size(164, 23);
-            this.btnMoficar.TabIndex = 11;
+            this.btnMoficar.TabIndex = 17;
             this.btnMoficar.Text = "Modificar";
             this.btnMoficar.UseVisualStyleBackColor = false;
             this.btnMoficar.Click += new System.EventHandler(this.btnMoficar_Click);
@@ -98,7 +98,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(302, 84);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(164, 23);
-            this.btnEliminar.TabIndex = 10;
+            this.btnEliminar.TabIndex = 18;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -143,7 +143,7 @@
             this.txtNuevo.Location = new System.Drawing.Point(3, 23);
             this.txtNuevo.Name = "txtNuevo";
             this.txtNuevo.Size = new System.Drawing.Size(158, 20);
-            this.txtNuevo.TabIndex = 8;
+            this.txtNuevo.TabIndex = 19;
             this.txtNuevo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNuevo_KeyPress);
             // 
             // btnAlta
@@ -156,7 +156,7 @@
             this.btnAlta.Location = new System.Drawing.Point(3, 49);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(158, 23);
-            this.btnAlta.TabIndex = 3;
+            this.btnAlta.TabIndex = 20;
             this.btnAlta.Text = "Agregar";
             this.btnAlta.UseVisualStyleBackColor = false;
             this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
@@ -183,7 +183,7 @@
             this.btnSalir.Location = new System.Drawing.Point(302, 210);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(164, 23);
-            this.btnSalir.TabIndex = 16;
+            this.btnSalir.TabIndex = 21;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -192,6 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::Vistas.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(480, 244);
             this.Controls.Add(this.btnSalir);
@@ -203,6 +204,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgwLista);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "FrmTipoVehiculo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tipo de Vehiculo";
