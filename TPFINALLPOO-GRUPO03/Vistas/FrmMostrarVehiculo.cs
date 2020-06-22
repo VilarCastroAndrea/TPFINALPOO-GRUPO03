@@ -92,34 +92,43 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnMVehiculo_Click(object sender, System.EventArgs e)
         {
-            String msj = "Esta seguro que quiere modificar este Vehiculo " + this.txtAMatricula.Text + " " + cmbMarca.Text;
-            DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-
-            if (dialogResult == DialogResult.Yes)
+            if (cmbModelo.Text != "" && cmbCantPuert.Text != "" && cmbColor.Text != "" && txtALinea.Text != "" && cmbMarca.Text != "" && txtAMatricula.Text != "" && cmbTipo.Text != "" && txtAPrecio.Text != "" && cmbClase.Text != "")
             {
 
+                String msj = "Esta seguro que quiere modificar este Vehiculo " + this.txtAMatricula.Text + " " + cmbMarca.Text;
+                DialogResult dialogResult = MessageBox.Show(msj, "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                Vehiculo v = new Vehiculo();
-                Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
-                if (frmVehiculo != null)
+                if (dialogResult == DialogResult.Yes)
                 {
-                    v.Veh_Matricula = txtAMatricula.Text;
-                    v.Veh_Marca = cmbMarca.Text;
-                    v.Veh_Linea = txtALinea.Text;
-                    v.Veh_Modelo = Convert.ToInt32(cmbModelo.Text);
-                    v.Veh_Color = cmbColor.Text;
-                    v.Veh_Puertas = Convert.ToInt32(cmbCantPuert.Text);
-                    v.Tv_ID = Convert.ToInt32(cmbTipo.SelectedValue);
-                    v.Cv_ID = Convert.ToInt32(cmbClase.SelectedValue);
-                    v.Veh_GPS = poseeGPS();
-                    v.Veh_Precio = Convert.ToDecimal(txtAPrecio.Text);
-                    v.Veh_Disponible = true;
-                    TrabajarVehiculo.modificarVehiculo(v);
 
-                    MessageBox.Show("Vehiculo Modificado");
-                    ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+
+                    Vehiculo v = new Vehiculo();
+                    Form frmVehiculo = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is FrmVehiculo);
+                    if (frmVehiculo != null)
+                    {
+                        v.Veh_Matricula = txtAMatricula.Text;
+                        v.Veh_Marca = cmbMarca.Text;
+                        v.Veh_Linea = txtALinea.Text;
+                        v.Veh_Modelo = Convert.ToInt32(cmbModelo.Text);
+                        v.Veh_Color = cmbColor.Text;
+                        v.Veh_Puertas = Convert.ToInt32(cmbCantPuert.Text);
+                        v.Tv_ID = Convert.ToInt32(cmbTipo.SelectedValue);
+                        v.Cv_ID = Convert.ToInt32(cmbClase.SelectedValue);
+                        v.Veh_GPS = poseeGPS();
+                        v.Veh_Precio = Convert.ToDecimal(txtAPrecio.Text);
+                        v.Veh_Disponible = true;
+                        TrabajarVehiculo.modificarVehiculo(v);
+
+                        MessageBox.Show("Vehiculo Modificado");
+                        ((FrmVehiculo)frmVehiculo).dataVehiculo.DataSource = TrabajarVehiculo.listarVehiculo();
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Complete todos los campos","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
         }
 
 
