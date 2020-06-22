@@ -246,26 +246,48 @@ namespace Vistas
                 btnIngresar.PerformClick();
             }
         }
+
+        /// <summary>
+        ///  Lbl que se habilita al pasar el mouse mostrando el siguiente cartel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUsuario_MouseHover(object sender, EventArgs e)
         {
             label1.Text = "Ingrese Usuario";
         }
-
+        /// <summary>
+        ///  Lbl que se habilita al quitar el mouse se limpia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUsuario_MouseLeave(object sender, EventArgs e)
         {
             label1.Text = " ";
         }
-
+        /// <summary>
+        ///  Lbl que se habilita al pasar el mouse mostrando el siguiente cartel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtContra_MouseHover(object sender, EventArgs e)
         {
             label2.Text = "Ingrese contraseña";
         }
-
+        /// <summary>
+        /// Lbl que se habilita al quitar el mouse se limpia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtContra_MouseLeave(object sender, EventArgs e)
         {
             label2.Text = " ";
         }
-
+        /// <summary>
+        /// al presionar enter acciona el boton ingresar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtContra_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if ((int)e.KeyChar == (int)Keys.Enter)
@@ -273,7 +295,11 @@ namespace Vistas
                 btnIngresar.PerformClick();
             }
         }
-
+        /// <summary>
+        /// al presionar enter acciona el boton ingresar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtResultadoCapcha_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if ((int)e.KeyChar == (int)Keys.Enter)
