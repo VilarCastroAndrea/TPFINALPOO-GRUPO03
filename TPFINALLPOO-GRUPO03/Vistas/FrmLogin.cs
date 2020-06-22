@@ -68,22 +68,30 @@ namespace Vistas
         /// <param name="e"></param>
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (intentos < 5)
+            try
             {
-                ingresar();
-            }
-            else
-            {
-                if (lblCapcha.Text == txtResultadoCapcha.Text)
+                if (intentos < 5)
                 {
                     ingresar();
                 }
                 else
                 {
-                    MessageBox.Show("Capcha incorrecto");
-                    lblCapcha.Text = generarCapcha();
+                    if (lblCapcha.Text == txtResultadoCapcha.Text)
+                    {
+                        ingresar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Capcha incorrecto","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        lblCapcha.Text = generarCapcha();
+                    }
                 }
             }
+            catch
+            {
+                MessageBox.Show("Espere unos momentos e intentelo nuevamente mas tarde", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         /// <summary>
